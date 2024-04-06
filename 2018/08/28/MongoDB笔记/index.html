@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Mongodb/">
                                 <span class="chip bg-color">Mongodb</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -344,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -385,25 +385,17 @@
             <div id="articleContent">
                 <h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath D:\mongodb\db</span><br></pre></td></tr></table></figure>
 
-<h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongo --port </span><br></pre></td></tr></table></figure>
+<h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongo --port</span><br></pre></td></tr></table></figure>
 
-<h4 id="注册window服务"><a href="#注册window服务" class="headerlink" title="注册window服务"></a>注册window服务</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sc create MongoDB binpath= &quot;C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe --dbpath D:\MongoDB\data&quot;</span><br><span class="line">sc config MongoDB start= auto</span><br><span class="line">sc start MongoDB</span><br></pre></td></tr></table></figure>
+<h4 id="注册-window-服务"><a href="#注册-window-服务" class="headerlink" title="注册 window 服务"></a>注册 window 服务</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sc create MongoDB binpath= &quot;C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe --dbpath D:\MongoDB\data&quot;</span><br><span class="line">sc config MongoDB start= auto</span><br><span class="line">sc start MongoDB</span><br></pre></td></tr></table></figure>
 
-<h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var i = 0; i &lt; 30; i++) &#123; </span><br><span class="line">    db.users.save(&#123;name: &quot;mhiwyf_&quot; + i %6, age: 22 + i, sex: i % 2&#125;); </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var i = 0; i &lt; 30; i++) &#123;</span><br><span class="line">    db.users.save(&#123;name: &quot;mhiwyf_&quot; + i %6, age: 22 + i, sex: i % 2&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h4 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.users.group(&#123;</span><br><span class="line">    key:&#123;name:true&#125;,</span><br><span class="line">    initial:&#123;Total:0&#125;,</span><br><span class="line">    reduce:function(items,prev)&#123;prev.Total +=1&#125;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.users.group(&#123;</span><br><span class="line">    key:&#123;name:true&#125;,</span><br><span class="line">    initial:&#123;Total:0&#125;,</span><br><span class="line">    reduce:function(items,prev)&#123;prev.Total +=1&#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123;age:&#123;$gt:37&#125;&#125;)</span><br><span class="line">db.users.find(&#123;age:&#123;$gt:45&#125;&#125;,&#123;sex:0&#125;)</span><br><span class="line"># 注：第一个&#123;&#125; 放where条件 第二个&#123;&#125; 指定那些列显示和不显示 （0表示不显示 1表示显示)</span><br></pre></td></tr></table></figure>
 
-<h4 id="模糊查询（正则）"><a href="#模糊查询（正则）" class="headerlink" title="模糊查询（正则）"></a>模糊查询（正则）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123;name:/^mhiwyf/&#125;)</span><br><span class="line"></span><br><span class="line"># $gt（大于）、$lt（小于）、$gte（大于等于）、$lte（小于等于）、$in（在）、$nin（不在）、$or（或）</span><br><span class="line"></span><br><span class="line">db.users.find(&#123;age:&#123;$in:[45,46]&#125;&#125;)</span><br><span class="line">db.users.find(&#123;$or:[&#123;name:&quot;mhiwyf_0&quot;&#125;,&#123;age:45&#125;]&#125;)</span><br><span class="line"></span><br><span class="line">$slice </span><br><span class="line">结合limit()和skip()函数功能，limit()和skip()无法作用于数组，而$slice可以，该操作符可接受两个参数：若只有一个参数，则参数表示将要返回数据项的总数；若有两个参数，则第一个参数将用于定义偏移，第二个参数用于定义限制。</span><br><span class="line"></span><br><span class="line">$mod</span><br><span class="line">db.users.find(&#123;age:&#123;$mod:[2,0]&#125;&#125;)</span><br><span class="line">$mod[2,0] 表示目标值除以2，并检查运算余数是否为0，通过这种方式提供偶数结果。</span><br><span class="line"></span><br><span class="line">$size</span><br><span class="line">db.users.find(&#123;age:&#123;$size:1&#125;&#125;)</span><br><span class="line">通过操作符$size可以过滤出文档中数组大小符合条件的结果。</span><br><span class="line"></span><br><span class="line">$exists</span><br><span class="line">db.users.find(&#123;age:&#123;$exists:true&#125;&#125;)</span><br><span class="line">使用$exists操作符将在特定字段存在或不存在的情况下，返回该对象。</span><br><span class="line"></span><br><span class="line">update(criteria,objNew,options)</span><br><span class="line"># criteria:查询将要更新的目录记录</span><br><span class="line"># objNew：指定更新的信息</span><br><span class="line"># options：指定更新文档时的选项，可选值：upsert 和 multi，upsert：指定更新是否是upsert操作，如果数据存在就更新，否则就创建数据；multi：指定是否应该更新所有匹配文档，或者更新第一个文档（默认行为）。</span><br><span class="line"></span><br><span class="line">$inc</span><br><span class="line">指定的键执行（原子）更新操作，若字段存在，就将该值增加给定的增量；若字段不存在，就创建该字段。</span><br><span class="line"></span><br><span class="line">$set</span><br><span class="line">该字符将某个字段设置为指定值。</span><br><span class="line"></span><br><span class="line">$unset</span><br><span class="line">该操作符可以删除指定的字段。</span><br><span class="line"></span><br><span class="line">$push</span><br><span class="line">向数组中添加值</span><br><span class="line"></span><br><span class="line">ensureIndex</span><br><span class="line">添加索引，1：表示升序 -1：表示降序</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
+<h4 id="模糊查询（正则）"><a href="#模糊查询（正则）" class="headerlink" title="模糊查询（正则）"></a>模糊查询（正则）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123;name:/^mhiwyf/&#125;)</span><br><span class="line"></span><br><span class="line"># $gt（大于）、$lt（小于）、$gte（大于等于）、$lte（小于等于）、$in（在）、$nin（不在）、$or（或）</span><br><span class="line"></span><br><span class="line">db.users.find(&#123;age:&#123;$in:[45,46]&#125;&#125;)</span><br><span class="line">db.users.find(&#123;$or:[&#123;name:&quot;mhiwyf_0&quot;&#125;,&#123;age:45&#125;]&#125;)</span><br><span class="line"></span><br><span class="line">$slice</span><br><span class="line">结合limit()和skip()函数功能，limit()和skip()无法作用于数组，而$slice可以，该操作符可接受两个参数：若只有一个参数，则参数表示将要返回数据项的总数；若有两个参数，则第一个参数将用于定义偏移，第二个参数用于定义限制。</span><br><span class="line"></span><br><span class="line">$mod</span><br><span class="line">db.users.find(&#123;age:&#123;$mod:[2,0]&#125;&#125;)</span><br><span class="line">$mod[2,0] 表示目标值除以2，并检查运算余数是否为0，通过这种方式提供偶数结果。</span><br><span class="line"></span><br><span class="line">$size</span><br><span class="line">db.users.find(&#123;age:&#123;$size:1&#125;&#125;)</span><br><span class="line">通过操作符$size可以过滤出文档中数组大小符合条件的结果。</span><br><span class="line"></span><br><span class="line">$exists</span><br><span class="line">db.users.find(&#123;age:&#123;$exists:true&#125;&#125;)</span><br><span class="line">使用$exists操作符将在特定字段存在或不存在的情况下，返回该对象。</span><br><span class="line"></span><br><span class="line">update(criteria,objNew,options)</span><br><span class="line"># criteria:查询将要更新的目录记录</span><br><span class="line"># objNew：指定更新的信息</span><br><span class="line"># options：指定更新文档时的选项，可选值：upsert 和 multi，upsert：指定更新是否是upsert操作，如果数据存在就更新，否则就创建数据；multi：指定是否应该更新所有匹配文档，或者更新第一个文档（默认行为）。</span><br><span class="line"></span><br><span class="line">$inc</span><br><span class="line">指定的键执行（原子）更新操作，若字段存在，就将该值增加给定的增量；若字段不存在，就创建该字段。</span><br><span class="line"></span><br><span class="line">$set</span><br><span class="line">该字符将某个字段设置为指定值。</span><br><span class="line"></span><br><span class="line">$unset</span><br><span class="line">该操作符可以删除指定的字段。</span><br><span class="line"></span><br><span class="line">$push</span><br><span class="line">向数组中添加值</span><br><span class="line"></span><br><span class="line">ensureIndex</span><br><span class="line">添加索引，1：表示升序 -1：表示降序</span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -468,12 +460,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Mongodb/">
                                     <span class="chip bg-color">Mongodb</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -747,8 +739,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -758,12 +750,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mongodb/">
                         <span class="chip bg-color">Mongodb</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

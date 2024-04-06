@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Mysql/">
                                 <span class="chip bg-color">Mysql</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -344,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -383,7 +383,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="mysql的设置参数中max-allowed-packet过小导致操作异常"><a href="#mysql的设置参数中max-allowed-packet过小导致操作异常" class="headerlink" title="mysql的设置参数中max_allowed_packet过小导致操作异常"></a>mysql的设置参数中max_allowed_packet过小导致操作异常</h4><h5 id="永久性方案"><a href="#永久性方案" class="headerlink" title="永久性方案"></a>永久性方案</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 修改方法(配置文件持久化修改)：</span><br><span class="line">vim /etc/mysql/conf.d/my.cnf</span><br><span class="line">[mysqld]</span><br><span class="line">max_allowed_packet = 100M</span><br><span class="line"></span><br><span class="line"># 注意：修改配置文件以后，需要重启mysql服务才能生效。</span><br></pre></td></tr></table></figure>
+                <h4 id="mysql-的设置参数中-max-allowed-packet-过小导致操作异常"><a href="#mysql-的设置参数中-max-allowed-packet-过小导致操作异常" class="headerlink" title="mysql 的设置参数中 max_allowed_packet 过小导致操作异常"></a>mysql 的设置参数中 max_allowed_packet 过小导致操作异常</h4><h5 id="永久性方案"><a href="#永久性方案" class="headerlink" title="永久性方案"></a>永久性方案</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 修改方法(配置文件持久化修改)：</span><br><span class="line">vim /etc/mysql/conf.d/my.cnf</span><br><span class="line">[mysqld]</span><br><span class="line">max_allowed_packet = 100M</span><br><span class="line"></span><br><span class="line"># 注意：修改配置文件以后，需要重启mysql服务才能生效。</span><br></pre></td></tr></table></figure>
 
 <h5 id="临时解决方案-修改该值"><a href="#临时解决方案-修改该值" class="headerlink" title="临时解决方案,修改该值"></a>临时解决方案,修改该值</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">show variables like &#x27;max_allowed_packet&#x27;;</span><br><span class="line">set global max_allowed_packet = 100 * 1024 * 1024;</span><br><span class="line"></span><br><span class="line"># 重启Mysql还是会恢复到默认值,所以需要写在配置文件</span><br></pre></td></tr></table></figure>
 
@@ -391,9 +391,9 @@
 <p>注意：</p>
 </blockquote>
 <ol>
-<li>命令行修改时，不能用M、G，只能这算成字节数设置。配置文件修改才允许设置M、G单位。</li>
-<li>命令行修改之后，需要退出当前回话(关闭当前mysqlserver链接)，然后重新登录才能查看修改后的值。通过命令行修改只能临时生效，下次数据库重启后又复原了。</li>
-<li>max_allowed_packet 最大值是1G(1073741824)，如果设置超过1G，查看最终生效结果也只有1G。</li>
+<li>命令行修改时，不能用 M、G，只能这算成字节数设置。配置文件修改才允许设置 M、G 单位。</li>
+<li>命令行修改之后，需要退出当前回话(关闭当前 mysqlserver 链接)，然后重新登录才能查看修改后的值。通过命令行修改只能临时生效，下次数据库重启后又复原了。</li>
+<li>max_allowed_packet 最大值是 1G(1073741824)，如果设置超过 1G，查看最终生效结果也只有 1G。</li>
 </ol>
 
                 
@@ -459,12 +459,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Mysql/">
                                     <span class="chip bg-color">Mysql</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -685,8 +685,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -696,12 +696,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -738,8 +738,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -749,12 +749,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Oracle/">
                         <span class="chip bg-color">Oracle</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

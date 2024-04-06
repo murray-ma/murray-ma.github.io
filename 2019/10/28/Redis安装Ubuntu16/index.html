@@ -328,16 +328,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Ubuntu/">
                                 <span class="chip bg-color">Ubuntu</span>
                             </a>
                         
                             <a href="/tags/Redis/">
                                 <span class="chip bg-color">Redis</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -348,8 +348,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -388,58 +388,60 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>redis是一种key-value高效的内存数据库。</p>
+<p>redis 是一种 key-value 高效的内存数据库。</p>
 </blockquote>
 <blockquote>
-<p>redis是内存数据库，则数据读写和存储都在内存中。该操作不用写入硬盘，读写效率很高。</p>
+<p>redis 是内存数据库，则数据读写和存储都在内存中。该操作不用写入硬盘，读写效率很高。</p>
 </blockquote>
 <blockquote>
 <p>我们可用它作为服务器缓存，对经常读写或不经常更新的数据预先读到内存中。使用该数据时，直接从内存中读取。也可以每隔一段时间再将内存中的数据写入到硬盘。减少与硬盘读写数据的操作，效率自然可以大大提高。</p>
 </blockquote>
-<h3 id="Ubuntu-Redis安装"><a href="#Ubuntu-Redis安装" class="headerlink" title="Ubuntu Redis安装"></a>Ubuntu Redis安装</h3><blockquote>
-<p>redis安装过程，其官网有说明：<a target="_blank" rel="noopener" href="https://redis.io/download">https://redis.io/download</a></p>
+<h3 id="Ubuntu-Redis-安装"><a href="#Ubuntu-Redis-安装" class="headerlink" title="Ubuntu Redis 安装"></a>Ubuntu Redis 安装</h3><blockquote>
+<p>redis 安装过程，其官网有说明：<a target="_blank" rel="noopener" href="https://redis.io/download">https://redis.io/download</a></p>
 </blockquote>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># wget http://download.redis.io/releases/redis-4.0.6.tar.gz</span><br><span class="line"># tar xzf redis-4.0.6.tar.gz</span><br><span class="line"># cd redis-4.0.6</span><br><span class="line"># make</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>编译完成之后，在redis解压目录中，多了src目录</p>
+<p>编译完成之后，在 redis 解压目录中，多了 src 目录</p>
 </blockquote>
 <h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>① 通过指定配置文件启动</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server /etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>② 通过命令<code>redis-server</code>启动，在命令后加上<code>&amp;</code>号使redis以后台程序方式运行<code>redis-server &amp;</code></p>
+<p>② 通过命令<code>redis-server</code>启动，在命令后加上<code>&amp;</code>号使 redis 以后台程序方式运行<code>redis-server &amp;</code></p>
 </blockquote>
 <blockquote>
-<p>客户端登陆<code>redis-cli</code><br>关闭Redis服务<code>redis-cli shutdown</code></p>
+<p>客户端登陆<code>redis-cli</code><br>关闭 Redis 服务<code>redis-cli shutdown</code></p>
 </blockquote>
 <blockquote>
-<p>redis数据库需要开启<code>redis-server</code>，需要安装对应的命令,执行：<code>make install</code></p>
+<p>redis 数据库需要开启<code>redis-server</code>，需要安装对应的命令,执行：<code>make install</code></p>
 </blockquote>
 <blockquote>
-<p>6个命令分别作用如下</p>
+<p>6 个命令分别作用如下</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">redis-benchmark   压力测试工具</span><br><span class="line">redis-check-aof     检查redis持久化命令文件的完整性</span><br><span class="line">redis-check-rdb     检查redis持久化数据文件的完整性</span><br><span class="line">redis-cli                  redis客户端</span><br><span class="line">redis-sentinel         redis-sentinel是集群管理工具,主要负责主从切换。</span><br><span class="line">redis-server            redis服务器的daemon启动程序</span><br></pre></td></tr></table></figure>
 
 <h4 id="注册服务"><a href="#注册服务" class="headerlink" title="注册服务"></a>注册服务</h4><blockquote>
-<p>拷贝配置文件 </p>
+<p>拷贝配置文件</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp ./utils/redis_init_script /etc/init.d/redisd</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>编辑redisd</p>
+<p>编辑 redisd</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 服务端所处位置，需要修改</span><br><span class="line">EXEC=/usr/local/bin/redis-server</span><br><span class="line"># 客户端位置，需要修改</span><br><span class="line">CLIEXEC=/usr/local/bin/redis-cli </span><br><span class="line"># 配置文件位置，需要修改</span><br><span class="line">CONF=&quot;/etc/redis/redis.conf&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 服务端所处位置，需要修改</span><br><span class="line">EXEC=/usr/local/bin/redis-server</span><br><span class="line"># 客户端位置，需要修改</span><br><span class="line">CLIEXEC=/usr/local/bin/redis-cli</span><br><span class="line"># 配置文件位置，需要修改</span><br><span class="line">CONF=&quot;/etc/redis/redis.conf&quot;</span><br></pre></td></tr></table></figure>
 
 <hr>
 <blockquote>
-<p>设置redis开机启动</p>
+<p>设置 redis 开机启动</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 修改redis.conf（/etc/redis下）</span><br><span class="line"># 打开后台运行选项</span><br><span class="line">daemonize yes</span><br><span class="line"># 设置日志文件路径</span><br><span class="line">logfile &quot;/var/log/redis/redis.log&quot;</span><br><span class="line">#编写脚本</span><br><span class="line">vim /etc/init.d/redis</span><br><span class="line"></span><br><span class="line"># 添加脚本的执行权限</span><br><span class="line">sudo chmod +x /etc/init.d/redis</span><br><span class="line"></span><br><span class="line"># 设置开机自动启动</span><br><span class="line">sudo update-rc.d redis defaults</span><br></pre></td></tr></table></figure>
 
-<h4 id="出现LSB相关错误"><a href="#出现LSB相关错误" class="headerlink" title="出现LSB相关错误"></a>出现LSB相关错误</h4><blockquote>
+<h4 id="出现-LSB-相关错误"><a href="#出现-LSB-相关错误" class="headerlink" title="出现 LSB 相关错误"></a>出现 LSB 相关错误</h4><blockquote>
 <p>解决方法：编辑<code>/etc/init.d/redis</code>,在文件头部<code>#!/bin/sh</code>下面添加:</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">### BEGIN INIT INFO</span><br><span class="line"># Provides: OSSEC HIDS</span><br><span class="line"># Required-Start: $network $remote_fs $syslog $time</span><br><span class="line"># Required-Stop:</span><br><span class="line"># Default-Start: 2 3 4 5</span><br><span class="line"># Default-Stop: 0 1 6</span><br><span class="line"># Short-Description: OSSEC HIDS</span><br><span class="line">### END INIT INFO</span><br></pre></td></tr></table></figure>
@@ -451,13 +453,13 @@
 
 <hr>
 <h3 id="window"><a href="#window" class="headerlink" title="window"></a>window</h3><blockquote>
-<p>Redis不支持Windows,为了方便开发和调试，需要在Windows中安装Redis，微软自己弄了Redis的Windows版本。</p>
+<p>Redis 不支持 Windows,为了方便开发和调试，需要在 Windows 中安装 Redis，微软自己弄了 Redis 的 Windows 版本。</p>
 </blockquote>
 <blockquote>
-<p>打开<a target="_blank" rel="noopener" href="https://github.com/MSOpenTech/redis/releases%E4%B8%8B%E8%BD%BDmsi%E5%AE%89%E8%A3%85%E5%8C%85%E3%80%82">https://github.com/MSOpenTech/redis/releases下载msi安装包。</a><br>该版本是64位。安装msi过程中，有个选项是否加入系统环境变量，记得勾上。<br>完成之后打开cmd，输入redis-server命令查看是否可以使用。不可以则重启一下即可。</p>
+<p>打开<a target="_blank" rel="noopener" href="https://github.com/MSOpenTech/redis/releases%E4%B8%8B%E8%BD%BDmsi%E5%AE%89%E8%A3%85%E5%8C%85%E3%80%82">https://github.com/MSOpenTech/redis/releases下载msi安装包。</a><br>该版本是 64 位。安装 msi 过程中，有个选项是否加入系统环境变量，记得勾上。<br>完成之后打开 cmd，输入 redis-server 命令查看是否可以使用。不可以则重启一下即可。</p>
 </blockquote>
 <blockquote>
-<p>直接输入redis-server命令使用的配置文件是安装目录下的redis.windows.conf文件。若提示错误 “ConnectionError: Error 10061 connecting to None:6379”，可以如下操作，打开cmd输入如下命令：<code>redis-cli shutdown</code>,再执行<code>redis-server</code>即可</p>
+<p>直接输入 redis-server 命令使用的配置文件是安装目录下的 redis.windows.conf 文件。若提示错误 “ConnectionError: Error 10061 connecting to None:6379”，可以如下操作，打开 cmd 输入如下命令：<code>redis-cli shutdown</code>,再执行<code>redis-server</code>即可</p>
 </blockquote>
 
                 
@@ -523,16 +525,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Ubuntu/">
                                     <span class="chip bg-color">Ubuntu</span>
                                 </a>
                             
                                 <a href="/tags/Redis/">
                                     <span class="chip bg-color">Redis</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -753,8 +755,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -764,12 +766,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Redis/">
                         <span class="chip bg-color">Redis</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -806,8 +808,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -817,12 +819,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Redis/">
                         <span class="chip bg-color">Redis</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

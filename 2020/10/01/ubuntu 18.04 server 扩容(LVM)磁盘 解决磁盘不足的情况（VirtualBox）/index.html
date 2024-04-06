@@ -384,24 +384,32 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <ol>
-<li><p>查看磁盘情况</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h</span><br><span class="line"><span class="comment"># 发现/dev/mapper/ubuntu–vg-ubuntu–lv 磁盘只有4G的空间，需要扩容</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/sunglowrise/images/raw/master/ydnote/2019/u050601.png"></p>
-</li>
-<li><p>显示存在的卷组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vgdisplay</span><br><span class="line"></span><br><span class="line"># 结果</span><br><span class="line">Alloc PE / Size       1024 / 4.00 GiB  # /dev/mapper/ubuntu–vg-ubuntu–lv 磁盘</span><br><span class="line">Free  PE / Size       6911 / &lt;27.00 GiB   # 磁盘可以扩容的大小</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>扩容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo lvextend -L 32G /dev/mapper/ubuntu--vg-ubuntu--lv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 若报错，尝试下面指令</span></span><br><span class="line">sudo lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 看到 Logical volume ubuntu-vg/ubuntu-lv successfully resized， 则调整成功</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重新计算磁盘大小</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重新查看磁盘情况</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br><span class="line">sudo vgdisplay</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/sunglowrise/images/raw/master/ydnote/2019/u050602.png"></p>
-</li>
+<li>查看磁盘情况</li>
 </ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h</span><br><span class="line"><span class="comment"># 发现/dev/mapper/ubuntu–vg-ubuntu–lv 磁盘只有4G的空间，需要扩容</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/sunglowrise/images/master/ydnote/2019/u050601.png"></p>
+<ol start="2">
+<li>显示存在的卷组</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vgdisplay</span><br><span class="line"></span><br><span class="line"># 结果</span><br><span class="line">Alloc PE / Size       1024 / 4.00 GiB  # /dev/mapper/ubuntu–vg-ubuntu–lv 磁盘</span><br><span class="line">Free  PE / Size       6911 / &lt;27.00 GiB   # 磁盘可以扩容的大小</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>扩容</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo lvextend -L 32G /dev/mapper/ubuntu--vg-ubuntu--lv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 若报错，尝试下面指令</span></span><br><span class="line">sudo lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 看到 Logical volume ubuntu-vg/ubuntu-lv successfully resized， 则调整成功</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>重新计算磁盘大小</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>重新查看磁盘情况</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br><span class="line">sudo vgdisplay</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/sunglowrise/images/master/ydnote/2019/u050602.png"></p>
 
                 
             </div>

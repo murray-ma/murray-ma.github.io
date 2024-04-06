@@ -383,78 +383,120 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="SQLalchemy基础"><a href="#SQLalchemy基础" class="headerlink" title="SQLalchemy基础"></a>SQLalchemy基础</h3><h4 id="一、ORM-概述"><a href="#一、ORM-概述" class="headerlink" title="一、ORM 概述"></a>一、ORM 概述</h4><ul>
-<li><p>ORM 框架</p>
+                <h3 id="SQLalchemy-基础"><a href="#SQLalchemy-基础" class="headerlink" title="SQLalchemy 基础"></a>SQLalchemy 基础</h3><h4 id="一、ORM-概述"><a href="#一、ORM-概述" class="headerlink" title="一、ORM 概述"></a>一、ORM 概述</h4><ul>
+<li>ORM 框架</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ORM: 关系对象映射</span><br><span class="line">DBAPI: SQLAlchemy只是将类、对象转换为sql语句，交由DBAPI去执行一大堆模块集合，包含pymysql， mysqldb即各种数据库client端api插件</span><br><span class="line">Dialect: 连接数据库的配置文件，记录了连接db要使用的api模块，db主机名、</span><br><span class="line">ConnectionPooling: 数据库连接池</span><br><span class="line">Engine: orm核心</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>连接方式</p>
+
+<ul>
+<li>连接方式</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SQLAlchemy 本身无法链接数据库，是其中的 Dialect 使用第三方插件（ pymysql 等）而调用不同数据库的API来实现数据库操作</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>利用各种底层模块的连接方式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># MySQL-Python</span><br><span class="line">mysql+mysqldb://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;[:&lt;port&gt;]/&lt;dbname&gt;</span><br><span class="line"># pymysql</span><br><span class="line">mysql+pymysql://&lt;username&gt;:&lt;password&gt;@&lt;host&gt;/&lt;dbname&gt;[?&lt;options&gt;]</span><br><span class="line"># MySQL-Connector</span><br><span class="line">mysql+mysqlconnector://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;[:&lt;port&gt;]/&lt;dbname&gt;</span><br><span class="line"># cx_Oracle</span><br><span class="line">oracle+cx_oracle://user:pass@host:port/dbname[?key=value&amp;key=value...]</span><br></pre></td></tr></table></figure></li>
-<li><p>补充&gt;数据类型</p>
+
+<ul>
+<li>利用各种底层模块的连接方式</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># MySQL-Python</span><br><span class="line">mysql+mysqldb://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;[:&lt;port&gt;]/&lt;dbname&gt;</span><br><span class="line"># pymysql</span><br><span class="line">mysql+pymysql://&lt;username&gt;:&lt;password&gt;@&lt;host&gt;/&lt;dbname&gt;[?&lt;options&gt;]</span><br><span class="line"># MySQL-Connector</span><br><span class="line">mysql+mysqlconnector://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;[:&lt;port&gt;]/&lt;dbname&gt;</span><br><span class="line"># cx_Oracle</span><br><span class="line">oracle+cx_oracle://user:pass@host:port/dbname[?key=value&amp;key=value...]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>补充&gt;数据类型</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from sqlalchemy.dialects.mysql import \</span><br><span class="line">        BIGINT, BINARY, BIT, BLOB, BOOLEAN, CHAR, DATE, \</span><br><span class="line">        DATETIME, DECIMAL, DECIMAL, DOUBLE, ENUM, FLOAT, INTEGER, \</span><br><span class="line">        LONGBLOB, LONGTEXT, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, NCHAR, \</span><br><span class="line">        NUMERIC, NVARCHAR, REAL, SET, SMALLINT, TEXT, TIME, TIMESTAMP, \</span><br><span class="line">        TINYBLOB, TINYINT, TINYTEXT, VARBINARY, VARCHAR, YEAR</span><br></pre></td></tr></table></figure>
 
-
-</li>
-</ul>
 <h4 id="二、基本及操作"><a href="#二、基本及操作" class="headerlink" title="二、基本及操作"></a>二、基本及操作</h4><ul>
-<li><p>安装</p>
+<li>安装</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip insall pymyql sqlalchemy</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>导入的模块</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import sqlalchemy</span><br><span class="line">from sqlalchemy import create_engine</span><br><span class="line">from sqlalchemy.ext.declarative import declarative_base</span><br><span class="line">from sqlalchemy import Column, Integer, String</span><br><span class="line">from sqlalchemy.orm import sessionmaker</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建链接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">engine = create_engine(&quot;mysql+pymysql://root:redhat@192.168.10.202/db01?charset=utf8&quot;, echo=True)</span><br><span class="line"># echo 表示是否打印执行过程生成的语句;charset要在?后面写，可以输入中文(外面写不行)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建表结构</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Base = declarative_base() # 声明基础类</span><br><span class="line"></span><br><span class="line">class User(Base):</span><br><span class="line">    __tablename__ = &#x27;user&#x27;  # 表名称</span><br><span class="line">    id = Column(Integer, primary_key=True)</span><br><span class="line">    u_id = Column(Integer, nullable=False)</span><br><span class="line">    u_name = Column(String(32), nullable=False)</span><br><span class="line">    u_pass = Column(String(32), nullable=False)</span><br><span class="line"></span><br><span class="line"># Base.metadata.create_all(engine)</span><br><span class="line"># Base.metadata.drop_all(engine)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：多次执行，不会重复创建，若DB中有该表，那么只是将该表的”表结构”映射给 class；（对表的操作，必须有该表的表结构）</p>
-</blockquote>
-</li>
-</ul>
+
 <ul>
-<li>插入数据：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Session_cls = sessionmaker(bind=engine)  #创建与数据库的会话session class ,注意,这里返回给session的是个class,不是实例</span><br><span class="line">Session = Session_cls()  #生成session实例</span><br><span class="line"></span><br><span class="line">obj = User(name=&#x27;user1&#x27;, age=18, favo=&#x27;black&#x27;)  # 增加单条数据</span><br><span class="line">session.add_all([</span><br><span class="line">     User(name=&#x27;user2&#x27;, age=20, favo=&#x27;green&#x27;),</span><br><span class="line">     User(name=&#x27;user3&#x27;, age=30, favo=&#x27;blue&#x27;)</span><br><span class="line"> ])  ## 增加多条数据，[obj1, obj2, obj3]</span><br><span class="line">Session.commit()  ## 提交修改，此时才是真正的创建数据</span><br><span class="line"></span><br><span class="line">## 批量创建</span><br><span class="line">for i in range(10):</span><br><span class="line">    user_obj = User(u_id=i, u_name=&#x27;user-&#x27; + str(i), u_pass=&#x27;passwd-&#x27; + str(i))</span><br><span class="line">    Session.add(user_obj)</span><br><span class="line">Session.commit() </span><br></pre></td></tr></table></figure>
-
-
-</li>
+<li>导入的模块</li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import sqlalchemy</span><br><span class="line">from sqlalchemy import create_engine</span><br><span class="line">from sqlalchemy.ext.declarative import declarative_base</span><br><span class="line">from sqlalchemy import Column, Integer, String</span><br><span class="line">from sqlalchemy.orm import sessionmaker</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建链接</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">engine = create_engine(&quot;mysql+pymysql://root:redhat@192.168.10.202/db01?charset=utf8&quot;, echo=True)</span><br><span class="line"># echo 表示是否打印执行过程生成的语句;charset要在?后面写，可以输入中文(外面写不行)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建表结构</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Base = declarative_base() # 声明基础类</span><br><span class="line"></span><br><span class="line">class User(Base):</span><br><span class="line">    __tablename__ = &#x27;user&#x27;  # 表名称</span><br><span class="line">    id = Column(Integer, primary_key=True)</span><br><span class="line">    u_id = Column(Integer, nullable=False)</span><br><span class="line">    u_name = Column(String(32), nullable=False)</span><br><span class="line">    u_pass = Column(String(32), nullable=False)</span><br><span class="line"></span><br><span class="line"># Base.metadata.create_all(engine)</span><br><span class="line"># Base.metadata.drop_all(engine)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：多次执行，不会重复创建，若 DB 中有该表，那么只是将该表的”表结构”映射给 class；（对表的操作，必须有该表的表结构）</p>
+</blockquote>
+<ul>
+<li>插入数据：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Session_cls = sessionmaker(bind=engine)  #创建与数据库的会话session class ,注意,这里返回给session的是个class,不是实例</span><br><span class="line">Session = Session_cls()  #生成session实例</span><br><span class="line"></span><br><span class="line">obj = User(name=&#x27;user1&#x27;, age=18, favo=&#x27;black&#x27;)  # 增加单条数据</span><br><span class="line">session.add_all([</span><br><span class="line">     User(name=&#x27;user2&#x27;, age=20, favo=&#x27;green&#x27;),</span><br><span class="line">     User(name=&#x27;user3&#x27;, age=30, favo=&#x27;blue&#x27;)</span><br><span class="line"> ])  ## 增加多条数据，[obj1, obj2, obj3]</span><br><span class="line">Session.commit()  ## 提交修改，此时才是真正的创建数据</span><br><span class="line"></span><br><span class="line">## 批量创建</span><br><span class="line">for i in range(10):</span><br><span class="line">    user_obj = User(u_id=i, u_name=&#x27;user-&#x27; + str(i), u_pass=&#x27;passwd-&#x27; + str(i))</span><br><span class="line">    Session.add(user_obj)</span><br><span class="line">Session.commit()</span><br></pre></td></tr></table></figure>
+
 <h4 id="三、查询中的注意问题"><a href="#三、查询中的注意问题" class="headerlink" title="三、查询中的注意问题"></a>三、查询中的注意问题</h4><ul>
-<li><p>注意问题</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">query(类名): 查询的结果为对象，每个对象对应表中的一行条目，通过obj.字段 来获取该条目相应字段的值</span><br><span class="line">all(): 讲所有查询到的对象放在一个列表中</span><br><span class="line">first(): 只取回对象列表中的第一个对象</span><br><span class="line">__repr__(): 默认情况下，没有该方法时，print(获取到的对象)，则得到的是对象的内存地址</span><br><span class="line">若有该方法，则print(获取到的对象)，则显示的是该方法的返回值，更加人性化的区别开了各个对象（条目）</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 示例代码</span><br><span class="line">class User(Base):</span><br><span class="line">    __tablename__ = &#x27;user&#x27;</span><br><span class="line">    id = Column(Integer, primary_key=True)</span><br><span class="line">    u_id = Column(Integer, nullable=False)</span><br><span class="line">    u_name = Column(String(32), nullable=False)</span><br><span class="line">    u_pass = Column(String(32), nullable=False)</span><br><span class="line"></span><br><span class="line">    def __repr__(self):</span><br><span class="line">        obj_desc = &#x27;&lt;id:&#123;&#125;, name:&#123;&#125;, passwd:&#123;&#125;&gt;&#x27;.format(self.u_id, self.u_name, self.u_pass)</span><br><span class="line">        return obj_desc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Session_cls = sessionmaker(bind=engine)</span><br><span class="line">Session = Session_cls()</span><br><span class="line"></span><br><span class="line">obj_lst = Session.query(User).filter(User.u_name == &#x27;user-1&#x27;).all()</span><br><span class="line">obj_first = Session.query(User).filter(User.u_name == &#x27;user-1&#x27;).first()</span><br><span class="line">print(obj_lst)</span><br><span class="line">print(obj_first.name) # 获取该对象的u_name字段值</span><br><span class="line"># 没有__repr__方法：[&lt;__main__.User object at 0x0000000003EAA8D0&gt;]  print得到的是内存地址</span><br><span class="line"># 有__repr__方法： [&lt;id:1, name:user-1, passwd:passwd-1&gt;]  print得到该方法返回值</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>多条件查询：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">obj_lst = Session.query(User).filter(User.id &gt; 3).filter(User.u_id &lt; 5).all()</span><br><span class="line">for obj in obj_lst:</span><br><span class="line">    print(obj.u_name)</span><br><span class="line">```    </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">* 数据修改</span><br></pre></td></tr></table></figure>
-<h1 id="对象赋值方式"><a href="#对象赋值方式" class="headerlink" title="对象赋值方式"></a>对象赋值方式</h1><p>obj = Session.query(User).filter(User.id &gt; 3).filter(User.u_id &lt; 5).first()<br>obj.u_name = ‘qiaogy’  # 修改即是对该对象字段重新赋值<br>Session.commit()</p>
-<h1 id="sql语句方式"><a href="#sql语句方式" class="headerlink" title="sql语句方式"></a>sql语句方式</h1><p>Session.query(User).filter(User.u_name == ‘user-1’).update({User.u_name: ‘est’}, synchronize_session=False)<br>Session.query(User).filter(User.u_name == ‘关羽’).update({User.u_id: User.u_id - 100}, synchronize_session=”evaluate”)<br>Session.commit()</p>
-<h1 id="evaluate：默认值，会同时修改当前session会话中的对象属性；False-表示不修改当前会话中的对象属性"><a href="#evaluate：默认值，会同时修改当前session会话中的对象属性；False-表示不修改当前会话中的对象属性" class="headerlink" title="evaluate：默认值，会同时修改当前session会话中的对象属性；False 表示不修改当前会话中的对象属性"></a>evaluate：默认值，会同时修改当前session会话中的对象属性；False 表示不修改当前会话中的对象属性</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 删除数据</span><br></pre></td></tr></table></figure>
-<p>Session.query(User).filter(User.u_id &gt; 20).delete()<br>Session.commit()</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 数据回滚</span><br></pre></td></tr></table></figure>
-<p>fake_user = User(u_id=10, u_name=’Rain’, u_pass=’12345’)<br>Session.add(fake_user)<br>print(Session.query(User).filter(User.u_name.in_([‘Jack’, ‘rain’])).all())  # 这时看session里有你刚添加和修改的数据<br>Session.rollback()<br>print(Session.query(User).filter(User.u_name.in_([‘Jack’, ‘rain’])).all())  # 再查就发现刚才添加的数据没有了。</p>
-<h1 id="没有什么暖用，因为不提交，照样不会生效，一提交，回滚也救不了"><a href="#没有什么暖用，因为不提交，照样不会生效，一提交，回滚也救不了" class="headerlink" title="没有什么暖用，因为不提交，照样不会生效，一提交，回滚也救不了"></a>没有什么暖用，因为不提交，照样不会生效，一提交，回滚也救不了</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 统计</span><br></pre></td></tr></table></figure>
-<p>from sqlalchemy import func<br>ret = Session.query(User).filter(User.u_id &gt; 9).count()<br>print(ret)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 分组</span><br></pre></td></tr></table></figure>
-<p>from sqlalchemy import func<br>ret = Session.query(User.u_name, func.count(User.u_name)).group_by(User.u_name).all()<br>print(ret)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">#### 四、补充 查询问题：</span><br><span class="line">* 映射：query(table.cloumn)</span><br></pre></td></tr></table></figure>
-<p>print(obj_lst)</p>
-<h2 id="查询结果为：-‘user-6’-‘passwd-6’-‘user-7’-‘passwd-7’-‘user-8’-‘passwd-8’-，-每个对象的各个字段被组织成元组"><a href="#查询结果为：-‘user-6’-‘passwd-6’-‘user-7’-‘passwd-7’-‘user-8’-‘passwd-8’-，-每个对象的各个字段被组织成元组" class="headerlink" title="查询结果为：[(‘user-6’, ‘passwd-6’), (‘user-7’, ‘passwd-7’), (‘user-8’, ‘passwd-8’)]， 每个对象的各个字段被组织成元组"></a>查询结果为：[(‘user-6’, ‘passwd-6’), (‘user-7’, ‘passwd-7’), (‘user-8’, ‘passwd-8’)]， 每个对象的各个字段被组织成元组</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 过滤</span><br></pre></td></tr></table></figure>
-<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p>obj = Session.query(User).filter(User.id == 3).first()  # 条件为表达式格式，可以使用 &gt; &lt; 来表示范围，不能走索引<br>obj = Session.query(User).filter_by(id=3).first()  # 条件为K=V格式，不能取范围，但是可以走索引</p>
-</li>
+<li>注意问题</li>
 </ul>
-<h2 id="filter-范围之-in-between"><a href="#filter-范围之-in-between" class="headerlink" title="filter 范围之 in_, between"></a>filter 范围之 in_, between</h2><p>obj_lst = Session.query(User.u_name).filter(User.id.between(3,5)).all()    # 范围为前闭后闭<br>obj_lst = Session.query(User.u_name).filter(<del>User.id.between(3,5)).all() # 取反<br>obj_lst = Session.query(User.u_name).filter(User.id.in_([3,4,6])).all()        # 值在指定列表中的一个<br>obj_lst = Session.query(User.u_name).filter(</del>User.id.in_([3,4,6])).all()      # 取反</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 逻辑之 and 、or</span><br></pre></td></tr></table></figure>
-<p>from sqlalchemy import or_, and_<br>ret = Session.query(User).filter(and_(User.id &gt; 3, User.u_name == ‘user-8’)).all()<br>ret = session.query(User).filter(<br>    or_(User.id &gt; 1,  # 或者id大于1<br>        and_(User.name == ‘user3’, User.id &lt; 4),  # 或者名称为user3 且id小于4<br>        User.favo == ‘blue’,  # 或者颜色为蓝色<br>    )<br>).all()</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 通配符 %多个字符，_单个字符</span><br></pre></td></tr></table></figure>
-<p>ret = Session.query(User).filter(User.u_name.like(‘qiaog_’)).all()<br>ret = Session.query(User.u_name).filter(User.u_name.like(‘user%’)).all()<br>print(ret)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 排序、限制：</span><br></pre></td></tr></table></figure>
-<p>ret = Session.query(User).order_by(User.u_id.desc()).all()<br>ret2 = Session.query(User).order_by(User.u_id.desc()).all()[1:3]</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 注意：</span><br></pre></td></tr></table></figure>
-<p>sqlalchemy创建的表不能修改表结构，只能重新创建<br>unique 唯一约束：即该字段值不能重复</p>
-<pre><code>
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">query(类名): 查询的结果为对象，每个对象对应表中的一行条目，通过obj.字段 来获取该条目相应字段的值</span><br><span class="line">all(): 讲所有查询到的对象放在一个列表中</span><br><span class="line">first(): 只取回对象列表中的第一个对象</span><br><span class="line">__repr__(): 默认情况下，没有该方法时，print(获取到的对象)，则得到的是对象的内存地址</span><br><span class="line">若有该方法，则print(获取到的对象)，则显示的是该方法的返回值，更加人性化的区别开了各个对象（条目）</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 示例代码</span><br><span class="line">class User(Base):</span><br><span class="line">    __tablename__ = &#x27;user&#x27;</span><br><span class="line">    id = Column(Integer, primary_key=True)</span><br><span class="line">    u_id = Column(Integer, nullable=False)</span><br><span class="line">    u_name = Column(String(32), nullable=False)</span><br><span class="line">    u_pass = Column(String(32), nullable=False)</span><br><span class="line"></span><br><span class="line">    def __repr__(self):</span><br><span class="line">        obj_desc = &#x27;&lt;id:&#123;&#125;, name:&#123;&#125;, passwd:&#123;&#125;&gt;&#x27;.format(self.u_id, self.u_name, self.u_pass)</span><br><span class="line">        return obj_desc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Session_cls = sessionmaker(bind=engine)</span><br><span class="line">Session = Session_cls()</span><br><span class="line"></span><br><span class="line">obj_lst = Session.query(User).filter(User.u_name == &#x27;user-1&#x27;).all()</span><br><span class="line">obj_first = Session.query(User).filter(User.u_name == &#x27;user-1&#x27;).first()</span><br><span class="line">print(obj_lst)</span><br><span class="line">print(obj_first.name) # 获取该对象的u_name字段值</span><br><span class="line"># 没有__repr__方法：[&lt;__main__.User object at 0x0000000003EAA8D0&gt;]  print得到的是内存地址</span><br><span class="line"># 有__repr__方法： [&lt;id:1, name:user-1, passwd:passwd-1&gt;]  print得到该方法返回值</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多条件查询：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj_lst = Session.query(User).filter(User.id &gt; 3).filter(User.u_id &lt; 5).all()</span><br><span class="line">for obj in obj_lst:</span><br><span class="line">    print(obj.u_name)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>数据修改</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 对象赋值方式</span><br><span class="line">obj = Session.query(User).filter(User.id &gt; 3).filter(User.u_id &lt; 5).first()</span><br><span class="line">obj.u_name = &#x27;qiaogy&#x27;  # 修改即是对该对象字段重新赋值</span><br><span class="line">Session.commit()</span><br><span class="line"># sql语句方式</span><br><span class="line">Session.query(User).filter(User.u_name == &#x27;user-1&#x27;).update(&#123;User.u_name: &#x27;est&#x27;&#125;, synchronize_session=False)</span><br><span class="line">Session.query(User).filter(User.u_name == &#x27;关羽&#x27;).update(&#123;User.u_id: User.u_id - 100&#125;, synchronize_session=&quot;evaluate&quot;)</span><br><span class="line">Session.commit()</span><br><span class="line"># evaluate：默认值，会同时修改当前session会话中的对象属性；False 表示不修改当前会话中的对象属性</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除数据</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Session.query(User).filter(User.u_id &gt; 20).delete()</span><br><span class="line">Session.commit()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>数据回滚</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fake_user = User(u_id=10, u_name=&#x27;Rain&#x27;, u_pass=&#x27;12345&#x27;)</span><br><span class="line">Session.add(fake_user)</span><br><span class="line">print(Session.query(User).filter(User.u_name.in_([&#x27;Jack&#x27;, &#x27;rain&#x27;])).all())  # 这时看session里有你刚添加和修改的数据</span><br><span class="line">Session.rollback()</span><br><span class="line">print(Session.query(User).filter(User.u_name.in_([&#x27;Jack&#x27;, &#x27;rain&#x27;])).all())  # 再查就发现刚才添加的数据没有了。</span><br><span class="line"># 没有什么暖用，因为不提交，照样不会生效，一提交，回滚也救不了</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>统计</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sqlalchemy import func</span><br><span class="line">ret = Session.query(User).filter(User.u_id &gt; 9).count()</span><br><span class="line">print(ret)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>分组</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sqlalchemy import func</span><br><span class="line">ret = Session.query(User.u_name, func.count(User.u_name)).group_by(User.u_name).all()</span><br><span class="line">print(ret)</span><br></pre></td></tr></table></figure>
+
+<h4 id="四、补充-查询问题："><a href="#四、补充-查询问题：" class="headerlink" title="四、补充 查询问题："></a>四、补充 查询问题：</h4><ul>
+<li>映射：query(table.cloumn)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(obj_lst)</span><br><span class="line">## 查询结果为：[(&#x27;user-6&#x27;, &#x27;passwd-6&#x27;), (&#x27;user-7&#x27;, &#x27;passwd-7&#x27;), (&#x27;user-8&#x27;, &#x27;passwd-8&#x27;)]， 每个对象的各个字段被组织成元组</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>过滤</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">## filter</span><br><span class="line">obj = Session.query(User).filter(User.id == 3).first()  # 条件为表达式格式，可以使用 &gt; &lt; 来表示范围，不能走索引</span><br><span class="line">obj = Session.query(User).filter_by(id=3).first()  # 条件为K=V格式，不能取范围，但是可以走索引</span><br><span class="line"></span><br><span class="line">## filter 范围之 in_, between</span><br><span class="line">obj_lst = Session.query(User.u_name).filter(User.id.between(3,5)).all()    # 范围为前闭后闭</span><br><span class="line">obj_lst = Session.query(User.u_name).filter(~User.id.between(3,5)).all() # 取反</span><br><span class="line">obj_lst = Session.query(User.u_name).filter(User.id.in_([3,4,6])).all()        # 值在指定列表中的一个</span><br><span class="line">obj_lst = Session.query(User.u_name).filter(~User.id.in_([3,4,6])).all()      # 取反</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>逻辑之 and 、or</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from sqlalchemy import or_, and_</span><br><span class="line">ret = Session.query(User).filter(and_(User.id &gt; 3, User.u_name == &#x27;user-8&#x27;)).all()</span><br><span class="line">ret = session.query(User).filter(</span><br><span class="line">    or_(User.id &gt; 1,  # 或者id大于1</span><br><span class="line">        and_(User.name == &#x27;user3&#x27;, User.id &lt; 4),  # 或者名称为user3 且id小于4</span><br><span class="line">        User.favo == &#x27;blue&#x27;,  # 或者颜色为蓝色</span><br><span class="line">    )</span><br><span class="line">).all()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>通配符 %多个字符，_单个字符</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ret = Session.query(User).filter(User.u_name.like(&#x27;qiaog_&#x27;)).all()</span><br><span class="line">ret = Session.query(User.u_name).filter(User.u_name.like(&#x27;user%&#x27;)).all()</span><br><span class="line">print(ret)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>排序、限制：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ret = Session.query(User).order_by(User.u_id.desc()).all()</span><br><span class="line">ret2 = Session.query(User).order_by(User.u_id.desc()).all()[1:3]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sqlalchemy创建的表不能修改表结构，只能重新创建</span><br><span class="line">unique 唯一约束：即该字段值不能重复</span><br></pre></td></tr></table></figure>
 
                 
             </div>

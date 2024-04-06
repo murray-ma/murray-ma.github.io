@@ -340,8 +340,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Other/" class="post-category">
-                                Other
+                            <a href="/categories/Tool/" class="post-category">
+                                Tool
                             </a>
                         
                     </div>
@@ -379,39 +379,43 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="sublime-amp-virtualenv开发python代码"><a href="#sublime-amp-virtualenv开发python代码" class="headerlink" title="sublime&amp;virtualenv开发python代码"></a>sublime&amp;virtualenv开发python代码</h3><h4 id="1-基础安装"><a href="#1-基础安装" class="headerlink" title="1. 基础安装"></a>1. 基础安装</h4><ul>
-<li>安装python, 并把python目录添加到 $path</li>
-<li>安装virtualenv<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.douban.com/simple virtualenv</span><br></pre></td></tr></table></figure></li>
-<li><a target="_blank" rel="noopener" href="http://www.sublimet/">下载</a> sublimetext3 推荐portable版。</li>
+                <h3 id="sublime-amp-virtualenv-开发-python-代码"><a href="#sublime-amp-virtualenv-开发-python-代码" class="headerlink" title="sublime&amp;virtualenv 开发 python 代码"></a>sublime&amp;virtualenv 开发 python 代码</h3><h4 id="1-基础安装"><a href="#1-基础安装" class="headerlink" title="1. 基础安装"></a>1. 基础安装</h4><ul>
+<li>安装 python, 并把 python 目录添加到 $path</li>
+<li>安装 virtualenv</li>
 </ul>
-<h4 id="2-配置sublime（安装Virtulalenv插件）"><a href="#2-配置sublime（安装Virtulalenv插件）" class="headerlink" title="2. 配置sublime（安装Virtulalenv插件）"></a>2. 配置sublime（安装Virtulalenv插件）</h4><ul>
-<li><p>添加Virtualenv插件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.douban.com/simple virtualenv</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.sublimet/">下载</a> sublimetext3 推荐 portable 版。</li>
+</ul>
+<h4 id="2-配置-sublime（安装-Virtulalenv-插件）"><a href="#2-配置-sublime（安装-Virtulalenv-插件）" class="headerlink" title="2. 配置 sublime（安装 Virtulalenv 插件）"></a>2. 配置 sublime（安装 Virtulalenv 插件）</h4><ul>
+<li><p>添加 Virtualenv 插件</p>
 <blockquote>
-<p>ctrl+shift+p 出现悬浮框，输入package，然后选择package control–install package，输入virtualenv，选择它回车即可安装，安装完后会出现一个新窗口Package Control Messages，有Virtualenv简介。 </p>
+<p>ctrl+shift+p 出现悬浮框，输入 package，然后选择 package control–install package，输入 virtualenv，选择它回车即可安装，安装完后会出现一个新窗口 Package Control Messages，有 Virtualenv 简介。</p>
 </blockquote>
 </li>
-<li><p>新建python虚拟环境</p>
+<li><p>新建 python 虚拟环境</p>
 <blockquote>
-<p>Crtl+Shift+P，选中Virtualenv:New选项，在SublimeText底部Virtualenv Path输入虚拟环境安装目录后回车键。等待安装完成后，Tool-&gt;Build systems 中选中Python+Virtualenv，即可使用虚拟环境来执行python，但是在执行前需要先运行python虚拟环境； </p>
+<p>Crtl+Shift+P，选中 Virtualenv:New 选项，在 SublimeText 底部 Virtualenv Path 输入虚拟环境安装目录后回车键。等待安装完成后，Tool-&gt;Build systems 中选中 Python+Virtualenv，即可使用虚拟环境来执行 python，但是在执行前需要先运行 python 虚拟环境；</p>
 </blockquote>
 </li>
-<li><p>运行python虚拟环境</p>
+<li><p>运行 python 虚拟环境</p>
 <blockquote>
-<p>Project -&gt; Add forlder to Project， 选择D:\sublime\（推荐：其实虚拟环境目录是安装在根目录下），在左侧即可看到安装的虚拟环境，Crtl+Shift+P，选中Virtualenv:Activate选项，选择对应的虚拟环境即可激活。激活之后,Crtl+Shift+P可以看到选项中多了一个Virtualenv:Deactivate，通过这个可以关闭虚拟环境；删除也看得到。 </p>
+<p>Project -&gt; Add forlder to Project， 选择 D:\sublime\（推荐：其实虚拟环境目录是安装在根目录下），在左侧即可看到安装的虚拟环境，Crtl+Shift+P，选中 Virtualenv:Activate 选项，选择对应的虚拟环境即可激活。激活之后,Crtl+Shift+P 可以看到选项中多了一个 Virtualenv:Deactivate，通过这个可以关闭虚拟环境；删除也看得到。</p>
 </blockquote>
 </li>
-<li><p>Ctrl+B 执行 python文件</p>
+<li><p>Ctrl+B 执行 python 文件</p>
 <blockquote>
-<p>Sublime Text默认Ctrl+B执行python程序不支持交互式默认以及raw_input等，所以有时需通过SublimeREPL来执行python程序. </p>
+<p>Sublime Text 默认 Ctrl+B 执行 python 程序不支持交互式默认以及 raw_input 等，所以有时需通过 SublimeREPL 来执行 python 程序.</p>
 </blockquote>
 </li>
 </ul>
 <blockquote>
-<p>SublimeText3 安装SublimeREPL插件（Crtl+Shift+P），该插件调用的python默认为系统path中设置的 python</p>
+<p>SublimeText3 安装 SublimeREPL 插件（Crtl+Shift+P），该插件调用的 python 默认为系统 path 中设置的 python</p>
 </blockquote>
 <ul>
-<li>为SublimeREPL添加快捷键 <blockquote>
-<p>Preference-&gt;key Bindings-&gt;user中添加下面配置，<br>其中F2用来执行python文件，对应于Tools-&gt;SublimeREPL-&gt;python-&gt;Python RUN current file<br>其中F1用来进入python交互式模式，对应于Tools-&gt;SublimeREPL-&gt;python-&gt;Python</p>
+<li>为 SublimeREPL 添加快捷键<blockquote>
+<p>Preference-&gt;key Bindings-&gt;user 中添加下面配置，<br>其中 F2 用来执行 python 文件，对应于 Tools-&gt;SublimeREPL-&gt;python-&gt;Python RUN current file<br>其中 F1 用来进入 python 交互式模式，对应于 Tools-&gt;SublimeREPL-&gt;python-&gt;Python</p>
 </blockquote>
 </li>
 </ul>

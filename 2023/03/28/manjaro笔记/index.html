@@ -1,0 +1,1268 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="manjaro笔记, Java,Python,GO">
+    <meta name="description" content="IT文章及知识分享">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>manjaro笔记 | 马瑞个人笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="马瑞个人笔记" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">马瑞个人笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">马瑞个人笔记</div>
+        <div class="logo-desc">
+            
+            IT文章及知识分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">manjaro笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+        padding-top: 1.5rem
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        <!-- height: calc(100vh - 250px); -->
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/Manjaro/">
+                                <span class="chip bg-color">Manjaro</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-03-28
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="镜像制作工具"><a href="#镜像制作工具" class="headerlink" title="镜像制作工具"></a>镜像制作工具</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 推荐在windows下使用Rufus工具来制作启动盘</span><br><span class="line">官网：https://rufus.ie/zh/</span><br><span class="line">下载：https://github.com/pbatard/rufus/releases/download/v4.1/rufus-4.1.exe</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="分区方案"><a href="#分区方案" class="headerlink" title="分区方案"></a>分区方案</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 分区方案（500GB）</span><br><span class="line">swap              16GB</span><br><span class="line">/boot/efi FAT32   300MB</span><br><span class="line">/boot     ext4    500MB</span><br><span class="line">/         ext4    150GB</span><br><span class="line">/opt      ext4    40GB   三方软件</span><br><span class="line">/home     ext4    剩余   用户分区</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置源"><a href="#配置源" class="headerlink" title="配置源"></a>配置源</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Ai-Hen-Jiao-zhi/p/12151228.html">https://www.cnblogs.com/Ai-Hen-Jiao-zhi/p/12151228.html</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman-mirrors -i -c China -m rank //更新镜像排名</span><br><span class="line"></span><br><span class="line">sudo pacman -Sy vim patch make</span><br><span class="line"></span><br><span class="line">设置 archlinuxcn 源。修改 /etc/pacman.conf</span><br><span class="line">sudo cat &gt;&gt; /etc/pacman.conf&lt;&lt;EOF</span><br><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = TrustAll</span><br><span class="line"># 1.官方源</span><br><span class="line">Server = http://repo.archlinuxcn.org/$arch</span><br><span class="line"># 2.163源</span><br><span class="line">Server = http://mirrors.163.com/archlinux-cn/$arch</span><br><span class="line"># 3. aliyun</span><br><span class="line">Server = https://mirrors.aliyun.com/archlinuxcn/$arch</span><br><span class="line"># 4. 中科大源</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br><span class="line"># 5. 清华源</span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch</span><br><span class="line"># 上海交通大学</span><br><span class="line">Server = https://mirrors.sjtug.sjtu.edu.cn/manjaro/stable/$repo/$arch</span><br><span class="line"># 浙江大学</span><br><span class="line">Server = https://mirrors.zju.edu.cn/manjaro/stable/$repo/$arch</span><br><span class="line"></span><br><span class="line">[arch4edu]</span><br><span class="line">SigLevel = TrustAll</span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/arch4edu/$arch</span><br><span class="line">Server = https://mirrors.aliyun.com/arch4edu/$arch</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># update key</span><br><span class="line">sudo pacman-key --init                                                                         ✔</span><br><span class="line">sudo pacman-key --populate archlinux</span><br><span class="line"></span><br><span class="line">SigLevel设置: Never/Optional/TrustAll</span><br><span class="line"></span><br><span class="line">sudo pacman-mirrors -gs // 更新源列表</span><br><span class="line">sudo pacman -Sy archlinuxcn-keyring // 更新 archlinux 签名</span><br><span class="line">sudo pacman -Syyu // 更新pacman数据库并全面更新系统</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置管理员权限"><a href="#配置管理员权限" class="headerlink" title="配置管理员权限"></a>配置管理员权限</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 编辑/etc/sudoers</span><br><span class="line">sudo vim  /etc/sudoers</span><br><span class="line"></span><br><span class="line"># 在root  ALL=(ALL)  ALL  下面添加：</span><br><span class="line">murray  ALL=(ALL)  ALL</span><br><span class="line">%wheel ALL=(ALL:ALL) ALL</span><br><span class="line"></span><br><span class="line"># 保存退出，murray用户就拥有管理员权限了</span><br></pre></td></tr></table></figure>
+
+<h3 id="更改主目录文件夹为英文"><a href="#更改主目录文件夹为英文" class="headerlink" title="更改主目录文件夹为英文"></a>更改主目录文件夹为英文</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xdg-user-dirs-gtk</span><br><span class="line">export LANG=en_US</span><br><span class="line">xdg-user-dirs-gtk-update</span><br><span class="line"># 会有个窗口提示语言更改，更新名称即可</span><br><span class="line">export LANG=zh_CN.UTF-8</span><br><span class="line"># 重启电脑，如果提示语言更改，保留旧的名称即可</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装中文字体"><a href="#安装中文字体" class="headerlink" title="安装中文字体"></a>安装中文字体</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Sy wqy-zenhei wqy-bitmapfont wqy-microhei \</span><br><span class="line">adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="添加-alias"><a href="#添加-alias" class="headerlink" title="添加 alias"></a>添加 alias</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># bash方式</span><br><span class="line">sudo cat &gt;&gt; ~/.bashrc&lt;&lt;EOF</span><br><span class="line">alias ll=&quot;ls -alhF --color=auto&quot;</span><br><span class="line">EOF</span><br><span class="line">source ~/.bashrc</span><br><span class="line"></span><br><span class="line"># zsh方式</span><br><span class="line">sudo cat &gt;&gt; ~/.zshrc&lt;&lt;EOF</span><br><span class="line">alias ll=&quot;ls -alhF --color=auto&quot;</span><br><span class="line">EOF</span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="manjaro-安装输入法"><a href="#manjaro-安装输入法" class="headerlink" title="manjaro 安装输入法"></a>manjaro 安装输入法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx-libpinyin</span><br><span class="line">sudo pacman -S fcitx-googlepinyin</span><br><span class="line">sudo pacman -S fcitx-im</span><br><span class="line">sudo pacman -S fcitx-configtool</span><br><span class="line"></span><br><span class="line">sudo cat&gt;&gt; /etc/environment &lt;&lt;EOF</span><br><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 解決 manjaro KDE版本无法切换中文输入法</span><br><span class="line">sudo cat&gt;&gt; ~/.pam_environment&lt;&lt;EOF</span><br><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 重启电脑即可</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<h3 id="manjaro-安装-deb-文件"><a href="#manjaro-安装-deb-文件" class="headerlink" title="manjaro 安装 deb 文件"></a>manjaro 安装 deb 文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yay安装</span></span><br><span class="line">sudo pacman -Sy yay</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">debtap安装</span></span><br><span class="line">yay -S debtap</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">换源</span></span><br><span class="line">sudo cp /usr/bin/debtap /usr/bin/debtap.bak</span><br><span class="line">sudo sed -i &#x27;s|http://ftp.debian.org/debian/dists|https://mirrors.ustc.edu.cn/debian/dists|g&#x27; /usr/bin/debtap</span><br><span class="line">sudo sed -i &#x27;s|http://archive.ubuntu.com/ubuntu/dists|https://mirrors.ustc.edu.cn/ubuntu/dists|g&#x27; /usr/bin/debtap</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">初始化debtap</span></span><br><span class="line">sudo debtap -u</span><br><span class="line">sudo debtap xxx.deb</span><br><span class="line">sudo pacman -U xxx.pkg.tar.zs</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="MySQL-Workbench-报错"><a href="#MySQL-Workbench-报错" class="headerlink" title="MySQL Workbench 报错"></a>MySQL Workbench 报错</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在archlinux中出现The name org.freedesktop.secrets was not provided by any .service files 的错误</span><br><span class="line">解决方案是安装 gnome-keyring 包</span><br><span class="line">sudo pacman -S  gnome-keyring</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-virtualbox"><a href="#安装-virtualbox" class="headerlink" title="安装 virtualbox"></a>安装 virtualbox</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S virtualbox</span><br><span class="line"></span><br><span class="line"># 查看内核版本，打开Manjaro Settings Manager，正在“运行”的即是。</span><br><span class="line">找到对应版本的linux56-virtualbox-host-modules安装</span><br><span class="line"></span><br><span class="line"># 激活内核模块</span><br><span class="line">sudo modprobe vboxdrv</span><br><span class="line"></span><br><span class="line"># 添加当前用户到virtualbox用户组</span><br><span class="line">sudo gpasswd -a [username] vboxusers</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-docker-及-docker-compose"><a href="#安装-docker-及-docker-compose" class="headerlink" title="安装 docker 及 docker-compose"></a>安装 docker 及 docker-compose</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Sy docker</span><br><span class="line">sudo pacman -Sy docker-compose</span><br><span class="line"></span><br><span class="line">sudo groupadd docker</span><br><span class="line">sudo gpasswd -a $&#123;USER&#125; docker</span><br><span class="line"># 更新用户组</span><br><span class="line">sudo newgrp docker</span><br><span class="line"></span><br><span class="line"># 配置源</span><br><span class="line">sudo mkdir -p /etc/docker &amp;&amp; sudo cat &gt; /etc/docker/daemon.json&lt;&lt;EOF</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;, &quot;http://hub-mirror.c.163.com&quot;, &quot;https://docker.mirrors.ustc.edu.cn&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">sudo systemctl daemon-reload &amp;&amp; sudo systemctl enable docker</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"></span><br><span class="line"># 国内加速站点</span><br><span class="line">https://registry.docker-cn.com</span><br><span class="line">http://hub-mirror.c.163.com</span><br><span class="line">https://docker.mirrors.ustc.edu.cn</span><br><span class="line">https://mirror.ccs.tencentyun.com</span><br><span class="line"></span><br><span class="line"># 安装mysql</span><br><span class="line">docker run -p 3306:3306 \</span><br><span class="line">--name mysql57 \</span><br><span class="line">--restart=always \</span><br><span class="line">--privileged=true \</span><br><span class="line">-v /data/mysql/conf:/etc/mysql/conf.d \</span><br><span class="line">-v /data/mysql/data:/var/lib/mysql \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=1q2w3e \</span><br><span class="line">-d mysql:5.7</span><br><span class="line"></span><br><span class="line"># redis安装</span><br><span class="line">docker run -p 6379:6379 \</span><br><span class="line">--name redis7 \</span><br><span class="line">--restart=always \</span><br><span class="line">--privileged=true \</span><br><span class="line">-d redis:7.0.4</span><br><span class="line"></span><br><span class="line"># mysql客户端</span><br><span class="line">sudo pacman -S mysql-clients</span><br><span class="line"></span><br><span class="line"># redis客户端</span><br><span class="line">sudo pacman -S redis redis-desktop-manager</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装常用软件"><a href="#安装常用软件" class="headerlink" title="安装常用软件"></a>安装常用软件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"># 文档上传下载</span><br><span class="line">sudo pacman -S zssh lrzsz</span><br><span class="line"></span><br><span class="line"># 办公软件WPS</span><br><span class="line">yay -S wps-office wps-office-mui-zh-cn ttf-wps-fonts</span><br><span class="line"></span><br><span class="line"># 视频编辑器</span><br><span class="line">yay -S kdenlive</span><br><span class="line"></span><br><span class="line"># 图片处理工具</span><br><span class="line">yay -S krita darktable inkscape</span><br><span class="line"></span><br><span class="line"># 图像编辑器Gimp</span><br><span class="line">sudo pacman -S gimp</span><br><span class="line"></span><br><span class="line"># PDF阅读器</span><br><span class="line">yay -S foxitreader</span><br><span class="line"></span><br><span class="line"># 视频播放器</span><br><span class="line">yay -S smplayer clementine</span><br><span class="line"></span><br><span class="line"># 接口测试工具</span><br><span class="line">yay -S postman</span><br><span class="line"></span><br><span class="line"># ssh工具</span><br><span class="line">yay -S scrt</span><br><span class="line"></span><br><span class="line"># 谷歌浏览器</span><br><span class="line">yay -S google-chrome</span><br><span class="line"></span><br><span class="line"># zip压缩工具</span><br><span class="line">yay -S zip unzip</span><br><span class="line"></span><br><span class="line"># ftp客户端</span><br><span class="line">yay -S filezilla</span><br><span class="line"></span><br><span class="line"># 安装tim</span><br><span class="line">sudo pacman -S deepin.com.qq.office</span><br><span class="line"></span><br><span class="line"># 微信</span><br><span class="line">yay -S com.qq.weixin.spark</span><br><span class="line">yay -S electronic-wechat-uos-bin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 百度网盘</span><br><span class="line">sudo pacman -S baidunetdisk-bin</span><br><span class="line"></span><br><span class="line"># 迅雷极速版</span><br><span class="line">yay -S deepin-wine-thunderspeed</span><br><span class="line"></span><br><span class="line"># 360浏览器</span><br><span class="line">yay -S browser360</span><br><span class="line"></span><br><span class="line"># VisualStudioCode</span><br><span class="line">yay -S visual-studio-code-bin</span><br><span class="line"></span><br><span class="line"># Pycharm Professional</span><br><span class="line">sudo pacman -S pycharm-professional</span><br><span class="line"></span><br><span class="line"># 网易云音乐</span><br><span class="line">sudo pacman -S netease-cloud-music</span><br><span class="line"></span><br><span class="line"># 拾色器</span><br><span class="line">sudo pacman -S gcolor3</span><br><span class="line"></span><br><span class="line"># 深度截图</span><br><span class="line">sudo pacman -S deepin-screenshot</span><br><span class="line"></span><br><span class="line"># 最强大的截图工具</span><br><span class="line">yay -S flameshot</span><br><span class="line"></span><br><span class="line"># 深度录屏</span><br><span class="line">sudo pacman -S deepin-screen-recorder</span><br><span class="line"></span><br><span class="line"># 本地markdown笔记软件</span><br><span class="line">pacman -Siv vnote-git</span><br><span class="line">pacman -Siv qownnotes</span><br><span class="line"></span><br><span class="line"># teamviewer（限制太多，放弃）</span><br><span class="line">sudo pacman -Siv teamviewer</span><br><span class="line"></span><br><span class="line"># 向日葵（远程）</span><br><span class="line">yay -S sunloginclient</span><br><span class="line"></span><br><span class="line"># 安装PicGo图床</span><br><span class="line">yay -S picgo-appimage</span><br><span class="line"></span><br><span class="line"># 安装markdown编辑器</span><br><span class="line">sudo pacman -S typora</span><br><span class="line"></span><br><span class="line"># timeshift：强大好用的备份、回滚系统工具</span><br><span class="line">yay -S timeshift</span><br><span class="line"></span><br><span class="line"># XDM：Linux下最快的下载神器</span><br><span class="line">yay -S xdman</span><br><span class="line"></span><br><span class="line"># calibre：电子书管理神器</span><br><span class="line">yay -S calibre</span><br><span class="line"></span><br><span class="line"># latte-dock 美化</span><br><span class="line">yay -S latte-dock</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="阿里云盘"><a href="#阿里云盘" class="headerlink" title="阿里云盘"></a>阿里云盘</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># aliyunpan 安装</span><br><span class="line">cd /opt &amp;&amp; sudo wget -O aliyunpan-v0.2.7-linux-amd64.zip https://github.com/tickstep/aliyunpan/releases/download/v0.2.7/aliyunpan-v0.2.7-linux-amd64.zip</span><br><span class="line">sudo unzip aliyunpan-v0.2.7-linux-amd64.zip</span><br><span class="line">sudo mv aliyunpan-v0.2.7-linux-amd64 aliyunpan &amp;&amp; cd aliyunpan</span><br><span class="line"></span><br><span class="line">./aliyunpan</span><br><span class="line">login --RefreshToken=xxx</span><br><span class="line"></span><br><span class="line">## 获取refresh_token</span><br><span class="line">需要通过浏览器获取refresh_token。</span><br><span class="line">打开 阿里云盘网页 并进行登录，然后F12按键打开浏览器调试菜单。</span><br><span class="line">直接在控制台输入以下命令获取：</span><br><span class="line">JSON.parse(localStorage.getItem(&quot;token&quot;)).refresh_token</span><br><span class="line">或</span><br><span class="line">“存储”-&gt;“本地存储” 找到key为token的值，查看refresh_token。</span><br><span class="line"></span><br><span class="line">## 配置下载路径</span><br><span class="line">### 设置，默认路径/root/Downloads</span><br><span class="line">config set --savedir /home/murray/Downloads</span><br><span class="line"></span><br><span class="line">## 配置文件</span><br><span class="line">默认路径为：安装路径下aliyunpan_config.json</span><br><span class="line">修改配置(配置文件可以随意指定存放地址)：</span><br><span class="line">export ALIYUNPAN_CONFIG_DIR=/home/murray/.aliyunpan/config</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="向日葵"><a href="#向日葵" class="headerlink" title="向日葵"></a>向日葵</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yay -S sunloginclient</span><br><span class="line"></span><br><span class="line"># 1. 若报错</span><br><span class="line">rpcclient]rpcclient_default::connect is error</span><br><span class="line">(sunloginclient:21436): Gtk-CRITICAL **: 17:49:26.949: gtk_main_quit: assertion &#x27;main_loops != NULL&#x27; failed</span><br><span class="line"></span><br><span class="line">解决：</span><br><span class="line">sudo systemctl start runsunloginclient.service</span><br><span class="line">sudo systemctl enable runsunloginclient.service</span><br><span class="line"></span><br><span class="line"># 2. 向日葵远控桌面一直在“正在进入远程桌面”中</span><br></pre></td></tr></table></figure>
+
+<h3 id="微信"><a href="#微信" class="headerlink" title="微信"></a>微信</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy 127.0.0.1:1087                                ✔</span><br><span class="line">git config --global https.proxy 127.0.0.1:1087                               ✔</span><br><span class="line">git config --global --unset http.proxy                                       ✔</span><br><span class="line">git config --global --unset https.proxy</span><br><span class="line"></span><br><span class="line"># 安装基础组件</span><br><span class="line">sudo pacman -S autoconf automake libtool</span><br><span class="line"></span><br><span class="line"># 安装微信</span><br><span class="line">yay -S deepin-wine-wechat</span><br><span class="line"></span><br><span class="line">若报错，如</span><br><span class="line">==&gt; 错误： 无法下载 https://github.com/vufa/deepin-wine-wechat-arch/raw/action/mmmojo.dll</span><br><span class="line">   正在放弃...</span><br><span class="line">-&gt; 生成时出错: deepin-wine-wechat-exit status 1</span><br><span class="line"></span><br><span class="line">解决：</span><br><span class="line">提示无法下载什么就直接复制链接翻墙下载，下载好后复制到构建文件夹（/home/murray/.cache/yay/deepin-wine-wechat</span><br><span class="line">），然后重新执行。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="ssh-服务"><a href="#ssh-服务" class="headerlink" title="ssh 服务"></a>ssh 服务</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable sshd.service</span><br><span class="line">sudo systemctl start sshd.service</span><br><span class="line">sudo systemctl restart sshd.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="修复-UEFI-模式下-Manjaro-Linux-启动"><a href="#修复-UEFI-模式下-Manjaro-Linux-启动" class="headerlink" title="修复 UEFI 模式下 Manjaro Linux 启动"></a>修复 UEFI 模式下 Manjaro Linux 启动</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">在更新Manjaro Linux时异常卡顿，按电源键强制关机，导致内核更新了一半系统强制关机，重启时正常进入grub但无法正常引导进入系统。</span><br><span class="line">由于不想重装系统，初步判断应该仅仅是内核引导镜像没能正常安装导致的问题，所以决定先用liveUSB进行急救。</span><br><span class="line"></span><br><span class="line">需要准备的工具：</span><br><span class="line">  一个使用较新版本Manjaro Linux的liveUSB（可以使用dd将镜像直接写入ｕ盘）</span><br><span class="line">待修复设备需要联网环境（没有其实也不用担心，不过最好还是需要联网环境）</span><br><span class="line"></span><br><span class="line">开始修复启动。</span><br><span class="line">1. 通过liveUSB启动，在liveUSB系统中找到原系统文件的磁盘，默认不会被挂载，因此先要把除了/home以外的系统目录挂载到当前的任意目录，选择挂载在/mnt中：</span><br><span class="line">sudo mkdir /mnt/manjaro</span><br><span class="line"># 查看磁盘位置</span><br><span class="line">lsblk</span><br><span class="line"># 挂载/</span><br><span class="line">sudo mount /dev/sda4 /mnt/manjaro # sda4为/分区所在设备，使用lsblk查看</span><br><span class="line"></span><br><span class="line">2. 挂在/boot/efi分区，很关键，在UEFI下安装Manjaro Linux时一般都额外为/boot/efi/进行了单独的分区，默认挂载根目录时并不会挂载该目录，因此也需要挂载它。</span><br><span class="line"># 查看磁盘位置</span><br><span class="line">lsblk</span><br><span class="line"># 把efi目录也挂载进文件系统，否则内核无法重新安装</span><br><span class="line"># 挂载/dev/sda5（efi目录分区）</span><br><span class="line">sudo mount /dev/sda5 /mnt/manjaro/boot/efi</span><br><span class="line"># 挂载虚拟目录（否则可能会报错）</span><br><span class="line">sudo mount --bind /dev /mnt/manjaro/dev</span><br><span class="line">sudo mount --bind /proc /mnt/manjaro/proc</span><br><span class="line">sudo mount --bind /sys /mnt/manjaro/sys</span><br><span class="line"></span><br><span class="line">3. 在挂载目录下chroot，然后重新安装内核：</span><br><span class="line">cd /mnt/manjaro</span><br><span class="line">sudo chroot .</span><br><span class="line">pacman -S linux # 若报错，检查自己系统目录是否正确挂载，如果正确挂载则先运行pacman -S archlinux-keyring</span><br><span class="line"></span><br><span class="line"># 内核重装完成后继续上次未完成的系统更新</span><br><span class="line">pacman -Syu</span><br><span class="line"></span><br><span class="line"># 重启，在grub引导界面选择对应的版本才能正常启动，如果想恢复其他版本的内核，可以在用默认版本内核启动后去Manjaro Settings Manager中重新安装。</span><br></pre></td></tr></table></figure>
+
+<h3 id="密钥环"><a href="#密钥环" class="headerlink" title="密钥环"></a>密钥环</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 管理密钥管理</span><br><span class="line">sudo pacman -S seahorse</span><br><span class="line"></span><br><span class="line"># 管理密钥密码</span><br><span class="line">1. 打开seahorse</span><br><span class="line">2. 登录右键-&gt;属性-&gt;修改/删除密码框的密码-&gt;保存即可</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><h4 id="Python3-6"><a href="#Python3-6" class="headerlink" title="Python3.6"></a>Python3.6</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 下载安装包</span><br><span class="line">sudo wget -O /opt/Python-3.6.15.tar.xz https://www.python.org/ftp/python/3.6.15/Python-3.6.15.tar.xz</span><br><span class="line"></span><br><span class="line"># 新增安装目录</span><br><span class="line">sudo mkdir -p /usr/local/python36</span><br><span class="line"></span><br><span class="line"># 解压并编译安装</span><br><span class="line">cd /opt &amp;&amp; sudo tar -xvf Python-3.6.15.tar.xz</span><br><span class="line">cd /opt/Python-3.6.15 &amp;&amp; sudo bash ./configure --prefix=/usr/local/python36 --with-ssl</span><br><span class="line">sudo make &amp;&amp; sudo make install</span><br><span class="line"></span><br><span class="line"># 建立python36的软链</span><br><span class="line">sudo ln -s /usr/local/python36/bin/python3 /usr/bin/python36</span><br><span class="line">sudo ln -s /usr/local/python36/bin/pip3 /usr/bin/pip36</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Python3-8"><a href="#Python3-8" class="headerlink" title="Python3.8"></a><strong>Python3.8</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 下载安装包</span><br><span class="line">sudo wget -O /opt/Python-3.8.17.tar.xz https://www.python.org/ftp/python/3.8.17/Python-3.8.17.tar.xz</span><br><span class="line"></span><br><span class="line"># 新增安装目录</span><br><span class="line">sudo mkdir -p /usr/local/python38</span><br><span class="line"></span><br><span class="line"># 解压并编译安装</span><br><span class="line">cd /opt &amp;&amp; sudo tar -xvf Python-3.8.17.tar.xz</span><br><span class="line">cd /opt/Python-3.8.17 &amp;&amp; sudo bash ./configure --prefix=/usr/local/python38 --with-ssl</span><br><span class="line">sudo make &amp;&amp; sudo make install</span><br><span class="line"></span><br><span class="line"># 建立python38的软链</span><br><span class="line">sudo ln -s /usr/local/python38/bin/python3 /usr/bin/python38</span><br><span class="line">sudo ln -s /usr/local/python38/bin/pip3 /usr/bin/pip38</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Python3-11"><a href="#Python3-11" class="headerlink" title="Python3.11"></a><strong>Python3.11</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 下载安装包</span><br><span class="line">sudo wget -O /opt/Python-3.11.4.tar.xz https://www.python.org/ftp/python/3.11.4/Python-3.11.4.tar.xz</span><br><span class="line"></span><br><span class="line"># 新增安装目录</span><br><span class="line">sudo mkdir -p /usr/local/python311</span><br><span class="line"></span><br><span class="line"># 解压并编译安装</span><br><span class="line">cd /opt &amp;&amp; sudo tar -xvf Python-3.11.4.tar.xz</span><br><span class="line">cd /opt/Python-3.11.4 &amp;&amp; sudo bash ./configure --prefix=/usr/local/python311 --with-ssl</span><br><span class="line">sudo make &amp;&amp; sudo make install</span><br><span class="line"></span><br><span class="line"># 建立python311的软链</span><br><span class="line">sudo ln -s /usr/local/python311/bin/python3 /usr/bin/python311</span><br><span class="line">sudo ln -s /usr/local/python311/bin/pip3 /usr/bin/pip311</span><br></pre></td></tr></table></figure>
+
+<h4 id="JDK8"><a href="#JDK8" class="headerlink" title="JDK8"></a>JDK8</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">下载：https://www.oracle.com/java/technologies/downloads/</span><br><span class="line"></span><br><span class="line">sudo mkdir -p /opt/java &amp;&amp; cd /opt/java</span><br><span class="line">sudo tar xzvf jdk-8u371-linux-x64.tar.gz</span><br><span class="line">sudo mv jdk1.8.0_371 jdk8</span><br><span class="line">cat &gt;&gt; /etc/profile &lt;&lt; EOF</span><br><span class="line">export JDK_HOME=/opt/java/jdk8</span><br><span class="line">export JAVA_HOME=\$&#123;JDK_HOME&#125;</span><br><span class="line">export JRE_HOME=\$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:\$&#123;JAVA_HOME&#125;/lib:\$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=\$&#123;JAVA_HOME&#125;/bin:\$PATH</span><br><span class="line">EOF</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<h4 id="JDK21"><a href="#JDK21" class="headerlink" title="JDK21"></a>JDK21</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">下载：https://www.oracle.com/java/technologies/downloads/</span><br><span class="line"></span><br><span class="line">sudo mkdir -p /opt/java &amp;&amp; cd /opt/java</span><br><span class="line">sudo wget -O /opt/java/jdk-21_linux-x64_bin.tar.gz https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.tar.gz</span><br><span class="line">sudo tar xzvf jdk-21_linux-x64_bin.tar.gz</span><br><span class="line">sudo mv jdk-21.0.1 jdk21</span><br><span class="line">cat &gt;&gt; /etc/profile &lt;&lt; EOF</span><br><span class="line">export JDK_HOME=/opt/java/jdk21</span><br><span class="line">export JAVA_HOME=\$&#123;JDK_HOME&#125;</span><br><span class="line">export JRE_HOME=\$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:\$&#123;JAVA_HOME&#125;/lib:\$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=\$&#123;JAVA_HOME&#125;/bin:\$PATH</span><br><span class="line">EOF</span><br><span class="line">source /etc/profile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; /etc/profile &lt;&lt; EOF</span><br><span class="line">export GOROOT=/usr/lib/go</span><br><span class="line">export GOPATH=~/go</span><br><span class="line">#export GOPROXY=https://mirrors.aliyun.com/goproxy/</span><br><span class="line">export GOPROXY=https://goproxy.cn</span><br><span class="line">export PATH=\$PATH:\$GOROOT/bin:\$GOPATH/bin</span><br><span class="line">export GO111MODULE=on</span><br><span class="line">EOF</span><br><span class="line">source /etc/profile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"># 下载安装包</span><br><span class="line">sudo wget -O /opt/apache-maven-3.9.2-bin.tar.gz https://dlcdn.apache.org/maven/maven-3/3.9.2/binaries/apache-maven-3.9.2-bin.tar.gz</span><br><span class="line"></span><br><span class="line"># 解压</span><br><span class="line">cd /opt &amp;&amp; sudo tar -xvf apache-maven-3.9.2-bin.tar.gz</span><br><span class="line">sudo mv /opt/apache-maven-3.9.2 /opt/maven</span><br><span class="line"></span><br><span class="line">sudo cat &gt;&gt; /etc/profile&lt;&lt;EOF</span><br><span class="line">export MAVEN_HOME=/opt/maven</span><br><span class="line">export PATH=\$PATH:\$MAVEN_HOME/bin</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 应用</span><br><span class="line">source /etc/profile</span><br><span class="line"></span><br><span class="line"># maven的settings.xml</span><br><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span><br><span class="line">          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">          xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line">  &lt;localRepository&gt;$&#123;user.home&#125;/.m2/repository&lt;/localRepository&gt;</span><br><span class="line">  &lt;pluginGroups&gt;&lt;/pluginGroups&gt;</span><br><span class="line">  &lt;proxies&gt;</span><br><span class="line">    &lt;!--</span><br><span class="line">    &lt;proxy&gt;</span><br><span class="line">      &lt;id&gt;optional&lt;/id&gt;</span><br><span class="line">      &lt;active&gt;true&lt;/active&gt;</span><br><span class="line">      &lt;protocol&gt;http&lt;/protocol&gt;</span><br><span class="line">      &lt;username&gt;proxyuser&lt;/username&gt;</span><br><span class="line">      &lt;password&gt;proxypass&lt;/password&gt;</span><br><span class="line">      &lt;host&gt;proxy.host.net&lt;/host&gt;</span><br><span class="line">      &lt;port&gt;80&lt;/port&gt;</span><br><span class="line">      &lt;nonProxyHosts&gt;local.net|some.host.com&lt;/nonProxyHosts&gt;</span><br><span class="line">    &lt;/proxy&gt;</span><br><span class="line">    --&gt;</span><br><span class="line">  &lt;/proxies&gt;</span><br><span class="line">  &lt;servers&gt;</span><br><span class="line">    &lt;!--</span><br><span class="line">    &lt;server&gt;</span><br><span class="line">      &lt;id&gt;siteServer&lt;/id&gt;</span><br><span class="line">      &lt;privateKey&gt;/path/to/private/key&lt;/privateKey&gt;</span><br><span class="line">      &lt;passphrase&gt;optional; leave empty if not used.&lt;/passphrase&gt;</span><br><span class="line">    &lt;/server&gt;</span><br><span class="line">    --&gt;</span><br><span class="line">  &lt;/servers&gt;</span><br><span class="line">  &lt;mirrors&gt;</span><br><span class="line">    &lt;!-- mrrior标签配置多个，生效的只有第一个！</span><br><span class="line">    只有第一个仓库无法访问的时候，才会使用第二个，注意是无法访问的时候。</span><br><span class="line">    如果能访问，但是仓库中没有你要找的包，他不会去访问第二个仓库！</span><br><span class="line">    推荐使用profile属性进行多镜像配置：&lt;profile&gt;&lt;/profile&gt;配置多镜像</span><br><span class="line">    --&gt;</span><br><span class="line">    &lt;!-- &lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;aliyun-maven&lt;/id&gt;</span><br><span class="line">      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">      &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;https://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</span><br><span class="line">    &lt;/mirror&gt; --&gt;</span><br><span class="line">  &lt;/mirrors&gt;</span><br><span class="line">  &lt;profiles&gt;</span><br><span class="line">    &lt;profile&gt;</span><br><span class="line">      &lt;id&gt;jdk-1.8&lt;/id&gt;</span><br><span class="line">      &lt;activation&gt;</span><br><span class="line">        &lt;jdk&gt;1.8&lt;/jdk&gt;</span><br><span class="line">        &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;</span><br><span class="line">      &lt;/activation&gt;</span><br><span class="line">      &lt;properties&gt;</span><br><span class="line">        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;</span><br><span class="line">        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;</span><br><span class="line">        &lt;maven.compiler.compilerVersion&gt;1.8&lt;/maven.compiler.compilerVersion&gt;</span><br><span class="line">      &lt;/properties&gt;</span><br><span class="line">      &lt;repositories&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">          &lt;id&gt;aliyun-maven&lt;/id&gt;</span><br><span class="line">          &lt;url&gt;https://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</span><br><span class="line">          &lt;releases&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/releases&gt;</span><br><span class="line">          &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;</span><br><span class="line">        &lt;/repository&gt;</span><br><span class="line">      &lt;/repositories&gt;</span><br><span class="line">      &lt;pluginRepositories&gt;</span><br><span class="line">        &lt;pluginRepository&gt;</span><br><span class="line">          &lt;id&gt;aliyun-maven&lt;/id&gt;</span><br><span class="line">          &lt;url&gt;https://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</span><br><span class="line">          &lt;releases&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/releases&gt;</span><br><span class="line">          &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;</span><br><span class="line">        &lt;/pluginRepository&gt;</span><br><span class="line">      &lt;/pluginRepositories&gt;</span><br><span class="line">    &lt;/profile&gt;</span><br><span class="line">  &lt;/profiles&gt;</span><br><span class="line">  &lt;activeProfiles&gt;</span><br><span class="line">    &lt;activeProfile&gt;aliyun-maven&lt;/activeProfile&gt;</span><br><span class="line">  &lt;/activeProfiles&gt;</span><br><span class="line">&lt;/settings&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># document</span><br><span class="line">http://www.sublimetext.com/docs/linux_repositories.html</span><br><span class="line"></span><br><span class="line"># download</span><br><span class="line">sudo wget -O /opt/sublime_text_build_4126_x64.tar.xz https://download.sublimetext.com/sublime_text_build_4126_x64.tar.xz</span><br><span class="line"></span><br><span class="line"># install</span><br><span class="line">cd /opt &amp;&amp; sudo tar -xvf sublime_text_build_4126_x64.tar.xz</span><br><span class="line">sudo cp /opt/sublime_text/sublime_text.desktop /usr/share/applications</span><br><span class="line">sudo ln -s /opt/sublime_text/sublime_text /usr/bin/sublime</span><br><span class="line"></span><br><span class="line"># 破解</span><br><span class="line">1、打开浏览器进入网站 https://hexed.it</span><br><span class="line">2、打开sublime text4安装目录选择文件sublime_text</span><br><span class="line">3、搜索 80 78 05 00 0f 94 c1 更改为 c6 40 05 01 48 85 c9 (第一个匹配到的)</span><br><span class="line">4、保存文件命名为sublime_text并替换原文件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除某些包导致无法进入桌面"><a href="#删除某些包导致无法进入桌面" class="headerlink" title="删除某些包导致无法进入桌面"></a>删除某些包导致无法进入桌面</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Manjaro更新之后进不去桌面的原因：</span><br><span class="line">可能是在软件包管理器开了移除不需要的依赖，导致软件包管理器自动移除依赖</span><br><span class="line">查看日志：/var/log/pacman.log</span><br><span class="line">cat pacman.log | grep removed  | cut -d &#x27; &#x27; -f 4</span><br><span class="line">cat pacman.log | grep removed | cut -d &#x27; &#x27; -f 4 &gt; tmp.txt</span><br><span class="line">pacaur -S `cat tmp.txt`</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除命令行时有滴滴滴的声音"><a href="#删除命令行时有滴滴滴的声音" class="headerlink" title="删除命令行时有滴滴滴的声音"></a>删除命令行时有滴滴滴的声音</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 在命令行输入以下代码即可解决。</span><br><span class="line">sudo rmmod pcspkr</span><br><span class="line"></span><br><span class="line">cat &gt; /etc/modprobe.d/nobeep.conf&lt;&lt;EOF</span><br><span class="line">blacklist pcspkr</span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="wechat-无法指定文件路径"><a href="#wechat-无法指定文件路径" class="headerlink" title="wechat 无法指定文件路径"></a>wechat 无法指定文件路径</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 安装最新版的deepin-wine-wechat后，打开提示修改默认文件路径，无法修改，总是提示请选择一个不一样的文件夹</span><br><span class="line"># 安装另一个版本微信</span><br><span class="line">yay -S com.qq.weixin.spark</span><br><span class="line"></span><br><span class="line"># 安装后输入框不能显示中文，尝试安装deepin-wine-binfmt</span><br><span class="line">sudo pacman -S deepin-wine-binfmt</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看内存类型"><a href="#查看内存类型" class="headerlink" title="查看内存类型"></a>查看内存类型</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dmidecode -t memory</span><br></pre></td></tr></table></figure>
+
+<h3 id="清理无用软件包"><a href="#清理无用软件包" class="headerlink" title="清理无用软件包"></a>清理无用软件包</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 清除系统中无用的包</span><br><span class="line">sudo pacman -R $(pacman -Qdtq)</span><br><span class="line"># 清除已下载的安装包</span><br><span class="line">sudo pacman -Scc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="欢迎屏幕"><a href="#欢迎屏幕" class="headerlink" title="欢迎屏幕"></a>欢迎屏幕</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">系统设置 -&gt; 外观 -&gt; 欢迎屏幕</span><br><span class="line">主题：Snowy Night Miku</span><br></pre></td></tr></table></figure>
+
+<h3 id="桌面特效"><a href="#桌面特效" class="headerlink" title="桌面特效"></a>桌面特效</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">系统设置 -&gt; 工作区 -&gt; 工作区行为 -&gt; 桌面特效 -&gt; 窗口打开关闭动效</span><br><span class="line">渐入渐出</span><br></pre></td></tr></table></figure>
+
+<h3 id="挂载磁盘"><a href="#挂载磁盘" class="headerlink" title="挂载磁盘"></a>挂载磁盘</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># 查看分区</span><br><span class="line">sudo df -lh</span><br><span class="line"># 查看磁盘</span><br><span class="line">sudo fdisk -l</span><br><span class="line"># sudo umount  [磁盘路径]</span><br><span class="line">sudo umount /dev/sdb</span><br><span class="line"># 将/dev/sdb1格式化为ext4类型</span><br><span class="line">sudo mkfs.ext4  /dev/sdb</span><br><span class="line"># 在根目录创建一个存放目录</span><br><span class="line">#sudo mkdir /[目录名]</span><br><span class="line">sudo mkdir /media</span><br><span class="line">sudo chmod 755 /media</span><br><span class="line">sudo chown -R murray:murray /media</span><br><span class="line"># 挂在分区</span><br><span class="line">#sudo mount /dev/sdb /[目录名]</span><br><span class="line">sudo mount /dev/sdb /media</span><br><span class="line"># 设置开机自动挂载</span><br><span class="line">ls -al /dev/disk/by-uuid</span><br><span class="line"># 编辑/etc/fstab</span><br><span class="line">UUID=刚刚复制的UUID /media ext defaults 0 0</span><br><span class="line"># 生效</span><br><span class="line">systemctl daemon-reload</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Chrome-无法启动"><a href="#Chrome-无法启动" class="headerlink" title="Chrome 无法启动"></a>Chrome 无法启动</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 启动chrome无响应</span><br><span class="line"># 命令行中启动发现出现下面错误提示：</span><br><span class="line">3131:3131:1214/122606.451254:ERROR:process_singleton_posix.cc(353)] 其他计算机 (hp840g3) 的另一个 Google Chrome 进程 (9184) 好像正在使用此个人资料。Chrome 已锁定此个人资料以防止其受损。如</span><br><span class="line">果您确定其他进程目前未使用此个人资料，请为其解锁并重新启动 Chrome。</span><br><span class="line">[3131:3131:1214/122606.451356:ERROR:message_box_dialog.cc(146)] Unable to show a dialog outside the UI thread message loop: Google Chrome - 其他计算机 (hp840g3) 的另一个 Google Chrome 进程</span><br><span class="line">(9184) 好像正在使用此个人资料。Chrome 已锁定此个人资料以防止其受损。如果您确定其他进程目前未使用此个人资料，请为其解锁并重新启动 Chrome。</span><br><span class="line"></span><br><span class="line"># 分析</span><br><span class="line">显然，上面的错误信息告诉我们，chrome会记录我们在计算机上的操作数据在本地，</span><br><span class="line">然后我们修改主机名后，导致老数据被锁住了，这样新的主机名下chrome无法获取用户对应的浏览器数据，</span><br><span class="line">因此chrome无法正常启动，并且在UI上还无法看到相关错误，导致假死现象出现。</span><br><span class="line"></span><br><span class="line"># 解决</span><br><span class="line">cd ~/.config</span><br><span class="line">sudo rm -rf ./google-chrome×</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Murray</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.rainbowrise.top/2023/03/28/manjaro%E7%AC%94%E8%AE%B0/">https://www.rainbowrise.top/2023/03/28/manjaro%E7%AC%94%E8%AE%B0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Murray</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/Manjaro/">
+                                    <span class="chip bg-color">Manjaro</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NTE3MC8zMTYzNw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/04/02/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="浏览器插件">
+                        
+                        <span class="card-title">浏览器插件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Brower/" class="post-category">
+                                    Brower
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Brower/">
+                        <span class="chip bg-color">Brower</span>
+                    </a>
+                    
+                    <a href="/tags/Plugin/">
+                        <span class="chip bg-color">Plugin</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/01/19/Docker%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Docker笔记">
+                        
+                        <span class="card-title">Docker笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Docker/" class="post-category">
+                                    Docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 马瑞个人笔记<br />'
+            + '文章作者: Murray<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2024</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">Murray</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                &nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                &nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            
+            <br><span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "08";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            
+            <br><span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备2021006498号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sunglowrise" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:sunglowrise@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/ma-liang-19-36" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/ma-liang-19-36" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

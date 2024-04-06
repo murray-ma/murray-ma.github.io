@@ -383,49 +383,53 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="腾讯云-CentOS-搭建Hexo静态博客"><a href="#腾讯云-CentOS-搭建Hexo静态博客" class="headerlink" title="腾讯云(CentOS)搭建Hexo静态博客"></a>腾讯云(CentOS)搭建Hexo静态博客</h2><h3 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h3><p>Hexo是基于Node.js的一个博客框架，安装Hexo前需要安装Node.js，也要安装 git，因为 Hexo 开源且基于 Node.js 环境，所以大量主题和设置需要通过 git 完成。</p>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install git gcc gcc-c++ curl wget</span><br></pre></td></tr></table></figure>
+                <h2 id="腾讯云-CentOS-搭建-Hexo-静态博客"><a href="#腾讯云-CentOS-搭建-Hexo-静态博客" class="headerlink" title="腾讯云(CentOS)搭建 Hexo 静态博客"></a>腾讯云(CentOS)搭建 Hexo 静态博客</h2><h3 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h3><p>Hexo 是基于 Node.js 的一个博客框架，安装 Hexo 前需要安装 Node.js，也要安装 git，因为 Hexo 开源且基于 Node.js 环境，所以大量主题和设置需要通过 git 完成。</p>
+<h3 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install git gcc gcc-c++ curl wget</span><br></pre></td></tr></table></figure>
 
-<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>Hexo官方文档使用cURL和Wget获取nvm（Node.js管理器）来安装Node.js，但腾讯云基础服务器1M/s的带宽下载太慢，推荐使用yum进行安装。</p>
+<h3 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><p>Hexo 官方文档使用 cURL 和 Wget 获取 nvm（Node.js 管理器）来安装 Node.js，但腾讯云基础服务器 1M/s 的带宽下载太慢，推荐使用 yum 进行安装。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># yum install -y nodejs</span><br><span class="line"># npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>使用npm安装Hexo：</p>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>使用 npm 安装 Hexo：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># npm install -g hexo-cli</span><br><span class="line"># npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>注：<br>第一句是安装hexo，第二句是安装hexo部署到git page的deployer，两个都需要安装</p>
-<h3 id="新建用户（可忽略）"><a href="#新建用户（可忽略）" class="headerlink" title="新建用户（可忽略）"></a>新建用户（可忽略）</h3><p>安装Hexo完成后，执行hexo init <folder>命令即可初始化Hexo框架。但此时用户默认是root，之后通过域名访问站点文件夹时，需要开放root用户的部分权限（755），如果不希望开放此权限，可以新建用户在其家目录建立站点文件夹。</p>
-<h4 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h4><p>-m选项表示生成用户主目录</p>
+
+<p>注：<br>第一句是安装 hexo，第二句是安装 hexo 部署到 git page 的 deployer，两个都需要安装</p>
+<h3 id="新建用户（可忽略）"><a href="#新建用户（可忽略）" class="headerlink" title="新建用户（可忽略）"></a>新建用户（可忽略）</h3><p>安装 Hexo 完成后，执行 hexo init <folder>命令即可初始化 Hexo 框架。但此时用户默认是 root，之后通过域名访问站点文件夹时，需要开放 root 用户的部分权限（755），如果不希望开放此权限，可以新建用户在其家目录建立站点文件夹。</p>
+<h4 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h4><p>-m 选项表示生成用户主目录</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># useradd -m murray</span><br></pre></td></tr></table></figure>
 
 <h4 id="添加密码"><a href="#添加密码" class="headerlink" title="添加密码"></a>添加密码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># passwd murray</span><br></pre></td></tr></table></figure>
 
-<h4 id="赋予sudo权限"><a href="#赋予sudo权限" class="headerlink" title="赋予sudo权限"></a>赋予sudo权限</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># yum install -y vim</span><br><span class="line"># vim /etc/sudoers</span><br></pre></td></tr></table></figure>
+<h4 id="赋予-sudo-权限"><a href="#赋予-sudo-权限" class="headerlink" title="赋予 sudo 权限"></a>赋予 sudo 权限</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># yum install -y vim</span><br><span class="line"># vim /etc/sudoers</span><br></pre></td></tr></table></figure>
 
-<p>/etc/sudoers文件97行左右修改成如下格式：（:wq!退出）</p>
+<p>/etc/sudoers 文件 97 行左右修改成如下格式：（:wq!退出）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## Allow root to run any commands anywhere</span><br><span class="line">root    ALL=(ALL)   ALL</span><br><span class="line">murray  ALL=(ALL)   ALL</span><br></pre></td></tr></table></figure>
 
 <h4 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># su murray</span><br><span class="line">$ cd ~</span><br></pre></td></tr></table></figure>
 
 <h4 id="创建站点文件夹"><a href="#创建站点文件夹" class="headerlink" title="创建站点文件夹"></a>创建站点文件夹</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir Codes</span><br><span class="line">$ cd Codes</span><br></pre></td></tr></table></figure>
 
-<h3 id="搭建Hexo博客"><a href="#搭建Hexo博客" class="headerlink" title="搭建Hexo博客"></a>搭建Hexo博客</h3><h4 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir blog</span><br><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
+<h3 id="搭建-Hexo-博客"><a href="#搭建-Hexo-博客" class="headerlink" title="搭建 Hexo 博客"></a>搭建 Hexo 博客</h3><h4 id="初始化-Hexo"><a href="#初始化-Hexo" class="headerlink" title="初始化 Hexo"></a>初始化 Hexo</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir blog</span><br><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
 
 <h4 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd blog</span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<h4 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install -y nginx</span><br></pre></td></tr></table></figure>
+<h4 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install -y nginx</span><br></pre></td></tr></table></figure>
 
-<h4 id="配置server"><a href="#配置server" class="headerlink" title="配置server"></a>配置server</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
-<p>http块的server部分root后值修改为/home/murray/Codes/blog/public</p>
-<h4 id="启动Nginx"><a href="#启动Nginx" class="headerlink" title="启动Nginx"></a>启动Nginx</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service nginx start</span><br></pre></td></tr></table></figure>
-<h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><p>进入域名管理后，点击新手快捷设置,输入云主机公网IP，会自动设置两条记录，@和www，即可通过直接访问域名（murray.me），或添加www（<a target="_blank" rel="noopener" href="http://www.murray.me),来访问博客./">www.murray.me），来访问博客。</a></p>
-<h3 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h3><p>由于权限问题，此时访问域名会返回403错误——服务器上文件或目录拒绝访问。<br>修改博客根目录为755（rwxr-xr-x）</p>
+<h4 id="配置-server"><a href="#配置-server" class="headerlink" title="配置 server"></a>配置 server</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>http 块的 server 部分 root 后值修改为/home/murray/Codes/blog/public</p>
+<h4 id="启动-Nginx"><a href="#启动-Nginx" class="headerlink" title="启动 Nginx"></a>启动 Nginx</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service nginx start</span><br></pre></td></tr></table></figure>
+
+<h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><p>进入域名管理后，点击新手快捷设置,输入云主机公网 IP，会自动设置两条记录，@和 www，即可通过直接访问域名（murray.me），或添加 www（<a target="_blank" rel="noopener" href="http://www.murray.me),来访问博客./">www.murray.me），来访问博客。</a></p>
+<h3 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h3><p>由于权限问题，此时访问域名会返回 403 错误——服务器上文件或目录拒绝访问。<br>修改博客根目录为 755（rwxr-xr-x）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chmod -R 755 /home/murray</span><br></pre></td></tr></table></figure>
+
 <p>再次访问域名，即可进入博客。</p>
-<h3 id="修复Hexo分类与标签无法显示"><a href="#修复Hexo分类与标签无法显示" class="headerlink" title="修复Hexo分类与标签无法显示"></a>修复Hexo分类与标签无法显示</h3><h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">① 新建一个页面，命名为 tags 。命令如下：</span><br><span class="line">$ hexo new page &quot;tags&quot;</span><br><span class="line">② 编辑刚新建的页面，将页面的类型设置为 tags ，主题将自动为这个页面显示标签云。页面内容如下：</span><br><span class="line">---</span><br><span class="line">title: Murray Tag</span><br><span class="line">date: 2018-05-12 16:53:23</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">comments: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h3 id="修复-Hexo-分类与标签无法显示"><a href="#修复-Hexo-分类与标签无法显示" class="headerlink" title="修复 Hexo 分类与标签无法显示"></a>修复 Hexo 分类与标签无法显示</h3><h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">① 新建一个页面，命名为 tags 。命令如下：</span><br><span class="line">$ hexo new page &quot;tags&quot;</span><br><span class="line">② 编辑刚新建的页面，将页面的类型设置为 tags ，主题将自动为这个页面显示标签云。页面内容如下：</span><br><span class="line">---</span><br><span class="line">title: Murray Tag</span><br><span class="line">date: 2018-05-12 16:53:23</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">comments: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
 <p>注：如果有启用多说 或者 Disqus 评论，默认页面也会带有评论，需要关闭的话，请添加字段 comments 并将值设置为 false。</p>
 <h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">① 新建一个页面，命名为 categories 。命令如下：</span><br><span class="line">$ hexo new page &quot;categories&quot;</span><br><span class="line">② 编辑刚新建的页面，将页面的类型设置为 categories，主题将自动为这个页面显示标签云。页面内容如下：</span><br><span class="line">---</span><br><span class="line">title: Murray Categories</span><br><span class="line">date: 2018-05-12 17:06:37</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">comments: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
-
-<p>参考资料<br>Hexo官方文档：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
+<p>参考资料<br>Hexo 官方文档：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
 
                 
             </div>
@@ -693,13 +697,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/09/08/Hexo%E5%8D%9A%E5%AE%A2%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">
+                <a href="/2020/09/08/BlueLake%20%E4%B8%BB%E9%A2%98%20Hexo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Hexo博客基本用法">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="BlueLake 主题 Hexo">
                         
-                        <span class="card-title">Hexo博客基本用法</span>
+                        <span class="card-title">BlueLake 主题 Hexo</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

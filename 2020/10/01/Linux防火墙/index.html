@@ -379,15 +379,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="iptables防火墙"><a href="#iptables防火墙" class="headerlink" title="iptables防火墙"></a>iptables防火墙</h3><ul>
-<li>常用命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">service iptables start <span class="comment">#开启防火墙 </span></span><br><span class="line">service iptables restart <span class="comment">#重启防火墙</span></span><br><span class="line">service iptables stop <span class="comment">#关闭防火墙</span></span><br><span class="line">service iptables status <span class="comment">#查看防火墙状态 </span></span><br><span class="line"></span><br><span class="line">chkconfig iptables on <span class="comment">#设置防火墙开机启动</span></span><br><span class="line">chkconfig iptables off <span class="comment">#禁止开机启动防火墙</span></span><br><span class="line"></span><br><span class="line">iptables -L -n <span class="comment">#查看当前所有的iptables配置</span></span><br></pre></td></tr></table></figure>
-
-</li>
+                <h3 id="iptables-防火墙"><a href="#iptables-防火墙" class="headerlink" title="iptables 防火墙"></a>iptables 防火墙</h3><ul>
+<li>常用命令</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">service iptables start <span class="comment">#开启防火墙</span></span><br><span class="line">service iptables restart <span class="comment">#重启防火墙</span></span><br><span class="line">service iptables stop <span class="comment">#关闭防火墙</span></span><br><span class="line">service iptables status <span class="comment">#查看防火墙状态</span></span><br><span class="line"></span><br><span class="line">chkconfig iptables on <span class="comment">#设置防火墙开机启动</span></span><br><span class="line">chkconfig iptables off <span class="comment">#禁止开机启动防火墙</span></span><br><span class="line"></span><br><span class="line">iptables -L -n <span class="comment">#查看当前所有的iptables配置</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>列出指定端口的进程：</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i tcp:80 </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i tcp:80</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>列出所有端口：</p>
@@ -396,34 +396,37 @@
 
 <ul>
 <li>开放端口<blockquote>
-<p>开启端口（以80端口为例）</p>
+<p>开启端口（以 80 端口为例）</p>
 </blockquote>
+</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1：</span></span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT <span class="comment"># 写入修改</span></span><br><span class="line">/etc/init.d/iptables save   <span class="comment"># 保存修改</span></span><br><span class="line">service iptables restart    <span class="comment"># 重启防火墙，修改生效</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2：</span></span><br><span class="line"><span class="comment"># 编辑防火墙配置文件</span></span><br><span class="line">vim /etc/sysconfig/iptables</span><br><span class="line"><span class="comment"># 在配置文件加入如下语句</span></span><br><span class="line">-A INPUT -p tcp -m state –state NEW -m tcp –dport 80 -j ACCEPT <span class="comment"># 添加规则</span></span><br><span class="line"><span class="comment"># 保存iptables配置</span></span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure>
 
-
-</li>
+<h3 id="firewall-防火墙"><a href="#firewall-防火墙" class="headerlink" title="firewall 防火墙"></a>firewall 防火墙</h3><ul>
+<li>常用命令</li>
 </ul>
-<h3 id="firewall防火墙"><a href="#firewall防火墙" class="headerlink" title="firewall防火墙"></a>firewall防火墙</h3><ul>
-<li><p>常用命令</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld.service  # 开启防火墙firewall</span><br><span class="line">systemctl stop firewalld.service  # 停止防火墙firewall</span><br><span class="line">systemctl restart firewalld.service  # 重启防火墙firewall</span><br><span class="line">systemctl disable firewalld.service # 禁止防火墙firewall开机启动</span><br><span class="line">firewall-cmd --state # 查看默认防火墙状态</span><br><span class="line">chkconfig iptables on # 设置防火墙开机启动</span><br><span class="line">chkconfig iptables off # 禁止开机启动防火墙</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>防火墙和端口配置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查看已经开放的端口：</span><br><span class="line">firewall-cmd --list-ports</span><br><span class="line"># 查看端口：</span><br><span class="line">netstat -anp | grep 8080</span><br><span class="line"># 列出指定端口的进程：</span><br><span class="line">lsof -i tcp:80 </span><br><span class="line"># 列出所有端口：</span><br><span class="line">netstat -ntlp</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>开启端口：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1：</span></span><br><span class="line">firewall-cmd --query-port=80/tcp</span><br><span class="line">firewall-cmd --add-port=80/tcp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2：</span></span><br><span class="line"><span class="comment"># 修改防火墙配置文件： </span></span><br><span class="line">vim /etc/sysconfig/iptables</span><br><span class="line"><span class="comment"># 加入端口配置</span></span><br><span class="line">-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 6379 -j ACCEPT </span><br><span class="line">-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 6379:7000 -j ACCEPT  //开放6379到7000之间的端口</span><br><span class="line"></span><br><span class="line">service iptables save</span><br><span class="line">service iptables restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启防火墙</span></span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-</li>
+<ul>
+<li>防火墙和端口配置</li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查看已经开放的端口：</span><br><span class="line">firewall-cmd --list-ports</span><br><span class="line"># 查看端口：</span><br><span class="line">netstat -anp | grep 8080</span><br><span class="line"># 列出指定端口的进程：</span><br><span class="line">lsof -i tcp:80</span><br><span class="line"># 列出所有端口：</span><br><span class="line">netstat -ntlp</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开启端口：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1：</span></span><br><span class="line">firewall-cmd --query-port=80/tcp</span><br><span class="line">firewall-cmd --add-port=80/tcp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2：</span></span><br><span class="line"><span class="comment"># 修改防火墙配置文件：</span></span><br><span class="line">vim /etc/sysconfig/iptables</span><br><span class="line"><span class="comment"># 加入端口配置</span></span><br><span class="line">-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 6379 -j ACCEPT</span><br><span class="line">-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 6379:7000 -j ACCEPT  //开放6379到7000之间的端口</span><br><span class="line"></span><br><span class="line">service iptables save</span><br><span class="line">service iptables restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启防火墙</span></span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h3 id="ufw-防火墙"><a href="#ufw-防火墙" class="headerlink" title="ufw 防火墙"></a>ufw 防火墙</h3><ul>
-<li><p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/bethal/p/5363492.html">https://www.cnblogs.com/bethal/p/5363492.html</a></p>
-</li>
-<li><p>常用操作</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status ufw  # 显示防火墙和端口的侦听状态</span><br><span class="line">sudo systemctl start ufw  # 开启防火墙</span><br><span class="line">sudo systemctl stop ufw  # 关闭防火墙</span><br><span class="line">sudo systemctl restart ufw  # 重启防火墙</span><br><span class="line"></span><br><span class="line">sudo systemctl enable ufw  # 开启防火墙开机启动</span><br><span class="line">sudo systemctl disable ufw  # 禁用防火墙开机启动</span><br><span class="line"></span><br><span class="line">sudo ufw logging on|off</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>开启端口</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 开启端口</span><br><span class="line">ufw allow 22</span><br><span class="line"></span><br><span class="line"># 拒绝端口</span><br><span class="line">ufw deny 80/tcp</span><br><span class="line"></span><br><span class="line"># 允许基于TCP或UDP的数据包</span><br><span class="line">sudo ufw allow 80/tcp</span><br><span class="line">sudo ufw allow http/tcp</span><br><span class="line"></span><br><span class="line"># 删除规则</span><br><span class="line">ufw delete allow 80</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/bethal/p/5363492.html">https://www.cnblogs.com/bethal/p/5363492.html</a></li>
+<li>常用操作</li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status ufw  # 显示防火墙和端口的侦听状态</span><br><span class="line">sudo systemctl start ufw  # 开启防火墙</span><br><span class="line">sudo systemctl stop ufw  # 关闭防火墙</span><br><span class="line">sudo systemctl restart ufw  # 重启防火墙</span><br><span class="line"></span><br><span class="line">sudo systemctl enable ufw  # 开启防火墙开机启动</span><br><span class="line">sudo systemctl disable ufw  # 禁用防火墙开机启动</span><br><span class="line"></span><br><span class="line">sudo ufw logging on|off</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开启端口</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 开启端口</span><br><span class="line">ufw allow 22</span><br><span class="line"></span><br><span class="line"># 拒绝端口</span><br><span class="line">ufw deny 80/tcp</span><br><span class="line"></span><br><span class="line"># 允许基于TCP或UDP的数据包</span><br><span class="line">sudo ufw allow 80/tcp</span><br><span class="line">sudo ufw allow http/tcp</span><br><span class="line"></span><br><span class="line"># 删除规则</span><br><span class="line">ufw delete allow 80</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
                 
             </div>

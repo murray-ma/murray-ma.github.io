@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Mysql/">
                                 <span class="chip bg-color">Mysql</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -344,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -383,26 +383,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="MySQL备份和还原是利用mysqldump、mysql和source命令来完成的"><a href="#MySQL备份和还原是利用mysqldump、mysql和source命令来完成的" class="headerlink" title="MySQL备份和还原是利用mysqldump、mysql和source命令来完成的"></a>MySQL备份和还原是利用mysqldump、mysql和source命令来完成的</h4><h5 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h5><ul>
-<li>复制表结构<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tableName_new LIKE databaseName.tableName;</span><br></pre></td></tr></table></figure></li>
-<li>复制表数据<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO tableName_new SELECT * FROM databaseName.tableName;</span><br></pre></td></tr></table></figure>
-
-</li>
+                <h4 id="MySQL-备份和还原是利用-mysqldump、mysql-和-source-命令来完成的"><a href="#MySQL-备份和还原是利用-mysqldump、mysql-和-source-命令来完成的" class="headerlink" title="MySQL 备份和还原是利用 mysqldump、mysql 和 source 命令来完成的"></a>MySQL 备份和还原是利用 mysqldump、mysql 和 source 命令来完成的</h4><h5 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h5><ul>
+<li>复制表结构</li>
 </ul>
-<h5 id="方法二（不会复制主键、索引，as可省略）"><a href="#方法二（不会复制主键、索引，as可省略）" class="headerlink" title="方法二（不会复制主键、索引，as可省略）"></a>方法二（不会复制主键、索引，as可省略）</h5><ul>
-<li>复制表结构和数据<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tableName_new  as SELECT * FROM databaseName.tableName;</span><br></pre></td></tr></table></figure></li>
-<li>复制表结构<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tableName_new  as SELECT * FROM databaseName.tableName WHERE 1=0;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tableName_new LIKE databaseName.tableName;</span><br></pre></td></tr></table></figure>
 
-
-</li>
+<ul>
+<li>复制表数据</li>
 </ul>
-<h4 id="MySQL数据库的数据备份和恢复（导入和导出）命令操作语法"><a href="#MySQL数据库的数据备份和恢复（导入和导出）命令操作语法" class="headerlink" title="MySQL数据库的数据备份和恢复（导入和导出）命令操作语法"></a>MySQL数据库的数据备份和恢复（导入和导出）命令操作语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">① 导出数据库中所有表结构；只导出表结构, 不导出表中的数据</span><br><span class="line">mysqldump --opt -d 数据库名称 -u用户名 -p密码 &gt; 保存文件路径</span><br><span class="line"></span><br><span class="line">② 导出数据库中所有表中的数据；只导出表中的数据，不导出表结构</span><br><span class="line">mysqldump -t 数据库名称 -u用户名 -p密码 &gt; 保存文件路径</span><br><span class="line"></span><br><span class="line">③ 导出数据库中所有的表结构和数据；导出表结构和数据</span><br><span class="line">mysqldump 数据库名称 -u用户名 -p密码 &gt; 保存文件路径</span><br><span class="line"></span><br><span class="line">④ 导出指定表的结构和数据</span><br><span class="line">mysqldump -u用户名 -p密码 -B 数据库名称 --table 表名 &gt; 保存文件路径</span><br><span class="line"></span><br><span class="line">⑤ 导出指定表数据，只导出数据，不导出表结构</span><br><span class="line">mysqldump -t 数据库名称 -u用户名 -p密码 --table 表名 &gt; 保存文件路径</span><br><span class="line"></span><br><span class="line">⑥ 将备份文件导入到数据库</span><br><span class="line">mysql -u用户名 -p密码 数据库名称 &lt; 用于恢复数据库的数据文件路径</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO tableName_new SELECT * FROM databaseName.tableName;</span><br></pre></td></tr></table></figure>
+
+<h5 id="方法二（不会复制主键、索引，as-可省略）"><a href="#方法二（不会复制主键、索引，as-可省略）" class="headerlink" title="方法二（不会复制主键、索引，as 可省略）"></a>方法二（不会复制主键、索引，as 可省略）</h5><ul>
+<li>复制表结构和数据</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tableName_new  as SELECT * FROM databaseName.tableName;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>复制表结构</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tableName_new  as SELECT * FROM databaseName.tableName WHERE 1=0;</span><br></pre></td></tr></table></figure>
+
+<h4 id="MySQL-数据库的数据备份和恢复（导入和导出）命令操作语法"><a href="#MySQL-数据库的数据备份和恢复（导入和导出）命令操作语法" class="headerlink" title="MySQL 数据库的数据备份和恢复（导入和导出）命令操作语法"></a>MySQL 数据库的数据备份和恢复（导入和导出）命令操作语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">① 导出数据库中所有表结构；只导出表结构, 不导出表中的数据</span><br><span class="line">mysqldump --opt -d 数据库名称 -u用户名 -p密码 &gt; 保存文件路径</span><br><span class="line"></span><br><span class="line">② 导出数据库中所有表中的数据；只导出表中的数据，不导出表结构</span><br><span class="line">mysqldump -t 数据库名称 -u用户名 -p密码 &gt; 保存文件路径</span><br><span class="line"></span><br><span class="line">③ 导出数据库中所有的表结构和数据；导出表结构和数据</span><br><span class="line">mysqldump 数据库名称 -u用户名 -p密码 &gt; 保存文件路径</span><br><span class="line"></span><br><span class="line">④ 导出指定表的结构和数据</span><br><span class="line">mysqldump -u用户名 -p密码 -B 数据库名称 --table 表名 &gt; 保存文件路径</span><br><span class="line"></span><br><span class="line">⑤ 导出指定表数据，只导出数据，不导出表结构</span><br><span class="line">mysqldump -t 数据库名称 -u用户名 -p密码 --table 表名 &gt; 保存文件路径</span><br><span class="line"></span><br><span class="line">⑥ 将备份文件导入到数据库</span><br><span class="line">mysql -u用户名 -p密码 数据库名称 &lt; 用于恢复数据库的数据文件路径</span><br></pre></td></tr></table></figure>
 
 <h4 id="1、导出"><a href="#1、导出" class="headerlink" title="1、导出"></a>1、导出</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">① 导出全库备份到本地的目录</span><br><span class="line">mysqldump -u$USER -p$PASSWD -h127.0.0.1 -P3306 --routines --default-character-set=utf8 --lock-all-tables --add-drop-database -A &gt; db.all.sql</span><br><span class="line"></span><br><span class="line">② 导出指定库到本地的目录(例如mysql库)</span><br><span class="line">mysqldump -u$USER -p$PASSWD -h127.0.0.1 -P3306 --routines --default-character-set=utf8 --databases mysql &gt; db.sql</span><br><span class="line"></span><br><span class="line">③ 导出某个库的表到本地的目录(例如mysql库的user表)</span><br><span class="line">mysqldump -u$USER -p$PASSWD -h127.0.0.1 -P3306 --routines --default-character-set=utf8 --tables mysql user&gt; db.table.sql</span><br><span class="line"></span><br><span class="line">④ 导出指定库的表(仅数据)到本地的目录(例如mysql库的user表,带过滤条件)</span><br><span class="line">mysqldump -u$USER -p$PASSWD -h127.0.0.1 -P3306 --routines --default-character-set=utf8 --no-create-db --no-create-info --tables mysql user --where=&quot;host=&#x27;localhost&#x27;&quot;&gt; db.table.sql</span><br><span class="line"></span><br><span class="line">⑤ 导出某个库的所有表结构</span><br><span class="line">mysqldump -u$USER -p$PASSWD -h127.0.0.1 -P3306 --routines --default-character-set=utf8 --no-data --databases mysql &gt; db.nodata.sql</span><br><span class="line"></span><br><span class="line">⑥ 导出某个查询sql的数据为txt格式文件到本地的目录(各数据值之间用&quot;制表符&quot;分隔)</span><br><span class="line">例如sql为&#x27;select user,host,password from mysql.user;&#x27;</span><br><span class="line">mysql -u$USER -p$PASSWD -h127.0.0.1 -P3306 --default-character-set=utf8 --skip-column-names -B -e &#x27;select user,host,password from mysql.user;&#x27; &gt; mysql_user.txt</span><br><span class="line"></span><br><span class="line">⑦ 导出某个查询sql的数据为txt格式文件到MySQL服务器.</span><br><span class="line">登录MySQL,将默认的制表符换成逗号.(适应csv格式文件).</span><br><span class="line">指定的路径,mysql要有写的权限.最好用tmp目录,文件用完之后,再删除!</span><br><span class="line">SELECT user,host,password FROM mysql.user INTO OUTFILE &#x27;/tmp/mysql_user.csv&#x27; FIELDS TERMINATED BY &#x27;,&#x27;;</span><br></pre></td></tr></table></figure>
 
-
 <h4 id="2、导入"><a href="#2、导入" class="headerlink" title="2、导入"></a>2、导入</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">① 恢复全库数据到MySQL,因为包含mysql库的权限表,导入完成需要执行FLUSH PRIVILEGES;命令</span><br><span class="line">第一种方法:</span><br><span class="line">mysql -u$USER -p$PASSWD -h127.0.0.1 -P3306 --default-character-set=utf8 &lt; db.all.sql</span><br><span class="line"></span><br><span class="line">第二种方法:</span><br><span class="line">登录MySQL,执行source命令,后面的文件名要用绝对路径.</span><br><span class="line">mysql&gt; source /tmp/db.all.sql;</span><br><span class="line"></span><br><span class="line">② 恢复某个库的数据(mysql库的user表)</span><br><span class="line">第一种方法:</span><br><span class="line">mysql -u$USER -p$PASSWD -h127.0.0.1 -P3306 --default-character-set=utf8 mysql &lt; db.table.sql</span><br><span class="line"></span><br><span class="line">第二种方法:</span><br><span class="line">登录MySQL,执行source命令,后面的文件名要用绝对路径.</span><br><span class="line">mysql -u$USER -p$PASSWD -h127.0.0.1 -P3306 --default-character-set=utf8</span><br><span class="line">......</span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; source /tmp/db.table.sql;</span><br><span class="line"></span><br><span class="line">③ 恢复MySQL服务器上面的txt格式文件(需要FILE权限,各数据值之间用&quot;制表符&quot;分隔)</span><br><span class="line">mysql -u$USER -p$PASSWD -h127.0.0.1 -P3306 --default-character-set=utf8</span><br><span class="line">......</span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; LOAD DATA INFILE &#x27;/tmp/mysql_user.txt&#x27; INTO TABLE user ;</span><br><span class="line"></span><br><span class="line">④ 恢复MySQL服务器上面的csv格式文件(需要FILE权限,各数据值之间用&quot;逗号&quot;分隔)</span><br><span class="line">mysql -u$USER -p$PASSWD -h127.0.0.1 -P3306 --default-character-set=utf8</span><br><span class="line">......</span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; LOAD DATA INFILE &#x27;/tmp/mysql_user.csv&#x27; INTO TABLE user FIELDS TERMINATED BY &#x27;,&#x27;;</span><br><span class="line"></span><br><span class="line">⑤ 恢复本地的txt或csv文件到MySQL</span><br><span class="line">mysql -u$USER -p$PASSWD -h127.0.0.1 -P3306 --default-character-set=utf8</span><br><span class="line">......</span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line"># txt</span><br><span class="line">mysql&gt; LOAD DATA LOCAL INFILE &#x27;/tmp/mysql_user.csv&#x27; INTO TABLE user;</span><br><span class="line"># csv</span><br><span class="line">mysql&gt; LOAD DATA LOCAL INFILE &#x27;/tmp/mysql_user.csv&#x27; INTO TABLE user FIELDS TERMINATED BY &#x27;,&#x27;;</span><br></pre></td></tr></table></figure>
-
 
 <h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">关于MySQL连接</span><br><span class="line">-u$USER 用户名</span><br><span class="line">-p$PASSWD 密码</span><br><span class="line">-h127.0.0.1 如果连接远程服务器,请用对应的主机名或者IP地址替换</span><br><span class="line">-P3306 端口</span><br><span class="line">--default-character-set=utf8 指定字符集</span><br><span class="line">关于mysql参数</span><br><span class="line">--skip-column-names 不显示数据列的名字</span><br><span class="line">-B 以批处理的方式运行mysql程序.查询结果将显示为制表符间隔格式.</span><br><span class="line">-e 执行命令后,退出</span><br><span class="line">关于mysqldump参数</span><br><span class="line">-A 全库备份</span><br><span class="line">--routines 备份存储过程和函数</span><br><span class="line">--default-character-set=utf8 设置字符集</span><br><span class="line">--lock-all-tables 全局一致性锁</span><br><span class="line">--add-drop-database 在每次执行建表语句之前,先执行DROP TABLE IF EXIST语句</span><br><span class="line">--no-create-db 不输出CREATE DATABASE语句</span><br><span class="line">--no-create-info 不输出CREATE TABLE语句</span><br><span class="line">--databases 将后面的参数都解析为库名</span><br><span class="line">--tables 第一个参数为库名 后续为表名</span><br><span class="line">关于LOAD DATA语法</span><br><span class="line">如果LOAD DATA语句不带LOCAL关键字,就在MySQL的服务器上直接读取文件,且要具有FILE权限.</span><br><span class="line">如果带LOCAL关键字,就在客户端本地读取数据文件,通过网络传到MySQL.</span><br><span class="line">LOAD DATA语句,同样被记录到binlog,不过是内部的机制.</span><br></pre></td></tr></table></figure>
 
@@ -469,12 +474,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Mysql/">
                                     <span class="chip bg-color">Mysql</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -695,8 +700,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -706,12 +711,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -748,8 +753,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -759,12 +764,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

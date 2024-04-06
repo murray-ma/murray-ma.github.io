@@ -383,75 +383,82 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="rabbitmq安装"><a href="#rabbitmq安装" class="headerlink" title="rabbitmq安装"></a>rabbitmq安装</h3><p>注意事项:</p>
+                <h3 id="rabbitmq-安装"><a href="#rabbitmq-安装" class="headerlink" title="rabbitmq 安装"></a>rabbitmq 安装</h3><p>注意事项:</p>
 <blockquote>
-<p>1.安装rabbitmq前请先安装好docker，具体安装方法参考文档&lt;&lt;docker生产安装.md&gt;&gt;。<br>2.文档中IP地址为示意地址，安装时请替换为实际生产地址。<br>3.本文档不要一次性执行一个命令框（灰色框）内的全部命令，请按照步骤说明分步执行。<br>4.文档中主机名称mq-11，mq-12，mq-13也需要根据生产环境ip设置为对应的主机名称。</p>
+<p>1.安装 rabbitmq 前请先安装好 docker，具体安装方法参考文档&lt;&lt;docker 生产安装.md&gt;&gt;。 2.文档中 IP 地址为示意地址，安装时请替换为实际生产地址。 3.本文档不要一次性执行一个命令框（灰色框）内的全部命令，请按照步骤说明分步执行。 4.文档中主机名称 mq-11，mq-12，mq-13 也需要根据生产环境 ip 设置为对应的主机名称。</p>
 </blockquote>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p><em>注意：以下操作都在3台机器上分别执行</em></p>
-<p><strong>规划机器，rabbitmq版本3.8.9</strong></p>
+<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p><em>注意：以下操作都在 3 台机器上分别执行</em></p>
+<p><strong>规划机器，rabbitmq 版本 3.8.9</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.68.11 mq-11</span><br><span class="line">192.168.68.12 mq-12</span><br><span class="line">192.168.68.13 mq-13</span><br></pre></td></tr></table></figure>
 
-<p><strong>设置主机hostname</strong></p>
+<p><strong>设置主机 hostname</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#机器192.168.68.11执行</span><br><span class="line">hostnamectl --static set-hostname  mq-11</span><br><span class="line"></span><br><span class="line">#机器192.168.68.12执行</span><br><span class="line">hostnamectl --static set-hostname  mq-12</span><br><span class="line"></span><br><span class="line">#机器192.168.68.13执行</span><br><span class="line">hostnamectl --static set-hostname  mq-13</span><br></pre></td></tr></table></figure>
-<p><strong>为每台机器创建rabbitmq账号，并设置密码</strong></p>
+
+<p><strong>为每台机器创建 rabbitmq 账号，并设置密码</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">groupadd rabbitmq</span><br><span class="line">useradd -g rabbitmq rabbitmq</span><br><span class="line">#修改账号rabbitmq密码为rabbitmq@1234，生产环境请替换为其他密码</span><br><span class="line">echo rabbitmq:rabbitmq@1234|chpasswd</span><br><span class="line"></span><br><span class="line">echo &#x27;rabbitmq     ALL=(ALL)NOPASSWD:ALL&#x27; &gt;&gt; /etc/sudoers</span><br><span class="line">sed -i &#x27;s/Defaults    requiretty/#Defaults    requiretty/g&#x27; /etc/sudoers</span><br><span class="line">cat  /etc/sudoers</span><br></pre></td></tr></table></figure>
+
 <p><strong>下载稳定版安装包</strong></p>
 <p>官方地址：<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/download.html">https://www.rabbitmq.com/download.html</a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#socat</span><br><span class="line">wget http://www.rpmfind.net/linux/centos/7.9.2009/os/x86_64/Packages/socat-1.7.3.2-2.el7.x86_64.rpm</span><br><span class="line"></span><br><span class="line">#epel</span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/epel/7/x86_64/Packages/e/epel-release-7-13.noarch.rpm</span><br><span class="line"></span><br><span class="line">#erland</span><br><span class="line">wget https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.1/erlang-23.2.1-1.el7.x86_64.rpm</span><br><span class="line"></span><br><span class="line">#rabbitmq</span><br><span class="line">wget https://dl.bintray.com/rabbitmq/all/rabbitmq-server/3.8.9/rabbitmq-server-3.8.9-1.el7.noarch.rpm</span><br><span class="line"></span><br><span class="line">#内网地址</span><br><span class="line">wget http://10.7.102.125:8000/downloads/rabbitmq/socat-1.7.3.2-2.el7.x86_64.rpm</span><br><span class="line">wget http://10.7.102.125:8000/downloads/rabbitmq/epel-release-7-13.noarch.rpm</span><br><span class="line">wget http://10.7.102.125:8000/downloads/rabbitmq/erlang-23.2.1-1.el7.x86_64.rpm</span><br><span class="line">wget http://10.7.102.125:8000/downloads/rabbitmq/rabbitmq-server-3.8.9-1.el7.noarch.rpm</span><br></pre></td></tr></table></figure>
-<h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><p><em>注意：以下操作在3台机器上都要执行</em></p>
-<p><strong>socat安装</strong></p>
+
+<h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><p><em>注意：以下操作在 3 台机器上都要执行</em></p>
+<p><strong>socat 安装</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install socat-1.7.3.2-2.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
 
-<p><strong>epel安装</strong></p>
+<p><strong>epel 安装</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install epel-release-7-13.noarch.rpm</span><br></pre></td></tr></table></figure>
 
-<p><strong>erlang安装</strong></p>
+<p><strong>erlang 安装</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install erlang-23.2.1-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
 
-<p><strong>rabbitmq安装</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -ivh rabbitmq-server-3.8.9-1.el7.noarch.rpm</span><br><span class="line">#验证是否成功：</span><br><span class="line">sudo systemctl start rabbitmq-server </span><br><span class="line">sudo systemctl status rabbitmq-server</span><br><span class="line">#停止服务：</span><br><span class="line">sudo systemctl stop rabbitmq-server</span><br></pre></td></tr></table></figure>
+<p><strong>rabbitmq 安装</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -ivh rabbitmq-server-3.8.9-1.el7.noarch.rpm</span><br><span class="line">#验证是否成功：</span><br><span class="line">sudo systemctl start rabbitmq-server</span><br><span class="line">sudo systemctl status rabbitmq-server</span><br><span class="line">#停止服务：</span><br><span class="line">sudo systemctl stop rabbitmq-server</span><br></pre></td></tr></table></figure>
 
-<p>同步.erlang.cookie文件，保持3台机器上.erlang.cookie内容一样</p>
+<p>同步.erlang.cookie 文件，保持 3 台机器上.erlang.cookie 内容一样</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#备注：官方在介绍集群的文档中提到过.erlang.cookie一般会存在两个地址：</span><br><span class="line">#第一个是$home/.erlang.cookie，第二个地方就是/var/lib/rabbitmq/.erlang.cookie</span><br></pre></td></tr></table></figure>
 
-<h4 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h4><p><em>注意：以下操作都在3台机器上分别执行</em></p>
-<p>1.修改/etc/hosts文件，添加IP和节点名称</p>
+<h4 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h4><p><em>注意：以下操作都在 3 台机器上分别执行</em></p>
+<p>1.修改/etc/hosts 文件，添加 IP 和节点名称</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#sudo vim /etc/hosts</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo cat &lt;&lt;EOF &gt;&gt; /etc/hosts</span><br><span class="line">192.168.68.11 mq-1</span><br><span class="line">192.168.68.12 mq-2</span><br><span class="line">192.168.68.13 mq-3</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat /etc/hosts</span><br></pre></td></tr></table></figure>
 
-<p>2.首先启动3个节点上的RabbitMQ服务</p>
+<p>2.首先启动 3 个节点上的 RabbitMQ 服务</p>
 <blockquote>
 <p>创建启动脚本</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/home/rabbitmq/startRabbitmq.sh</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt;  /home/rabbitmq/startRabbitmq.sh</span><br><span class="line">#!/bin/bash</span><br><span class="line">sudo systemctl start rabbitmq-server</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>创建停止脚本</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/home/rabbitmq/stopRabbitmq.sh</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt;  /home/rabbitmq/stopRabbitmq.sh</span><br><span class="line">#!/bin/bash</span><br><span class="line">sudo systemctl stop rabbitmq-server</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>创建查看状态脚本</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/home/rabbitmq/statusRabbitmq.sh</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt;  /home/rabbitmq/statusRabbitmq.sh</span><br><span class="line">#!/bin/bash</span><br><span class="line">sudo systemctl status rabbitmq-server</span><br><span class="line">sudo rabbitmqctl cluster_status</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 
 <p>启动服务</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动服务</span></span><br><span class="line">./startRabbitmq.sh</span><br><span class="line"><span class="comment">#查看各节点的集群状态</span></span><br><span class="line">./statusRabbitmq.sh</span><br></pre></td></tr></table></figure>
 
-<p>3.以mq-11为基准，将mq-12、mq-13加入到集群中，在机器mq-12，mq-13上操作如下命令(<em>以下操作只在12，13两台从机器上执行</em>)</p>
+<p>3.以 mq-11 为基准，将 mq-12、mq-13 加入到集群中，在机器 mq-12，mq-13 上操作如下命令(<em>以下操作只在 12，13 两台从机器上执行</em>)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo rabbitmqctl stop_app</span><br><span class="line">sudo rabbitmqctl reset</span><br><span class="line">sudo rabbitmqctl join_cluster rabbit@mq-1</span><br><span class="line">sudo rabbitmqctl start_app</span><br><span class="line"></span><br><span class="line"><span class="comment">#故障节点剔除</span></span><br><span class="line">rabbitmqctl  -n rabbit@mq-1  forget_cluster_node rabbit@mq-2</span><br><span class="line"><span class="comment">#重置节点数据，执行前停止rabbitmq</span></span><br><span class="line"><span class="built_in">rm</span> -rf /var/lib/rabbitmq/mnesia</span><br></pre></td></tr></table></figure>
 
-<p>4.检查集群状态(<em>以下操作在主服务器mq-11上操作</em>)</p>
+<p>4.检查集群状态(<em>以下操作在主服务器 mq-11 上操作</em>)</p>
 <blockquote>
 <p>注意：如果关闭了集群中的所有节点，确保启动时最后一个关闭的节点第一个启动。</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo rabbitmqctl cluster_status</span><br><span class="line"><span class="comment">#启动管理插件</span></span><br><span class="line">sudo rabbitmq-plugins <span class="built_in">enable</span> rabbitmq_management</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加admin用户,否则用guest登陆会报User can only log in via localhost</span></span><br><span class="line">sudo rabbitmqctl add_user admin admin</span><br><span class="line">sudo rabbitmqctl set_permissions -p / admin <span class="string">&quot;.*&quot;</span> <span class="string">&quot;.*&quot;</span> <span class="string">&quot;.*&quot;</span></span><br><span class="line">sudo rabbitmqctl set_user_tags admin administrator</span><br><span class="line"></span><br><span class="line"><span class="comment">#访问控制管理页面</span></span><br><span class="line">http://192.168.2.11:15672/</span><br></pre></td></tr></table></figure>
 
-<h4 id="设置镜像队列"><a href="#设置镜像队列" class="headerlink" title="设置镜像队列"></a>设置镜像队列</h4><p><em>注意：以下操作只在主服务器mq-11上操作</em></p>
-<p>针对每一个镜像队列都包含一个master节点和多个slave节点。如果master不工作，那么镜像队列最早的salve会升级为master。</p>
+<h4 id="设置镜像队列"><a href="#设置镜像队列" class="headerlink" title="设置镜像队列"></a>设置镜像队列</h4><p><em>注意：以下操作只在主服务器 mq-11 上操作</em></p>
+<p>针对每一个镜像队列都包含一个 master 节点和多个 slave 节点。如果 master 不工作，那么镜像队列最早的 salve 会升级为 master。</p>
 <p>镜像队列的配置主要是通过添加相应的 Policy 来完成，命令如下 ：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl set_policy [-p vhost] [--priority priority] [--apply-to apply-to] &#123;name&#125; &#123;pattern&#125; &#123;definition&#125;</span><br></pre></td></tr></table></figure>
 
@@ -461,8 +468,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rabbitmqctl set_policy -p /prod --priority 0 --apply-to queues mirror_queue &quot;^[0-9a-zA-Z]&quot; &#x27;&#123;&quot;ha-mode&quot;:&quot;all&quot;,&quot;ha-sync-mode&quot;:&quot;automatic&quot;&#125;&#x27;</span><br></pre></td></tr></table></figure>
 
 <p><strong>验证</strong></p>
-<p>使用新建的admin用户登录远程的机器 <a target="_blank" rel="noopener" href="http://192.168.2.11:15672/">http://192.168.2.11:15672/</a></p>
-<p>创建一个队列，例如以*<strong>“queue_”**<em>开头，如果管理界面能看到队列Features状态显示为</em></strong>“D HA”***说明镜像队列创建成功</p>
+<p>使用新建的 admin 用户登录远程的机器 <a target="_blank" rel="noopener" href="http://192.168.2.11:15672/">http://192.168.2.11:15672/</a></p>
+<p>创建一个队列，例如以<strong><em>“queue\</em>“_</strong>开头，如果管理界面能看到队列 Features 状态显示为<strong><em>“D HA”</em></strong>说明镜像队列创建成功</p>
 <p>安装完毕！</p>
 <p>参考： <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/IWFZBfyHaSsQFjX7oMa_Bg">https://mp.weixin.qq.com/s/IWFZBfyHaSsQFjX7oMa_Bg</a></p>
 
@@ -755,8 +762,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CICD/" class="post-category">
-                                    CICD
+                            <a href="/categories/K8S/" class="post-category">
+                                    K8S
                                 </a>
                             
                             
@@ -804,8 +811,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CICD/" class="post-category">
-                                    CICD
+                            <a href="/categories/K8S/" class="post-category">
+                                    K8S
                                 </a>
                             
                             

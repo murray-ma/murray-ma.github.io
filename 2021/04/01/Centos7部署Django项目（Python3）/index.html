@@ -383,86 +383,100 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Centos7-部署Django项目（Python3-5）"><a href="#Centos7-部署Django项目（Python3-5）" class="headerlink" title="Centos7 部署Django项目（Python3.5）"></a>Centos7 部署Django项目（Python3.5）</h3><h4 id="1、python安装"><a href="#1、python安装" class="headerlink" title="1、python安装"></a>1、python安装</h4><ul>
-<li><p>安装依赖包</p>
+                <h3 id="Centos7-部署-Django-项目（Python3-5）"><a href="#Centos7-部署-Django-项目（Python3-5）" class="headerlink" title="Centos7 部署 Django 项目（Python3.5）"></a>Centos7 部署 Django 项目（Python3.5）</h3><h4 id="1、python-安装"><a href="#1、python-安装" class="headerlink" title="1、python 安装"></a>1、python 安装</h4><ul>
+<li>安装依赖包</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall -y <span class="string">&quot;Development tools&quot;</span></span><br><span class="line">yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下载python(Python-3.5.4.tar.xz)</p>
+
+<ul>
+<li>下载 python(Python-3.5.4.tar.xz)</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.python.org/downloads/source/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解压编译</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xz -d Python-3.5.4.tar.xz</span><br><span class="line">tar -xvf Python-3.5.4.tar</span><br><span class="line"><span class="built_in">chown</span> -R root.root Python-3.5.4</span><br><span class="line"><span class="comment"># 配置、编译、安装</span></span><br><span class="line"><span class="built_in">cd</span> Python-3.5.4</span><br><span class="line">./configure </span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改python软连接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将/usr/bin/目录下的python文件备份后删除，一定要删！不删会报错</span></span><br><span class="line"><span class="built_in">mv</span> /usr/bin/python /usr/bin/python.bak  </span><br><span class="line"><span class="built_in">ln</span> –s /usr/local/bin/python3 /usr/bin/python </span><br><span class="line"></span><br><span class="line"><span class="comment"># 注：yum 安装报错 File &quot;/usr/bin/yum&quot;, line 30 except KeyboardInterrupt, e:因为yum包使用python2*等开发，修该为环境修改python3之后有问题，解决：</span></span><br><span class="line"><span class="comment"># 修改文件/usr/bin/yum、/usr/libexec/urlgrabber-ext-down头中相应python为#!/usr/bin/python2.7</span></span><br></pre></td></tr></table></figure>
 
-</li>
+<ul>
+<li>解压编译</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xz -d Python-3.5.4.tar.xz</span><br><span class="line">tar -xvf Python-3.5.4.tar</span><br><span class="line"><span class="built_in">chown</span> -R root.root Python-3.5.4</span><br><span class="line"><span class="comment"># 配置、编译、安装</span></span><br><span class="line"><span class="built_in">cd</span> Python-3.5.4</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改 python 软连接</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将/usr/bin/目录下的python文件备份后删除，一定要删！不删会报错</span></span><br><span class="line"><span class="built_in">mv</span> /usr/bin/python /usr/bin/python.bak</span><br><span class="line"><span class="built_in">ln</span> –s /usr/local/bin/python3 /usr/bin/python</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注：yum 安装报错 File &quot;/usr/bin/yum&quot;, line 30 except KeyboardInterrupt, e:因为yum包使用python2*等开发，修该为环境修改python3之后有问题，解决：</span></span><br><span class="line"><span class="comment"># 修改文件/usr/bin/yum、/usr/libexec/urlgrabber-ext-down头中相应python为#!/usr/bin/python2.7</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="2、项目部署"><a href="#2、项目部署" class="headerlink" title="2、项目部署"></a>2、项目部署</h4><ul>
-<li><p>安装setuptool：</p>
+<li>安装 setuptool：</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install setuptool</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装pip</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar zvxf pip-9.0.1.tar.gz  </span><br><span class="line"><span class="built_in">cd</span> pip-9.0.1</span><br><span class="line">python setup.py install </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装django</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pip install django</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检测：</span></span><br><span class="line"><span class="comment"># python  </span></span><br><span class="line"><span class="comment"># &gt;&gt;&gt; import django  </span></span><br><span class="line"><span class="comment"># &gt;&gt;&gt; django.get_version() </span></span><br><span class="line"><span class="comment"># 能获取到django版本信息则成功。</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>安装 pip</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar zvxf pip-9.0.1.tar.gz</span><br><span class="line"><span class="built_in">cd</span> pip-9.0.1</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装 django</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pip install django</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检测：</span></span><br><span class="line"><span class="comment"># python</span></span><br><span class="line"><span class="comment"># &gt;&gt;&gt; import django</span></span><br><span class="line"><span class="comment"># &gt;&gt;&gt; django.get_version()</span></span><br><span class="line"><span class="comment"># 能获取到django版本信息则成功。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="centos7-apache-httpd-安装和配置-django-项目"><a href="#centos7-apache-httpd-安装和配置-django-项目" class="headerlink" title="centos7 apache httpd 安装和配置 django 项目"></a>centos7 apache httpd 安装和配置 django 项目</h3><h4 id="1、httpd-服务"><a href="#1、httpd-服务" class="headerlink" title="1、httpd 服务"></a>1、httpd 服务</h4><ul>
+<li>安装<blockquote>
+<p>apache 在 centos7 中是 Apache HTTP server，httpd 的解释就是 Apache HTTP Server。要安装 apache 就是要安装 httpd。</p>
+</blockquote>
 </li>
 </ul>
-<h3 id="centos7-apache-httpd安装和配置django项目"><a href="#centos7-apache-httpd安装和配置django项目" class="headerlink" title="centos7 apache httpd安装和配置django项目"></a>centos7 apache httpd安装和配置django项目</h3><h4 id="1、httpd服务"><a href="#1、httpd服务" class="headerlink" title="1、httpd服务"></a>1、httpd服务</h4><ul>
-<li><p>安装</p>
-<blockquote>
-<p>apache在centos7中是Apache HTTP server，httpd的解释就是Apache HTTP Server。要安装apache就是要安装httpd。</p>
-</blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install httpd</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置httpd服务开机启动:</p>
+
+<ul>
+<li>设置 httpd 服务开机启动:</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/sbin/chkconfig httpd on</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动httpd服务</p>
+
+<ul>
+<li>启动 httpd 服务</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/sbin/service httpd start</span><br><span class="line"><span class="comment"># 访问IP，测试httpd是否安装成功。</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置</p>
-<blockquote>
-<p>httpd默认的配置文件目录为 /etc/httpd/</p>
+
+<ul>
+<li>配置<blockquote>
+<p>httpd 默认的配置文件目录为 /etc/httpd/</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> /etc/httpd/</span><br><span class="line"><span class="comment"># conf  conf.d  conf.modules.d  logs  modules  run</span></span><br><span class="line"><span class="comment"># 主配置文件是/etc/httpd/conf/httpd.conf。</span></span><br><span class="line"><span class="comment"># 配置存储在的/etc/httpd/conf.d/目录。</span></span><br></pre></td></tr></table></figure></li>
-<li><p>*主文件配置**</p>
 </li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> /etc/httpd/</span><br><span class="line"><span class="comment"># conf  conf.d  conf.modules.d  logs  modules  run</span></span><br><span class="line"><span class="comment"># 主配置文件是/etc/httpd/conf/httpd.conf。</span></span><br><span class="line"><span class="comment"># 配置存储在的/etc/httpd/conf.d/目录。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>主文件配置</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#服务器根目录</span></span><br><span class="line">ServerRoot <span class="string">&quot;/etc/httpd&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#端口</span></span><br><span class="line">Listen 80</span><br><span class="line"></span><br><span class="line"><span class="comment">#域名+端口来标识服务器，没有域名用ip也可以</span></span><br><span class="line"><span class="comment">#ServerName www.example.com:80</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#不许访问根目录</span></span><br><span class="line">&lt;Directory /&gt;</span><br><span class="line">    AllowOverride none</span><br><span class="line">    Require all denied</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 文档目录</span></span><br><span class="line">DocumentRoot <span class="string">&quot;/var/www/html&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对 /var/www目录访问限制</span></span><br><span class="line">&lt;Directory <span class="string">&quot;/var/www&quot;</span>&gt;</span><br><span class="line">    AllowOverride None</span><br><span class="line">    <span class="comment"># Allow open access:</span></span><br><span class="line">    Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对/var/www/html目录访问限制</span></span><br><span class="line">&lt;Directory <span class="string">&quot;/var/www/html&quot;</span>&gt;</span><br><span class="line">   Options Indexes FollowSymLinks</span><br><span class="line">   AllowOverride None</span><br><span class="line">   Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认编码</span></span><br><span class="line">AddDefaultCharset UTF-8</span><br><span class="line"></span><br><span class="line"><span class="comment">#EnableMMAP off</span></span><br><span class="line">EnableSendfile on</span><br><span class="line"></span><br><span class="line"><span class="comment"># include进来其它配置文件</span></span><br><span class="line"></span><br><span class="line">IncludeOptional conf.d/*.conf</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><strong>下载配置mod_wsgi</strong></p>
+<p><strong>下载配置 mod_wsgi</strong></p>
 <blockquote>
-<p>安装mod_wsgi前先进行apache的apxs扩展，http-devel 是为了apxs,yum后可以whereis apxs去寻找他，然后后边编译使用。</p>
+<p>安装 mod_wsgi 前先进行 apache 的 apxs 扩展，http-devel 是为了 apxs,yum 后可以 whereis apxs 去寻找他，然后后边编译使用。</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y httpd-devel</span><br></pre></td></tr></table></figure>
 
-<p><strong>安装mod_wsgi</strong></p>
+<p><strong>安装 mod_wsgi</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mod_wsgi</span><br></pre></td></tr></table></figure>
 
-<p><strong>在httpd.conf中增加下面配置</strong></p>
+<p><strong>在 httpd.conf 中增加下面配置</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LoadModule  wsgi_module modules/mod_wsgi.so <span class="comment"># 该配置用来连接django.wsgi，使工程被apache加载。</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="配置django-wsgi"><a href="#配置django-wsgi" class="headerlink" title="配置django wsgi"></a>配置django wsgi</h4><blockquote>
-<p>在项目目录下新建wsgi，里面新建django.wsgi，内容如下:</p>
+<h4 id="配置-django-wsgi"><a href="#配置-django-wsgi" class="headerlink" title="配置 django wsgi"></a>配置 django wsgi</h4><blockquote>
+<p>在项目目录下新建 wsgi，里面新建 django.wsgi，内容如下:</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> django.core.handlers.wsgi</span><br><span class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add this file path to sys.path in order to import settings</span></span><br><span class="line">sys.path.insert(<span class="number">0</span>, os.path.join(os.path.dirname(os.path.realpath(__file__)), <span class="string">&#x27;..&#x27;</span>))</span><br><span class="line"></span><br><span class="line">os.environ[<span class="string">&#x27;DJANGO_SETTINGS_MODULE&#x27;</span>] = <span class="string">&#x27;cloudcenter.settings&#x27;</span></span><br><span class="line"></span><br><span class="line">sys.stdout = sys.stderr</span><br><span class="line"></span><br><span class="line">DEBUG = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">application = django.core.handlers.wsgi.WSGIHandler()</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>配置wsgi时，<br>必须配置项目路径到系统路径中,因为要通过项目路径找到settings.py配置文件。也就是<code>sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), &#39;..&#39;))</code>。</li>
-<li>DJANGO_SETTINGS_MODULE必须指向项目的settings.py文件。</li>
-<li>修改了wsgi的配置后必须重启httpd服务。</li>
+<li>配置 wsgi 时，<br>必须配置项目路径到系统路径中,因为要通过项目路径找到 settings.py 配置文件。也就是<code>sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), &#39;..&#39;))</code>。</li>
+<li>DJANGO_SETTINGS_MODULE 必须指向项目的 settings.py 文件。</li>
+<li>修改了 wsgi 的配置后必须重启 httpd 服务。</li>
 </ul>
-<h4 id="配置django项目虚拟主机"><a href="#配置django项目虚拟主机" class="headerlink" title="配置django项目虚拟主机"></a>配置django项目虚拟主机</h4><blockquote>
-<p>在/etc/httpd/conf.d中添加配置文件cloudcenterproject.conf，内容如下</p>
+<h4 id="配置-django-项目虚拟主机"><a href="#配置-django-项目虚拟主机" class="headerlink" title="配置 django 项目虚拟主机"></a>配置 django 项目虚拟主机</h4><blockquote>
+<p>在/etc/httpd/conf.d 中添加配置文件 cloudcenterproject.conf，内容如下</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line"></span><br><span class="line">WSGIScriptAlias / /opt/cloudcenter/wsgi/django.wsgi</span><br><span class="line">Alias /static/ /opt/cloudcenter/</span><br><span class="line"></span><br><span class="line">ServerName 192.168.1.131</span><br><span class="line"><span class="comment">#ServerName example.com</span></span><br><span class="line"><span class="comment">#ServerAlias www.example.com</span></span><br><span class="line"></span><br><span class="line">&lt;Directory /opt/cloudcenter&gt;</span><br><span class="line">    Options Indexes  FollowSymLinks</span><br><span class="line">    AllowOverride None</span><br><span class="line">    Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line">&lt;Directory /opt/cloudcenter&gt;</span><br><span class="line">    Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line">ErrorLog   /etc/httpd/logs/cloudcenterproject.error.log</span><br><span class="line">LogLevel warn</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>其中 WSGIScriptAlias 直接告诉apache，这个虚拟主机中，请求/就交给WSGI处理，也就是项目中配置的django.wsgi会指明。</li>
-<li>Alias 说明访问/static/直接从DocumentRoot中获取，而无需经过WSGI处理。<br>现在就可以通过apache服务器配置的IP访问django项目了。</li>
+<li>其中 WSGIScriptAlias 直接告诉 apache，这个虚拟主机中，请求/就交给 WSGI 处理，也就是项目中配置的 django.wsgi 会指明。</li>
+<li>Alias 说明访问/static/直接从 DocumentRoot 中获取，而无需经过 WSGI 处理。<br>现在就可以通过 apache 服务器配置的 IP 访问 django 项目了。</li>
 </ul>
 
                 

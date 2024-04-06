@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
-                            </a>
-                        
                             <a href="/tags/MQ/">
                                 <span class="chip bg-color">MQ</span>
+                            </a>
+                        
+                            <a href="/tags/Emqx/">
+                                <span class="chip bg-color">Emqx</span>
                             </a>
                         
                     </div>
@@ -383,17 +383,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="EMQ-Docker-部署"><a href="#EMQ-Docker-部署" class="headerlink" title="EMQ Docker 部署"></a>EMQ Docker 部署</h3><h4 id="emqx下载（docker）"><a href="#emqx下载（docker）" class="headerlink" title="emqx下载（docker）"></a>emqx下载（docker）</h4><blockquote>
+                <h3 id="EMQ-Docker-部署"><a href="#EMQ-Docker-部署" class="headerlink" title="EMQ Docker 部署"></a>EMQ Docker 部署</h3><h4 id="emqx-下载（docker）"><a href="#emqx-下载（docker）" class="headerlink" title="emqx 下载（docker）"></a>emqx 下载（docker）</h4><blockquote>
 <p>EMQ X R3.0 消息服务器每个版本会发布 Ubuntu、CentOS、FreeBSD、Mac OS X、Windows 平台程序包与 Docker 镜像。</p>
 </blockquote>
 <p>下载地址：<a target="_blank" rel="noopener" href="http://www.emqtt.com/downloads">http://www.emqtt.com/downloads</a></p>
-<h4 id="解压并加载docker包emqx-docker-v3-1-beta-1-zip"><a href="#解压并加载docker包emqx-docker-v3-1-beta-1-zip" class="headerlink" title="解压并加载docker包emqx-docker-v3.1-beta.1.zip"></a>解压并加载docker包<code>emqx-docker-v3.1-beta.1.zip</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip -o emqx-docker-v3.1-beta.1.zip</span><br><span class="line">docker load &lt; emqx-docker-v3.1-beta.1-amd64</span><br></pre></td></tr></table></figure>
+<h4 id="解压并加载-docker-包emqx-docker-v3-1-beta-1-zip"><a href="#解压并加载-docker-包emqx-docker-v3-1-beta-1-zip" class="headerlink" title="解压并加载 docker 包emqx-docker-v3.1-beta.1.zip"></a>解压并加载 docker 包<code>emqx-docker-v3.1-beta.1.zip</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip -o emqx-docker-v3.1-beta.1.zip</span><br><span class="line">docker load &lt; emqx-docker-v3.1-beta.1-amd64</span><br></pre></td></tr></table></figure>
 
-<h4 id="运行docker"><a href="#运行docker" class="headerlink" title="运行docker"></a>运行docker</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -tid --name emq31 \</span><br><span class="line">-p 1883:1883 -p 8083:8083 -p 8883:8883 \</span><br><span class="line">-p 8084:8084 -p 18083:18083 -p 8080:8080\</span><br><span class="line">emqx/emqx:v3.1-beta.1-amd64</span><br></pre></td></tr></table></figure>
+<h4 id="运行-docker"><a href="#运行-docker" class="headerlink" title="运行 docker"></a>运行 docker</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -tid --name emq31 \</span><br><span class="line">-p 1883:1883 -p 8083:8083 -p 8883:8883 \</span><br><span class="line">-p 8084:8084 -p 18083:18083 -p 8080:8080\</span><br><span class="line">emqx/emqx:v3.1-beta.1-amd64</span><br></pre></td></tr></table></figure>
 
-<h4 id="docker操作"><a href="#docker操作" class="headerlink" title="docker操作"></a>docker操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 停止容器</span><br><span class="line">docker stop emq31</span><br><span class="line"></span><br><span class="line"># 开启容器</span><br><span class="line">docker start emq31</span><br><span class="line"></span><br><span class="line"># docker 控制台</span><br><span class="line">docker exec -it emq31 ash</span><br></pre></td></tr></table></figure>
+<h4 id="docker-操作"><a href="#docker-操作" class="headerlink" title="docker 操作"></a>docker 操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 停止容器</span><br><span class="line">docker stop emq31</span><br><span class="line"></span><br><span class="line"># 开启容器</span><br><span class="line">docker start emq31</span><br><span class="line"></span><br><span class="line"># docker 控制台</span><br><span class="line">docker exec -it emq31 ash</span><br></pre></td></tr></table></figure>
 
-<h3 id="EMQ-说明"><a href="#EMQ-说明" class="headerlink" title="EMQ 说明"></a>EMQ 说明</h3><h4 id="EMQ-X-R3-1-消息服务器默认占用的TCP端口"><a href="#EMQ-X-R3-1-消息服务器默认占用的TCP端口" class="headerlink" title="EMQ X R3.1 消息服务器默认占用的TCP端口"></a>EMQ X R3.1 消息服务器默认占用的TCP端口</h4><table>
+<h3 id="EMQ-说明"><a href="#EMQ-说明" class="headerlink" title="EMQ 说明"></a>EMQ 说明</h3><h4 id="EMQ-X-R3-1-消息服务器默认占用的-TCP-端口"><a href="#EMQ-X-R3-1-消息服务器默认占用的-TCP-端口" class="headerlink" title="EMQ X R3.1 消息服务器默认占用的 TCP 端口"></a>EMQ X R3.1 消息服务器默认占用的 TCP 端口</h4><table>
 <thead>
 <tr>
 <th>端口</th>
@@ -422,7 +422,7 @@
 </tr>
 </tbody></table>
 <blockquote>
-<p>18083端口是 Web 管理控制占用，该端口由 emq_dashboard 插件启用。<br>控制台 URL: http:://localhost:18083/ ，默认登录用户名: admin, 密码: public</p>
+<p>18083 端口是 Web 管理控制占用，该端口由 emq_dashboard 插件启用。<br>控制台 URL: http:://localhost:18083/ ，默认登录用户名: admin, 密码: public</p>
 </blockquote>
 <h3 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h3><ol>
 <li>EMQ X 安装：<a target="_blank" rel="noopener" href="http://docs.emqtt.cn/zh_CN/latest/install.html">http://docs.emqtt.cn/zh_CN/latest/install.html</a></li>
@@ -492,12 +492,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
-                                </a>
-                            
                                 <a href="/tags/MQ/">
                                     <span class="chip bg-color">MQ</span>
+                                </a>
+                            
+                                <a href="/tags/Emqx/">
+                                    <span class="chip bg-color">Emqx</span>
                                 </a>
                             
                         </div>
@@ -729,12 +729,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
                     <a href="/tags/MQ/">
                         <span class="chip bg-color">MQ</span>
+                    </a>
+                    
+                    <a href="/tags/RabbitMQ/">
+                        <span class="chip bg-color">RabbitMQ</span>
                     </a>
                     
                 </div>
@@ -782,12 +782,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
                     <a href="/tags/MQ/">
                         <span class="chip bg-color">MQ</span>
+                    </a>
+                    
+                    <a href="/tags/Erlang/">
+                        <span class="chip bg-color">Erlang</span>
                     </a>
                     
                 </div>

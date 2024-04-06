@@ -383,29 +383,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="spring中配置"><a href="#spring中配置" class="headerlink" title="spring中配置"></a>spring中配置</h3><h4 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 读取配置文件 --&gt;</span><br><span class="line">    &lt;bean id=&quot;propertyConfigurer&quot; class=&quot;org.springframework.beans.factory.config.PropertyPlaceholderConfigurer&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;locations&quot;&gt;</span><br><span class="line">            &lt;list&gt;</span><br><span class="line">                &lt;value&gt;classpath:spring.properties&lt;/value&gt;</span><br><span class="line">            &lt;/list&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt; </span><br></pre></td></tr></table></figure>
-<h4 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;context:property-placeholder location=&quot;classpath:mysql.properties&quot; /&gt;  </span><br></pre></td></tr></table></figure>
+                <h3 id="spring-中配置"><a href="#spring-中配置" class="headerlink" title="spring 中配置"></a>spring 中配置</h3><h4 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 读取配置文件 --&gt;</span><br><span class="line">    &lt;bean id=&quot;propertyConfigurer&quot; class=&quot;org.springframework.beans.factory.config.PropertyPlaceholderConfigurer&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;locations&quot;&gt;</span><br><span class="line">            &lt;list&gt;</span><br><span class="line">                &lt;value&gt;classpath:spring.properties&lt;/value&gt;</span><br><span class="line">            &lt;/list&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
 
+<h4 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;context:property-placeholder location=&quot;classpath:mysql.properties&quot; /&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="网上常见的获取properties文件的方法："><a href="#网上常见的获取properties文件的方法：" class="headerlink" title="网上常见的获取properties文件的方法："></a>网上常见的获取properties文件的方法：</h3><p>1、使用java.util.Properties类的load()方法<br>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String filePath = &quot;E:/workspace/ssmdemo/src/main/resources/jdbc.properties&quot;;</span><br><span class="line">InputStream in = new BufferedInputStream(new FileInputStream(filePath));  </span><br><span class="line">Properties p = new Properties();  </span><br><span class="line">p.load(in);</span><br><span class="line">String url = (String) p.get(&quot;jdbc.url&quot;);  </span><br></pre></td></tr></table></figure>
+<h3 id="网上常见的获取-properties-文件的方法："><a href="#网上常见的获取-properties-文件的方法：" class="headerlink" title="网上常见的获取 properties 文件的方法："></a>网上常见的获取 properties 文件的方法：</h3><p>1、使用 java.util.Properties 类的 load()方法<br>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String filePath = &quot;E:/workspace/ssmdemo/src/main/resources/jdbc.properties&quot;;</span><br><span class="line">InputStream in = new BufferedInputStream(new FileInputStream(filePath));</span><br><span class="line">Properties p = new Properties();</span><br><span class="line">p.load(in);</span><br><span class="line">String url = (String) p.get(&quot;jdbc.url&quot;);</span><br></pre></td></tr></table></figure>
 
-<p>2、使用java.util.ResourceBundle类的getBundle()方法<br>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ResourceBundle bundle = ResourceBundle.getBundle(&quot;jdbc&quot;);</span><br><span class="line">String url = bundle.getString(&quot;jdbc.url&quot;);  </span><br><span class="line">或者</span><br><span class="line">ResourceBundle bundle = ResourceBundle.getBundle(&quot;jdbc&quot;,Locale.getDefault());</span><br><span class="line">String url = bundle.getString(&quot;jdbc.url&quot;);  </span><br></pre></td></tr></table></figure>
-<p>注：用ResourceBundle读取.properties文件可避免路径问题，fileName为process为文件名，切记不要加 .properties</p>
-<p>3、使用java.util.PropertyResourceBundle类的构造函数<br>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String filePath = &quot;E:/workspace/ssmdemo/src/main/resources/jdbc.properties&quot;;</span><br><span class="line">InputStream in = new BufferedInputStream(new FileInputStream(filePath));  </span><br><span class="line">ResourceBundle bundle = new PropertyResourceBundle(in);</span><br><span class="line">String url = bundle.getString(&quot;jdbc.url&quot;); </span><br></pre></td></tr></table></figure>
-<p>4、使用class变量的getResourceAsStream()方法<br>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = 类名.class.getResourceAsStream(filePath);  </span><br><span class="line">Properties p = new Properties();  </span><br><span class="line">p.load(in);  </span><br></pre></td></tr></table></figure>
+<p>2、使用 java.util.ResourceBundle 类的 getBundle()方法<br>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ResourceBundle bundle = ResourceBundle.getBundle(&quot;jdbc&quot;);</span><br><span class="line">String url = bundle.getString(&quot;jdbc.url&quot;);</span><br><span class="line">或者</span><br><span class="line">ResourceBundle bundle = ResourceBundle.getBundle(&quot;jdbc&quot;,Locale.getDefault());</span><br><span class="line">String url = bundle.getString(&quot;jdbc.url&quot;);</span><br></pre></td></tr></table></figure>
 
-<p>5、使用class.getClassLoader()所得到的java.lang.ClassLoader的getResourceAsStream()方法<br>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = 类名.class.getClassLoader().getResourceAsStream(filePath);  </span><br><span class="line">Properties p = new Properties();  </span><br><span class="line">p.load(in);  </span><br></pre></td></tr></table></figure>
+<p>注：用 ResourceBundle 读取.properties 文件可避免路径问题，fileName 为 process 为文件名，切记不要加 .properties</p>
+<p>3、使用 java.util.PropertyResourceBundle 类的构造函数<br>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String filePath = &quot;E:/workspace/ssmdemo/src/main/resources/jdbc.properties&quot;;</span><br><span class="line">InputStream in = new BufferedInputStream(new FileInputStream(filePath));</span><br><span class="line">ResourceBundle bundle = new PropertyResourceBundle(in);</span><br><span class="line">String url = bundle.getString(&quot;jdbc.url&quot;);</span><br></pre></td></tr></table></figure>
 
-<p>6、使用java.lang.ClassLoader类的getSystemResourceAsStream()静态方法<br>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = ClassLoader.getSystemResourceAsStream(filePath);  </span><br><span class="line">Properties p = new Properties();  </span><br><span class="line">p.load(in);  </span><br></pre></td></tr></table></figure>
+<p>4、使用 class 变量的 getResourceAsStream()方法<br>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = 类名.class.getResourceAsStream(filePath);</span><br><span class="line">Properties p = new Properties();</span><br><span class="line">p.load(in);</span><br></pre></td></tr></table></figure>
 
-<p>7、Servlet中可以使用javax.servlet.ServletContext的getResourceAsStream()方法<br>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = context.getResourceAsStream(filePath);  </span><br><span class="line">Properties p = new Properties();  </span><br><span class="line">p.load(in); </span><br></pre></td></tr></table></figure>
+<p>5、使用 class.getClassLoader()所得到的 java.lang.ClassLoader 的 getResourceAsStream()方法<br>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = 类名.class.getClassLoader().getResourceAsStream(filePath);</span><br><span class="line">Properties p = new Properties();</span><br><span class="line">p.load(in);</span><br></pre></td></tr></table></figure>
+
+<p>6、使用 java.lang.ClassLoader 类的 getSystemResourceAsStream()静态方法<br>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = ClassLoader.getSystemResourceAsStream(filePath);</span><br><span class="line">Properties p = new Properties();</span><br><span class="line">p.load(in);</span><br></pre></td></tr></table></figure>
+
+<p>7、Servlet 中可以使用 javax.servlet.ServletContext 的 getResourceAsStream()方法<br>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = context.getResourceAsStream(filePath);</span><br><span class="line">Properties p = new Properties();</span><br><span class="line">p.load(in);</span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -760,12 +762,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Web/">
-                        <span class="chip bg-color">Web</span>
-                    </a>
-                    
                     <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/SpringMVC/">
+                        <span class="chip bg-color">SpringMVC</span>
                     </a>
                     
                 </div>

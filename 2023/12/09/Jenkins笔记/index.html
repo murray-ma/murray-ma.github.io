@@ -1,0 +1,1207 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Jenkins笔记, Java,Python,GO">
+    <meta name="description" content="IT文章及知识分享">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Jenkins笔记 | 马瑞个人笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="马瑞个人笔记" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">马瑞个人笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">马瑞个人笔记</div>
+        <div class="logo-desc">
+            
+            IT文章及知识分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Jenkins笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+        padding-top: 1.5rem
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        <!-- height: calc(100vh - 250px); -->
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Jenkins/">
+                                <span class="chip bg-color">Jenkins</span>
+                            </a>
+                        
+                            <a href="/tags/Ubuntu/">
+                                <span class="chip bg-color">Ubuntu</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Other/" class="post-category">
+                                Other
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-09
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="后端-java"><a href="#后端-java" class="headerlink" title="后端 java"></a>后端 java</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1. 参数化构建过程：勾选</span><br><span class="line">    a. 名称：Branch</span><br><span class="line"></span><br><span class="line">2. 源码管理：Git</span><br><span class="line">    a. Branches to build：$&#123;Branch&#125;</span><br><span class="line"></span><br><span class="line">3. 构建环境</span><br><span class="line">    a. Inject environment variables to the build process：勾选</span><br><span class="line">    Groovy Stript：构建镜像名称</span><br><span class="line">        def VERSION = GIT_BRANCH.tokenize(&quot;/&quot;).last() + &quot;git -C $&#123;WORKSPACE&#125; log -n1 --date=format:%m%d%H%M --format=format:.%ad.%h&quot;.execute().text</span><br><span class="line">        def REGISTRY = &quot;harbor-local.unicloudsrv.com/moove&quot;</span><br><span class="line">        def BUILDDESCRIPTION = VERSION + &quot;&lt;br&gt;&quot; + REGISTRY + &quot;/&quot; + GIT_URL.tokenize(&#x27;/&#x27;).last().replace(&#x27;.git&#x27;, &#x27;&#x27;) + &quot;&lt;br&gt;&lt;a href=&#x27;&quot; + GIT_URL.replace(&#x27;.git&#x27;, &#x27;&#x27;) + &#x27;/commit/&#x27; + GIT_COMMIT + &quot;&#x27;&gt;&quot; + &quot;git -C $&#123;WORKSPACE&#125; log -n1 --format=format:%s&quot;.execute().text + &quot;&lt;/a&gt;&quot;</span><br><span class="line">        return [&quot;VERSION&quot;: VERSION, &quot;REGISTRY&quot;: REGISTRY, &quot;BUILDDESCRIPTION&quot;: BUILDDESCRIPTION]</span><br><span class="line">    b. Set Build Name:</span><br><span class="line">        Build Name: #$&#123;BUILD_NUMBER&#125;_$&#123;GIT_BRANCH&#125;</span><br><span class="line"></span><br><span class="line">4. 构建</span><br><span class="line">    a. 执行shell</span><br><span class="line">        pwd</span><br><span class="line">        env</span><br><span class="line">        make clean &amp;&amp; make image.push</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. 参数化构建过程：勾选</span><br><span class="line">    a. 名称：Branch、默认值：feature/V4.1.3</span><br><span class="line">    b. 名称：BUILD_VERSION、默认值：UNI_UCP_V4.1.3-2023</span><br><span class="line">    c. 名称：DIR_PATH、默认值：/opt/unicloud/pco/console/ecs</span><br><span class="line">    d. 名称：ANSIBLE_PATH、默认值：/opt/unicloud/ansible</span><br><span class="line"></span><br><span class="line">2. 源码管理：Git</span><br><span class="line">    a. Branches to build：$&#123;Branch&#125;</span><br><span class="line"></span><br><span class="line">3. 构建</span><br><span class="line">    a. 执行shell</span><br><span class="line">    pwd</span><br><span class="line">    env</span><br><span class="line">    make clean &amp;&amp; make build &amp;&amp; make buildtar</span><br></pre></td></tr></table></figure>
+
+<h1 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"># Makefile</span><br><span class="line"># ==============================================================================</span><br><span class="line"># Build options</span><br><span class="line"></span><br><span class="line">REGISTRY ?= harbor-local.unicloudsrv.com/moove</span><br><span class="line">PLATFORM ?= linux.amd64 linux.arm64</span><br><span class="line"></span><br><span class="line">DOCKERFILE ?= Dockerfile</span><br><span class="line"></span><br><span class="line">IMAGE ?= uco-ecs-core</span><br><span class="line"></span><br><span class="line">DOT := .</span><br><span class="line">SLASH := /</span><br><span class="line">DASH := -</span><br><span class="line">COMMA:= ,</span><br><span class="line">EMPTY:=</span><br><span class="line">SPACE:= $(EMPTY) $(EMPTY)</span><br><span class="line"></span><br><span class="line"># set the version number. you should not need to do this</span><br><span class="line"># for the majority of scenarios.</span><br><span class="line">ifeq ($(origin VERSION), undefined)</span><br><span class="line">VERSION := $(shell git describe --dirty --always --tags | sed &#x27;s/-/./g&#x27;)</span><br><span class="line">endif</span><br><span class="line"># Check if the tree is dirty.  default to dirty</span><br><span class="line">GIT_TREE_STATE:=&quot;dirty&quot;</span><br><span class="line">ifeq (, $(shell git status --porcelain 2&gt;/dev/null))</span><br><span class="line">GIT_TREE_STATE=&quot;clean&quot;</span><br><span class="line">endif</span><br><span class="line">GIT_COMMIT:=$(shell git rev-parse HEAD)</span><br><span class="line">GIT_BRANCH:=$(shell git branch | sed -n -e &#x27;s/^\* \(.*\)/\1/p&#x27; | tr -d &quot;[:blank:]&quot; 2&gt;/dev/null)</span><br><span class="line"></span><br><span class="line"># ==============================================================================</span><br><span class="line"># Targets</span><br><span class="line">.PHONY: build</span><br><span class="line">build:</span><br><span class="line">@./gradlew build</span><br><span class="line"></span><br><span class="line">.PHONY: image.push</span><br><span class="line">image.push: build</span><br><span class="line">$(eval PLATFORM_DOCKER=$(subst $(DOT),$(SLASH),$(PLATFORM)))</span><br><span class="line">$(eval PLATFORM_DOCKER=$(subst $(SPACE),$(COMMA),$(PLATFORM_DOCKER)))</span><br><span class="line">docker buildx build --push --platform $(PLATFORM_DOCKER) --build-arg JAR_FILE=build/libs/*.jar -f $(DOCKERFILE) --tag $(REGISTRY)/$(IMAGE):$(VERSION) .</span><br><span class="line"></span><br><span class="line">.PHONY: clean</span><br><span class="line">clean:</span><br><span class="line">@./gradlew clean</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Jenkinsfile"><a href="#Jenkinsfile" class="headerlink" title="Jenkinsfile"></a>Jenkinsfile</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"># Jenkinsfile</span><br><span class="line">pipeline &#123;</span><br><span class="line"></span><br><span class="line">    agent any</span><br><span class="line"></span><br><span class="line">    environment&#123;</span><br><span class="line">          SERVICE_NAME=&#x27;uco-ecs-core&#x27;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(&#x27;checkout&#x27;) &#123;</span><br><span class="line">            post &#123;</span><br><span class="line">                success &#123; updateGitlabCommitStatus name: &#x27;checkout&#x27;, state: &#x27;success&#x27; &#125;</span><br><span class="line">                failure &#123; updateGitlabCommitStatus name: &#x27;checkout&#x27;, state: &#x27;failed&#x27; &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                script&#123;</span><br><span class="line">                    checkoutDependOnEnv env</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">stage(&#x27;clean&#x27;) &#123;</span><br><span class="line">            post &#123;</span><br><span class="line">                success &#123; updateGitlabCommitStatus name: &#x27;clean&#x27;, state: &#x27;success&#x27; &#125;</span><br><span class="line">                failure &#123; updateGitlabCommitStatus name: &#x27;clean&#x27;, state: &#x27;failed&#x27;  &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh &#x27;gradle --no-daemon clean&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">stage(&#x27;compile&#x27;) &#123;</span><br><span class="line">            post &#123;</span><br><span class="line">                success &#123;</span><br><span class="line">                    updateGitlabCommitStatus name: &#x27;compile&#x27;, state: &#x27;success&#x27;</span><br><span class="line">                &#125;</span><br><span class="line">                failure &#123;</span><br><span class="line">                    updateGitlabCommitStatus name: &#x27;compile&#x27;, state: &#x27;failed&#x27;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh &#x27;gradle --no-daemon build --stacktrace&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">stage(&#x27;docker&#x27;) &#123;</span><br><span class="line">            post &#123;</span><br><span class="line">                success &#123; updateGitlabCommitStatus name: &#x27;docker&#x27;, state: &#x27;success&#x27;  &#125;</span><br><span class="line">                failure &#123; updateGitlabCommitStatus name: &#x27;docker&#x27;, state: &#x27;failed&#x27;  &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                script&#123;</span><br><span class="line">String docker_image = &quot;$&#123;SERVICE_NAME&#125;:$&#123;BUILD_VERSION&#125;&quot;</span><br><span class="line">                    sh &quot;&quot;&quot;</span><br><span class="line">                        docker login $&#123;env.DOCKER_REGISTRY&#125; -u $&#123;env.DOCKER_REGISTRY_USER&#125; -p $&#123;env.DOCKER_REGISTRY_PWD&#125;</span><br><span class="line">                        mkdir -p tmp/docker/$&#123;SERVICE_NAME&#125;</span><br><span class="line">                        cp build/libs/$&#123;SERVICE_NAME&#125;*.jar tmp/docker/$&#123;SERVICE_NAME&#125;/$&#123;SERVICE_NAME&#125;.jar</span><br><span class="line">                        cp docker/startup.sh tmp/docker/$&#123;SERVICE_NAME&#125;/startup.sh</span><br><span class="line">                        cp -r lib tmp/docker/$&#123;SERVICE_NAME&#125;/lib</span><br><span class="line">                        chmod +x tmp/docker/$&#123;SERVICE_NAME&#125;/startup.sh</span><br><span class="line">                        envsubst &lt; docker/Dockerfile.template &gt; tmp/docker/Dockerfile</span><br><span class="line">cd tmp/docker</span><br><span class="line">docker build -t $&#123;env.docker_image&#125; -f Dockerfile .</span><br><span class="line">cd $WORKSPACE</span><br><span class="line">docker tag $&#123;env.docker_image&#125; $&#123;env.DOCK_REGISTOR_URL&#125;/uco-console/$&#123;docker_image&#125;</span><br><span class="line">if [ &quot;$&#123;DOCK_REGISTOR_URL&#125;&quot; == &quot;harbor-local.unicloudsrv.com/muye&quot; ]</span><br><span class="line">then docker login &quot;$&#123;DOCK_REGISTOR_URL&#125;&quot; -u muye -p zgyCloud2020@BJMY</span><br><span class="line">fi</span><br><span class="line">docker push &quot;$&#123;DOCK_REGISTOR_URL&#125;/uco-console/$&#123;docker_image&#125;&quot;</span><br><span class="line">                    &quot;&quot;&quot;</span><br><span class="line"> println &quot;$&#123;DOCK_REGISTOR_URL&#125;/uco-console/$&#123;docker_image&#125;&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">stage(&#x27;sonar-check&#x27;) &#123;</span><br><span class="line">              //触发条件，正则匹配</span><br><span class="line">              when &#123; expression &#123; env.BUILD_VERSION ==~ &#x27;.*sonar.*&#x27;&#125; &#125;</span><br><span class="line">              post &#123;</span><br><span class="line">                     success &#123;</span><br><span class="line">                         updateGitlabCommitStatus name: &#x27;sonar&#x27;, state: &#x27;success&#x27;</span><br><span class="line">                     &#125;</span><br><span class="line">                     failure &#123;</span><br><span class="line">                         updateGitlabCommitStatus name: &#x27;sonar&#x27;, state: &#x27;failed&#x27;</span><br><span class="line">                     &#125;</span><br><span class="line">              &#125;</span><br><span class="line">              steps &#123;</span><br><span class="line">                     sh &quot;&quot;&quot;</span><br><span class="line">                         /home/sonar-scanner/bin/sonar-scanner</span><br><span class="line">                     &quot;&quot;&quot;</span><br><span class="line">              &#125;</span><br><span class="line">        &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Jenkinsfile-说明"><a href="#Jenkinsfile-说明" class="headerlink" title="Jenkinsfile 说明"></a>Jenkinsfile 说明</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br></pre></td><td class="code"><pre><span class="line">// 基本的Pipeline语法格式</span><br><span class="line">// 声明式的pipeline语法格式</span><br><span class="line">// 所有的声明都必须包含在pipeline&#123;&#125;中</span><br><span class="line">// 块只能有节段，指令，步骤或者赋值语句组成</span><br><span class="line">// 节段：agent，stages，post，steps</span><br><span class="line">// 指令：environment，options，parameters，triggers，stage，input，tool，when</span><br><span class="line">pipeline &#123;</span><br><span class="line">    // agent有以下参数</span><br><span class="line">    // any---在任何可用的代理上执行流水线或阶段，agent any</span><br><span class="line">    // none---pipeline的顶层没有设置全局的agent，那么每个stage需要设置自己的agent ，agent none</span><br><span class="line">    // label---在提供了标签的代理上执行pipeline或者阶段。 agent &#123;label &#x27;my-defined-label&#x27;&#125;</span><br><span class="line">    // node---在提供的node上执行pipeline或者阶段，agent &#123;node &#123;label &#x27;my-defined-label&#x27;&#125;&#125;</span><br><span class="line">    // docker---使用指定的容器执行pipeline或者阶段，容器在node或者label上，可以包含args参数，直接传递到</span><br><span class="line">    // dockerfile---使用从代码中包含的 Dockerfile 构建的容器来执行pipeline或者阶段</span><br><span class="line">    agent any</span><br><span class="line">    agent &#123;</span><br><span class="line">        docker&#123;</span><br><span class="line">            image &#x27;maven:3-alpine&#x27;</span><br><span class="line">            label &#x27;my-defined-label&#x27;</span><br><span class="line">            agrs &#x27;-v /tmp:/tmp&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    agent &#123;</span><br><span class="line">        // Equivalent to &quot;docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/</span><br><span class="line">        dockerfile &#123;</span><br><span class="line">            filename &#x27;Dockerfile.build&#x27;</span><br><span class="line">            dir &#x27;build&#x27;</span><br><span class="line">            label &#x27;my-defined-label&#x27;</span><br><span class="line">            additionalBuildArgs  &#x27;--build-arg version=1.0.2&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 流水线的特定配置</span><br><span class="line">    // 以下是定义在pipeline块的参数：</span><br><span class="line">    // buildDiscarder：为最近的流水线运行的特定数量保存组件和控制台输出。例如: options &#123; buildDiscarder(logRotator(numToKeepStr: &#x27;1&#x27;)) &#125;</span><br><span class="line">    // disableConcurrentBuilds：不允许同时执行流水线。 可被用来防止同时访问共享资源等。 例如: options &#123; disableConcurrentBuilds() &#125;</span><br><span class="line">    // overrideIndexTriggers：允许覆盖分支索引触发器的默认处理。 如果分支索引触发器在多分支或组织标签中禁用, options &#123; overrideIndexTriggers(true) &#125; 将只允许它们用于促工作。 否则, options &#123; overrideIndexTriggers(false) &#125; 只会禁用改作业的分支索引触发器。</span><br><span class="line">    // skipDefaultCheckout：在agent 指令中，跳过从源代码控制中检出代码的默认情况。例如: options &#123; skipDefaultCheckout() &#125;</span><br><span class="line">    // skipStagesAfterUnstable：一旦构建状态变得UNSTABLE，跳过该阶段。例如: options &#123; skipStagesAfterUnstable() &#125;</span><br><span class="line">    // checkoutToSubdirectory：在工作空间的子目录中自动地执行源代码控制检出。例如: options &#123; checkoutToSubdirectory(&#x27;foo&#x27;) &#125;</span><br><span class="line">    // timeout：设置流水线运行的超时时间, 在此之后，Jenkins将中止流水线。例如: options &#123; timeout(time: 1, unit: &#x27;HOURS&#x27;) &#125;</span><br><span class="line">    // retry：在失败时, 重新尝试整个流水线的指定次数。 For example: options &#123; retry(3) &#125;</span><br><span class="line">    // timestamps：预谋所有由流水线生成的控制台输出，与该流水线发出的时间一致。 例如: options &#123; timestamps() &#125;</span><br><span class="line">    // 在stage中定义的option可选用的参数只有：skipDefaultCheckout，timeout，retry，timestamps</span><br><span class="line">    options &#123;</span><br><span class="line">        gitLabConnection(env.gitlabConnection)</span><br><span class="line">        gitlabBuilds(builds: [&#x27;checkout&#x27;, &#x27;clean&#x27;, &#x27;p3c-check&#x27;, &#x27;compile&#x27;,  &#x27;test&#x27;])</span><br><span class="line">        // ansiColor(&#x27;xterm&#x27;)</span><br><span class="line">        timestamps()</span><br><span class="line">    &#125;</span><br><span class="line">    // 定义环境变量，可以是所有步骤的环境变量也可以是特定阶段的环境变量，取决于environment定义在什么位置</span><br><span class="line">    // 定义在顶层的environment适用于流水线的所有steps，定义在阶段中的environment只适用于该阶段的steps中</span><br><span class="line">    environment &#123;</span><br><span class="line">        SERVICE_NAME=&#x27;uco-ecs-portal&#x27;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 构建时用户需要提供的参数</span><br><span class="line">    // 这些参数可以通过params提供给流水线的steps使用</span><br><span class="line">    // 有字符串类型和boolean类型</span><br><span class="line">    // string：字符串类型，parameters &#123; string(name: &#x27;DEPLOY_ENV&#x27;, defaultValue: &#x27;staging&#x27;, description: &#x27;&#x27;) &#125;</span><br><span class="line">    // booleanParam：布尔参数，parameters &#123; booleanParam(name: &#x27;DEBUG_BUILD&#x27;, defaultValue: true, description: &#x27;&#x27;) &#125;</span><br><span class="line">    // text：文本参数，包含多行 parameters &#123; text(name: &#x27;DEPLOY_TEXT&#x27;, defaultValue: &#x27;One\nTwo\nThree\n&#x27;, description: &#x27;&#x27;) &#125;</span><br><span class="line">    // choice：选择类型的参数，parameters &#123; choice(name: &#x27;CHOICES&#x27;, choices: [&#x27;one&#x27;, &#x27;two&#x27;, &#x27;three&#x27;], description: &#x27;&#x27;) &#125;</span><br><span class="line">    // password：password参数，parameters &#123; password(name: &#x27;PASSWORD&#x27;, defaultValue: &#x27;SECRET&#x27;, description: &#x27;A secret password&#x27;) &#125;</span><br><span class="line">    // 在steps如果要引用这些参数，需要使用 params.key ， 比如 &#123;params.key&#125;，比如 params.key，比如&#123;params.DEPLOY_ENV&#125;</span><br><span class="line">    // 使用parameters创建参数化的pipeline，并在steps中引用</span><br><span class="line">    parameters &#123;</span><br><span class="line">        string(name:&quot;deploy_env&quot;,defaultValue:&quot;staging&quot;,description:&quot;&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    // 定义一个或多个steps，根据流水线或者阶段的完成情况来执行</span><br><span class="line">    // post的condition有：always，changed，failure，unstable，aborted，success</span><br><span class="line">    // always---不管流水线或阶段的完成状态，都会执行这个post</span><br><span class="line">    // changed---当流水线或者阶段build的状态与之前的build状态不同时，才会执行这个post</span><br><span class="line">    // failure，unstable，aborted，success----当流水线或者阶段的build状态为这些时，才会执行post</span><br><span class="line">    post &#123;</span><br><span class="line">        always &#123;</span><br><span class="line">            step([$class: &#x27;WsCleanup&#x27;])</span><br><span class="line">        &#125;</span><br><span class="line">        success &#123;</span><br><span class="line">            addGitLabMRComment comment: &#x27;:white_check_mark: Jenkins Build SUCCESS\n\n&#x27; +</span><br><span class="line">                    &quot;Results available at: [Jenkins [$&#123;env.JOB_BASE_NAME&#125; $&#123;env.BUILD_DISPLAY_NAME&#125;]]($&#123;env.BUILD_URL&#125;)&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        failure &#123;</span><br><span class="line">            addGitLabMRComment comment: &#x27;:negative_squared_cross_mark: Jenkins Build Failure\n\n&#x27; +</span><br><span class="line">                    &quot;Results available at: [Jenkins [$&#123;env.JOB_BASE_NAME&#125; $&#123;env.BUILD_DISPLAY_NAME&#125;]]($&#123;env.BUILD_URL&#125;)&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // triggers指令定义了如何触发流水线</span><br><span class="line">    // 有以下三种触发器：</span><br><span class="line">    // cron：接收 cron 样式的字符串来定义要重新触发流水线的常规间隔 ,比如: triggers &#123; cron(&#x27;H */4 * * 1-5&#x27;) &#125;</span><br><span class="line">    // pollSCM：接收 cron 样式的字符串来定义一个固定的间隔，在这个间隔中，Jenkins 会检查新的源代码更新。如果存在更改, 流水线就会被重新触发。例如: triggers &#123; pollSCM(&#x27;H */4 * * 1-5&#x27;) &#125;</span><br><span class="line">    // upstream：接受逗号分隔的工作字符串和阈值。 当字符串中的任何作业以最小阈值结束时，流水线被重新触发。例如: triggers &#123; upstream(upstreamProjects: &#x27;job1,job2&#x27;, threshold: hudson.model.Result.SUCCESS) &#125;</span><br><span class="line">    triggers &#123;</span><br><span class="line">        cron(&quot;*/2 * * * *&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    // 定义自动安装tool，放在PATH中</span><br><span class="line">    // 工具的名字需要预先配置在Manage Jenkins → Global Tool Configuration.</span><br><span class="line">    // 支持的工具有maven，jdk，gradle</span><br><span class="line">    tools &#123;</span><br><span class="line">        maven &#x27;apache-maven-3.0.1&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">    // 包含一个或者多个stage指令</span><br><span class="line">    stages &#123;</span><br><span class="line">        // 包含一个或者多个步骤</span><br><span class="line">        stage(&#x27;Example&#x27;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                // 打印parameters指定的参数</span><br><span class="line">                echo &quot;$&#123;params.deploy_env&#125;&quot;</span><br><span class="line">                // 执行shell指令</span><br><span class="line">                sh &#x27;mvn --version&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&quot;Build Test&quot;)&#123;</span><br><span class="line">            // input指令用于stage中，使用input步骤来提示用户输入</span><br><span class="line">            // 当执行了options之后，再进入agent或者when之前，这个stage会暂停，如果这个input被approved，这个stage才会继续</span><br><span class="line">            // 放在input步骤里的parameters也可以用于余下的stage</span><br><span class="line">            // 配置项</span><br><span class="line">            // message：给用户的提示信息</span><br><span class="line">            // id：input的可选标示符，默认是stage的名字</span><br><span class="line">            // ok：input表单上ok按钮的文本</span><br><span class="line">            // submitter：允许提交这个input的用户或者group的名字，使用逗号分隔，默认是任何用户</span><br><span class="line">            // submitterParameter：用来设置submitter的环境变量</span><br><span class="line">            // parameters：需要submitter提供的变量</span><br><span class="line">            input &#123;</span><br><span class="line">                message &quot;Should we continue?&quot;</span><br><span class="line">                ok &quot;yes,continue&quot;</span><br><span class="line">                parameters &#123;</span><br><span class="line">                    string(name:&quot;person&quot;,defaultValue:&quot;test&quot;,description:&#x27;&#x27;)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo &quot;the envrioment is $&#123;person&#125;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&quot;Build Test2&quot;) &#123;</span><br><span class="line">            // when指令：根据给定的条件，决定pipeline是否执行这个该阶段</span><br><span class="line">            // 一个when指令至少包含一个条件，当有多个条件时，所有的子条件必须返回true，这个stage才会运行</span><br><span class="line">            // branch：当正在构建的分支与模式给定的分支匹配时，执行这个阶段, 例如: when &#123; branch &#x27;master&#x27; &#125;。注意，这只适用于多分支流水线。</span><br><span class="line">            // environment：当指定的环境变量是给定的值时，执行这个步骤, 例如: when &#123; environment name: &#x27;DEPLOY_TO&#x27;, value: &#x27;production&#x27; &#125;</span><br><span class="line">            // expression：当指定的Groovy表达式评估为true时，执行这个阶段, 例如: when &#123; expression &#123; return params.DEBUG_BUILD &#125; &#125;</span><br><span class="line">            // not：当嵌套条件是错误时，执行这个阶段,必须包含一个条件，例如: when &#123; not &#123; branch &#x27;master&#x27; &#125; &#125;</span><br><span class="line">            // allOf：当所有的嵌套条件都正确时，执行这个阶段,必须包含至少一个条件，例如: when &#123; allOf &#123; branch &#x27;master&#x27;; environment name: &#x27;DEPLOY_TO&#x27;, value: &#x27;production&#x27; &#125; &#125;</span><br><span class="line">            // anyOf：当至少有一个嵌套条件为真时，执行这个阶段,必须包含至少一个条件，例如: when &#123; anyOf &#123; branch &#x27;master&#x27;; branch &#x27;staging&#x27; &#125; &#125;</span><br><span class="line">            // 当when只包含一个条件时</span><br><span class="line">            when &#123;</span><br><span class="line">                environment name:&quot;deploy_env&quot;,value:&quot;prod&quot;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo &quot;hello wrold&quot;</span><br><span class="line">            &#125;</span><br><span class="line">            // build结果，第一次build时，deploy_env的值是test，stage &quot;Build Test&quot;被skipped</span><br><span class="line">            // 第二次build时，参数deploy_env设置为prod，执行stage&quot;Build Test&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        // 当when包含多个条件时</span><br><span class="line">        stage(&quot;Build Test3&quot;) &#123;</span><br><span class="line">            when &#123;</span><br><span class="line">                branch &quot;master&quot;</span><br><span class="line">                environment name:&quot;deploy_env&quot;,value:&quot;prod&quot;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo &quot;Hello world&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&quot;Build Test4&quot;) &#123;</span><br><span class="line">            // 定义在阶段中的environment只适用于该阶段的steps中</span><br><span class="line">            environment &#123;</span><br><span class="line">                TestTwo=&quot;twotwo&quot;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh &#x27;printenv&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&quot;Build Test5&quot;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh &#x27;printenv&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&#x27;Build Test6&#x27;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                retry(3) &#123;</span><br><span class="line">                    sh &#x27;./deploy.sh&#x27;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                timeout(time: 3, unit: &#x27;MINUTES&#x27;) &#123;</span><br><span class="line">                    sh &#x27;./health-check.sh&#x27;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&#x27;checkout&#x27;) &#123;</span><br><span class="line">            post &#123;</span><br><span class="line">                success &#123; updateGitlabCommitStatus name: &#x27;checkout&#x27;, state: &#x27;success&#x27; &#125;</span><br><span class="line">                failure &#123; updateGitlabCommitStatus name: &#x27;checkout&#x27;, state: &#x27;failed&#x27;  &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                script&#123;</span><br><span class="line">                    checkoutDependOnEnv env</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&#x27;clean&#x27;) &#123;</span><br><span class="line">            post &#123;</span><br><span class="line">                success &#123; updateGitlabCommitStatus name: &#x27;clean&#x27;, state: &#x27;success&#x27; &#125;</span><br><span class="line">                failure &#123; updateGitlabCommitStatus name: &#x27;clean&#x27;, state: &#x27;failed&#x27;  &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh &#x27;gradle --no-daemon clean&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&#x27;compile&#x27;) &#123;</span><br><span class="line">            post &#123;</span><br><span class="line">                success &#123; updateGitlabCommitStatus name: &#x27;compile&#x27;, state: &#x27;success&#x27; &#125;</span><br><span class="line">                failure &#123; updateGitlabCommitStatus name: &#x27;compile&#x27;, state: &#x27;failed&#x27;  &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh &#x27;gradle --no-daemon build --stacktrace&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&#x27;docker&#x27;) &#123;</span><br><span class="line">            post &#123;</span><br><span class="line">                success &#123; updateGitlabCommitStatus name: &#x27;docker&#x27;, state: &#x27;success&#x27; &#125;</span><br><span class="line">                failure &#123; updateGitlabCommitStatus name: &#x27;docker&#x27;, state: &#x27;failed&#x27;  &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                script&#123;</span><br><span class="line">                    String docker_image = &quot;$&#123;SERVICE_NAME&#125;:$&#123;BUILD_VERSION&#125;&quot;</span><br><span class="line">                    sh &quot;&quot;&quot;</span><br><span class="line">                        docker login $&#123;env.DOCKER_REGISTRY&#125; -u $&#123;env.DOCKER_REGISTRY_USER&#125; -p $&#123;env.DOCKER_REGISTRY_PWD&#125;</span><br><span class="line">                        mkdir -p tmp/docker/$&#123;SERVICE_NAME&#125;</span><br><span class="line">                        cp build/libs/$&#123;SERVICE_NAME&#125;*.jar tmp/docker/$&#123;SERVICE_NAME&#125;/$&#123;SERVICE_NAME&#125;.jar</span><br><span class="line">                        cp docker/startup.sh tmp/docker/$&#123;SERVICE_NAME&#125;/startup.sh</span><br><span class="line">                        chmod +x tmp/docker/$&#123;SERVICE_NAME&#125;/startup.sh</span><br><span class="line">                        envsubst &lt; docker/Dockerfile.template &gt; tmp/docker/Dockerfile</span><br><span class="line">                        cd tmp/docker</span><br><span class="line">                        docker build -t $&#123;docker_image&#125; -f Dockerfile .</span><br><span class="line">                        cd $WORKSPACE</span><br><span class="line">                        docker tag $&#123;docker_image&#125; $&#123;env.DOCK_REGISTOR_URL&#125;/uco-console/$&#123;docker_image&#125;</span><br><span class="line">                        if [ &quot;$&#123;env.DOCK_REGISTOR_URL&#125;&quot; == &quot;harbor-local.unicloudsrv.com/muye&quot; ]</span><br><span class="line">                        then docker login &quot;$&#123;DOCK_REGISTOR_URL&#125;&quot; -u muye -p zgyCloud2020@BJMY</span><br><span class="line">                        fi</span><br><span class="line">                        docker push &quot;$&#123;env.DOCK_REGISTOR_URL&#125;/uco-console/$&#123;docker_image&#125;&quot;</span><br><span class="line">                    &quot;&quot;&quot;</span><br><span class="line">                    println &quot;$&#123;env.DOCK_REGISTOR_URL&#125;/uco-console/$&#123;docker_image&#125;&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&#x27;sonar-check&#x27;) &#123;</span><br><span class="line">            //触发条件，正则匹配</span><br><span class="line">            when &#123; expression &#123; env.BUILD_VERSION ==~ &#x27;.*sonar.*&#x27;&#125; &#125;</span><br><span class="line">            post &#123;</span><br><span class="line">                success &#123; updateGitlabCommitStatus name: &#x27;sonar&#x27;, state: &#x27;success&#x27;&#125;</span><br><span class="line">                failure &#123; updateGitlabCommitStatus name: &#x27;sonar&#x27;, state: &#x27;failed&#x27; &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh &quot;&quot;&quot;</span><br><span class="line">                 /home/sonar-scanner/bin/sonar-scanner</span><br><span class="line">                &quot;&quot;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 示例</span><br><span class="line">pipeline &#123;</span><br><span class="line">    agent &#123;</span><br><span class="line">        label &#x27;slave-pipeline&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">    options &#123;</span><br><span class="line">        gitLabConnection(&#x27;gitlab&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(&#x27;Prepare&#x27;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                script &#123;</span><br><span class="line">                    git branch: &#x27;$&#123;gitlabSourceBranch&#125;&#x27;, changelog: false, credentialsId: &#x27;gitlab&#x27;, poll: false, url: &#x27;https://gitlab.com/lizongshenblogs/applications/devopsdemo.git&#x27;</span><br><span class="line">                    script &#123;</span><br><span class="line">                        GIT_COMMIT_ID = sh(returnStdout: true, script: &#x27;git rev-parse --short HEAD&#x27;).trim()</span><br><span class="line">                        IMAGE_TAG = &quot;$&#123;GIT_COMMIT_ID&#125;-snapshot&quot;</span><br><span class="line">                        INGRESS_HOST = &quot;preview-$&#123;gitlabSourceRepoName&#125;-$&#123;gitlabMergeRequestIid&#125;&quot;</span><br><span class="line">                        MR_URL = &quot;$&#123;gitlabSourceRepoHomepage&#125;/merge_requests/$&#123;gitlabMergeRequestIid&#125;&quot;</span><br><span class="line">                        build_tag = &quot;feature-$&#123;gitlabSourceRepoName&#125;-$&#123;gitlabSourceBranch&#125;-$&#123;GIT_COMMIT_ID&#125;&quot;</span><br><span class="line">                        currentBuild.displayName = &quot;#&quot; + BUILD_NUMBER + &quot;_&quot; + gitlabMergeRequestIid + &quot;_&quot; + build_tag</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&#x27;Build&#x27;) &#123;</span><br><span class="line">            when &#123;</span><br><span class="line">                expression &#123;</span><br><span class="line">                    &quot;$&#123;gitlabTargetBranch&#125;&quot; == &#x27;dev&#x27;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            steps &#123;</span><br><span class="line">                script &#123;</span><br><span class="line">                    updateGitlabCommitStatus name: &#x27;Build&#x27;, state: &#x27;running&#x27;</span><br><span class="line">                    try &#123;</span><br><span class="line">                        echo &quot;开始编译...&quot;</span><br><span class="line">                    &#125; catch(Exception ex)&#123;</span><br><span class="line">                        updateGitlabCommitStatus name: &#x27;Build&#x27;, state: &#x27;failed&#x27;</span><br><span class="line">                        throw ex;</span><br><span class="line">                    &#125; finally &#123;</span><br><span class="line">                    &#125;</span><br><span class="line">                    updateGitlabCommitStatus name: &#x27;Build&#x27;, state: &#x27;success&#x27;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&#x27;Test&#x27;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                script &#123;</span><br><span class="line">                    updateGitlabCommitStatus name: &#x27;Test&#x27;, state: &#x27;running&#x27;</span><br><span class="line">                    try &#123;</span><br><span class="line">                        echo &quot;开始进行单元测试...&quot;</span><br><span class="line">                    &#125; catch(Exception ex)&#123;</span><br><span class="line">                        updateGitlabCommitStatus name: &#x27;Test&#x27;, state: &#x27;failed&#x27;</span><br><span class="line">                        throw ex;</span><br><span class="line">                    &#125; finally &#123;</span><br><span class="line">                    &#125;</span><br><span class="line">                    updateGitlabCommitStatus name: &#x27;Test&#x27;, state: &#x27;success&#x27;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stage(&#x27;Deploy&#x27;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                script &#123;</span><br><span class="line">                    updateGitlabCommitStatus name: &#x27;Deploy&#x27;, state: &#x27;running&#x27;</span><br><span class="line">                    try &#123;</span><br><span class="line">                        echo &quot;开始进行发布...&quot;</span><br><span class="line">                    &#125; catch(Exception ex)&#123;</span><br><span class="line">                        updateGitlabCommitStatus name: &#x27;Deploy&#x27;, state: &#x27;failed&#x27;</span><br><span class="line">                        throw ex;</span><br><span class="line">                    &#125; finally &#123;</span><br><span class="line">                    &#125;</span><br><span class="line">                    updateGitlabCommitStatus name: &#x27;Deploy&#x27;, state: &#x27;success&#x27;</span><br><span class="line">                    addGitLabMRComment comment: &quot;App $&#123;gitlabSourceRepoName&#125; preview link: &lt;a href=&#x27;http://localhost&#x27;&gt;$&#123;gitlabSourceRepoName&#125;&lt;/a&gt;&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    post &#123;</span><br><span class="line">        failure &#123; updateGitlabCommitStatus name: &#x27;Complete&#x27;, state: &#x27;failed&#x27;  &#125;</span><br><span class="line">        success &#123; updateGitlabCommitStatus name: &#x27;Complete&#x27;, state: &#x27;success&#x27; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="镜像命名"><a href="#镜像命名" class="headerlink" title="镜像命名"></a>镜像命名</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make clean &amp;&amp; make image.push VERSION=$(echo $&#123;GIT_BRANCH##*/&#125; | sed &#x27;s/-|_/./g&#x27;)$(git log -1 --format=&quot;.%cd.%h&quot; --date=format:&#x27;%m%d%H%M&#x27;)</span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Murray</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.rainbowrise.top/2023/12/09/Jenkins%E7%AC%94%E8%AE%B0/">https://www.rainbowrise.top/2023/12/09/Jenkins%E7%AC%94%E8%AE%B0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Murray</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Jenkins/">
+                                    <span class="chip bg-color">Jenkins</span>
+                                </a>
+                            
+                                <a href="/tags/Ubuntu/">
+                                    <span class="chip bg-color">Ubuntu</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NTE3MC8zMTYzNw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/23/Harbor%E5%AE%89%E8%A3%85/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Harbor安装">
+                        
+                        <span class="card-title">Harbor安装</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Docker/" class="post-category">
+                                    Docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
+                    </a>
+                    
+                    <a href="/tags/Harbor/">
+                        <span class="chip bg-color">Harbor</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/11/23/window%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="window笔记">
+                        
+                        <span class="card-title">window笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Windows/" class="post-category">
+                                    Windows
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Windows/">
+                        <span class="chip bg-color">Windows</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 马瑞个人笔记<br />'
+            + '文章作者: Murray<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2024</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">Murray</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                &nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                &nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            
+            <br><span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "08";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            
+            <br><span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备2021006498号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sunglowrise" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:sunglowrise@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/ma-liang-19-36" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/ma-liang-19-36" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

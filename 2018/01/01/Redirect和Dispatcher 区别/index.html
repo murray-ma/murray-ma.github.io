@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Web/">
-                                <span class="chip bg-color">Web</span>
-                            </a>
-                        
                             <a href="/tags/Java/">
                                 <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
                             </a>
                         
                     </div>
@@ -383,21 +383,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="Redirect和Dispatcher-区别"><a href="#Redirect和Dispatcher-区别" class="headerlink" title="Redirect和Dispatcher 区别"></a>Redirect和Dispatcher 区别</h4><blockquote>
-<p>使用forward是服务跳转，浏览器不知道它所请求的具体资源来源，浏览器的地址栏不会变；使用redirect，服务端根据逻辑,发送一个状态码,告诉浏览器重新去请求那个地址.所以地址栏显示的是新的URL。</p>
+                <h4 id="Redirect-和-Dispatcher-区别"><a href="#Redirect-和-Dispatcher-区别" class="headerlink" title="Redirect 和 Dispatcher 区别"></a>Redirect 和 Dispatcher 区别</h4><blockquote>
+<p>使用 forward 是服务跳转，浏览器不知道它所请求的具体资源来源，浏览器的地址栏不会变；使用 redirect，服务端根据逻辑,发送一个状态码,告诉浏览器重新去请求那个地址.所以地址栏显示的是新的 URL。</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestDispatcher(&quot;test.jsp&quot;).forward(request, response);//转发到test.jsp</span><br><span class="line">response.sendRedirect(&quot;test.jsp&quot;);//重定向到test.jsp</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>重定向：以前的request中存放的变量全部失效，并进入一个新的request作用域。</p>
+<p>重定向：以前的 request 中存放的变量全部失效，并进入一个新的 request 作用域。</p>
 </blockquote>
 <blockquote>
-<p>转发：以前的request中存放的变量不会失效，就像把两个页面拼到了一起。</p>
+<p>转发：以前的 request 中存放的变量不会失效，就像把两个页面拼到了一起。</p>
 </blockquote>
 <blockquote>
-<p>forward,转发页面和转发到的页面可以共享request里面的数据;redirect,不能共享数据.</p>
+<p>forward,转发页面和转发到的页面可以共享 request 里面的数据;redirect,不能共享数据.</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">总而言之：</span><br><span class="line"></span><br><span class="line">区别1：</span><br><span class="line">    redirect是重定向，会导致url路径的改变，是客户端的变化。</span><br><span class="line">    dispatcher是转向的意思，url路径不改变，是服务器端的变化。</span><br><span class="line">区别2：</span><br><span class="line">    redirect的重定向如果需要带上参数，只能是url里面加上参数自段</span><br><span class="line">    dispatcher会自动带上参数的跳转。</span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>
@@ -461,12 +462,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Web/">
-                                    <span class="chip bg-color">Web</span>
-                                </a>
-                            
                                 <a href="/tags/Java/">
                                     <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
                                 </a>
                             
                         </div>

@@ -1,0 +1,1744 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="MySQL常用函数, Java,Python,GO">
+    <meta name="description" content="IT文章及知识分享">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>MySQL常用函数 | 马瑞个人笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="马瑞个人笔记" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">马瑞个人笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">马瑞个人笔记</div>
+        <div class="logo-desc">
+            
+            IT文章及知识分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MySQL常用函数</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+        padding-top: 1.5rem
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        <!-- height: calc(100vh - 250px); -->
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Mysql/">
+                                <span class="chip bg-color">Mysql</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/DB/" class="post-category">
+                                DB
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-06-27
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="MySQl"><a href="#MySQl" class="headerlink" title="MySQl"></a>MySQl</h1><h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><ul>
+<li>查看索引</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show index from table_name \g；</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>索引类型<ul>
+<li>INDEX 普通索引</li>
+<li>UNIQUE INDEX 唯一索引</li>
+<li>PRIMARY KEY INDEX 主键</li>
+<li>FULLTEXT INDEX 全文索引</li>
+</ul>
+</li>
+<li>方式一(create)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 创建索引</span><br><span class="line">create index index_name on table_name (column_name);</span><br><span class="line"># 删除索引</span><br><span class="line">drop index index_name on table_name ;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方式二(alter)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 创建索引</span><br><span class="line">alter table table_name add index index_name (column_list);</span><br><span class="line"># 删除索引</span><br><span class="line">alter table table_name drop index index_name ;</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用查询"><a href="#常用查询" class="headerlink" title="常用查询"></a>常用查询</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 查看当前的日志缓存大小</span><br><span class="line">show variables like &#x27;%innodb_log_buffer_size%&#x27;;</span><br><span class="line"># 查找数据目录</span><br><span class="line">show variables like &#x27;datadir&#x27;;</span><br><span class="line"># 查看数据库配置</span><br><span class="line">show variables like &#x27;%query_cache%&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h2><h3 id="问题：ERROR-1820-HY000"><a href="#问题：ERROR-1820-HY000" class="headerlink" title="问题：ERROR 1820 (HY000)"></a>问题：ERROR 1820 (HY000)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 问题：</span><br><span class="line">ERROR 1820 (HY000): You must reset your password using ALTER USE statement before executing this statement.</span><br><span class="line">错误翻译:在执行该语句之前,你必须通过 alter user 来修改密码</span><br><span class="line">原因：没有设置允许远程连接的权限；</span><br><span class="line"></span><br><span class="line"># 解决</span><br><span class="line">alter user user() identified by &#x27;&lt;new-password&gt;&#x27;;</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;&lt;new-password&gt;&#x27; WITH GRANT OPTION;</span><br><span class="line">flush privileges;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="修改密码：方式-1"><a href="#修改密码：方式-1" class="headerlink" title="修改密码：方式 1"></a>修改密码：方式 1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">update user set password=password(&#x27;&lt;new-password&gt;&#x27;) where user=&#x27;root&#x27;;</span><br><span class="line">flush privileges;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="修改密码：方式-2"><a href="#修改密码：方式-2" class="headerlink" title="修改密码：方式 2"></a>修改密码：方式 2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set password for root@localhost = password(&#x27;&lt;new-password&gt;&#x27;);</span><br><span class="line">flush privileges;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="修改密码：方式-3"><a href="#修改密码：方式-3" class="headerlink" title="修改密码：方式 3"></a>修改密码：方式 3</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -hlocalhost -uroot -p&lt;old-password&gt; password &lt;new-password&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 修改权限</span><br><span class="line">grant all privileges on *.* to root@&quot;%&quot; identified by &quot;&lt;mysql-password&gt;&quot;;</span><br><span class="line">flush privileges</span><br><span class="line"></span><br><span class="line"># 整库备份</span><br><span class="line">mysqldump --default-character-set=utf8 --hex-blob -hlocalhost -uroot -ph3c -R -c --databases &lt;database-name&gt; &gt; &lt;database-backup-filename&gt;.sql</span><br><span class="line"></span><br><span class="line">mysqldump --default-character-set=utf8 --hex-blob -hlocalhost -uroot -ph3c -R -c --all-databases &gt; &lt;all-database-backup-filename&gt;.sql</span><br><span class="line"></span><br><span class="line"># 数据恢复</span><br><span class="line">source &lt;database-backup-filename&gt;.sql</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="mysqldump-参数说明"><a href="#mysqldump-参数说明" class="headerlink" title="mysqldump 参数说明"></a>mysqldump 参数说明</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br></pre></td><td class="code"><pre><span class="line">--all-databases  , -A</span><br><span class="line">导出全部数据库。</span><br><span class="line">mysqldump  -uroot -p --all-databases</span><br><span class="line">--all-tablespaces  , -Y</span><br><span class="line">导出全部表空间。</span><br><span class="line">mysqldump  -uroot -p --all-databases --all-tablespaces</span><br><span class="line">--no-tablespaces  , -y</span><br><span class="line">不导出任何表空间信息。</span><br><span class="line">mysqldump  -uroot -p --all-databases --no-tablespaces</span><br><span class="line">--add-drop-database</span><br><span class="line">每个数据库创建之前添加drop数据库语句。</span><br><span class="line">mysqldump  -uroot -p --all-databases --add-drop-database</span><br><span class="line">--add-drop-table</span><br><span class="line">每个数据表创建之前添加drop数据表语句。(默认为打开状态，使用--skip-add-drop-table取消选项)</span><br><span class="line">mysqldump  -uroot -p --all-databases  (默认添加drop语句)</span><br><span class="line">mysqldump  -uroot -p --all-databases –skip-add-drop-table  (取消drop语句)</span><br><span class="line">--add-locks</span><br><span class="line">在每个表导出之前增加LOCK TABLES并且之后UNLOCK  TABLE。(默认为打开状态，使用--skip-add-locks取消选项)</span><br><span class="line">mysqldump  -uroot -p --all-databases  (默认添加LOCK语句)</span><br><span class="line">mysqldump  -uroot -p --all-databases –skip-add-locks   (取消LOCK语句)</span><br><span class="line">--allow-keywords</span><br><span class="line">允许创建是关键词的列名字。这由表名前缀于每个列名做到。</span><br><span class="line">mysqldump  -uroot -p --all-databases --allow-keywords</span><br><span class="line">--apply-slave-statements</span><br><span class="line">在&#x27;CHANGE MASTER&#x27;前添加&#x27;STOP SLAVE&#x27;，并且在导出的最后添加&#x27;START SLAVE&#x27;。</span><br><span class="line">mysqldump  -uroot -p --all-databases --apply-slave-statements</span><br><span class="line">--character-sets-dir</span><br><span class="line">字符集文件的目录</span><br><span class="line">mysqldump  -uroot -p --all-databases  --character-sets-dir=/usr/local/mysql/share/mysql/charsets</span><br><span class="line">--comments</span><br><span class="line">附加注释信息。默认为打开，可以用--skip-comments取消</span><br><span class="line">mysqldump  -uroot -p --all-databases  (默认记录注释)</span><br><span class="line">mysqldump  -uroot -p --all-databases --skip-comments   (取消注释)</span><br><span class="line">--compatible</span><br><span class="line">导出的数据将和其它数据库或旧版本的MySQL 相兼容。值可以为ansi、mysql323、mysql40、postgresql、oracle、mssql、db2、maxdb、no_key_options、no_tables_options、no_field_options等，</span><br><span class="line">要使用几个值，用逗号将它们隔开。它并不保证能完全兼容，而是尽量兼容。</span><br><span class="line">mysqldump  -uroot -p --all-databases --compatible=ansi</span><br><span class="line">--compact</span><br><span class="line">导出更少的输出信息(用于调试)。去掉注释和头尾等结构。可以使用选项：--skip-add-drop-table  --skip-add-locks --skip-comments --skip-disable-keys</span><br><span class="line">mysqldump  -uroot -p --all-databases --compact</span><br><span class="line">--complete-insert,  -c</span><br><span class="line">使用完整的insert语句(包含列名称)。这么做能提高插入效率，但是可能会受到max_allowed_packet参数的影响而导致插入失败。</span><br><span class="line">mysqldump  -uroot -p --all-databases --complete-insert</span><br><span class="line">--compress, -C</span><br><span class="line">在客户端和服务器之间启用压缩传递所有信息</span><br><span class="line">mysqldump  -uroot -p --all-databases --compress</span><br><span class="line">--create-options,  -a</span><br><span class="line">在CREATE TABLE语句中包括所有MySQL特性选项。(默认为打开状态)</span><br><span class="line">mysqldump  -uroot -p --all-databases</span><br><span class="line">--databases,  -B</span><br><span class="line">导出几个数据库。参数后面所有名字参量都被看作数据库名。</span><br><span class="line">mysqldump  -uroot -p --databases test mysql</span><br><span class="line">--debug</span><br><span class="line">输出debug信息，用于调试。默认值为：d:t,/tmp/mysqldump.trace</span><br><span class="line">mysqldump  -uroot -p --all-databases --debug</span><br><span class="line">mysqldump  -uroot -p --all-databases --debug=” d:t,/tmp/debug.trace”</span><br><span class="line">--debug-check</span><br><span class="line">检查内存和打开文件使用说明并退出。</span><br><span class="line">mysqldump  -uroot -p --all-databases --debug-check</span><br><span class="line">--debug-info</span><br><span class="line">输出调试信息并退出</span><br><span class="line">mysqldump  -uroot -p --all-databases --debug-info</span><br><span class="line">--default-character-set</span><br><span class="line">设置默认字符集，默认值为utf8</span><br><span class="line">mysqldump  -uroot -p --all-databases --default-character-set=utf8</span><br><span class="line">--delayed-insert</span><br><span class="line">采用延时插入方式（INSERT DELAYED）导出数据</span><br><span class="line">mysqldump  -uroot -p --all-databases --delayed-insert</span><br><span class="line">--delete-master-logs</span><br><span class="line">master备份后删除日志. 这个参数将自动激活--master-data。</span><br><span class="line">mysqldump  -uroot -p --all-databases --delete-master-logs</span><br><span class="line">--disable-keys</span><br><span class="line">对于每个表，用/*!40000 ALTER TABLE tbl_name DISABLE KEYS */;和/*!40000 ALTER TABLE tbl_name ENABLE KEYS */;语句引用INSERT语句。这样可以更快地导入dump出来的文件，因为它是在插入所有行后创建索引的。该选项只适合MyISAM表，默认为打开状态。</span><br><span class="line">mysqldump  -uroot -p --all-databases</span><br><span class="line">--dump-slave</span><br><span class="line">该选项将主的binlog位置和文件名追加到导出数据的文件中(show slave status)。设置为1时，将会以CHANGE MASTER命令输出到数据文件；设置为2时，会在change前加上注释。该选项将会打开--lock-all-tables，除非--single-transaction被指定。该选项会自动关闭--lock-tables选项。默认值为0。</span><br><span class="line">mysqldump  -uroot -p --all-databases --dump-slave=1</span><br><span class="line">mysqldump  -uroot -p --all-databases --dump-slave=2</span><br><span class="line">--master-data</span><br><span class="line">该选项将当前服务器的binlog的位置和文件名追加到输出文件中(show master status)。如果为1，将会输出CHANGE MASTER 命令；如果为2，输出的CHANGE  MASTER命令前添加注释信息。该选项将打开--lock-all-tables 选项，除非--single-transaction也被指定（在这种情况下，全局读锁在开始导出时获得很短的时间；其他内容参考下面的--single-transaction选项）。该选项自动关闭--lock-tables选项。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --master-data=1;</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --master-data=2;</span><br><span class="line">--events, -E</span><br><span class="line">导出事件。</span><br><span class="line">mysqldump  -uroot -p --all-databases --events</span><br><span class="line">--extended-insert,  -e</span><br><span class="line">使用具有多个VALUES列的INSERT语法。这样使导出文件更小，并加速导入时的速度。默认为打开状态，使用--skip-extended-insert取消选项。</span><br><span class="line">mysqldump  -uroot -p --all-databases</span><br><span class="line">mysqldump  -uroot -p --all-databases--skip-extended-insert   (取消选项)</span><br><span class="line">--fields-terminated-by</span><br><span class="line">导出文件中忽略给定字段。与--tab选项一起使用，不能用于--databases和--all-databases选项</span><br><span class="line">mysqldump  -uroot -p test test --tab=”/home/mysql” --fields-terminated-by=”#”</span><br><span class="line">--fields-enclosed-by</span><br><span class="line">输出文件中的各个字段用给定字符包裹。与--tab选项一起使用，不能用于--databases和--all-databases选项</span><br><span class="line">mysqldump  -uroot -p test test --tab=”/home/mysql” --fields-enclosed-by=”#”</span><br><span class="line">--fields-optionally-enclosed-by</span><br><span class="line">输出文件中的各个字段用给定字符选择性包裹。与--tab选项一起使用，不能用于--databases和--all-databases选项</span><br><span class="line">mysqldump  -uroot -p test test --tab=”/home/mysql”  --fields-enclosed-by=”#” --fields-optionally-enclosed-by  =”#”</span><br><span class="line">--fields-escaped-by</span><br><span class="line">输出文件中的各个字段忽略给定字符。与--tab选项一起使用，不能用于--databases和--all-databases选项</span><br><span class="line">mysqldump  -uroot -p mysql user --tab=”/home/mysql” --fields-escaped-by=”#”</span><br><span class="line">--flush-logs</span><br><span class="line">开始导出之前刷新日志。</span><br><span class="line">请注意：假如一次导出多个数据库(使用选项--databases或者--all-databases)，将会逐个数据库刷新日志。除使用--lock-all-tables或者--master-data外。在这种情况下，日志将会被刷新一次，相应的所以表同时被锁定。因此，如果打算同时导出和刷新日志应该使用--lock-all-tables 或者--master-data 和--flush-logs。</span><br><span class="line">mysqldump  -uroot -p --all-databases --flush-logs</span><br><span class="line">--flush-privileges</span><br><span class="line">在导出mysql数据库之后，发出一条FLUSH  PRIVILEGES 语句。为了正确恢复，该选项应该用于导出mysql数据库和依赖mysql数据库数据的任何时候。</span><br><span class="line">mysqldump  -uroot -p --all-databases --flush-privileges</span><br><span class="line">--force</span><br><span class="line">在导出过程中忽略出现的SQL错误。</span><br><span class="line">mysqldump  -uroot -p --all-databases --force</span><br><span class="line">--help</span><br><span class="line">显示帮助信息并退出。</span><br><span class="line">mysqldump  --help</span><br><span class="line">--hex-blob</span><br><span class="line">使用十六进制格式导出二进制字符串字段。如果有二进制数据就必须使用该选项。影响到的字段类型有BINARY、VARBINARY、BLOB。</span><br><span class="line">mysqldump  -uroot -p --all-databases --hex-blob</span><br><span class="line">--host, -h</span><br><span class="line">需要导出的主机信息</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases</span><br><span class="line">--ignore-table</span><br><span class="line">不导出指定表。指定忽略多个表时，需要重复多次，每次一个表。每个表必须同时指定数据库和表名。例如：--ignore-table=database.table1 --ignore-table=database.table2 ……</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --ignore-table=mysql.user</span><br><span class="line">--include-master-host-port</span><br><span class="line">在--dump-slave产生的&#x27;CHANGE  MASTER TO..&#x27;语句中增加&#x27;MASTER_HOST=&lt;host&gt;，MASTER_PORT=&lt;port&gt;&#x27;</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --include-master-host-port</span><br><span class="line">--insert-ignore</span><br><span class="line">在插入行时使用INSERT IGNORE语句.</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --insert-ignore</span><br><span class="line">--lines-terminated-by</span><br><span class="line">输出文件的每行用给定字符串划分。与--tab选项一起使用，不能用于--databases和--all-databases选项。</span><br><span class="line">mysqldump  -uroot -p --host=localhost test test --tab=”/tmp/mysql”  --lines-terminated-by=”##”</span><br><span class="line">--lock-all-tables,  -x</span><br><span class="line">提交请求锁定所有数据库中的所有表，以保证数据的一致性。这是一个全局读锁，并且自动关闭--single-transaction 和--lock-tables 选项。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --lock-all-tables</span><br><span class="line">--lock-tables,  -l</span><br><span class="line">开始导出前，锁定所有表。用READ  LOCAL锁定表以允许MyISAM表并行插入。对于支持事务的表例如InnoDB和BDB，--single-transaction是一个更好的选择，因为它根本不需要锁定表。</span><br><span class="line">请注意当导出多个数据库时，--lock-tables分别为每个数据库锁定表。因此，该选项不能保证导出文件中的表在数据库之间的逻辑一致性。不同数据库表的导出状态可以完全不同。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --lock-tables</span><br><span class="line">--log-error</span><br><span class="line">附加警告和错误信息到给定文件</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases  --log-error=/tmp/mysqldump_error_log.err</span><br><span class="line">--max_allowed_packet</span><br><span class="line">服务器发送和接受的最大包长度。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --max_allowed_packet=10240</span><br><span class="line">--net_buffer_length</span><br><span class="line">TCP/IP和socket连接的缓存大小。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --net_buffer_length=1024</span><br><span class="line">--no-autocommit</span><br><span class="line">使用autocommit/commit 语句包裹表。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --no-autocommit</span><br><span class="line">--no-create-db,  -n</span><br><span class="line">只导出数据，而不添加CREATE DATABASE 语句。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --no-create-db</span><br><span class="line">--no-create-info,  -t</span><br><span class="line">只导出数据，而不添加CREATE TABLE 语句。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --no-create-info</span><br><span class="line">--no-data, -d</span><br><span class="line">不导出任何数据，只导出数据库表结构。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --no-data</span><br><span class="line">--no-set-names,  -N</span><br><span class="line">等同于--skip-set-charset</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --no-set-names</span><br><span class="line">--opt</span><br><span class="line">等同于--add-drop-table,  --add-locks, --create-options, --quick, --extended-insert, --lock-tables,  --set-charset, --disable-keys 该选项默认开启,  可以用--skip-opt禁用.</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --opt</span><br><span class="line">--order-by-primary</span><br><span class="line">如果存在主键，或者第一个唯一键，对每个表的记录进行排序。在导出MyISAM表到InnoDB表时有效，但会使得导出工作花费很长时间。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --order-by-primary</span><br><span class="line">--password, -p</span><br><span class="line">连接数据库密码</span><br><span class="line">--pipe(windows系统可用)</span><br><span class="line">使用命名管道连接mysql</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --pipe</span><br><span class="line">--port, -P</span><br><span class="line">连接数据库端口号</span><br><span class="line">--protocol</span><br><span class="line">使用的连接协议，包括：tcp, socket, pipe, memory.</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --protocol=tcp</span><br><span class="line">--quick, -q</span><br><span class="line">不缓冲查询，直接导出到标准输出。默认为打开状态，使用--skip-quick取消该选项。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --skip-quick</span><br><span class="line">--quote-names,-Q</span><br><span class="line">使用（`）引起表和列名。默认为打开状态，使用--skip-quote-names取消该选项。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --skip-quote-names</span><br><span class="line">--replace</span><br><span class="line">使用REPLACE INTO 取代INSERT INTO.</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --replace</span><br><span class="line">--result-file,  -r</span><br><span class="line">直接输出到指定文件中。该选项应该用在使用回车换行对（\\r\\n）换行的系统上（例如：DOS，Windows）。该选项确保只有一行被使用。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --result-file=/tmp/mysqldump_result_file.txt</span><br><span class="line">--routines, -R</span><br><span class="line">导出存储过程以及自定义函数。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --routines</span><br><span class="line">--set-charset</span><br><span class="line">添加&#x27;SET NAMES  default_character_set&#x27;到输出文件。默认为打开状态，使用--skip-set-charset关闭选项。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --skip-set-charset</span><br><span class="line">--single-transaction</span><br><span class="line">该选项在导出数据之前提交一个BEGIN SQL语句，BEGIN 不会阻塞任何应用程序且能保证导出时数据库的一致性状态。它只适用于多版本存储引擎，仅InnoDB。本选项和--lock-tables 选项是互斥的，因为LOCK  TABLES 会使任何挂起的事务隐含提交。要想导出大表的话，应结合使用--quick 选项。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --single-transaction</span><br><span class="line">--dump-date</span><br><span class="line">将导出时间添加到输出文件中。默认为打开状态，使用--skip-dump-date关闭选项。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --skip-dump-date</span><br><span class="line">--skip-opt</span><br><span class="line">禁用–opt选项.</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --skip-opt</span><br><span class="line">--socket,-S</span><br><span class="line">指定连接mysql的socket文件位置，默认路径/tmp/mysql.sock</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --socket=/tmp/mysqld.sock</span><br><span class="line">--tab,-T</span><br><span class="line">为每个表在给定路径创建tab分割的文本文件。注意：仅仅用于mysqldump和mysqld服务器运行在相同机器上。注意使用--tab不能指定--databases参数</span><br><span class="line">mysqldump  -uroot -p --host=localhost test test --tab=&quot;/home/mysql&quot;</span><br><span class="line">--tables</span><br><span class="line">覆盖--databases (-B)参数，指定需要导出的表名，在后面的版本会使用table取代tables。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --databases test --tables test</span><br><span class="line">--triggers</span><br><span class="line">导出触发器。该选项默认启用，用--skip-triggers禁用它。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --triggers</span><br><span class="line">--tz-utc</span><br><span class="line">在导出顶部设置时区TIME_ZONE=&#x27;+00:00&#x27; ，以保证在不同时区导出的TIMESTAMP 数据或者数据被移动其他时区时的正确性。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --tz-utc</span><br><span class="line">--user, -u</span><br><span class="line">指定连接的用户名。</span><br><span class="line">--verbose, --v</span><br><span class="line">输出多种平台信息。</span><br><span class="line">--version, -V</span><br><span class="line">输出mysqldump版本信息并退出</span><br><span class="line">--where, -w</span><br><span class="line">只转储给定的WHERE条件选择的记录。请注意如果条件包含命令解释符专用空格或字符，一定要将条件引用起来。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --where=” user=’root’”</span><br><span class="line">--xml, -X</span><br><span class="line">导出XML格式.</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --xml</span><br><span class="line">--plugin_dir</span><br><span class="line">客户端插件的目录，用于兼容不同的插件版本。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --plugin_dir=”/usr/local/lib/plugin”</span><br><span class="line">--default_auth</span><br><span class="line">客户端插件默认使用权限。</span><br><span class="line">mysqldump  -uroot -p --host=localhost --all-databases --default-auth=”/usr/local/lib/plugin/&lt;PLUGIN&gt;”</span><br></pre></td></tr></table></figure>
+
+<h2 id="mysql-性能调优"><a href="#mysql-性能调优" class="headerlink" title="mysql 性能调优"></a>mysql 性能调优</h2><h3 id="①-innodb-buffer-pool-size"><a href="#①-innodb-buffer-pool-size" class="headerlink" title="① innodb_buffer_pool_size"></a>① innodb_buffer_pool_size</h3><ul>
+<li>在 mysql 的配置文件 my.ini 的[mysqld]下配置</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 保证从内存中读取数据，将数据保存在内存中</span><br><span class="line"># 1. innodb_buffer_pool_size足够大，建议innodb_buffer_pool_size设置为系统内存的50%。</span><br><span class="line"># innodb缓冲池大小</span><br><span class="line">innodb_buffer_pool_size=4G</span><br><span class="line"># innodb缓冲池块大小</span><br><span class="line">innodb_buffer_pool_chunk_size=128M</span><br><span class="line"># innodb缓冲池实例数</span><br><span class="line">innodb_buffer_pool_instances=8</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在线调整</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 在线调整InnoDB缓冲池大小</span><br><span class="line">SET GLOBAL innodb_buffer_pool_size=4294967296</span><br><span class="line"># 查看配置</span><br><span class="line">show variables like &#x27;innodb_buffer_pool%&#x27;;</span><br><span class="line"># 查看状态</span><br><span class="line">show global status like &#x27;innodb_buffer_pool%&#x27;;</span><br><span class="line"># InnoDB buffer pool 命中率，此值低于99%，则可以考虑增加innodb_buffer_pool_size。</span><br><span class="line"># InnoDB buffer pool 命中率 = innodb_buffer_pool_read_requests / (innodb_buffer_pool_read_requests + innodb_buffer_pool_reads ) * 100</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置验证</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">show global status like &#x27;innodb_buffer_pool%&#x27;;</span><br><span class="line"># 1. 查询缓存命中率</span><br><span class="line">Innodb_buffer_pool_read_requests：逻辑读取请求的数量。</span><br><span class="line">Innodb_buffer_pool_reads：InnoDB无法从缓冲池满足的逻辑读取数，必须直接从磁盘读取。</span><br><span class="line">percent = innodb_buffer_pool_read_requests / (innodb_buffer_pool_reads + innodb_buffer_pool_read_requests) * 100%</span><br><span class="line">上述的 percent&gt;=99%，则表示当前的buffer pool满足当前的需求。否则需要考虑增加 innodb_buffer_pool_size的值。</span><br><span class="line"></span><br><span class="line"># 2. 缓存数据页占比</span><br><span class="line">innodb_buffer_pool_pages_data：InnoDB缓冲池中包含数据的页数。这个数字包括脏页和干净页。（使用压缩表时，报告的Innodb_buffer_pool_pages_数据值可能大于）</span><br><span class="line">percent = Innodb_buffer_pool_pages_data / Innodb_buffer_pool_pages_total * 100%</span><br><span class="line">上述的 percent&gt;=95% 则表示当前的innodb_buffer_pool_size满足当前的需求。否则可以考虑增加 innodb_buffer_pool_size的值。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如何判断 MySQL 使用内存会不会过高</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">可能还有有一些担心，所有参数设置完毕后MySQL的占用会过高导致内存溢出，那么我们可以算一下他会不会太高。</span><br><span class="line">通过下面的SQL语句（单位为GB）：</span><br><span class="line">MyISAM引擎：</span><br><span class="line">SELECT (((@@key_buffer_size)/1024/1024)+((@@read_rnd_buffer_size+@@read_buffer_size+@@myisam_sort_buffer_size+@@sort_buffer_size+@@join_buffer_size)/1024/1024*@@max_connections))/1024 建议内存（GB）;</span><br><span class="line">Innodb引擎：</span><br><span class="line">SELECT (((@@innodb_buffer_pool_size+@@innodb_log_buffer_size)/1024/1024)+((@@read_rnd_buffer_size+@@read_buffer_size+@@sort_buffer_size+@@join_buffer_size)/1024/1024*@@max_connections))/1024 建议内存（GB）;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">若该值不超过系统可用内存，说明还好（理论）</span><br></pre></td></tr></table></figure>
+
+<h3 id="②-max-allowed-packet"><a href="#②-max-allowed-packet" class="headerlink" title="② max_allowed_packet"></a>② max_allowed_packet</h3><p><strong>max_allowed_packet 是</strong>指 mysql 服务器端和客户端在一次传送数据包的过程当中最大允许的数据包大小。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 修改配置文件my.ini 在mysqld段下添加</span><br><span class="line">max_allowed_packet = 64M</span><br><span class="line"># 查看目前配置</span><br><span class="line">show VARIABLES like &#x27;%max_allowed_packet%&#x27;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="③key-buffer-size"><a href="#③key-buffer-size" class="headerlink" title="③key_buffer_size"></a>③key_buffer_size</h3><p>key_buffer_size 指定索引缓冲区的大小，它决定索引处理的速度，尤其是索引读的速度。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 修改配置文件my.ini 在mysqld段下添加</span><br><span class="line">key_buffer_size= 4G</span><br><span class="line"></span><br><span class="line"># 查看配置</span><br><span class="line">SHOW VARIABLES LIKE &#x27;%key_buffer_size%&#x27;;</span><br><span class="line"></span><br><span class="line"># 当前状态</span><br><span class="line">show status like &#x27;%Key_%&#x27;;</span><br><span class="line">Key_reads/Key_read_requests ≈ 0.01 以下比较好。</span><br><span class="line">一、如果Key_reads太大，则应该把my.cnf中Key_buffer_size变大，保持Key_reads/Key_read_requests至少1/100以上，越小越好。</span><br><span class="line">二、如果Qcache_lowmem_prunes很大，就要增加Query_cache_size的值。</span><br><span class="line"></span><br><span class="line">建议key_buffer设置为物理内存的1/4(针对MyISAM引擎)，甚至是物理内存的30%~40%，如果key_buffer_size设置太大，系统就会频繁的换页，降低系统性能。</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置实例-1（2U4G）"><a href="#配置实例-1（2U4G）" class="headerlink" title="配置实例 1（2U4G）"></a>配置实例 1（2U4G）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">常见2U的服务器硬件环境：CPU: 2颗Intel Xeon 2.4GHz 内存: 4GB DDR 硬盘: SCSI。</span><br><span class="line">根据以上硬件配置结合一份已经优化好的my.cnf进行说明：</span><br><span class="line">[mysqld]</span><br><span class="line">#character-set-server=utf8</span><br><span class="line">#default-storage-engine=INNODB</span><br><span class="line">port = 3306</span><br><span class="line">serverid = 1</span><br><span class="line">socket = /tmp/mysql.sock</span><br><span class="line"># 避免MySQL的外部锁定，减少出错几率增强稳定性。</span><br><span class="line">skip-locking</span><br><span class="line"># 禁止MySQL对外部连接进行DNS解析，使用这一选项可以消除MySQL进行DNS解析的时间。但需要注意，如果开启该选项，则所有远程主机连接授权都要使用IP地址方式，否则MySQL将无法正常处理连接请求！</span><br><span class="line">skip-name-resolve</span><br><span class="line"># back_log参数的值指出在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中。 如果系统在一个短时间内有很多连接，则需要增大该参数的值，该参数值指定到来的TCP/IP连接的侦听队列的大小。不同的操作系统在这个队列大小上有它自己的限制。 试图设定back_log高于你的操作系统的限制将是无效的。默认值为50。对于Linux系统推荐设置为小于512的整数。</span><br><span class="line">back_log = 384</span><br><span class="line"># key_buffer_size指定用于索引的缓冲区大小，增加它可得到更好的索引处理性能。对于内存在4GB左右的服务器该参数可设置为256M或384M。注意：该参数值设置的过大反而会是服务器整体效率降低！</span><br><span class="line">key_buffer_size = 256M</span><br><span class="line">max_allowed_packet = 64M</span><br><span class="line">thread_stack = 256K</span><br><span class="line">table_cache = 128K</span><br><span class="line"># 查询排序时所能使用的缓冲区大小。注意：该参数对应的分配内存是每连接独占，如果有100个连接，那么实际分配的总共排序缓冲区大小为100 × 6 ＝ 600MB。所以，对于内存在4GB左右的服务器推荐设置为6-8M。</span><br><span class="line">sort_buffer_size = 6M</span><br><span class="line"># 读查询操作所能使用的缓冲区大小。和sort_buffer_size一样，该参数对应的分配内存也是每连接独享。</span><br><span class="line">read_buffer_size = 4M</span><br><span class="line"># 联合查询操作所能使用的缓冲区大小，和sort_buffer_size一样，该参数对应的分配内存也是每连接独享。</span><br><span class="line">join_buffer_size = 8M</span><br><span class="line">myisam_sort_buffer_size = 64M</span><br><span class="line">table_cache = 512</span><br><span class="line"># thread_cache_size根据物理内存设置规则：1G--8；2G--16；3G--32；&gt;3G--64</span><br><span class="line">thread_cache_size = 64</span><br><span class="line">#指定MySQL查询缓冲区的大小。可以通过在MySQL控制台观察，如果Qcache_lowmem_prunes的值非常大，则表明经常出现缓冲不够的情况；如果Qcache_hits的值非常大，则表明查询缓冲使用非常频繁，如果该值较小反而会影响效率，那么可以考虑不用查询缓冲；Qcache_free_blocks，如果该值非常大，则表明缓冲区中碎片很多。</span><br><span class="line">query_cache_size = 64M</span><br><span class="line">tmp_table_size = 256M</span><br><span class="line"># 指定MySQL允许的最大连接进程数。如果在访问论坛时经常出现Too Many Connections的错误提 示，则需要增大该参数值。</span><br><span class="line">max_connections = 768</span><br><span class="line">max_connect_errors = 10000000</span><br><span class="line"># 指定一个请求的最大连接时间，对于4GB左右内存的服务器可以设置为5-10。</span><br><span class="line">wait_timeout = 10</span><br><span class="line"># 该参数取值为服务器逻辑CPU数量*2，在本例中，服务器有2颗物理CPU，而每颗物理CPU又支持H.T超线程，所以实际取值为4*2=8</span><br><span class="line">thread_concurrency = 8</span><br><span class="line">#开启该选项可以彻底关闭MySQL的TCP/IP连接方式，如果WEB服务器是以远程连接的方式访问MySQL数据库服务器则不要开启该选项！否则将无法正常连接！</span><br><span class="line">skip-networking</span><br><span class="line"># 物理内存越大,设置就越大.默认为2402,调到512-1024最佳</span><br><span class="line">table_cache=1024</span><br><span class="line"># 默认为2M</span><br><span class="line">innodb_additional_mem_pool_size=4M</span><br><span class="line"># 设置为0就是等到innodb_log_buffer_size列队满后再统一储存,默认为1</span><br><span class="line">innodb_flush_log_at_trx_commit=1</span><br><span class="line"># 默认为1M</span><br><span class="line">innodb_log_buffer_size=2M</span><br><span class="line"># 服务器CPU有几个就设置为几,建议用默认一般为8</span><br><span class="line">innodb_thread_concurrency=8</span><br><span class="line">innodb_buffer_pool_instances=8</span><br><span class="line">innodb_buffer_pool_size=2G</span><br><span class="line"># 默认为218，调到128最佳</span><br><span class="line">key_buffer_size=256M</span><br><span class="line"># 默认为16M，调到64-256最挂</span><br><span class="line">tmp_table_size=64M</span><br><span class="line"># 默认为64K</span><br><span class="line">read_buffer_size=4M</span><br><span class="line"># 默认为256K</span><br><span class="line">read_rnd_buffer_size=16M</span><br><span class="line"># 默认为256K</span><br><span class="line">sort_buffer_size=32M</span><br><span class="line"># 默认为60</span><br><span class="line">thread_cache_size=120</span><br><span class="line">query_cache_size=32M</span><br><span class="line"># Set the SQL mode to strict</span><br><span class="line">#sql-mode=&quot;STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;</span><br><span class="line">sql-mode=&quot;NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置实例-2（4U4G）"><a href="#配置实例-2（4U4G）" class="headerlink" title="配置实例 2（4U4G）"></a>配置实例 2（4U4G）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">一、公共选项</span><br><span class="line">skip-external-locking //避免MySQL的外部锁定，减少出错几率增强稳定性。</span><br><span class="line">skip-name-resolve //禁止MySQL对外部连接进行DNS解析，使用这一选项可以消除MySQL进行DNS解析的时间。但需要注意，如果开启该选项，则所有远程亿恩科技主机连接授权都要使用IP地址方式，否则MySQL将无法正常处理连接请求！</span><br><span class="line">max_connections = 1024 //指定MySQL允许的最大连接进程数。如果在访问论坛时经常出现Too Many Connections的错误提示，则需要增大该参数值。</span><br><span class="line">query_cache_size = 16M //默认为0，就是不启用。指定MySQL查询缓冲区的大小。可以通过在MySQL控制台执行以下命令观察：</span><br><span class="line"># &gt; SHOW VARIABLES LIKE &#x27;%query_cache%&#x27;;</span><br><span class="line"># &gt; SHOW STATUS LIKE &#x27;Qcache%&#x27;;</span><br><span class="line"># 如果Qcache_lowmem_prunes的值非常大，则表明经常出现缓冲不够的情况；</span><br><span class="line">如果Qcache_hits的值非常大，则表明查询缓冲使用非常频繁，如果该值较小反而会影响效率，那么可以考虑不用查询缓冲；Qcache_free_blocks，如果该值非常大，则表明缓冲区中碎片很多。</span><br><span class="line">sort_buffer_size = 6M //每个线程的排序缓存大小，该选项对排序order by、group by起作用。注意：该参数对应的分配内存是每连接独占！如果有100个连接，那么实际分配的总共排序缓冲区大小为100 × 6 ＝ 600MB。所以，对于内存在4GB左右的服务器推荐设置为6-8M。</span><br><span class="line">record_buffer=16M //每个进行一个顺序扫描的线程为其扫描的每张表分配这个大小的一个缓冲区，可以设置为2M以上</span><br><span class="line">table_cache = 512 //为所有线程打开表的数量。增加该值能增加mysqld要求的文件描述符的数量。Mysql对每个唯一打开的表需要2个文件描述符。</span><br><span class="line">二、MyISAM选项</span><br><span class="line">key_buffer_size = 256M //key_buffer_size指定用于索引的缓冲区大小，增加它可得到更好的索引处理性能。对于内存在4GB左右的服务器该参数可设置为256M或384M。</span><br><span class="line">注意：该参数值设置的过大反而会是服务器整体效率降低！</span><br><span class="line">read_buffer_size = 4M //读查询操作所能使用的缓冲区大小。和sort_buffer_size一样，该参数对应的分配内存也是每连接独享！</span><br><span class="line">myisam_sort_buffer_size = 64M //默认为16M。设置、恢复、修改表的时候使用的缓冲大小，值不要设的太大。</span><br><span class="line">join_buffer_size = 8M //联合查询操作所能使用的缓冲区大小，和sort_buffer_size一样，该参数对应的分配内存也是每连接独享！</span><br><span class="line">三、InnoDB选项</span><br><span class="line">innodb_buffer_pool_size＝1G //一个Innodb最重要的参数，这个参数和MyISAM的key_buffer_size有相似之处，但也是有差别的。这个参数主要缓存innodb表的索引，数据，插入数据时的缓冲，设置得越大，存取表里面数据时所需要的磁盘I/O越少，一般是内存的一半，不超过2G，否则系统会崩溃。为Innodb加速优化首要参数。该参数分配内存的原则：这个参数默认分配只有8M，可以说是非常小的一个值。如果是一个专用ＤＢ服务器，那么他可以占到内存的70%-80%。这个参数不能动态更改，所以分配需多考虑。分配过大，会使Swap占用过多，致使Mysql的查询特慢。如果你的数据比较小，那么可分配是你的数据大小＋１０％左右做为这个参数的值。例如：数据大小为50Ｍ,那么给这个值分配innodb_buffer_pool_size＝64Ｍ</span><br><span class="line">innodb_additional_mem_pool_size=16M //用来存放Innodb的内部目录这个值不用分配太大，系统可以自动调。不用设置太高。通常比较大数据设置16Ｍ够用了，如果表比较多，可以适当的增大。如果这个值自动增加，会在error log有中显示的。</span><br><span class="line">innodb_log_file_size=256M //在日志组中每个日志文件的大小，一般是innodb_buffer_pool_size的25%，官方推荐是innodb_buffer_pool_size的40-50%。一般控制在几个ＬＯＧ文件相加大小在２Ｇ以内为佳。具体情况还需要看你的事务大小，数据大小为依据。说明：这个值分配的大小和数据库的写入速度，事务大小，异常重启后的恢复有很大的关系。</span><br><span class="line">innodb_log_files_in_group=2 //指定你有几个日志组。分配原则：一般我们可以用２－３个日值组。默认为两个。</span><br><span class="line">innodb_log_buffer_size＝3M //事务在内存中的缓冲。分配原则：控制在2-8M.这个值不用太多的。他里面的内存一般一秒钟写到磁盘一次。具体写入方式和你的事务提交方式有关。在oracle等数据库了解这个，一般最大指定为３Ｍ比较合适。</span><br><span class="line">innodb_flush_logs_at_trx_commit＝0 //控制事务的提交方式分配原则：这个参数只有３个值，０，１，２请确认一下自已能接受的级别。默认为１，主库请不要更改了。性能更高的可以设置为０或是２，但会丢失一秒钟的事务。说明：这个参数的设置对Ｉｎｎｏｄｂ的性能有很大的影响，所以在这里给多说明一下。当这个值为1时：innodb 的事务LOG在每次提交后写入日值文件，并对日值做刷新到磁盘。这个可以做到不丢任何一个事务。当这个值为2时：在每个提交，日志缓冲被写到文件，但不对日志文件做到磁盘操作的刷新,在对日志文件的刷新在值为2的情况也每秒发生一次。但需要注意的是，由于进程调用方面的问题，并不能保证每秒１００％的发生。从而在性能上是最快的。但操作系统崩溃或掉电才会删除最后一秒的事务。当这个值为0时：日志缓冲每秒一次地被写到日志文件，并且对日志文件做到磁盘操作的刷新，但是在一个事务提交不做任何操作。mysqld进程的崩溃会删除崩溃前最后一秒的事务。</span><br><span class="line"></span><br><span class="line"># Set the SQL mode to strict</span><br><span class="line">#sql-mode=&quot;STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;</span><br><span class="line">sql-mode=&quot;NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="精简配置（在原配置基础上新增配置项）"><a href="#精简配置（在原配置基础上新增配置项）" class="headerlink" title="精简配置（在原配置基础上新增配置项）"></a>精简配置（在原配置基础上新增配置项）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">#character-set-server=utf8</span><br><span class="line">#default-storage-engine=INNODB</span><br><span class="line"># MySQL允许的最大连接进程数</span><br><span class="line">max_connections=512</span><br><span class="line"># 指定MySQL查询缓冲区的大小。可以通过在MySQL控制台观察，如果Qcache_lowmem_prunes的值非常大，则表明经常出现缓冲不够的情况；如果Qcache_hits的值非常大，则表明查询缓冲使用非常频繁，如果该值较小反而会影响效率，那么可以考虑不用查询缓冲；Qcache_free_blocks，如果该值非常大，则表明缓冲区中碎片很多。</span><br><span class="line">query_cache_size = 64M</span><br><span class="line">tmp_table_size=128M</span><br><span class="line"># thread_cache_size根据物理内存设置规则：1G--8；2G--16；3G--32；&gt;3G--64</span><br><span class="line">thread_cache_size=64</span><br><span class="line">key_buffer_size=256M</span><br><span class="line">read_buffer_size=4M</span><br><span class="line">read_rnd_buffer_size=16M</span><br><span class="line"># 最大建议物理内存的80%</span><br><span class="line">innodb_buffer_pool_size=6G</span><br><span class="line"># innodb缓冲池块大小</span><br><span class="line">innodb_buffer_pool_chunk_size=128M</span><br><span class="line"># innodb缓冲池实例数</span><br><span class="line">innodb_buffer_pool_instances=8</span><br><span class="line"># 服务器CPU有几个就设置为几,建议用默认一般为8</span><br><span class="line">innodb_thread_concurrency=8</span><br><span class="line"># 联合查询操作所能使用的缓冲区大小，和sort_buffer_size一样，该参数对应的分配内存也是每连接独享。</span><br><span class="line">join_buffer_size=16M</span><br><span class="line"># 最大允许的数据包大小</span><br><span class="line">max_allowed_packet=64M</span><br><span class="line"># 查询排序时所能使用的缓冲区大小。注意：该参数对应的分配内存是每连接独占，如果有100个连接，那么实际分配的总共排序缓冲区大小为100 × 6 ＝ 600MB。</span><br><span class="line">sort_buffer_size = 6M</span><br><span class="line"></span><br><span class="line"># Set the SQL mode to strict</span><br><span class="line">#sql-mode=&quot;STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;</span><br><span class="line">sql-mode=&quot;NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="DBA"><a href="#DBA" class="headerlink" title="DBA"></a>DBA</h1><h2 id="1、查询闪存卡"><a href="#1、查询闪存卡" class="headerlink" title="1、查询闪存卡"></a>1、查询闪存卡</h2><p>lspci -nn | grep -i mass</p>
+<h2 id="2、mysql5-7-29-源码安装"><a href="#2、mysql5-7-29-源码安装" class="headerlink" title="2、mysql5.7.29 源码安装"></a>2、mysql5.7.29 源码安装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br></pre></td><td class="code"><pre><span class="line"># 1、创建mysql用户</span><br><span class="line">groupadd mysql</span><br><span class="line">useradd -d /home/mysql -g mysql -m mysql</span><br><span class="line"></span><br><span class="line"># 2、创建安装目录并解压</span><br><span class="line">mkdir -p /u01/mysql3306</span><br><span class="line">mkdir -p /u01/mysql3306/data</span><br><span class="line">mkdir -p /u01/mysql3306/log/iblog</span><br><span class="line">mkdir -p /u01/mysql3306/binlog</span><br><span class="line">mkdir -p /u01/mysql3306/run</span><br><span class="line">mkdir -p /u01/mysql3306/tmp</span><br><span class="line">mkdir -p /etc/mysql/3306</span><br><span class="line"></span><br><span class="line">chown -R mysql:mysql /u01</span><br><span class="line">chmod -R 755 /u01</span><br><span class="line"></span><br><span class="line">tar -zxvf /u01/mysql-5.7.29.tar.gz</span><br><span class="line"></span><br><span class="line"># 3、设置环境变量</span><br><span class="line">su - mysql</span><br><span class="line">vim ~/.bash_profile</span><br><span class="line">PATH=$PATH:$HOME/.local/bin:$HOME/bin:/u01/mysql3306/bin</span><br><span class="line">source  ~/.bash_profile</span><br><span class="line"></span><br><span class="line"># 4、安装工具</span><br><span class="line">yum install -y  cmake gcc gcc-c++ ncurses-devel bison zlib libxml openssl openssl-devel</span><br><span class="line"></span><br><span class="line"># 5、源码安装</span><br><span class="line">cmake \</span><br><span class="line">-DCMAKE_INSTALL_PREFIX=/u01/mysql3306 \</span><br><span class="line">-DINSTALL_DATADIR=/u01/mysql3306/data \</span><br><span class="line">-DMYSQL_UNIX_ADDR=/u01/mysql3306/run/mysql.sock \</span><br><span class="line">-DSYSCONFDIR=/etc \</span><br><span class="line">-DMYSQL_TCP_PORT=3306 \</span><br><span class="line">-DDEFAULT_CHARSET=utf8 \</span><br><span class="line">-DDEFAULT_COLLATION=utf8_general_ci \</span><br><span class="line">-DEXTRA_CHARSETS=all \</span><br><span class="line">-DENABLED_LOCAL_INFILE=ON \</span><br><span class="line">-DWITH_INNODB_MEMCACHED=ON \</span><br><span class="line">-DWITH_SSL=system \</span><br><span class="line">-DWITH_EMBEDDED_SERVER=1 \</span><br><span class="line">-DWITH_MYISAM_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_INNOBASE_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_FEDERATED_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_BLACKHOLE_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_ARCHIVE_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_PARTITION_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITHOUT_EXAMPLE_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_PERFSCHEMA_STORAGE_ENGINE=1 \</span><br><span class="line">-DCOMPILATION_COMMENT=&quot;mayw edition&quot; \</span><br><span class="line">-DDOWNLOAD_BOOST=1 \</span><br><span class="line">-DWITH_BOOST=/tmp \</span><br><span class="line">-DWITH_READLINE=on</span><br><span class="line"></span><br><span class="line">make -j 12</span><br><span class="line">make &amp; make install</span><br><span class="line"></span><br><span class="line">chown -R mysql:mysql /u01/mysql3306</span><br><span class="line"></span><br><span class="line"># 6、mysql配置文件</span><br><span class="line">cd /etc/mysql/3306/my.cnf</span><br><span class="line"></span><br><span class="line">[client]</span><br><span class="line">default-character-set=utf8</span><br><span class="line">port=3306</span><br><span class="line">socket=/u01/mysql3306/run/mysql.sock</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">default-character-set=utf8</span><br><span class="line">#pid_file=/u01/mysql3306/run/mysqld.pid</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">autocommit=1</span><br><span class="line">general_log=off</span><br><span class="line">explicit_defaults_for_timestamp=true</span><br><span class="line"># skip login passwd</span><br><span class="line">#skip-grant-tables</span><br><span class="line"></span><br><span class="line"># system</span><br><span class="line">basedir=/u01/mysql3306</span><br><span class="line">datadir=/u01/mysql3306/data</span><br><span class="line">max_allowed_packet=1g</span><br><span class="line">max_connections=3000</span><br><span class="line">max_user_connections=2800</span><br><span class="line">open_files_limit=65535</span><br><span class="line">#pid_file=/u01/mysql3306/run/mysqld.pid</span><br><span class="line">port=3306</span><br><span class="line">server_id=101</span><br><span class="line">skip_name_resolve=ON</span><br><span class="line">socket=/u01/mysql3306/run/mysql.sock</span><br><span class="line">tmpdir=/u01/mysql3306/tmp</span><br><span class="line"></span><br><span class="line">#binlog</span><br><span class="line">log_bin=/u01/mysql3306/log/binlog/binlog</span><br><span class="line">binlog_cache_size=32768</span><br><span class="line">binlog_format=row</span><br><span class="line">expire_logs_days=7</span><br><span class="line">log_slave_updates=ON</span><br><span class="line">max_binlog_cache_size=2147483648</span><br><span class="line">max_binlog_size=524288000</span><br><span class="line">sync_binlog=100</span><br><span class="line"></span><br><span class="line">#logging</span><br><span class="line">log_error=/u01/mysql3306/log/error.log</span><br><span class="line">slow_query_log_file=/u01/mysql3306/log/slow.log</span><br><span class="line">log_queries_not_using_indexes=0</span><br><span class="line">slow_query_log=1</span><br><span class="line">log_slave_updates=ON</span><br><span class="line">log_slow_admin_statements=1</span><br><span class="line">long_query_time=1</span><br><span class="line"></span><br><span class="line">#relay</span><br><span class="line">relay_log=/u01/mysql3306/log/relaylog</span><br><span class="line">relay_log_index=/u01/mysql3306/log/relay.index</span><br><span class="line">relay_log_info_file=/u01/mysql3306/log/relay-log.info</span><br><span class="line"></span><br><span class="line">#slave</span><br><span class="line">slave_load_tmpdir=/u01/mysql3306/tmp</span><br><span class="line">slave_skip_errors=OFF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#innodb</span><br><span class="line">innodb_data_home_dir=/u01/mysql3306/log/iblog</span><br><span class="line">innodb_log_group_home_dir=/u01/mysql3306/log/iblog</span><br><span class="line">innodb_adaptive_flushing=ON</span><br><span class="line">innodb_adaptive_hash_index=ON</span><br><span class="line">innodb_autoinc_lock_mode=1</span><br><span class="line">innodb_buffer_pool_instances=8</span><br><span class="line"></span><br><span class="line">#default</span><br><span class="line">innodb_change_buffering=inserts</span><br><span class="line">innodb_checksums=ON</span><br><span class="line">innodb_buffer_pool_size= 128M</span><br><span class="line">innodb_data_file_path=ibdata1:32M;ibdata2:16M:autoextend</span><br><span class="line">innodb_doublewrite=ON</span><br><span class="line">innodb_file_format=Barracuda</span><br><span class="line">innodb_file_per_table=ON</span><br><span class="line">innodb_flush_log_at_trx_commit=1</span><br><span class="line">innodb_flush_method=O_DIRECT</span><br><span class="line">innodb_io_capacity=1000</span><br><span class="line">innodb_lock_wait_timeout=10</span><br><span class="line">innodb_log_buffer_size=67108864</span><br><span class="line">innodb_log_file_size=1048576000</span><br><span class="line">innodb_log_files_in_group=4</span><br><span class="line">innodb_max_dirty_pages_pct=60</span><br><span class="line">innodb_open_files=60000</span><br><span class="line">innodb_purge_threads=1</span><br><span class="line">innodb_read_io_threads=4</span><br><span class="line">innodb_stats_on_metadata=OFF</span><br><span class="line">innodb_support_xa=ON</span><br><span class="line">innodb_use_native_aio=OFF</span><br><span class="line">innodb_write_io_threads=10</span><br><span class="line"></span><br><span class="line">[mysqld_safe]</span><br><span class="line">datadir=/u01/mysql3306/data</span><br><span class="line"></span><br><span class="line"># 7、初始化数据库</span><br><span class="line">/u01/mysql3306/scripts/mysql_install_db --defaults-file=/u01/mysql3306/my.cnf --datadir=/u01/mysql3306/data --initialize --user=mysql</span><br><span class="line">或者</span><br><span class="line">/u01/mysql3306/bin/mysqld  --defaults-file=/u01/mysql3306/my.cnf --datadir=/u01/mysql3306/data --initialize --user=mysql</span><br><span class="line"></span><br><span class="line"># 8、启动数据库</span><br><span class="line">/u01/mysql3306/bin/mysqld_safe --defaults-file=/u01/mysql3306/my.cnf  --user=mysql &amp;</span><br><span class="line"></span><br><span class="line">若报错mysql: [ERROR] unknown variable &#x27;pid_file=/u01/mysql3306/run/mysqld.pid&#x27;错误，注释掉my.cnf中的pid_file配置。</span><br><span class="line"></span><br><span class="line"># 9、登录并设置</span><br><span class="line">mysql 或 mysql -uroot -p xx（任意）</span><br><span class="line">若无法登录，在mysqld配置下skip-grant-tables，忽略登录认证， 修改密码后再改回来。</span><br><span class="line"></span><br><span class="line">use mysql;</span><br><span class="line">update mysql.user set authentication_string = password(&#x27;root&#x27;) where user=&#x27;root&#x27;;</span><br><span class="line">修改后：注释掉mysqld配置下skip-grant-tables</span><br><span class="line"></span><br><span class="line">登录后，执行指令报错：ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.</span><br><span class="line">执行：</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;1q2w3e&#x27; PASSWORD EXPIRE NEVER;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题与解决"><a href="#问题与解决" class="headerlink" title="问题与解决"></a>问题与解决</h2><h2 id="问题-1：Lock-wait-timeout-exceeded"><a href="#问题-1：Lock-wait-timeout-exceeded" class="headerlink" title="问题 1：Lock wait timeout exceeded"></a>问题 1：Lock wait timeout exceeded</h2><p>问题：ERROR 1205 (HY000): Lock wait timeout exceeded; try restarting transaction。</p>
+<p>解决：</p>
+<p>① 先查看数据库的事务隔离级别：</p>
+<p>select @@tx_isoloation;</p>
+<p>REPEATABLE-READ // MySQL 默认的事务隔离级别就是 REPEATABLE-READ</p>
+<p>② 然后查看当前数据库的线程情况：SHOW FULL PROCESSLIST;</p>
+<p>例如 Time 最大的 ID 为 616694。</p>
+<p>③ 没有看到正在执行的很慢 SQL 记录线程，再去查看 innodb 的事务表 INNODB_TRX，看下里面是否有正在锁定的事务线程，看看 ID 是否在 show full processlist 里面的 sleep 线程中，如果是，就证明这个 sleep 的线程事务一直没有 commit 或者 rollback 而是卡住了，我们需要手动 kill 掉。</p>
+<p>SELECT * FROM information_schema.INNODB_TRX;</p>
+<p>KILL 616694;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">第一种：</span><br><span class="line">1.查询是否锁表</span><br><span class="line">show open tables where in_use &gt; 0;</span><br><span class="line">2.查询进程（如果您有super权限，您可以看到所有线程。否则，您只能看到您自己的线程）</span><br><span class="line">show processlist</span><br><span class="line">3.杀死进程id（就是上面命令的id列）</span><br><span class="line">kill id</span><br><span class="line"></span><br><span class="line">第二种：</span><br><span class="line">1.查看下在锁的事务</span><br><span class="line">select * from information_schema.innodb_trx;</span><br><span class="line">2.杀死进程id（就是上面命令的trx_mysql_thread_id列）</span><br><span class="line">kill 线程id</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line">查出死锁进程：show processlist</span><br><span class="line">杀掉进程 kill 420821;</span><br><span class="line"></span><br><span class="line">其它关于查看死锁的命令：</span><br><span class="line">1：查看当前的事务</span><br><span class="line">select * from information_schema.innodb_trx;</span><br><span class="line">2：查看当前锁定的事务</span><br><span class="line">select * from information_schema.innodb_locks;</span><br><span class="line">3：查看当前等锁的事务</span><br><span class="line">select * from information_schema.innodb_lock_waits;</span><br><span class="line"></span><br><span class="line">第三种：</span><br><span class="line">show engine innodb status</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/mayor125/article/details/76186661">https://blog.csdn.net/mayor125/article/details/76186661</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">-- 查看innodb引擎的运行时信息</span><br><span class="line">show engine innodb status \G;</span><br><span class="line">show engine innodb mutex \G;</span><br><span class="line"></span><br><span class="line">-- 查看服务器状态</span><br><span class="line">show status like &#x27;%lock%&#x27;;</span><br><span class="line">-- 查看超时时间：</span><br><span class="line">show variables like &#x27;%timeout%&#x27;;</span><br><span class="line">-- 查询是否锁表</span><br><span class="line">show open tables where in_use &gt; 0;</span><br><span class="line">-- 查看所有进程</span><br><span class="line">show processlist;</span><br><span class="line">-- 查看所有进程</span><br><span class="line">show full processlist;</span><br><span class="line">-- 杀掉指定mysql连接的进程号</span><br><span class="line">kill $pid</span><br><span class="line">-- 1：查看当前的事务</span><br><span class="line">desc information_schema.innodb_trx;</span><br><span class="line">select * from information_schema.innodb_trx;</span><br><span class="line">-- 2：查看当前锁定的事务(查看正在锁的事务)</span><br><span class="line">desc information_schema.innodb_locks;</span><br><span class="line">select * from information_schema.innodb_locks;</span><br><span class="line">-- 3：查看当前等锁的事务(查看等待锁的事务)</span><br><span class="line">desc information_schema.innodb_lock_waits;</span><br><span class="line">select * from information_schema.innodb_lock_waits;</span><br><span class="line">-- 按客户端 IP 分组，看哪个客户端的链接数最多</span><br><span class="line">select client_ip,count(client_ip) as client_num from (select substring_index(host,&#x27;:&#x27; ,1) as client_ip from information_schema.processlist ) as connect_info group by client_ip order by client_num desc;</span><br><span class="line">-- 查看正在执行的线程，并按 Time 倒排序，看看有没有执行时间特别长的线程</span><br><span class="line">select * from information_schema.processlist where Command not in (&#x27;Sleep&#x27;, &#x27;Killed&#x27;) order by Time desc;</span><br><span class="line">-- 找出所有执行时间超过 5 分钟的线程，拼凑出 kill 语句，方便后面查杀</span><br><span class="line">select concat(&#x27;kill &#x27;, id, &#x27;;&#x27;) from information_schema.processlist where Command not in (&#x27;Sleep&#x27;, &#x27;Killed&#x27;) and Time &gt; 300 order by Time desc;</span><br><span class="line">-- 找出所有的线程，拼凑出 kill 语句，方便后面查杀</span><br><span class="line">select concat(&#x27;kill &#x27;, id, &#x27;;&#x27;) from information_schema.processlist where Command not in (&#x27;Sleep&#x27;, &#x27;Killed&#x27;) order by Time desc;</span><br><span class="line">-- 输出一个字符串</span><br><span class="line">select GROUP_CONCAT(CONCAT(&#x27;&quot;&#x27;,a.id,&#x27;&quot;&#x27;), &#x27;&#x27;) from server_platform_ref a, sys_param_connection b</span><br><span class="line">where a.cas_ip = b.ip</span><br><span class="line">and b.remark=&#x27;cas7&#x27; and a.id  in (</span><br><span class="line">select virtual_id from server_monitor_history where time = (select max(time) from server_monitor_history ) and time &gt; (select unix_timestamp(now()) - 30 * 60)</span><br><span class="line">) and ip = &#x27;10.130.161.30&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题-2：mysql-远程连接-访问速度慢的解决方案"><a href="#问题-2：mysql-远程连接-访问速度慢的解决方案" class="headerlink" title="问题 2：mysql 远程连接/访问速度慢的解决方案"></a>问题 2：mysql 远程连接/访问速度慢的解决方案</h2><p>问题：远程连接/访问速度慢</p>
+<p>解决：修改 /etc/my.cnf,添加配置 skip-name-resolve， 在连接远程数据库的时候，直接跳过 MySQL 的 DNS 解析</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">skip-name-resolve</span><br></pre></td></tr></table></figure>
+
+<p>重启 mysqld 服务，解决。</p>
+<h2 id="问题-3：集群状态不同步"><a href="#问题-3：集群状态不同步" class="headerlink" title="问题 3：集群状态不同步"></a>问题 3：集群状态不同步</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">change master to master_auto_position=0;</span><br><span class="line"></span><br><span class="line">CHANGE MASTER TO</span><br><span class="line">MASTER_HOST=&#x27;192.168.101.142&#x27;,</span><br><span class="line">MASTER_PORT=3306,</span><br><span class="line">MASTER_USER=&#x27;replication&#x27;,</span><br><span class="line">MASTER_PASSWORD=&#x27;Flzx3qc_1&#x27;,</span><br><span class="line">MASTER_LOG_FILE=&#x27;mysql-bin.000013&#x27;,</span><br><span class="line">MASTER_LOG_POS=234;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h1 id="MySQL-性能优化"><a href="#MySQL-性能优化" class="headerlink" title="MySQL 性能优化"></a>MySQL 性能优化</h1><h2 id="性能优化方向"><a href="#性能优化方向" class="headerlink" title="性能优化方向"></a>性能优化方向</h2><ul>
+<li>一方面是指通过调整系统参数、合理安排资源使得 MySQL 的运行速度更快、更加节省资源.</li>
+<li>另一方面，也指优化我们通常使用的 SQL 语句——尤其是查询语句，来提高 MySQL 的性能。</li>
+</ul>
+<h2 id="性能优化基本原则"><a href="#性能优化基本原则" class="headerlink" title="性能优化基本原则"></a>性能优化基本原则</h2><ul>
+<li>减少系统瓶颈；</li>
+<li>减少资源占用；</li>
+<li>提高系统反应速度。</li>
+</ul>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>MySQL 性能优化通常从以下几个方面入手：</p>
+<pre><code>找出系统瓶颈，提高MySQL数据库整体的性能；
+
+合理的结构设计和参数调整，提高数据库操作的相应速度；
+
+最大限度节省系统资源，以便系统可以提供更大负荷的服务。
+</code></pre>
+<p>例如：</p>
+<pre><code>通过优化文件系统，来提高磁盘I/O的独写速度；
+
+通过优化操作系统的调度策略，提高MySQL在高负荷情况下的负载能力；
+
+通过优化表结构、索引、查询语句等使得查询响应更快。
+</code></pre>
+<h2 id="Mysql-状态"><a href="#Mysql-状态" class="headerlink" title="Mysql 状态"></a>Mysql 状态</h2><p>在 MySQL 中可以使用 SHOW STATUS 语句来查看 MySQL 数据库的性能参数，</p>
+<p>我们可以根据这些性能参数来了解 MySQL 数据库的状态，并制定合理的优化策略。</p>
+<p>执行 show status;可以查看所有的性能参数，</p>
+<p>执行 show status like ‘参数名称’;</p>
+<p>可以查看指定参数名称的性能参数，一般某一类参数都有相同的前缀。</p>
+<p>mysql&gt; show status;</p>
+<p><strong>状态表中对部分性能参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">状态名</th>
+<th align="left">用域</th>
+<th align="left">详细解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Aborted_clients</td>
+<td align="left">Global</td>
+<td align="left">由于客户端没有正确关闭连接导致客户端终止而中断的连接数</td>
+</tr>
+<tr>
+<td align="left">Aborted_connects</td>
+<td align="left">Global</td>
+<td align="left">试图连接到 MySQL 服务器而失败的连接数</td>
+</tr>
+<tr>
+<td align="left">Handler_read_prev</td>
+<td align="left">Both</td>
+<td align="left">按照键顺序读前一行的请求数。该读方法主要用于优化 ORDER BY … DESC。</td>
+</tr>
+<tr>
+<td align="left">Handler_read_rnd</td>
+<td align="left">Both</td>
+<td align="left">根据固定位置读一行的请求数。如果你正执行大量查询并需要对结果进行排序该值较高。你可能使用了大量需要 MySQL 扫描整个表的查询或你的连接没有正确使用键。</td>
+</tr>
+<tr>
+<td align="left">Handler_read_rnd_next</td>
+<td align="left">Both</td>
+<td align="left">在数据文件中读下一行的请求数。如果你正进行大量的表扫描，该值较高。通常说明你的表索引不正确或写入的查询没有利用索引。</td>
+</tr>
+<tr>
+<td align="left">Handler_rollback</td>
+<td align="left">Both</td>
+<td align="left">内部 ROLLBACK 语句的数量。</td>
+</tr>
+<tr>
+<td align="left">Handler_savepoint</td>
+<td align="left">Both</td>
+<td align="left">在一个存储引擎放置一个保存点的请求数量</td>
+</tr>
+<tr>
+<td align="left">Handler_savepoint_rollback</td>
+<td align="left">Both</td>
+<td align="left">在一个存储引擎的要求回滚到一个保存点数目。</td>
+</tr>
+<tr>
+<td align="left">Handler_update</td>
+<td align="left">Both</td>
+<td align="left">在表内更新一行的请求数。</td>
+</tr>
+<tr>
+<td align="left">Handler_write</td>
+<td align="left">Both</td>
+<td align="left">在表内插入一行的请求数。</td>
+</tr>
+<tr>
+<td align="left">Last_query_cost</td>
+<td align="left">Session</td>
+<td align="left">用查询优化器计算的最后编译的查询的总成本。用于对比同一查询的不同查询方案的成本。默认值 0 表示还没有编译查询。 默认值是 0。Last_query_cost 具有会话范围。</td>
+</tr>
+<tr>
+<td align="left">Max_used_connections</td>
+<td align="left">Global</td>
+<td align="left">服务器启动后已经同时使用的连接的最大数量。</td>
+</tr>
+<tr>
+<td align="left">Open_tables</td>
+<td align="left">Both</td>
+<td align="left">当前打开的表的数量。</td>
+</tr>
+<tr>
+<td align="left">Qcache_free_memory</td>
+<td align="left">Global</td>
+<td align="left">用于查询缓存的自由内存的数量。</td>
+</tr>
+<tr>
+<td align="left">Qcache_hits</td>
+<td align="left">Global</td>
+<td align="left">查询缓存被访问的次数。</td>
+</tr>
+<tr>
+<td align="left">Qcache_inserts</td>
+<td align="left">Global</td>
+<td align="left">加入到缓存的查询数量。</td>
+</tr>
+<tr>
+<td align="left">Qcache_total_blocks</td>
+<td align="left">Global</td>
+<td align="left">查询缓存内的总块数。</td>
+</tr>
+<tr>
+<td align="left">Queries</td>
+<td align="left">Both</td>
+<td align="left">服务器执行的请求个数，包含存储过程中的请求。</td>
+</tr>
+<tr>
+<td align="left">Questions</td>
+<td align="left">Both</td>
+<td align="left">已经发送给服务器的查询的个数。</td>
+</tr>
+<tr>
+<td align="left">Select_full_join</td>
+<td align="left">Both</td>
+<td align="left">没有使用索引的联接的数量。如果该值不为 0,你应仔细检查表的索引</td>
+</tr>
+<tr>
+<td align="left">Select_full_range_join</td>
+<td align="left">Both</td>
+<td align="left">在引用的表中使用范围搜索的联接的数量。</td>
+</tr>
+<tr>
+<td align="left">Select_range</td>
+<td align="left">Both</td>
+<td align="left">在第一个表中使用范围的联接的数量。一般情况不是关键问题，即使该值相当大。</td>
+</tr>
+<tr>
+<td align="left">Select_range_check</td>
+<td align="left">Both</td>
+<td align="left">在每一行数据后对键值进行检查的不带键值的联接的数量。如果不为 0，你应仔细检查表的索引。</td>
+</tr>
+<tr>
+<td align="left">Select_scan</td>
+<td align="left">Both</td>
+<td align="left">对第一个表进行完全扫描的联接的数量。</td>
+</tr>
+<tr>
+<td align="left">Slave_running</td>
+<td align="left">Global</td>
+<td align="left">如果该服务器是连接到主服务器的从服务器，则该值为 ON。</td>
+</tr>
+<tr>
+<td align="left">Slow_queries</td>
+<td align="left">Both</td>
+<td align="left">查询时间超过 long_query_time 秒的查询的个数。</td>
+</tr>
+<tr>
+<td align="left">Sort_range</td>
+<td align="left">Both</td>
+<td align="left">在范围内执行的排序的数量。</td>
+</tr>
+<tr>
+<td align="left">Sort_rows</td>
+<td align="left">Both</td>
+<td align="left">已经排序的行数。</td>
+</tr>
+<tr>
+<td align="left">Sort_scan</td>
+<td align="left">Both</td>
+<td align="left">通过扫描表完成的排序的数量。</td>
+</tr>
+<tr>
+<td align="left">Table_locks_immediate</td>
+<td align="left">Global</td>
+<td align="left">立即获得的表的锁的次数。</td>
+</tr>
+<tr>
+<td align="left">Table_locks_waited</td>
+<td align="left">Global</td>
+<td align="left">不能立即获得的表的锁的次数。如果该值较高，并且有性能问题，你应首先优化查询，然后拆分表或使用复制。</td>
+</tr>
+<tr>
+<td align="left">Threads_cached</td>
+<td align="left">Global</td>
+<td align="left">线程缓存内的线程的数量。</td>
+</tr>
+<tr>
+<td align="left">Threads_connected</td>
+<td align="left">Global</td>
+<td align="left">当前打开的连接的数量。</td>
+</tr>
+<tr>
+<td align="left">Threads_created</td>
+<td align="left">Global</td>
+<td align="left">创建用来处理连接的线程数。如果 Threads_created 较大，你可能要增加 thread_cache_size 值。缓存访问率的计算方法 Threads_created/Connections。</td>
+</tr>
+<tr>
+<td align="left">Threads_running</td>
+<td align="left">Global</td>
+<td align="left">激活的（非睡眠状态）线程数。</td>
+</tr>
+<tr>
+<td align="left">Uptime</td>
+<td align="left">Global</td>
+<td align="left">服务器已经运行的时间（以秒为单位）。</td>
+</tr>
+</tbody></table>
+<h1 id="MySQL-查询优化"><a href="#MySQL-查询优化" class="headerlink" title="MySQL 查询优化"></a>MySQL 查询优化</h1><p>查询是数据库中最频繁的操作，优化查询可以很有效的提高 MySQL 的数据库性能。</p>
+<h2 id="分析查询语句"><a href="#分析查询语句" class="headerlink" title="分析查询语句"></a>分析查询语句</h2><p>可以使用 explain 或者 describe 关键字来分析查询语句，语法如下：</p>
+<ol>
+<li><p>explain [extended] SELECT SelectOptions</p>
+</li>
+<li><p>describe [extended] SELECT SelectOptions</p>
+</li>
+<li><p>desc [extended] SELECT SelectOptions</p>
+</li>
+</ol>
+<p>mysql&gt; explain extended SELECT id, name, ip_address, <code>action</code>, create_time FROM user_action_log where id=1;</p>
+<p>+—-+————-+——————-+————+——-+—————+———+———+——-+——+———-+——-+</p>
+<p>| id | select_type | table | partitions | type | possible_keys | key | key_len | ref | rows | filtered | Extra |</p>
+<p>+—-+————-+——————-+————+——-+—————+———+———+——-+——+———-+——-+</p>
+<p>| 1 | SIMPLE | t_user_action_log | NULL | const | PRIMARY | PRIMARY | 8 | const | 1 | 100.00 | NULL |</p>
+<p>+—-+————-+——————-+————+——-+—————+———+———+——-+——+———-+——-+</p>
+<p>1 row in set, 2 warnings (0.00 sec)</p>
+<blockquote>
+<p>字段说明</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">id: SELECT识别符。这是SELECT的查询序列号,表示查询中执行select子句或操作表的顺序,id相同，执行顺序从上到下,id不同，id值越大执行优先级越高</span><br><span class="line">select_type：表示SELECT语句的类型。它可以是以下几种取值：</span><br><span class="line">    SIMPLE:表示简单查询，其中不包括连接查询和子查询；</span><br><span class="line">    PRIMARY:表示主查询，或者是最外层的查询语句，最外层查询为PRIMARY，也就是最后加载的就是PRIMARY；</span><br><span class="line">    UNION:表示连接查询的第2个或后面的查询语句， 不依赖于外部查询的结果集</span><br><span class="line">    DEPENDENT UNION:连接查询中的第2个或后面的SELECT语句，依赖于外面的查询；</span><br><span class="line">    UNION RESULT:连接查询的结果；</span><br><span class="line">    SUBQUERY:子查询中的第1个SELECT语句；不依赖于外部查询的结果集</span><br><span class="line">    DEPENDENT SUBQUERY:子查询中的第1个SELECT，依赖于外面的查询；</span><br><span class="line">    DERIVED:导出表的SELECT（FROM子句的子查询）,MySQL会递归执行这些子查询，把结果放在临时表里。</span><br><span class="line">    DEPENDENT DERIVED:派生表依赖于另一个表</span><br><span class="line">    MATERIALIZED:物化子查询</span><br><span class="line">    UNCACHEABLE SUBQUERY:子查询，其结果无法缓存，必须针对外部查询的每一行重新进行评估</span><br><span class="line">    UNCACHEABLE UNION:UNION中的第二个或随后的 select 查询，属于不可缓存的子查询</span><br><span class="line">table:表示查询的表</span><br><span class="line">partitions:查询将从中匹配记录的分区。该值适用NULL于未分区的表</span><br><span class="line">type:表示表的连接类型</span><br><span class="line">    system:该表是仅有一行的系统表。这是const连接类型的一个特例</span><br><span class="line">    const: 数据表最多只有一个匹配行，它将在查询开始时被读取，并在余下的查询优化中作为常量对待。const表查询速度很快，因为只读取一次,const用于使用常数值比较PRIMARY KEY或UNIQUE索引的所有部分的场合。</span><br><span class="line">    eq_ref:对于每个来自前面的表的行组合，从该表中读取一行,可以用于使用=运算符进行比较的索引列 。比较值可以是常量，也可以是使用在此表之前读取的表中列的表达式</span><br><span class="line">    ref:对于来自前面的表的任意行组合，将从该表中读取所有匹配的行，ref可以用于使用“＝”或“＜＝＞”操作符的带索引的列。</span><br><span class="line">    fulltext:使用FULLTEXT 索引执行联接</span><br><span class="line">    ref_or_null:这种连接类型类似于ref，但是除了MySQL还会额外搜索包含NULL值的行。此联接类型优化最常用于解析子查询</span><br><span class="line">    index_merge:此联接类型指示使用索引合并优化。在这种情况下，key输出行中的列包含使用的索引列表，并key_len包含使用的索引 的最长键部分的列表</span><br><span class="line">    unique_subquery:类型替换 以下形式的eq_ref某些 IN子查询,unique_subquery 只是一个索引查找函数，它完全替代了子查询以提高效率。</span><br><span class="line">    index_subquery:连接类型类似于 unique_subquery。它代替IN子查询,但只适合子查询中的非唯一索引</span><br><span class="line">    range:只检索给定范围的行，使用一个索引来选择行。key列显示使用了哪个索引。key_len包含所使用索引的最长关键元素。当使用＝、＜＞、＞、＞＝、＜、＜＝、IS NULL、＜＝＞、BETWEEN或者IN操作符用常量比较关键字列时，类型为range</span><br><span class="line">    index:该index联接类型是一样的 ALL，只是索引树被扫描。这发生两种方式：1、如果索引是查询的覆盖索引，并且可用于满足表中所需的所有数据，则仅扫描索引树。在这种情况下，Extra列显示为 Using index，2、使用对索引的读取执行全表扫描，以按索引顺序查找数据行。 Uses index没有出现在 Extra列中。</span><br><span class="line">    ALL:对于前面的表的任意行组合进行完整的表扫描</span><br><span class="line">possible_keys:指出MySQL能使用哪个索引在该表中找到行。若该列是NULL，则没有相关的索引。在这种情况下，可以通过检查WHERE子句看它是否引用某些列或适合索引的列来提高查询性能。如果是这样，可以创建适合的索引来提高查询的性能。</span><br><span class="line">kye:表示查询实际使用的索引，如果没有选择索引，该列的值是NULL。要想强制MySQL使用或忽视possible_keys列中的索引，在查询中使用FORCE INDEX、USE INDEX或者IGNORE INDEX</span><br><span class="line">key_len：表示MySQL选择的索引字段按字节计算的长度，若键是NULL，则长度为NULL。注意，通过key_len值可以确定MySQL将实际使用一个多列索引中的几个字段</span><br><span class="line">ref：表示使用哪个列或常数与索引一起来查询记录。</span><br><span class="line">rows：显示MySQL在表中进行查询时必须检查的行数。</span><br><span class="line">Extra：表示MySQL在处理查询时的详细信息</span><br></pre></td></tr></table></figure>
+
+<h2 id="索引创建原则"><a href="#索引创建原则" class="headerlink" title="索引创建原则"></a>索引创建原则</h2><ol>
+<li>索引并非越多越好，一个表中如果有大量的索引，不仅占用磁盘空间，而且会影响 INSERT、DELETE、UPDATE 等语句的性能，因为在表中的数据更改的同时，索引也会进行调整和更新</li>
+<li>避免对经常更新的表进行过多的索引，并且索引中的列尽可能少。而对经常用于查询的字段应该创建索引，但要避免添加不必要的字段。</li>
+<li>数据量小的表最好不要使用索引，由于数据较少，查询花费的时间可能比遍历索引的时间还要短，索引可能不会产生优化效果。</li>
+<li>在条件表达式中经常用到的不同值较多的列上建立索引，在不同值很少的列上不要建立索引。比如在学生表的“性别”字段上只有“男”与“女”两个不同值，因此就无须建立索引。如果建立索引，不但不会提高查询效率，反而会严重降低数据更新速度。</li>
+<li>当唯一性是某种数据本身的特征时，指定唯一索引。使用唯一索引需能确保定义的列的数据完整性，以提高查询速度。</li>
+<li>在频繁进行排序或分组（即进行 group by 或 order by 操作）的列上建立索引，如果待排序的列有多个，可以在这些列上建立组合索引。</li>
+<li>搜索的索引列，不一定是所要选择的列。换句话说，最适合索引的列是出现在 WHERE 子句中的列，或连接子句中指定的列，而不是出现在 SELECT 关键字后的选择列表中的列。</li>
+<li>使用短索引。如果对字符串列进行索引，应该指定一个前缀长度，只要有可能就应该这样做。例如，有一个 CHAR(200)列，如果在前 10 个或 20 个字符内，多数值是唯一的，那么就不要对整个列进行索引。对前 10 个或 20 个字符进行索引能够节省大量索引空间，也可能会使查询更快。较小的索引涉及的磁盘 IO 较少，较短的值比较起来更快。更为重要的是，对于较短的键值，索引高速缓存中的块能容纳更多的键值，因此，MySQL 也可以在内存中容纳更多的值。这样就增加了找到行而不用读取索引中较多块的可能性。</li>
+<li>利用最左前缀。在创建一个 n 列的索引时，实际是创建了 MySQL 可利用的 n 个索引。多列索引可起几个索引的作用，因为可利用索引中最左边的列集来匹配行。这样的列集称为最左前缀。</li>
+<li>对于 InnoDB 存储引擎的表，记录默认会按照一定的顺序保存，如果有明确定义的主键，则按照主键顺序保存。如果没有主键，但是有唯一索引，那么就是按照唯一索引的顺序保存。如果既没有主键又没有唯一索引，那么表中会自动生成一个内部列，按照这个列的顺序保存。按照主键或者内部列进行的访问是最快的，所以 InnoDB 表尽量自己指定主键，当表中同时有几个列都是唯一的，都可以作为主键的时候，要选择最常作为访问条件的列作为主键，提高查询的效率。另外，还需要注意，InnoDB 表的普通索引都会保存主键的键值，所以主键要尽可能选择较短的数据类型，可以有效地减少索引的磁盘占用，提高索引的缓存效果</li>
+</ol>
+<h2 id="索引的使用"><a href="#索引的使用" class="headerlink" title="索引的使用"></a>索引的使用</h2><ul>
+<li><p>like 查询使用索引<br>如果在 like 语句中，匹配字符串的第一个字符是%不会走索引，只有%不在第一个位置索引才会起作用。因此对于 MySQL 中的字符串，建议使用统一的前缀而不是后缀。</p>
+</li>
+<li><p>or 关键字查询语句<br>如果查询条件中使用了 or 关键字，那么只有 or 前后的条件都加了索引，索引才会生效。</p>
+</li>
+<li><p>优化子查询<br>MySQL 通过子查询实现了嵌套查询，即一个查询的结果可以作为另一个查询的条件。</p>
+</li>
+</ul>
+<p>子查询可以让一条 SQL 语句实现逻辑上需要多个步骤才能完成的 SQL 条件。</p>
+<p>子查询虽然很灵活，但是执行效率不高。原因是子查询需要为内层的查询建立一个临时表，然后外层查询再从临时表中查询结果。查询完毕以后，再撤销这张临时表。</p>
+<p>在 MySQL 中可以通过 JOIN 查询来代替子查询。因为连接查询不需要建立临时表，而且如果查询中使用索引的话，效率将会更高。</p>
+<ul>
+<li>优化数据库结构<br>一个优秀的数据库结构设计，不仅可以让数据库占用更小的磁盘空间，而且能够使查询速度更快。</li>
+</ul>
+<p>数据库结构的设计要考虑：</p>
+<ul>
+<li><p>数据冗余</p>
+</li>
+<li><p>查询和更新速度</p>
+</li>
+<li><p>字段的数据类型</p>
+</li>
+<li><p>等等……</p>
+</li>
+</ul>
+<h2 id="数据库结构设计的优化策略"><a href="#数据库结构设计的优化策略" class="headerlink" title="数据库结构设计的优化策略"></a>数据库结构设计的优化策略</h2><p>下面提供几个数据库结构设计的优化策略。</p>
+<ul>
+<li><p>将字段很多的表拆成多张表<br>一个字段很多的表，其中很多字段的使用频率很低，因为这些不常用的字段会降低数据库的查询和更新速度，所以可以考虑将这些字段分离出来形成新的表。</p>
+</li>
+<li><p>增加中间表<br>通常我们设计一张表，是基于某种逻辑与业务上的隔离原则进行的。</p>
+</li>
+</ul>
+<h2 id="插入数据性能"><a href="#插入数据性能" class="headerlink" title="插入数据性能"></a>插入数据性能</h2><p>在插入数据的时候，影响插入速度的主要是索引、唯一性校验、一次插入的条数等因素。</p>
+<p>基于这几个维度，下面提供几个优化策略。</p>
+<h3 id="MyISAM-引擎的表"><a href="#MyISAM-引擎的表" class="headerlink" title="MyISAM 引擎的表"></a>MyISAM 引擎的表</h3><ul>
+<li>禁用索引<br>对于 MyISAM 引擎的非空表，在插入数据的时候，MySQL 会根据表的索引对插入的数据建立索引，如果插入大量数据会降低插入的效率。因此可以在插入记录前关闭索引，在插入结束以后再建立索引。</li>
+</ul>
+<p>禁用索引：</p>
+<p>alter table t_user_action_log_oneline disable keys;</p>
+<p>开启索引：</p>
+<p>alter table t_user_action_log_oneline enable keys;</p>
+<ul>
+<li>禁用唯一性检查<br>插入数据的时候 MySQL 会进行唯一性检查，降低插入的速度，因此可以在数据保证唯一性的前提下，在插入之前关闭唯一性检查，插入以后再打开唯一性检查。</li>
+</ul>
+<p>禁用唯一性检查：</p>
+<p>开启唯一性检查：</p>
+<p>使用批量插入</p>
+<p>使用一条 insert 语句插入多条记录，比使用多条插入语句插入多条记录效率更高。</p>
+<ul>
+<li>使用 load data infile<br>load data infile 可以更加高效地实现数据的导入。</li>
+</ul>
+<h3 id="InnoDB-引擎的表"><a href="#InnoDB-引擎的表" class="headerlink" title="InnoDB 引擎的表"></a>InnoDB 引擎的表</h3><ul>
+<li><p>禁用唯一性检查<br>这个和前面 MyISAM 引擎表一样。</p>
+</li>
+<li><p>禁用外键检查<br>插入之前关闭外键检查：</p>
+</li>
+</ul>
+<p>set foreign_key_checks=0;</p>
+<p>插入以后开启外键检查：</p>
+<p>set foreign_key_checks=1;</p>
+<ul>
+<li>禁用自动提交<br>插入之前关闭自动提交：</li>
+</ul>
+<p>插入以后开启自动提交：</p>
+<h2 id="分析、检查和优化表"><a href="#分析、检查和优化表" class="headerlink" title="分析、检查和优化表"></a>分析、检查和优化表</h2><h3 id="1．分析表"><a href="#1．分析表" class="headerlink" title="1．分析表"></a>1．分析表</h3><p>MySQL 中使用 ANALYZE TABLE 语句来分析表，该语句的基本语法如下：</p>
+<p>ANALYZE TABLE 表名 1 [,表名 2…] ;</p>
+<p>使用 ANALYZE TABLE 分析表的过程中，数据库系统会对表加一个只读锁。在分析期间，只能读取表中的记录，不能更新和插入记录。</p>
+<p>ANALYZE TABLE 语句能够分析 InnoDB 和 MyISAM 类型的表。</p>
+<p>mysql&gt; analyze table user_action_log;</p>
+<p>+————————+———+———-+———-+</p>
+<p>| Table | Op | Msg_type | Msg_text |</p>
+<p>+——————————————–+———+———-+———-+</p>
+<p>| demo.user_action_log | analyze | status | OK |</p>
+<p>+——————————————–+———+———-+———-+</p>
+<p>1 row in set (0.02 sec)</p>
+<blockquote>
+<p>字段说明</p>
+</blockquote>
+<pre><code>Table：表示表的名称；
+
+Op：表示执行的操作。analyze表示进行分析操作。check表示进行检查查找。optimize表示进行优化操作；
+
+Msg_type：表示信息类型，其显示的值通常是状态、警告、错误和信息这四者之一；
+
+Msg_text：显示信息。
+</code></pre>
+<h3 id="2．检查表"><a href="#2．检查表" class="headerlink" title="2．检查表"></a>2．检查表</h3><p>MySQL 中使用 CHECK TABLE 语句来检查表。CHECK TABLE 语句能够检查 InnoDB 和 MyISAM 类型的表是否存在错误。而且该语句还可以检查视图是否存在错误。</p>
+<p>该语句的基本语法如下： CHECK TABLE 表名 1 [,表名 2…] [option] ;</p>
+<p>其中，option 参数有 5 个参数，分别是 QUICK、FAST、CHANGED、MEDIUM 和 EXTENDED。这 5 个参数的执行效率依次降低。</p>
+<p>option 选项只对 MyISAM 类型的表有效，对 InnoDB 类型的表无效。CHECK TABLE 语句在执行过程中也会给表加上只读锁。</p>
+<p>mysql&gt; check table user_action_log;</p>
+<p>+——————————————–+——-+———-+———-+</p>
+<p>| Table | Op | Msg_type | Msg_text |</p>
+<p>+——————————————–+——-+———-+———-+</p>
+<p>| demo.user_action_log | check | status | OK |</p>
+<p>+——————————————–+——-+———-+———-+</p>
+<p>1 row in set (0.01 sec)</p>
+<h3 id="3．优化表"><a href="#3．优化表" class="headerlink" title="3．优化表"></a>3．优化表</h3><p>MySQL 中使用 OPTIMIZE TABLE 语句来优化表。该语句对 InnoDB 和 MyISAM 类型的表都有效。但是，OPTILMIZE TABLE 语句只能优化表中的 VARCHAR、BLOB 或 TEXT 类型的字段。</p>
+<p>OPTILMIZE TABLE 语句的基本语法如下： OPTIMIZE TABLE 表名 1 [,表名 2…] ;</p>
+<p>通过 OPTIMIZE TABLE 语句可以消除删除和更新造成的磁盘碎片，从而减少空间的浪费。OPTIMIZE TABLE 语句在执行过程中也会给表加上只读锁。</p>
+<p>如果一个表使用了 TEXT 或者 BLOB 这样的数据类型，那么更新、删除等操作就会造成磁盘空间的浪费。因为，更新和删除操作后，以前分配的磁盘空间不会自动收回。使用 OPTIMIZE TABLE 语句就可以将这些磁盘碎片整理出来，以便以后再利用。</p>
+<p>优化表有很多方式实现： OPTIMIZE TABLE 语句、mysqlcheck 工具（服务器要运行）或 myisamchk（服务器没有运行或表中没有交互）</p>
+<p>随着 MySQL 的使用，包括 BLOB 和 VARCHAR 字节的表将变得比较繁冗，因为这些字段长度不同，对记录进行插入、更新或删除时，会占有不同大小的空间，记录就会变成碎片，且留下空闲的空间。像具有碎片的磁盘，会降低性能，需要整理，因此要优化。</p>
+<p>mysql&gt; optimize table user_action_log;</p>
+<p>+————————+———-+———-+——————————————————————-+</p>
+<p>| Table | Op | Msg_type | Msg_text |</p>
+<p>+————————+———-+———-+——————————————————————-+</p>
+<p>| demo.user_action_log | optimize | note | Table does not support optimize, doing recreate + analyze instead |</p>
+<p>| demo.user_action_log | optimize | status | OK |</p>
+<p>+——————————————–+———-+———-+——————————————————————-+</p>
+<p>2 rows in set (0.11 sec)</p>
+<h1 id="MySQL-服务器优化"><a href="#MySQL-服务器优化" class="headerlink" title="MySQL 服务器优化"></a>MySQL 服务器优化</h1><p>优化 MySQL 服务器性能，主要从以下几个方面进行考虑：</p>
+<ul>
+<li>配置足够大的内存</li>
+<li>配置高度磁盘系统，以减少读盘等待时间</li>
+<li>合理分配磁盘 I/O，把磁盘 I/O 分散在多个设备上，以减少资源竞争，提高并行操作能力。</li>
+<li>配置多处理器，MySQL 是多线程数据库，多处理器可以同时处理多个线程。</li>
+<li>优化 MySQL 参数，例如通过 key_buffer_size 参数配置索引缓冲区的大小。</li>
+</ul>
+<h1 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h1><p>InnoDB 存储引擎索引只支持 BTREE 类型的索引，索引的类别有 Primary Key，Unique，Key，FULLTEXT 和 SPATIAL。当然也有其他的分法，按照索引列的数量分为单列索引和组合索引。</p>
+<p>注意：组合索引的遵循最左前缀原则</p>
+<h2 id="索引类型-1"><a href="#索引类型-1" class="headerlink" title="索引类型"></a>索引类型</h2><ol>
+<li><strong>Primary Key（聚集索引）</strong>：InnoDB 存储引擎的表会存在主键（唯一非 null），如果建表的时候没有指定主键，则会使用第一非空的唯一索引作为聚集索引，否则 InnoDB 会自动帮你创建一个不可见的、长度为 6 字节的 row_id 用来作为聚集索引。</li>
+<li><strong>单列索引</strong>：单列索引即一个索引只包含单个列</li>
+<li><strong>组合索引</strong>：组合索引指在表的多个字段组合上创建的索引，只有在查询条件中使用了这些字段的左边字段时，索引才会被使用。使用组合索引时<strong>遵循最左前缀集合</strong></li>
+<li><strong>Unique（唯一索引）</strong>：索引列的值必须唯一，但允许有空值。若是组合索引，则列值的组合必须唯一。主键索引是一种特殊的唯一索引，不允许有空值</li>
+<li><strong>Key（普通索引）</strong>：是 MySQL 中的基本索引类型，允许在定义索引的列中插入重复值和空值</li>
+<li><strong>FULLTEXT（全文索引）</strong>：全文索引类型为 FULLTEXT，在定义索引的列上支持值的全文查找，允许在这些索引列中插入重复值和空值。全文索引可以在 CHAR、VARCHAR 或者 TEXT 类型的列上创建</li>
+<li><strong>SPATIAL（空间索引）</strong>：空间索引是对空间数据类型的字段建立的索引，MySQL 中的空间数据类型有 4 种，分别是 GEOMETRY、POINT、LINESTRING 和 POLYGON。MySQL 使用 SPATIAL 关键字进行扩展，使得能够用于创建正规索引类似的语法创建空间索引。创建空间索引的列必须声明为 NOT NULL</li>
+</ol>
+<h2 id="查看索引"><a href="#查看索引" class="headerlink" title="查看索引"></a>查看索引</h2><p>格式： show index from <table>; 或 show keys from <table>;</p>
+<p>索引表各个列的说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">table #表名称</span><br><span class="line">non_unique  #如果索引不能包括重复词，为0，如果可以，则为1</span><br><span class="line">key_name  #索引的名称</span><br><span class="line">seq_in_index #索引中的列序号</span><br><span class="line">column_name  #列名称</span><br><span class="line">collation  #列以什么方式存储在索引中，在mysql中，有值&#x27;A&#x27;（升序）或者NULL（无分类）</span><br><span class="line">cardinality  #索引在唯一值的数据的估值，通过运行analyze table xxx_table;或者 myisamchk -a 可以更新，技术根据被存储为整数的统计数据来计数，所以即使对于小型表，该值也没必要是精确的，基数越大，当进行联合所饮食，mysql使用该索引的机会越大。myisam中，该值是准确的，INNODB中该值数据是估算的，存在偏差</span><br><span class="line">sub_part  #如果列只是部分的编入索引 则为被编入索引的字符的数目，如果整列被编入索引，则为NULL</span><br><span class="line">packed  #指示关键词如何被压缩，如果没有被压缩，则为NULL</span><br><span class="line">NULL   #如果列含有NULL，则含有YES，如果没有，则该列为NO</span><br><span class="line">index_type  #用过的索引方法（BTREE,FULLTEXT,HASH,RTREE）</span><br><span class="line">comment  #备注</span><br><span class="line">index_comment  #为索引创建时提供了一个注释属性的索引的任何评论</span><br></pre></td></tr></table></figure>
+
+<h1 id="性能问题定位"><a href="#性能问题定位" class="headerlink" title="性能问题定位"></a>性能问题定位</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">select count(1) from server_monitor_history smh ;</span><br><span class="line"></span><br><span class="line"># 查询索引</span><br><span class="line">show index from server_monitor_history;</span><br><span class="line">show keys from server_monitor_history;</span><br><span class="line"></span><br><span class="line"># 修改索引</span><br><span class="line">alter table server_monitor_history add index virtual_id_time_union_index (virtual_id, time);</span><br><span class="line">alter table server_monitor_history drop index virtual_id_time_union_index;</span><br><span class="line"></span><br><span class="line"># 解析sql</span><br><span class="line">explain select * from server_monitor_history  where virtual_id = &#x27;6fa8c322-cb31-41c1-9984-9f5f465b6435&#x27; and `time` between &#x27;1614553200&#x27; and &#x27;1625155200&#x27;;</span><br><span class="line">explain select * from server_monitor_history  where  `time` = &#x27;1625155200&#x27;;</span><br><span class="line">select * from server_monitor_history  where  `time` = 1625155200;</span><br><span class="line"></span><br><span class="line"># 查询表详情</span><br><span class="line">describe server_monitor_history</span><br><span class="line">describe select * from server_monitor_history  where  `time` = &#x27;1625155200&#x27;;</span><br><span class="line"></span><br><span class="line"># 查看状态</span><br><span class="line">show status;</span><br><span class="line"></span><br><span class="line"># 分析表</span><br><span class="line">analyze table server_monitor_history;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="ReplicationManager"><a href="#ReplicationManager" class="headerlink" title="ReplicationManager"></a>ReplicationManager</h1><p>MySQL 高可用工具，一直以来 MHA 使用的比较多，自从 MySQL 引入 GTID 之后，又出现了 Orchestrator 以及 replication-manager 这类新的高可用工具，本文将主要介绍 replication-manager 的使用方法。</p>
+<h2 id="一、replication-manager-简介"><a href="#一、replication-manager-简介" class="headerlink" title="一、replication-manager 简介"></a>一、replication-manager 简介</h2><p>replication-manager 是 signal18 开源的一款数据库高可用工具，采用 go 语言开发，源代码托管在 github 上。<a target="_blank" rel="noopener" href="https://shimo.im/docs/1d3aVaZrNMiYzrqg">ReplicationManager 笔记</a></p>
+<p>支持的 MySQL 的版本：</p>
+<ul>
+<li>MariaDB 10.x</li>
+<li>MySQL &amp; Percona Server 5.7 GTID</li>
+</ul>
+<p>功能特性：</p>
+<ul>
+<li>复制关系监控与拓扑检测</li>
+<li>在线切换(switchover)</li>
+<li>故障切换(failover)</li>
+<li>多集群管理</li>
+<li>支持代理（ ProxySQL, MaxScale, HAProxy, Spider）</li>
+<li>大多数场景数据零丢失</li>
+</ul>
+<h2 id="二、下载及安装"><a href="#二、下载及安装" class="headerlink" title="二、下载及安装"></a>二、下载及安装</h2><p>在 github 上搜索 replication-manager，下载源码(v2.0)</p>
+<p>编译（需要联网）：</p>
+<ul>
+<li>创建目录：mkdir -p /data/go</li>
+<li>加入环境变量： export GOPATH=/data/go</li>
+<li>clone 源码： go get github.com/signal18/replication-manager</li>
+<li>编译安装： go install github.com/signal18/replication-manager</li>
+<li>加入 PATH 环境变量： export PATH=$PATH:/data/go/bin</li>
+<li>编译完成之后，会在/data/go/bin 目录下，生成一个 replication-manager 可执行文件。</li>
+</ul>
+<p>编译完整二进制版本：</p>
+<p>cd /data/go/src/github.com/signal18/replication-manager</p>
+<p>./build_linux_amd64.sh</p>
+<p>在源码目录中，生成可执行文件：</p>
+<ul>
+<li>replication-manager</li>
+<li>replication-manager-arb</li>
+<li>replication-manager-cli</li>
+<li>replication-manager-min</li>
+<li>replication-manager-min-basedir</li>
+<li>replication-manager-osc</li>
+<li>replication-manager-osc-basedir</li>
+<li>replication-manager-pro</li>
+<li>replication-manager-pro-basedir</li>
+<li>replication-manager-tst</li>
+<li>replication-manager-tst-basedir<br>下面演示案例，只使用 replication-manager-osc 和 replication-manager-cli。</li>
+</ul>
+<p>replication-manager-osc：后台集群监视程序，负责 MySQL 状态的获取和监控，以及切换的执行等等。</p>
+<p>replication-manager-cli：客户端程序，负责管理命令的发送。</p>
+<h2 id="三、使用案例"><a href="#三、使用案例" class="headerlink" title="三、使用案例"></a>三、使用案例</h2><p>配置文件 config.toml：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Default]</span><br><span class="line">title = &quot;ClusterTest&quot;</span><br><span class="line">db-servers-hosts =  &quot;192.168.56.110:3306,192.168.56.111:3306,192.168.56.112:3306&quot;</span><br><span class="line">db-servers-credential = &quot;admin:123456&quot;</span><br><span class="line">replication-credential = &quot;repl:123456&quot;</span><br><span class="line">failover-mode = &quot;automatic&quot;</span><br><span class="line">arbitrator-bind-address = &quot;0.0.0.0:10005&quot;</span><br><span class="line">arbitrator-driver = &quot;sqlite&quot;</span><br></pre></td></tr></table></figure>
+
+<p>mkdir -p /usr/share/replication-manager</p>
+<p>cp -r /data/git/replication-manager/dashboard/ /usr/share/replication-manager/</p>
+<p>监视集群：</p>
+<p>./replication-manager-osc –config=./config.toml monitor</p>
+<p>手动执行主从切换：</p>
+<p>./replication-manager-cli –config=./config.toml switchover</p>
+<p>手动执行故障切换：</p>
+<p>先把主库关掉</p>
+<p>执行./replication-manager-cli –config=./config.toml failover</p>
+<p>自动执行故障切换：</p>
+<p>只要在配置文件中，把 failover-mode 由 “manual” 修改为 “automatic”，重新监视集群即可。这样主库宕机的情况下，会自动执行故障切换。</p>
+<p>宕机的旧主如果恢复后，会自动变成新主的一个从库，并且处于维护模式。</p>
+<p>通过 replication-manager-cli 的 topology 命令可以获取集群各个节点的 id，再通过 server 命令，可以设置或者解除维护模式，如下：</p>
+<p>./replication-manager-cli topology</p>
+<p>./replication-manager-cli server –id=5789112859919251853 –maintenance</p>
+<p>命令行模式：</p>
+<p>./replication-manager-cli console</p>
+<p>进入命令行交互模式，在该模式下，可查看当前集群的复制拓扑，也可以通过快捷键执行一些命令，比如 ctrl+s 执行 switchover，ctrl+f 执行 failover，ctrl+m 设置或者解除维护模式等等。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Murray</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.rainbowrise.top/2023/06/27/MySQL%E7%AC%94%E8%AE%B0/">https://www.rainbowrise.top/2023/06/27/MySQL%E7%AC%94%E8%AE%B0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Murray</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Mysql/">
+                                    <span class="chip bg-color">Mysql</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NTE3MC8zMTYzNw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/07/01/ES%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="ES笔记">
+                        
+                        <span class="card-title">ES笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Docker/" class="post-category">
+                                    Docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
+                    </a>
+                    
+                    <a href="/tags/ES/">
+                        <span class="chip bg-color">ES</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/06/02/Docker%E9%83%A8%E7%BD%B2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Docker部署">
+                        
+                        <span class="card-title">Docker部署</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Docker/" class="post-category">
+                                    Docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 马瑞个人笔记<br />'
+            + '文章作者: Murray<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2024</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">Murray</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                &nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                &nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            
+            <br><span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "08";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            
+            <br><span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备2021006498号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sunglowrise" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:sunglowrise@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/ma-liang-19-36" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/ma-liang-19-36" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Web/">
-                                <span class="chip bg-color">Web</span>
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
                             </a>
                         
-                            <a href="/tags/Jsonp/">
-                                <span class="chip bg-color">Jsonp</span>
+                            <a href="/tags/JSonp/">
+                                <span class="chip bg-color">JSonp</span>
                             </a>
                         
                     </div>
@@ -344,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category">
-                                JavaScript
+                            <a href="/categories/JS/" class="post-category">
+                                JS
                             </a>
                         
                     </div>
@@ -383,16 +383,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>JSON是JavaScript Object Notation的缩写，是一种轻量的、可读的基于文本的数据交换开放标准。源于JavsScript编程语言中对简单数据结构和关联数组的展示功能。它是仅含有数据对和简单括号结构的纯文本，因此可通过许多途径进行JSON消息的传递。</p>
+                <p>JSON 是 JavaScript Object Notation 的缩写，是一种轻量的、可读的基于文本的数据交换开放标准。源于 JavsScript 编程语言中对简单数据结构和关联数组的展示功能。它是仅含有数据对和简单括号结构的纯文本，因此可通过许多途径进行 JSON 消息的传递。</p>
 <ol>
-<li>JSONP定义<br>JSONP是英文JSON with Padding的缩写，是一个非官方的协议。它允许在服务器端生成script tags返回至客户端，通过javascript callback的形式来实现站点访问。 JSONP是一种script tag的注入，将server返回的response添加到页面实现特定功能。</li>
+<li>JSONP 定义<br>JSONP 是英文 JSON with Padding 的缩写，是一个非官方的协议。它允许在服务器端生成 script tags 返回至客户端，通过 javascript callback 的形式来实现站点访问。 JSONP 是一种 script tag 的注入，将 server 返回的 response 添加到页面实现特定功能。</li>
 </ol>
-<p>2.JSONP由来<br>要解释JSONP的来由，先要说一下浏览器的”同源策略(SOP:Same Origin Policy)”。 简而言之，就是浏览器限制脚本程序只能和同协议、同域名、同端口的脚本进行交互，这包括共享和传递变量等。cookie的传递也是遵从同样策略。这就造成一些涉及到多个服务器的应用在整合时一些麻烦。跨域访问的问题造成A站点的Ajax代码无法访问B站点的数据。<br>     如何解决跨域访问呢？那就要借助浏览器的一个特性：尽管浏览器不允许页面中的脚本程序跨域读取数据，但却允许HTML引用跨域的资源，如图片，CSS和脚本程序。对于脚本程序的引用比较特殊，它被浏览器解析以后，就和本地的脚本程序别无二致且可立即进行解释并执行。如在B站点的一个js文件，一个简单的提示框：alert（”This is Victor！”）;。在A站点引用这个js，这个脚本就会在B站点的应用中执行，显示一个alert信息。由于站外脚本的引用是通过script tag来实现的，而脚本程序又可通过DOM的方式可以对HTML页面的所有标签进行控制（包括动态的创建script标签），这就可以实现通过调用站外程序对本地资源进行更改了。另外，通过<script> 标记的使用，就可从服务端直接返回可执行的JavaScript函数调用或者JSON数据。</p>
+<p>2.JSONP 由来<br>要解释 JSONP 的来由，先要说一下浏览器的”同源策略(SOP:Same Origin Policy)”。 简而言之，就是浏览器限制脚本程序只能和同协议、同域名、同端口的脚本进行交互，这包括共享和传递变量等。cookie 的传递也是遵从同样策略。这就造成一些涉及到多个服务器的应用在整合时一些麻烦。跨域访问的问题造成 A 站点的 Ajax 代码无法访问 B 站点的数据。<br>如何解决跨域访问呢？那就要借助浏览器的一个特性：尽管浏览器不允许页面中的脚本程序跨域读取数据，但却允许 HTML 引用跨域的资源，如图片，CSS 和脚本程序。对于脚本程序的引用比较特殊，它被浏览器解析以后，就和本地的脚本程序别无二致且可立即进行解释并执行。如在 B 站点的一个 js 文件，一个简单的提示框：alert（”This is Victor！”）;。在 A 站点引用这个 js，这个脚本就会在 B 站点的应用中执行，显示一个 alert 信息。由于站外脚本的引用是通过 script tag 来实现的，而脚本程序又可通过 DOM 的方式可以对 HTML 页面的所有标签进行控制（包括动态的创建 script 标签），这就可以实现通过调用站外程序对本地资源进行更改了。另外，通过<script> 标记的使用，就可从服务端直接返回可执行的 JavaScript 函数调用或者 JSON 数据。</p>
 <ol start="3">
-<li>JSONP原理与实现<br> 首先在客户端注册一个callback, 然后把callback的名字传给服务器。此时，服务器先生成 JSON数据。然后以JavaScript 语法的方式，生成一个function, function名字就是传递上来的参数jsonp.<br> 然后，将JSON数据直接以入参的方式，放置到function中，这样就生成了一段 js 语法的文档，返回给客户端。<br> 最后，在客户端浏览器中解析script标签，并执行返回的JavaScript文档，此时数据作为参数，传入到了客户端预先定义好的回调函数里(动态执行回调函数) 。</li>
+<li>JSONP 原理与实现<br>首先在客户端注册一个 callback, 然后把 callback 的名字传给服务器。此时，服务器先生成 JSON 数据。然后以 JavaScript 语法的方式，生成一个 function, function 名字就是传递上来的参数 jsonp.<br>然后，将 JSON 数据直接以入参的方式，放置到 function 中，这样就生成了一段 js 语法的文档，返回给客户端。<br>最后，在客户端浏览器中解析 script 标签，并执行返回的 JavaScript 文档，此时数据作为参数，传入到了客户端预先定义好的回调函数里(动态执行回调函数) 。</li>
 </ol>
-<p>其实 JSONP是个很简单的一个东西。主要是利用了 <script/>标签对javascript文档的动态解析来实现。（其实也可以用eval函数） 。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;</span><br><span class="line">    pageEncoding=&quot;utf-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/commons/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line"> </span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line"> </span><br><span class="line">function testJson()&#123;</span><br><span class="line">    var ip = $(&#x27;#ip&#x27;).val();</span><br><span class="line">    if(ip.length!=0)&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            type:&quot;GET&quot;,</span><br><span class="line">            url:&quot;http://api.k780.com:88/?app=ip.get&amp;ip=&quot;+ip+&quot;&amp;appkey=14841&amp;sign=6971f83ee124d889d7a1379611c1ae5b&amp;format=json&quot;,</span><br><span class="line">            dataType:&quot;jsonp&quot;,</span><br><span class="line">            jsonp:&quot;jsoncallback&quot;,</span><br><span class="line">            success: function(data)&#123;</span><br><span class="line">                console.log(data);</span><br><span class="line">                $.each(data,function(idx,item)&#123;</span><br><span class="line">                    if(idx==&quot;success&quot;)&#123;</span><br><span class="line">                        //alert(item);</span><br><span class="line">                    &#125;</span><br><span class="line">                    if(idx==&quot;result&quot;)&#123;</span><br><span class="line">                        $.each(item,function(idx1,item1)&#123;</span><br><span class="line">                            if(idx1==&quot;area_style_areanm&quot;)&#123;</span><br><span class="line">                            $(&quot;#info&quot;).html(&quot;归属地：&quot;+item1);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">            &#125;,</span><br><span class="line">            error:</span><br><span class="line">                function(xhr,e1,e2)&#123;</span><br><span class="line">                alert(&quot;获取数据失败&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"> </span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        $(&quot;#btn&quot;).empty();//清空信息</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">&lt;/script&gt;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h3&gt;获取IP归属地&lt;/h3&gt;&lt;br/&gt;</span><br><span class="line">&lt;form &gt;</span><br><span class="line">请输入ip:&lt;input type=&quot;text&quot; id =&quot;ip&quot; name = &quot;ip&quot;&gt;</span><br><span class="line">&lt;input type=&quot;button&quot; id=&quot;btn&quot; value=&quot;获得数据&quot; onclick=&quot;javascript:testJson();&quot; &gt;&lt;br/&gt;&lt;br/&gt;</span><br><span class="line">&lt;div id=&quot;info&quot;&gt;&lt;/div&gt;&lt;br/&gt;</span><br><span class="line"> </span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>其实 JSONP 是个很简单的一个东西。主要是利用了 <script/>标签对 javascript 文档的动态解析来实现。（其实也可以用 eval 函数） 。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=utf-8&quot;</span><br><span class="line">    pageEncoding=&quot;utf-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/commons/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line"></span><br><span class="line">function testJson()&#123;</span><br><span class="line">    var ip = $(&#x27;#ip&#x27;).val();</span><br><span class="line">    if(ip.length!=0)&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            type:&quot;GET&quot;,</span><br><span class="line">            url:&quot;http://api.k780.com:88/?app=ip.get&amp;ip=&quot;+ip+&quot;&amp;appkey=14841&amp;sign=6971f83ee124d889d7a1379611c1ae5b&amp;format=json&quot;,</span><br><span class="line">            dataType:&quot;jsonp&quot;,</span><br><span class="line">            jsonp:&quot;jsoncallback&quot;,</span><br><span class="line">            success: function(data)&#123;</span><br><span class="line">                console.log(data);</span><br><span class="line">                $.each(data,function(idx,item)&#123;</span><br><span class="line">                    if(idx==&quot;success&quot;)&#123;</span><br><span class="line">                        //alert(item);</span><br><span class="line">                    &#125;</span><br><span class="line">                    if(idx==&quot;result&quot;)&#123;</span><br><span class="line">                        $.each(item,function(idx1,item1)&#123;</span><br><span class="line">                            if(idx1==&quot;area_style_areanm&quot;)&#123;</span><br><span class="line">                            $(&quot;#info&quot;).html(&quot;归属地：&quot;+item1);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">            &#125;,</span><br><span class="line">            error:</span><br><span class="line">                function(xhr,e1,e2)&#123;</span><br><span class="line">                alert(&quot;获取数据失败&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        $(&quot;#btn&quot;).empty();//清空信息</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h3&gt;获取IP归属地&lt;/h3&gt;&lt;br/&gt;</span><br><span class="line">&lt;form &gt;</span><br><span class="line">请输入ip:&lt;input type=&quot;text&quot; id =&quot;ip&quot; name = &quot;ip&quot;&gt;</span><br><span class="line">&lt;input type=&quot;button&quot; id=&quot;btn&quot; value=&quot;获得数据&quot; onclick=&quot;javascript:testJson();&quot; &gt;&lt;br/&gt;&lt;br/&gt;</span><br><span class="line">&lt;div id=&quot;info&quot;&gt;&lt;/div&gt;&lt;br/&gt;</span><br><span class="line"></span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>
@@ -456,12 +457,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Web/">
-                                    <span class="chip bg-color">Web</span>
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
                                 </a>
                             
-                                <a href="/tags/Jsonp/">
-                                    <span class="chip bg-color">Jsonp</span>
+                                <a href="/tags/JSonp/">
+                                    <span class="chip bg-color">JSonp</span>
                                 </a>
                             
                         </div>
@@ -682,8 +683,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/JS/" class="post-category">
+                                    JS
                                 </a>
                             
                             
@@ -693,12 +694,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Web/">
-                        <span class="chip bg-color">Web</span>
-                    </a>
-                    
                     <a href="/tags/AngularJs/">
                         <span class="chip bg-color">AngularJs</span>
+                    </a>
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>
@@ -735,8 +736,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Other/" class="post-category">
-                                    Other
+                            <a href="/categories/Tool/" class="post-category">
+                                    Tool
                                 </a>
                             
                             
@@ -746,8 +747,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Web/">
-                        <span class="chip bg-color">Web</span>
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>

@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Oracle/">
                                 <span class="chip bg-color">Oracle</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -344,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -388,7 +388,7 @@
 <blockquote>
 <p>选择：Instant Client for Linux x86-64</p>
 </blockquote>
-<h5 id="1-下载以下两个ZIP包："><a href="#1-下载以下两个ZIP包：" class="headerlink" title="1.下载以下两个ZIP包："></a>1.下载以下两个ZIP包：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">instantclient-basic-linux.x64-12.2.0.1.0.zip</span><br><span class="line">instantclient-sqlplus-linux.x64-12.2.0.1.0.zip</span><br></pre></td></tr></table></figure>
+<h5 id="1-下载以下两个-ZIP-包："><a href="#1-下载以下两个-ZIP-包：" class="headerlink" title="1.下载以下两个 ZIP 包："></a>1.下载以下两个 ZIP 包：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">instantclient-basic-linux.x64-12.2.0.1.0.zip</span><br><span class="line">instantclient-sqlplus-linux.x64-12.2.0.1.0.zip</span><br></pre></td></tr></table></figure>
 
 <h5 id="2-安装依赖包："><a href="#2-安装依赖包：" class="headerlink" title="2. 安装依赖包："></a>2. 安装依赖包：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># centos</span><br><span class="line">yum install -y libaio*</span><br><span class="line"># ubuntu</span><br><span class="line">apt-get install -y libaio*</span><br></pre></td></tr></table></figure>
 
@@ -396,14 +396,11 @@
 
 <h5 id="4-添加环境变量"><a href="#4-添加环境变量" class="headerlink" title="4.添加环境变量"></a>4.添加环境变量</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export ORACLE_HOME=/soft/instantclient_12_2</span><br><span class="line">export PATH=$PATH:$ORACLE_HOME</span><br><span class="line">export LD_LIBRARY_PATH=$ORACLE_HOME:$ORACLE_HOME/lib:$LD_LIBRARY_PATH</span><br><span class="line">export TNS_ADMIN=$ORACLE_HOME/network/admin</span><br><span class="line">export NLS_LANGE=&quot;SIMPLIFIED CHINESE_CHINA.ZHS16GBK&quot;</span><br></pre></td></tr></table></figure>
 
-<h5 id="5-添加tnsnames-ora文件"><a href="#5-添加tnsnames-ora文件" class="headerlink" title="5. 添加tnsnames.ora文件"></a>5. 添加tnsnames.ora文件</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 新建目录</span><br><span class="line">/soft/instantclient_12_2/network/admin</span><br><span class="line"></span><br><span class="line"># tnsnames.ora 文件</span><br><span class="line">test =</span><br><span class="line">  (DESCRIPTION =</span><br><span class="line">    (ADDRESS_LIST =</span><br><span class="line">      (ADDRESS = (PROTOCOL = TCP)(HOST = 47.75.108.44)(PORT = 1521))</span><br><span class="line">    )</span><br><span class="line">    (CONNECT_DATA =</span><br><span class="line">    (SERVER = DEDICATED)</span><br><span class="line">      (SERVICE_NAME = tro)))</span><br></pre></td></tr></table></figure>
+<h5 id="5-添加-tnsnames-ora-文件"><a href="#5-添加-tnsnames-ora-文件" class="headerlink" title="5. 添加 tnsnames.ora 文件"></a>5. 添加 tnsnames.ora 文件</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 新建目录</span><br><span class="line">/soft/instantclient_12_2/network/admin</span><br><span class="line"></span><br><span class="line"># tnsnames.ora 文件</span><br><span class="line">test =</span><br><span class="line">  (DESCRIPTION =</span><br><span class="line">    (ADDRESS_LIST =</span><br><span class="line">      (ADDRESS = (PROTOCOL = TCP)(HOST = 47.75.108.44)(PORT = 1521))</span><br><span class="line">    )</span><br><span class="line">    (CONNECT_DATA =</span><br><span class="line">    (SERVER = DEDICATED)</span><br><span class="line">      (SERVICE_NAME = tro)))</span><br></pre></td></tr></table></figure>
 
+<h4 id="tnsnames-ora-示例-1"><a href="#tnsnames-ora-示例-1" class="headerlink" title="tnsnames.ora 示例 1"></a>tnsnames.ora 示例 1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jdbc:oracle:thin:@(DESCRIPTION =</span><br><span class="line">    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.88.190.203)(PORT = 1521))</span><br><span class="line">    (LOAD_BALANCE=yes)</span><br><span class="line">    (FAILOVER=yes)</span><br><span class="line">    (CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe))</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4 id="tnsnames-ora-示例1"><a href="#tnsnames-ora-示例1" class="headerlink" title="tnsnames.ora 示例1"></a>tnsnames.ora 示例1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jdbc:oracle:thin:@(DESCRIPTION =</span><br><span class="line">    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.88.190.203)(PORT = 1521))</span><br><span class="line">    (LOAD_BALANCE=yes)</span><br><span class="line">    (FAILOVER=yes)</span><br><span class="line">    (CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe))</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="tnsnames-ora-示例2"><a href="#tnsnames-ora-示例2" class="headerlink" title="tnsnames.ora 示例2"></a>tnsnames.ora 示例2</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">XE =</span><br><span class="line">  (DESCRIPTION =</span><br><span class="line">    (ADDRESS_LIST =</span><br><span class="line">      (ADDRESS = (PROTOCOL = TCP)(HOST = 10.88.190.203 )(PORT = 1521))</span><br><span class="line">    )</span><br><span class="line">    (CONNECT_DATA =</span><br><span class="line">      (SERVER = DEDICATED)</span><br><span class="line">      (SERVICE_NAME = xe)</span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">LISTENER =</span><br><span class="line">  (DESCRIPTION =</span><br><span class="line">    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.88.190.203)(PORT = 1521))</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
+<h4 id="tnsnames-ora-示例-2"><a href="#tnsnames-ora-示例-2" class="headerlink" title="tnsnames.ora 示例 2"></a>tnsnames.ora 示例 2</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">XE =</span><br><span class="line">  (DESCRIPTION =</span><br><span class="line">    (ADDRESS_LIST =</span><br><span class="line">      (ADDRESS = (PROTOCOL = TCP)(HOST = 10.88.190.203 )(PORT = 1521))</span><br><span class="line">    )</span><br><span class="line">    (CONNECT_DATA =</span><br><span class="line">      (SERVER = DEDICATED)</span><br><span class="line">      (SERVICE_NAME = xe)</span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">LISTENER =</span><br><span class="line">  (DESCRIPTION =</span><br><span class="line">    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.88.190.203)(PORT = 1521))</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -468,12 +465,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Oracle/">
                                     <span class="chip bg-color">Oracle</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -694,8 +691,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -705,16 +702,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
-                    <a href="/tags/Mysql/">
-                        <span class="chip bg-color">Mysql</span>
-                    </a>
-                    
                     <a href="/tags/SQLyog/">
                         <span class="chip bg-color">SQLyog</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -751,8 +744,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -762,12 +755,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

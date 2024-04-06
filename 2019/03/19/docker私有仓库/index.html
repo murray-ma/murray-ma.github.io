@@ -379,7 +379,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Registry的部署"><a href="#Registry的部署" class="headerlink" title="Registry的部署"></a>Registry的部署</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># 下载镜像</span><br><span class="line">docker pull registry</span><br><span class="line"></span><br><span class="line"># 运行容器</span><br><span class="line">docker run -d -v /opt/registry:/var/lib/registry -p 5000:5000 --restart=always --name registry registry</span><br><span class="line"></span><br><span class="line"># 添加信任</span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line"># 添加insecure-registries</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;, &quot;https://qgikhnmb.mirror.aliyuncs.com&quot;, &quot;http://hub-mirror.c.163.com&quot;],</span><br><span class="line">  &quot;insecure-registries&quot;: [&quot;127.0.0.1:5000&quot;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 验证</span><br><span class="line">curl -H &quot;Content-Type: application/json&quot; http://127.0.0.1:5000/v2/_catalog</span><br><span class="line"># 返回 &#123;&quot;repositories&quot;:[]&#125;， 说明部署成功了。</span><br><span class="line"></span><br><span class="line"># push镜像</span><br><span class="line">docker pull hello-world</span><br><span class="line">docker tag hello-world:latest 127.0.0.1:5000/hello-world:latest</span><br><span class="line">docker push 127.0.0.1/hello-world:latest</span><br><span class="line"></span><br><span class="line"># 输出如下</span><br><span class="line"># The push refers to repository [127.0.0.1:5000/hello-world]</span><br><span class="line"># af0b15c8625b: Pushed </span><br><span class="line"># latest: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a size: 524</span><br><span class="line"></span><br><span class="line"># 浏览器查看本地registry：</span><br><span class="line">http://127.0.0.1:5000/v2/_catalog</span><br></pre></td></tr></table></figure>
+                <h3 id="Registry-的部署"><a href="#Registry-的部署" class="headerlink" title="Registry 的部署"></a>Registry 的部署</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># 下载镜像</span><br><span class="line">docker pull registry</span><br><span class="line"></span><br><span class="line"># 运行容器</span><br><span class="line">docker run -d -v /opt/registry:/var/lib/registry -p 5000:5000 --restart=always --name registry registry</span><br><span class="line"></span><br><span class="line"># 添加信任</span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line"># 添加insecure-registries</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;, &quot;https://qgikhnmb.mirror.aliyuncs.com&quot;, &quot;http://hub-mirror.c.163.com&quot;],</span><br><span class="line">  &quot;insecure-registries&quot;: [&quot;127.0.0.1:5000&quot;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 验证</span><br><span class="line">curl -H &quot;Content-Type: application/json&quot; http://127.0.0.1:5000/v2/_catalog</span><br><span class="line"># 返回 &#123;&quot;repositories&quot;:[]&#125;， 说明部署成功了。</span><br><span class="line"></span><br><span class="line"># push镜像</span><br><span class="line">docker pull hello-world</span><br><span class="line">docker tag hello-world:latest 127.0.0.1:5000/hello-world:latest</span><br><span class="line">docker push 127.0.0.1/hello-world:latest</span><br><span class="line"></span><br><span class="line"># 输出如下</span><br><span class="line"># The push refers to repository [127.0.0.1:5000/hello-world]</span><br><span class="line"># af0b15c8625b: Pushed</span><br><span class="line"># latest: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a size: 524</span><br><span class="line"></span><br><span class="line"># 浏览器查看本地registry：</span><br><span class="line">http://127.0.0.1:5000/v2/_catalog</span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>
@@ -642,13 +643,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/06/02/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
+                <a href="/2019/05/01/sed%E8%AF%A6%E8%A7%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="前端开发工具">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="sed详解">
                         
-                        <span class="card-title">前端开发工具</span>
+                        <span class="card-title">sed详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -659,14 +660,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-06-02
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-05-01
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Other/" class="post-category">
-                                    Other
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -676,8 +677,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Web/">
-                        <span class="chip bg-color">Web</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/Sed/">
+                        <span class="chip bg-color">Sed</span>
                     </a>
                     
                 </div>

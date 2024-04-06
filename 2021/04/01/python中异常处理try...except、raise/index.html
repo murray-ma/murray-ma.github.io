@@ -380,14 +380,14 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>python中try/except/else/finally语句的完整格式如下：</p>
+<p>python 中 try/except/else/finally 语句的完整格式如下：</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">     Normal execution block</span><br><span class="line">except A:</span><br><span class="line">     Exception A handle</span><br><span class="line">except B:</span><br><span class="line">     Exception B handle</span><br><span class="line">except:</span><br><span class="line">     Other exception handle</span><br><span class="line">else:</span><br><span class="line">     if no exception,get here</span><br><span class="line">finally:</span><br><span class="line">     print(&quot;finally&quot;)   </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">     Normal execution block</span><br><span class="line">except A:</span><br><span class="line">     Exception A handle</span><br><span class="line">except B:</span><br><span class="line">     Exception B handle</span><br><span class="line">except:</span><br><span class="line">     Other exception handle</span><br><span class="line">else:</span><br><span class="line">     if no exception,get here</span><br><span class="line">finally:</span><br><span class="line">     print(&quot;finally&quot;)</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>说明：</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">正常执行的程序在try下面的 Normal execution block 执行块中执行， </span><br><span class="line">在执行过程中如果发生了异常，则中断当前在 Normal execution block 中的执行跳转到对应的异常处理块中开始执行；</span><br><span class="line">python 从第一个 except X 处开始查找， 如果找到了对应的exception类型则进入其提供的exception handle中进行处理，</span><br><span class="line">如果没有找到则直接进入except块处进行处理。except块是可选项，如果没有提供，该exception将会被提交给python进行默认处理，处理方式则是终止应用程序并打印提示信息；</span><br><span class="line">如果在 Normal execution block 执行块中执行过程中没有发生任何异常， 则在执行完Normal execution block后会进入else执行块中（如果存在的话）执行。</span><br><span class="line">无论是否发生了异常，只要提供了finally语句，以上try/except/else/finally代码块执行的最后一步总是执行finally所对应的代码块。</span><br><span class="line"></span><br><span class="line">需要注意的是：</span><br><span class="line">1. 在上面所示的完整语句中try/except/else/finally所出现的顺序必须是try--&gt;except X--&gt;except--&gt;else--&gt;finally，即所有的except必须在else和finally之前，else（如果有）必须在finally之前，而 except X 必须在except之前。 否则会出现语法错误。</span><br><span class="line">2. 对于上面所展示的try/except完整格式而言，else和finally都是可选的，而不是必须的，但是如果存在的话else必须在finally之前，finally（如果存在的话）必须在整个语句的最后位置。</span><br><span class="line">3. 在上面的完整语句中，else语句的存在必须以 except X 或者 except 语句为前提，如果在没有 except 语句的 try block 中使用else语句会引发语法错误。也就是说else不能与try/finally配合使用。</span><br><span class="line">4. except的使用要非常小心，慎用。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">正常执行的程序在try下面的 Normal execution block 执行块中执行，</span><br><span class="line">在执行过程中如果发生了异常，则中断当前在 Normal execution block 中的执行跳转到对应的异常处理块中开始执行；</span><br><span class="line">python 从第一个 except X 处开始查找， 如果找到了对应的exception类型则进入其提供的exception handle中进行处理，</span><br><span class="line">如果没有找到则直接进入except块处进行处理。except块是可选项，如果没有提供，该exception将会被提交给python进行默认处理，处理方式则是终止应用程序并打印提示信息；</span><br><span class="line">如果在 Normal execution block 执行块中执行过程中没有发生任何异常， 则在执行完Normal execution block后会进入else执行块中（如果存在的话）执行。</span><br><span class="line">无论是否发生了异常，只要提供了finally语句，以上try/except/else/finally代码块执行的最后一步总是执行finally所对应的代码块。</span><br><span class="line"></span><br><span class="line">需要注意的是：</span><br><span class="line">1. 在上面所示的完整语句中try/except/else/finally所出现的顺序必须是try--&gt;except X--&gt;except--&gt;else--&gt;finally，即所有的except必须在else和finally之前，else（如果有）必须在finally之前，而 except X 必须在except之前。 否则会出现语法错误。</span><br><span class="line">2. 对于上面所展示的try/except完整格式而言，else和finally都是可选的，而不是必须的，但是如果存在的话else必须在finally之前，finally（如果存在的话）必须在整个语句的最后位置。</span><br><span class="line">3. 在上面的完整语句中，else语句的存在必须以 except X 或者 except 语句为前提，如果在没有 except 语句的 try block 中使用else语句会引发语法错误。也就是说else不能与try/finally配合使用。</span><br><span class="line">4. except的使用要非常小心，慎用。</span><br></pre></td></tr></table></figure>
 
 <h4 id="常见异常"><a href="#常见异常" class="headerlink" title="常见异常"></a>常见异常</h4><table>
 <thead>
@@ -434,10 +434,10 @@
 </tr>
 <tr>
 <td>ZeroDivisionError</td>
-<td>在除法或者摸除操作的第二个参数为0时引发</td>
+<td>在除法或者摸除操作的第二个参数为 0 时引发</td>
 </tr>
 </tbody></table>
-<h4 id="python所有的标准异常类"><a href="#python所有的标准异常类" class="headerlink" title="python所有的标准异常类"></a>python所有的标准异常类</h4><table>
+<h4 id="python-所有的标准异常类"><a href="#python-所有的标准异常类" class="headerlink" title="python 所有的标准异常类"></a>python 所有的标准异常类</h4><table>
 <thead>
 <tr>
 <th>异常名称</th>
@@ -502,7 +502,7 @@
 </tr>
 <tr>
 <td>EOFError</td>
-<td>没有内建输入,到达EOF 标记</td>
+<td>没有内建输入,到达 EOF 标记</td>
 </tr>
 <tr>
 <td>EnvironmentError</td>
@@ -542,7 +542,7 @@
 </tr>
 <tr>
 <td>MemoryError</td>
-<td>内存溢出错误(对于Python 解释器不是致命的)</td>
+<td>内存溢出错误(对于 Python 解释器不是致命的)</td>
 </tr>
 <tr>
 <td>NameError</td>

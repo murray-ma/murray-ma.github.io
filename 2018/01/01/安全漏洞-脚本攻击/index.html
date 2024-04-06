@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Web/">
-                                <span class="chip bg-color">Web</span>
-                            </a>
-                        
                             <a href="/tags/Java/">
                                 <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/SpringMVC/">
+                                <span class="chip bg-color">SpringMVC</span>
                             </a>
                         
                     </div>
@@ -383,9 +383,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、sql中值用-代替"><a href="#1、sql中值用-代替" class="headerlink" title="1、sql中值用#代替$"></a>1、sql中值用#代替$</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如：SELECT * FROM orginfo WHERE fname LIKE &#x27;%$众华$%&#x27; 存在安全漏洞，</span><br><span class="line">应修改为SELECT * FROM orginfo WHERE fname LIKE &#x27;%#众华#%&#x27;</span><br></pre></td></tr></table></figure>
+                <h3 id="1、sql-中值用-代替"><a href="#1、sql-中值用-代替" class="headerlink" title="1、sql 中值用#代替$"></a>1、sql 中值用#代替$</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如：SELECT * FROM orginfo WHERE fname LIKE &#x27;%$众华$%&#x27; 存在安全漏洞，</span><br><span class="line">应修改为SELECT * FROM orginfo WHERE fname LIKE &#x27;%#众华#%&#x27;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2、关闭不安全的http-方法"><a href="#2、关闭不安全的http-方法" class="headerlink" title="2、关闭不安全的http 方法"></a>2、关闭不安全的http 方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 关闭不安全的http 方法 --&gt;</span><br><span class="line">&lt;security-constraint&gt;</span><br><span class="line">&lt;web-resource-collection&gt;</span><br><span class="line">&lt;web-resource-name&gt;anyname&lt;/web-resource-name&gt;</span><br><span class="line">&lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span><br><span class="line">&lt;http-method&gt;PUT&lt;/http-method&gt;</span><br><span class="line">&lt;http-method&gt;DELETE&lt;/http-method&gt;</span><br><span class="line">&lt;http-method&gt;HEAD&lt;/http-method&gt;</span><br><span class="line">&lt;http-method&gt;OPTIONS&lt;/http-method&gt;</span><br><span class="line">&lt;http-method&gt;TRACE&lt;/http-method&gt;</span><br><span class="line">&lt;/web-resource-collection&gt;</span><br><span class="line">&lt;auth-constraint&gt;</span><br><span class="line">&lt;/auth-constraint&gt;    </span><br><span class="line"> &lt;/security-constraint&gt;    </span><br><span class="line"> &lt;login-config&gt;    </span><br><span class="line">   &lt;auth-method&gt;BASIC&lt;/auth-method&gt;    </span><br><span class="line"> &lt;/login-config&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="2、关闭不安全的-http-方法"><a href="#2、关闭不安全的-http-方法" class="headerlink" title="2、关闭不安全的 http 方法"></a>2、关闭不安全的 http 方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 关闭不安全的http 方法 --&gt;</span><br><span class="line">&lt;security-constraint&gt;</span><br><span class="line">&lt;web-resource-collection&gt;</span><br><span class="line">&lt;web-resource-name&gt;anyname&lt;/web-resource-name&gt;</span><br><span class="line">&lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span><br><span class="line">&lt;http-method&gt;PUT&lt;/http-method&gt;</span><br><span class="line">&lt;http-method&gt;DELETE&lt;/http-method&gt;</span><br><span class="line">&lt;http-method&gt;HEAD&lt;/http-method&gt;</span><br><span class="line">&lt;http-method&gt;OPTIONS&lt;/http-method&gt;</span><br><span class="line">&lt;http-method&gt;TRACE&lt;/http-method&gt;</span><br><span class="line">&lt;/web-resource-collection&gt;</span><br><span class="line">&lt;auth-constraint&gt;</span><br><span class="line">&lt;/auth-constraint&gt;</span><br><span class="line"> &lt;/security-constraint&gt;</span><br><span class="line"> &lt;login-config&gt;</span><br><span class="line">   &lt;auth-method&gt;BASIC&lt;/auth-method&gt;</span><br><span class="line"> &lt;/login-config&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>
@@ -449,12 +450,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Web/">
-                                    <span class="chip bg-color">Web</span>
-                                </a>
-                            
                                 <a href="/tags/Java/">
                                     <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/SpringMVC/">
+                                    <span class="chip bg-color">SpringMVC</span>
                                 </a>
                             
                         </div>

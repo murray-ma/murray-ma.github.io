@@ -379,84 +379,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Pom依赖"><a href="#Pom依赖" class="headerlink" title="Pom依赖:"></a>Pom依赖:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;ant&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;ant&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.6.5&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">### 下载zip文件</span><br></pre></td></tr></table></figure>
-<p>/**<br>     * 描述：构建并下载zip文件<br>     *<br>     * @author MaYawei<br>     * @date 2017年3月3日<br>     * @param fileList 文件list集合<br>     * @param targetName 下载目标文件名 如：xxx.zip 或 xxx<br>     * @param response 响应（utf-8）<br>     */<br>    public static void buildAndDownloadZip(List<File> fileList,String targetName, HttpServletResponse response){<br>        String zipFileStr = buildZip(fileList);<br>        File zipFile = new File(zipFileStr);<br>        downloadZip(zipFile, targetName, response);<br>        zipFile.deleteOnExit();<br>    }</p>
-<pre><code>/**
- * 描述：构建zip文件
- *
- * @author MaYawei
- * @date 2017年3月3日
- * @param fileList 文件list集合
- * @return
- */
-public static String buildZip(List&lt;File&gt; fileList)&#123;
-    
-    String tmpZipPath = System.getProperty(&quot;java.io.tmpdir&quot;) 
-            + UUID.randomUUID().toString().replace(&quot;-&quot;, &quot;&quot;)+&quot;.zip&quot;;   
-    try &#123;
-        if(fileList == null )&#123;
-            return tmpZipPath;
-        &#125;
-        File tmpZipFile = new File(tmpZipPath);
-        if(!tmpZipFile.getParentFile().exists())&#123;
-            tmpZipFile.getParentFile().mkdirs();
-        &#125;
-        ZipOutputStream out = new ZipOutputStream(new FileOutputStream(tmpZipFile));
-        byte[] buffer = new byte[1024*1024]; 
-        for (File file : fileList) &#123;
-            if(!file.exists())&#123;
-                continue;
-            &#125;
-             FileInputStream fis = new FileInputStream(file);   
-             out.putNextEntry(new ZipEntry(file.getName()));   
-             out.setEncoding(&quot;utf-8&quot;);
-             int len = 0;
-             while ((len = fis.read(buffer)) &gt; 0) &#123;   
-                 out.write(buffer, 0, len);   
-             &#125;   
-             out.closeEntry();   
-             fis.close(); 
-        &#125;
-        out.close();
-    &#125; catch (Exception e) &#123;   
-       e.printStackTrace();   
-    &#125; 
-    return tmpZipPath;
-&#125;
+                <h3 id="Pom-依赖"><a href="#Pom-依赖" class="headerlink" title="Pom 依赖:"></a>Pom 依赖:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;ant&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;ant&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.6.5&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 
-/**
- * 描述：下载zip文件
- *
- * @author MaYawei
- * @date 2017年3月3日
- * @param file zip文件地址
- * @param targetName 下载目标文件名 如：xxx.zip 或 xxx
- * @param response 
- * @return true 下载成功 false 出现异常
- */
-public static boolean downloadZip(File file,String targetName, 
-        HttpServletResponse response) &#123;
-    try &#123;
-        if(file == null || !file.exists())&#123;
-            return false;
-        &#125;
-        if(StringUtils.isBlank(targetName))&#123;
-            targetName = file.getName();
-        &#125;
-        if(!targetName.contains(&quot;.zip&quot;))&#123;
-            targetName += &quot;.zip&quot;;
-        &#125;
-        BufferedInputStream fis = new BufferedInputStream(new FileInputStream(file.getPath()));
-        byte[] buffer = new byte[fis.available()];
-        fis.read(buffer);
-        fis.close();
-        response.reset();
-        OutputStream toClient = new BufferedOutputStream(response.getOutputStream());
-        response.setContentType(&quot;application/octet-stream&quot;);
-</code></pre>
-<p>//response.setContentType(“application/x-download”);<br>            response.setHeader(“Content-Disposition”, “attachment;filename=” + URLEncoder.encode(targetName, “UTF-8”));<br>            toClient.write(buffer);<br>            toClient.flush();<br>            toClient.close();<br>            return true;<br>        } catch (Exception e) {<br>            e.printStackTrace();<br>            return false;<br>        }<br>    }</p>
-<pre><code>
-</code></pre>
+<h3 id="下载-zip-文件"><a href="#下载-zip-文件" class="headerlink" title="下载 zip 文件"></a>下载 zip 文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">     * 描述：构建并下载zip文件</span><br><span class="line">     *</span><br><span class="line">     * @author MaYawei</span><br><span class="line">     * @date 2017年3月3日</span><br><span class="line">     * @param fileList 文件list集合</span><br><span class="line">     * @param targetName 下载目标文件名 如：xxx.zip 或 xxx</span><br><span class="line">     * @param response 响应（utf-8）</span><br><span class="line">     */</span><br><span class="line">    public static void buildAndDownloadZip(List&lt;File&gt; fileList,String targetName, HttpServletResponse response)&#123;</span><br><span class="line">    	String zipFileStr = buildZip(fileList);</span><br><span class="line">    	File zipFile = new File(zipFileStr);</span><br><span class="line">    	downloadZip(zipFile, targetName, response);</span><br><span class="line">    	zipFile.deleteOnExit();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 描述：构建zip文件</span><br><span class="line">     *</span><br><span class="line">     * @author MaYawei</span><br><span class="line">     * @date 2017年3月3日</span><br><span class="line">     * @param fileList 文件list集合</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">	public static String buildZip(List&lt;File&gt; fileList)&#123;</span><br><span class="line"></span><br><span class="line">        String tmpZipPath = System.getProperty(&quot;java.io.tmpdir&quot;)</span><br><span class="line">        		+ UUID.randomUUID().toString().replace(&quot;-&quot;, &quot;&quot;)+&quot;.zip&quot;;</span><br><span class="line">        try &#123;</span><br><span class="line">        	if(fileList == null )&#123;</span><br><span class="line">        		return tmpZipPath;</span><br><span class="line">        	&#125;</span><br><span class="line">        	File tmpZipFile = new File(tmpZipPath);</span><br><span class="line">        	if(!tmpZipFile.getParentFile().exists())&#123;</span><br><span class="line">        		tmpZipFile.getParentFile().mkdirs();</span><br><span class="line">        	&#125;</span><br><span class="line">            ZipOutputStream out = new ZipOutputStream(new FileOutputStream(tmpZipFile));</span><br><span class="line">            byte[] buffer = new byte[1024*1024];</span><br><span class="line">            for (File file : fileList) &#123;</span><br><span class="line">            	if(!file.exists())&#123;</span><br><span class="line">            		continue;</span><br><span class="line">            	&#125;</span><br><span class="line">            	 FileInputStream fis = new FileInputStream(file);</span><br><span class="line">                 out.putNextEntry(new ZipEntry(file.getName()));</span><br><span class="line">                 out.setEncoding(&quot;utf-8&quot;);</span><br><span class="line">                 int len = 0;</span><br><span class="line">                 while ((len = fis.read(buffer)) &gt; 0) &#123;</span><br><span class="line">                     out.write(buffer, 0, len);</span><br><span class="line">                 &#125;</span><br><span class="line">                 out.closeEntry();</span><br><span class="line">                 fis.close();</span><br><span class="line">			&#125;</span><br><span class="line">            out.close();</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return tmpZipPath;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 描述：下载zip文件</span><br><span class="line">	 *</span><br><span class="line">	 * @author MaYawei</span><br><span class="line">	 * @date 2017年3月3日</span><br><span class="line">	 * @param file zip文件地址</span><br><span class="line">	 * @param targetName 下载目标文件名 如：xxx.zip 或 xxx</span><br><span class="line">	 * @param response</span><br><span class="line">	 * @return true 下载成功 false 出现异常</span><br><span class="line">	 */</span><br><span class="line">	public static boolean downloadZip(File file,String targetName,</span><br><span class="line">			HttpServletResponse response) &#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			if(file == null || !file.exists())&#123;</span><br><span class="line">				return false;</span><br><span class="line">			&#125;</span><br><span class="line">			if(StringUtils.isBlank(targetName))&#123;</span><br><span class="line">				targetName = file.getName();</span><br><span class="line">			&#125;</span><br><span class="line">			if(!targetName.contains(&quot;.zip&quot;))&#123;</span><br><span class="line">				targetName += &quot;.zip&quot;;</span><br><span class="line">			&#125;</span><br><span class="line">			BufferedInputStream fis = new BufferedInputStream(new FileInputStream(file.getPath()));</span><br><span class="line">			byte[] buffer = new byte[fis.available()];</span><br><span class="line">			fis.read(buffer);</span><br><span class="line">			fis.close();</span><br><span class="line">			response.reset();</span><br><span class="line">			OutputStream toClient = new BufferedOutputStream(response.getOutputStream());</span><br><span class="line">			response.setContentType(&quot;application/octet-stream&quot;);</span><br><span class="line">//response.setContentType(&quot;application/x-download&quot;);</span><br><span class="line">			response.setHeader(&quot;Content-Disposition&quot;, &quot;attachment;filename=&quot; + URLEncoder.encode(targetName, &quot;UTF-8&quot;));</span><br><span class="line">			toClient.write(buffer);</span><br><span class="line">			toClient.flush();</span><br><span class="line">			toClient.close();</span><br><span class="line">			return true;</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
                 
             </div>

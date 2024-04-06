@@ -383,33 +383,40 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="安装RabbitMQ"><a href="#安装RabbitMQ" class="headerlink" title="安装RabbitMQ"></a>安装RabbitMQ</h4><p><strong>Ubuntu 更换阿里云软件源</strong></p>
+                <h4 id="安装-RabbitMQ"><a href="#安装-RabbitMQ" class="headerlink" title="安装 RabbitMQ"></a>安装 RabbitMQ</h4><p><strong>Ubuntu 更换阿里云软件源</strong></p>
 <ol>
-<li>备份<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak </span><br></pre></td></tr></table></figure></li>
-<li>修改<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>将source.list文件内容替换成下面的</p>
-</blockquote>
-</li>
+<li>备份</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>更新<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure>
 
-</li>
+<ol start="2">
+<li>修改</li>
 </ol>
-<p><strong>安装Erlang与RabbitMQ</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将 source.list 文件内容替换成下面的</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>更新</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<p><strong>安装 Erlang 与 RabbitMQ</strong></p>
 <ol>
-<li>安装erlang</li>
+<li>安装 erlang</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install erlang-nox</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>安装rabbitMQ<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install rabbitmq-server</span><br></pre></td></tr></table></figure>
 
-</li>
+<ol start="2">
+<li>安装 rabbitMQ</li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install rabbitmq-server</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>启动、停止、重启、状态rabbitMq命令：</p>
+<p>启动、停止、重启、状态 rabbitMq 命令：</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo rabbitmq-server start # 启动</span><br><span class="line">sudo rabbitmq-server stop # 关闭</span><br><span class="line">sudo rabbitmq-server restart # 重启</span><br><span class="line">sudo rabbitmqctl status 查看状态</span><br></pre></td></tr></table></figure>
 
@@ -418,35 +425,41 @@
 <p>查看状态</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/lib/rabbitmq/bin/</span><br><span class="line">sudo ./rabbitmqctl status</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Status of node &#x27;rabbit@mhiwy-ubuntu&#x27;</span><br><span class="line">Error: unable to connect to node &#x27;rabbit@mhiwy-ubuntu&#x27;: nodedown</span><br><span class="line"></span><br><span class="line">DIAGNOSTICS</span><br><span class="line">===========</span><br><span class="line"></span><br><span class="line">attempted to contact: [&#x27;rabbit@mhiwy-ubuntu&#x27;]</span><br><span class="line"></span><br><span class="line">rabbit@mhiwy-ubuntu:</span><br><span class="line">  * connected to epmd (port 4369) on mhiwy-ubuntu</span><br><span class="line">  * epmd reports node &#x27;rabbit&#x27; running on port 25672</span><br><span class="line">  * TCP connection succeeded but Erlang distribution failed</span><br><span class="line">  * suggestion: hostname mismatch?</span><br><span class="line">  * suggestion: is the cookie set correctly?</span><br><span class="line">  * suggestion: is the Erlang distribution using TLS?</span><br><span class="line"></span><br><span class="line">current node details:</span><br><span class="line">- node name: &#x27;rabbitmq-cli-76@mhiwy-ubuntu&#x27;</span><br><span class="line">- home dir: /home/mhiwyf</span><br><span class="line">- cookie hash: 8wU6rmleLQn53TMnF919xQ==</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>有错误，要修改配置，先停止服务</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/lib/rabbitmq/bin</span><br><span class="line">invoke-rc.d rabbitmq-server stop</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mhiwyf@mhiwy-ubuntu:/usr/lib/rabbitmq/bin$ invoke-rc.d rabbitmq-server stop</span><br><span class="line">==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===</span><br><span class="line">Authentication is required to stop &#x27;rabbitmq-server.service&#x27;.</span><br><span class="line">Authenticating as: mhiwyf,,, (mhiwyf)</span><br><span class="line">Password: </span><br><span class="line">==== AUTHENTICATION COMPLETE ===</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mhiwyf@mhiwy-ubuntu:/usr/lib/rabbitmq/bin$ invoke-rc.d rabbitmq-server stop</span><br><span class="line">==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===</span><br><span class="line">Authentication is required to stop &#x27;rabbitmq-server.service&#x27;.</span><br><span class="line">Authenticating as: mhiwyf,,, (mhiwyf)</span><br><span class="line">Password:</span><br><span class="line">==== AUTHENTICATION COMPLETE ===</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>进入安装文件夹<code>/usr/lib/rabbitmq/bin</code>,  修改rabbitmqctl文件,先备份<code>cp rabbitmqctl rabbitmqctl.bak</code>, 添加一行Home配置<code>HOME=/var/lib/rabbitmq  \</code></p>
+<p>进入安装文件夹<code>/usr/lib/rabbitmq/bin</code>, 修改 rabbitmqctl 文件,先备份<code>cp rabbitmqctl rabbitmqctl.bak</code>, 添加一行 Home 配置<code>HOME=/var/lib/rabbitmq  \</code></p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">if [ -z &quot;$ERL_CRASH_DUMP_SECONDS&quot; ]; then</span><br><span class="line">    export ERL_CRASH_DUMP_SECONDS=0</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># We specify Mnesia dir and sasl error logger since some actions</span><br><span class="line"># (e.g. forget_cluster_node --offline) require us to impersonate the</span><br><span class="line"># real node.</span><br><span class="line"></span><br><span class="line">RABBITMQ_USE_LONGNAME=$&#123;RABBITMQ_USE_LONGNAME&#125; \</span><br><span class="line">HOME=/var/lib/rabbitmq  \</span><br><span class="line">exec $&#123;ERL_DIR&#125;erl \</span><br><span class="line">    -pa &quot;$&#123;RABBITMQ_HOME&#125;/ebin&quot; \</span><br><span class="line">    -noinput +B \</span><br><span class="line">    -hidden \</span><br><span class="line">    $&#123;RABBITMQ_CTL_ERL_ARGS&#125; \</span><br><span class="line">    -boot &quot;$&#123;CLEAN_BOOT_FILE&#125;&quot; \</span><br><span class="line">    -sasl errlog_type error \</span><br><span class="line">    -mnesia dir &quot;\&quot;$&#123;RABBITMQ_MNESIA_DIR&#125;\&quot;&quot; \</span><br><span class="line">    -s rabbit_control_main \</span><br><span class="line">    -nodename $RABBITMQ_NODENAME \</span><br><span class="line">    -extra &quot;$@&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
 <p><strong>启动管理</strong></p>
 <ol>
-<li><p>启用</p>
+<li>启用</li>
+</ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/lib/rabbitmq/bin</span><br><span class="line">sudo ./rabbitmq-plugins enable rabbitmq_management</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">The following plugins have been enabled:</span><br><span class="line">  amqp_client</span><br><span class="line">  cowlib</span><br><span class="line">  cowboy</span><br><span class="line">  rabbitmq_web_dispatch</span><br><span class="line">  rabbitmq_management_agent</span><br><span class="line">  rabbitmq_management</span><br><span class="line"></span><br><span class="line">Applying plugin configuration to rabbit@mhiwy-ubuntu... failed.</span><br><span class="line"> * Could not contact node rabbit@mhiwy-ubuntu.</span><br><span class="line">   Changes will take effect at broker restart.</span><br><span class="line"> * Options: --online  - fail if broker cannot be contacted.</span><br><span class="line">            --offline - do not try to contact broker.</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>浏览器查看：127.0.0.1:15672</p>
 </blockquote>
-</li>
-<li><p>添加用户</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rabbitmqctl add_user admin admin</span><br><span class="line">sudo rabbitmqctl set_user_tags admin administrator</span><br><span class="line">sudo rabbitmqctl set_permissions -p / admin &#x27;.*&#x27; &#x27;.*&#x27; &#x27;.*&#x27;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>开放端口</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw disable</span><br><span class="line">sudo ufw allow 25672</span><br><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw reload</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<ol start="2">
+<li>添加用户</li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rabbitmqctl add_user admin admin</span><br><span class="line">sudo rabbitmqctl set_user_tags admin administrator</span><br><span class="line">sudo rabbitmqctl set_permissions -p / admin &#x27;.*&#x27; &#x27;.*&#x27; &#x27;.*&#x27;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>开放端口</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw disable</span><br><span class="line">sudo ufw allow 25672</span><br><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw reload</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -748,12 +761,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
                     <a href="/tags/MQ/">
                         <span class="chip bg-color">MQ</span>
+                    </a>
+                    
+                    <a href="/tags/Erlang/">
+                        <span class="chip bg-color">Erlang</span>
                     </a>
                     
                 </div>

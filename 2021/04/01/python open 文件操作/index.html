@@ -385,22 +385,21 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f=open(&#x27;/tmp/hello&#x27;,&#x27;w&#x27;)</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>#open(路径+文件名,读写模式)<br>#读写模式:r只读,r+读写,w新建(会覆盖原有文件),a追加,b二进制文件.常用模式<br>如:’rb’,’wb’,’r+b’等等</p>
+<p>#open(路径+文件名,读写模式) #读写模式:r 只读,r+读写,w 新建(会覆盖原有文件),a 追加,b 二进制文件.常用模式<br>如:’rb’,’wb’,’r+b’等等</p>
 </blockquote>
 <blockquote>
 <p>读写模式的类型有：</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">rU 或 Ua 以读方式打开, 同时提供通用换行符支持 (PEP 278)</span><br><span class="line">w     以写方式打开，</span><br><span class="line">a     以追加模式打开 (从 EOF 开始, 必要时创建新文件)</span><br><span class="line">r+     以读写模式打开</span><br><span class="line">w+     以读写模式打开 (参见 w )</span><br><span class="line">a+     以读写模式打开 (参见 a )</span><br><span class="line">rb     以二进制读模式打开</span><br><span class="line">wb     以二进制写模式打开 (参见 w )</span><br><span class="line">ab     以二进制追加模式打开 (参见 a )</span><br><span class="line">rb+    以二进制读写模式打开 (参见 r+ )</span><br><span class="line">wb+    以二进制读写模式打开 (参见 w+ )</span><br><span class="line">ab+    以二进制读写模式打开 (参见 a+ )</span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line"></span><br><span class="line">1、使用&#x27;W&#x27;，文件若存在，首先要清空，然后（重新）创建，</span><br><span class="line"></span><br><span class="line">2、使用&#x27;a&#x27;模式 ，把所有要写入文件的数据都追加到文件的末尾，即使你使用了seek()指向文件的其他地方，如果文件不存在，将自动被创建。</span><br></pre></td></tr></table></figure>
 
-
 <blockquote>
-<p>f.read([size]) size未指定则返回整个文件,如果文件大小&gt;2倍内存则有问题.f.read()读到文件尾时返回””(空字串)</p>
+<p>f.read([size]) size 未指定则返回整个文件,如果文件大小&gt;2 倍内存则有问题.f.read()读到文件尾时返回””(空字串)</p>
 </blockquote>
 <blockquote>
 <p>file.readline() 返回一行</p>
 </blockquote>
 <blockquote>
-<p>file.readline([size]) 返回包含size行的列表,size 未指定则返回全部行<br><br>for line in f: print line #通过迭代器访问</p>
+<p>file.readline([size]) 返回包含 size 行的列表,size 未指定则返回全部行<br><br>for line in f: print line #通过迭代器访问</p>
 </blockquote>
 <blockquote>
 <p>f.write(“hello\n”) #如果要写入字符串以外的数据,先将他转换为字符串.</p>
@@ -415,7 +414,8 @@
 <p>f.close() 关闭文件</p>
 </blockquote>
 <p>例子：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># Filename: using_file.py</span><br><span class="line"></span><br><span class="line">poem=&#x27;&#x27;&#x27;\Programming is funWhen the work is doneif you wanna make your work also fun: use Python!&#x27;&#x27;&#x27;</span><br><span class="line">f=file(&#x27;poem.txt&#x27;,&#x27;w&#x27;) # open for &#x27;w&#x27;riting</span><br><span class="line">f.write(poem) # write text to file</span><br><span class="line">f.close() # close the file</span><br><span class="line">f=file(&#x27;poem.txt&#x27;)</span><br><span class="line"></span><br><span class="line"># if no mode is specified, &#x27;r&#x27;ead mode is assumed by default</span><br><span class="line">while True: </span><br><span class="line">line=f.readline() </span><br><span class="line">if len(line)==0: # Zero length indicates EOF </span><br><span class="line">break </span><br><span class="line">print line, </span><br><span class="line"># Notice comma to avoid automatic newline added by Python</span><br><span class="line">f.close() </span><br><span class="line"># close the file</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># Filename: using_file.py</span><br><span class="line"></span><br><span class="line">poem=&#x27;&#x27;&#x27;\Programming is funWhen the work is doneif you wanna make your work also fun: use Python!&#x27;&#x27;&#x27;</span><br><span class="line">f=file(&#x27;poem.txt&#x27;,&#x27;w&#x27;) # open for &#x27;w&#x27;riting</span><br><span class="line">f.write(poem) # write text to file</span><br><span class="line">f.close() # close the file</span><br><span class="line">f=file(&#x27;poem.txt&#x27;)</span><br><span class="line"></span><br><span class="line"># if no mode is specified, &#x27;r&#x27;ead mode is assumed by default</span><br><span class="line">while True:</span><br><span class="line">line=f.readline()</span><br><span class="line">if len(line)==0: # Zero length indicates EOF</span><br><span class="line">break</span><br><span class="line">print line,</span><br><span class="line"># Notice comma to avoid automatic newline added by Python</span><br><span class="line">f.close()</span><br><span class="line"># close the file</span><br></pre></td></tr></table></figure>
+
 <p>‘’ ‘</p>
 
                 
@@ -771,8 +771,8 @@
                         <span class="chip bg-color">Python</span>
                     </a>
                     
-                    <a href="/tags/Qrcode/">
-                        <span class="chip bg-color">Qrcode</span>
+                    <a href="/tags/QRCode/">
+                        <span class="chip bg-color">QRCode</span>
                     </a>
                     
                 </div>

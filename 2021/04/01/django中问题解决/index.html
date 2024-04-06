@@ -384,14 +384,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h4 id="上传文件问题"><a href="#上传文件问题" class="headerlink" title="上传文件问题"></a>上传文件问题</h4><ul>
-<li><p>问题</p>
+<li>问题</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Unsupported media type \&quot;multipart/form-data; boundary=--------------------------340430569531240491567848\&quot; in request.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解决</p>
+
+<ul>
+<li>解决</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from rest_framework.parsers import MultiPartParser, FormParser, JSONParser</span><br><span class="line"></span><br><span class="line">class SampleView(APIView):</span><br><span class="line">    parser_classes = (MultiPartParser,FormParser,JSONParser)</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
 <h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4>
                 
             </div>

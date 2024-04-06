@@ -1,0 +1,1377 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="iSCSI笔记, Java,Python,GO">
+    <meta name="description" content="IT文章及知识分享">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>iSCSI笔记 | 马瑞个人笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="马瑞个人笔记" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">马瑞个人笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">马瑞个人笔记</div>
+        <div class="logo-desc">
+            
+            IT文章及知识分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">iSCSI笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+        padding-top: 1.5rem
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        <!-- height: calc(100vh - 250px); -->
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/ISCSI/">
+                                <span class="chip bg-color">ISCSI</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-07-06
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="配置-iSCSI-部署网络存储"><a href="#配置-iSCSI-部署网络存储" class="headerlink" title="配置 iSCSI 部署网络存储"></a>配置 iSCSI 部署网络存储</h2><p>iSCSI( Internet Small Computer System Interface 互联网小型计算机系统接口)是由 IBM 下属的两大研发机构一一加利福尼亚 AImaden 和以色列 Haifa 研究中心共同开发的，是一个供硬件设备使用的、可在 IP 协议上层运行的 SCSI 指令集，是一种开放的基于 IP 协议的工业技术标准。该协议可以用 TCP/IP 对 SCSI 指令进行封装，使得这些指令能够通过基于 IP 网络进行传输，从而实现 SCSI 和 TCP/IP 协议的连接。对于局域网环境中的用户来说，采用该标准只需要不多的投资就可以方便、快捷地对信息和数据进行交互式传输及管理。</p>
+<p>iSCSI 技术是一种新储存技术，该技术是将现有 SCSI 接口与以太网络(Ethernet)技术结合，使服务器可与使用 IP 网络的储存装置互相交换资料。</p>
+<p>设备由 SCSI 总线连接。iSCSI 的主要功能是在 TCP/IP 网络上的主机系统（启动器 initiator）和存储设备（目标器 target）之间进行大量数据的封装和可靠传输过程。此外，iSCSI 提供了在 IP 网络封装 SCSI 命令，且以 TCP/IP 协议传输。</p>
+<h3 id="◆-常用名词解释-◆"><a href="#◆-常用名词解释-◆" class="headerlink" title="◆ 常用名词解释 ◆"></a>◆ 常用名词解释 ◆</h3><p>iSCSI：Internet 小型计算机系统接口 (iSCSI：Internet Small Computer System Interface) Internet 小型计算机系统接口(iSCSI)是一种基于 TCP/IP 的协议，用来建立和管理 IP 存储设备、主机和客户机等之间的相互连接，并创建存储区域网络(SAN)。</p>
+<p>SAN 网络：Storage Area Network 存储区域网络，多采用高速光纤通道，对速率、冗余性要求高。使用 iscsi 存储协议，块级传输。</p>
+<p>NAS 网络：Network Attachment Storage，网络附件存储，采用普通以太网，对速率、冗余无特别要求，使用 NFS、CIFS 共享协议，文件级传输。</p>
+<p>SAN 和 NAS 的区别：1.SAN 一般特指存储网络的构建方式，NAS 一般特指产品。</p>
+<p>SAN 有单独的存储网络，NAS 使用现有网络,家庭网络存储设备：FREENAS，用的是 FREEBSD 系统</p>
+<h3 id="◆NFS-与-ISCSI-的区别-◆"><a href="#◆NFS-与-ISCSI-的区别-◆" class="headerlink" title="◆NFS 与 ISCSI 的区别 ◆"></a>◆NFS 与 ISCSI 的区别 ◆</h3><p>NFS 是以文件为单位的，共享出去的是文件</p>
+<p>ISCSI 是以 block 为单位，共享出去的是设备，端口：3260/tcp</p>
+<h2 id="iSCSI-部署网络存储"><a href="#iSCSI-部署网络存储" class="headerlink" title="iSCSI 部署网络存储"></a>iSCSI 部署网络存储</h2><p>iSCSI 网络存储,在工作上分为服务端(target)和客户端(initiator).iSCSI 服务端用于存放硬盘存储资源的服务器,能够为用户提供可用的存储资源,iSCSI 客户端则是用户使用的软件,用于访问远程服务端的存储资源.</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="◆-环境配置-◆"><a href="#◆-环境配置-◆" class="headerlink" title="◆ 环境配置 ◆"></a>◆ 环境配置 ◆</h3><ol>
+<li>关闭防火墙</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br><span class="line">firewall-cmd --state</span><br><span class="line">systemctl disable firewalld</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>关闭 SELINUX</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># /etc/selinux/config中将SELINUX=enforcing改为SELINUX=disabled</span><br><span class="line">setenforce 0 &amp;&amp; sed -i &#x27;s/^SELINUX=enforcing$/SELINUX=disabled/g&#x27; /etc/selinux/config</span><br></pre></td></tr></table></figure>
+
+<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><h3 id="◆-创建-vg-targetd-卷组-◆"><a href="#◆-创建-vg-targetd-卷组-◆" class="headerlink" title="◆ 创建 vg-targetd 卷组 ◆"></a>◆ 创建 vg-targetd 卷组 ◆</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 1. 查看磁盘（/dev/sdb）</span><br><span class="line">fdisk -l</span><br><span class="line"># 2. 创建物理卷并查看</span><br><span class="line">pvcreate /dev/sdb</span><br><span class="line">pvs</span><br><span class="line"># 3. 创建卷组并查看</span><br><span class="line">vgcreate vg-targetd /dev/sdb</span><br><span class="line">vgs</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="◆-配置-iSCSI-服务端-◆"><a href="#◆-配置-iSCSI-服务端-◆" class="headerlink" title="◆ 配置 iSCSI 服务端 ◆"></a>◆ 配置 iSCSI 服务端 ◆</h3><ol>
+<li>通过 yum 安装 iSCSI 服务端</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y targetd targetcli</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装成功后,手动启动 iSCSI 服务,并设置开机自启动 (注意：iSCSI 服务程序为 targetd)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 设置root密码</span><br><span class="line">sed -i &#x27;s/^password:$/password: h3c.root/g&#x27; /etc/target/targetd.yaml</span><br><span class="line">systemctl restart targetd &amp;&amp; systemctl enable targetd</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>查看 iSCSI 服务端共享资源,targetcli 是用于管理 iSCSI 服务的专用命令,在执行命令是可看到交互界面.</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@centos7 ~]# targetcli</span><br><span class="line">Warning: Could not load preferences file /root/.targetcli/prefs.bin.</span><br><span class="line">targetcli shell version 2.1.53</span><br><span class="line">Copyright 2011-2013 by Datera, Inc and others.</span><br><span class="line">For help on commands, type &#x27;help&#x27;.</span><br><span class="line">/&gt; ls</span><br><span class="line">o- / ......................................................................................................................... [...]</span><br><span class="line">  o- backstores .............................................................................................................. [...]</span><br><span class="line">  | o- block .................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- fileio ................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- pscsi .................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- ramdisk ................................................................................................ [Storage Objects: 0]</span><br><span class="line">  o- iscsi ............................................................................................................ [Targets: 0]</span><br><span class="line">  o- loopback ......................................................................................................... [Targets: 0]</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>进入/backstores/block 共享设备位置,并创建共享设备名称 (注意：/backstores/block 是 iSCSI 服务端配置共享设备的位置)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/&gt; cd backstores/block                                   #进入共享设备位置</span><br><span class="line">/backstores/block&gt; create disk0 /dev/sdb                 #创建共享设备名称 此处将 /dev/sdb 加入到设备中命名为disk0</span><br><span class="line">Created block storage object disk0 using /dev/sdb.</span><br><span class="line">/backstores/block&gt; cd /                                  #返回根</span><br><span class="line">/&gt; ls</span><br><span class="line">o- / ......................................................................................................................... [...]</span><br><span class="line">  o- backstores .............................................................................................................. [...]</span><br><span class="line">  | o- block .................................................................................................. [Storage Objects: 1]</span><br><span class="line">  | | o- disk0 .......................................................................... [/dev/sdb (5.0GiB) write-thru deactivated]</span><br><span class="line">  | |   o- alua ................................................................................................... [ALUA Groups: 1]</span><br><span class="line">  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]</span><br><span class="line">  | o- fileio ................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- pscsi .................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- ramdisk ................................................................................................ [Storage Objects: 0]</span><br><span class="line">  o- iscsi ............................................................................................................ [Targets: 0]</span><br><span class="line">  o- loopback ......................................................................................................... [Targets: 0]</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>创建 iSCSI target 名称及配置共享资源,iSCSI target 名称是由系统自动生成的,这是一串用于描述共享资源的唯一字符串</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/&gt; cd iscsi</span><br><span class="line">/iscsi&gt; create</span><br><span class="line">Created target iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a.</span><br><span class="line">Created TPG 1.</span><br><span class="line">Global pref auto_add_default_portal=true</span><br><span class="line">Created default portal listening on all IPs (0.0.0.0), port 3260.</span><br><span class="line">/iscsi&gt;</span><br><span class="line">/iscsi&gt; cd iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a/</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt;</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt;</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt; ls</span><br><span class="line">o- iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a ............................................................. [TPGs: 1]</span><br><span class="line">  o- tpg1 ................................................................................................... [no-gen-acls, no-auth]</span><br><span class="line">    o- acls .............................................................................................................. [ACLs: 0]</span><br><span class="line">    o- luns .............................................................................................................. [LUNs: 0]</span><br><span class="line">    o- portals ........................................................................................................ [Portals: 1]</span><br><span class="line">      o- 0.0.0.0:3260 ......................................................................................................... [OK]</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt;</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt; cd tpg1/luns</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>配置访问控制列表(ACL),iSCSI 设备无需密码进行验证,只需知道标签名称即可通过,因此需要在 iSCSI 服务端的配置文件中写入一串能够验证信息的名称,这里推荐在系统生成的标签后面加上标识符,:client 参数,保证标签唯一性,同时方便区别和管理</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/&gt; cd iscsi/iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a #进入指定标签</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt; cd tpg1/acls                                 #进入ACL配置列表</span><br><span class="line"></span><br><span class="line">/iscsi/iqn.20...16a/tpg1/acls&gt; create iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a:client  #创建用于挂载的标签</span><br><span class="line">Created Node ACL for iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a:client</span><br><span class="line">Created mapped LUN 0.</span><br><span class="line">/iscsi/iqn.20...16a/tpg1/acls&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>设置 iSCSI 服务器的监听 IP 地址和端口号,即在 portals 参数目录中写上服务器的 IP 地址,接下来系统会自动开启服务器 192.168.56.14 的 3260 号端口,为外部提供共享存储服务</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/&gt; cd /iscsi/iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a/   #进入操作的标签</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt; cd tpg1/portals/                             #进入端口配置</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt; ls</span><br><span class="line">o- portals ...................................................................... [Portals: 1]</span><br><span class="line">  o- 0.0.0.0:3260 ............................................................... [OK]</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt;</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt; delete 0.0.0.0 3260                          #删除原有配置</span><br><span class="line">Deleted network portal 0.0.0.0:3260</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt; create 192.168.56.14                          #创建侦听本机</span><br><span class="line">Using default IP port 3260</span><br><span class="line">Created network portal 192.168.56.14:3260.</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt; ls</span><br><span class="line">o- portals ...................................................................... [Portals: 1]</span><br><span class="line">  o- 192.168.56.14:3260 .......................................................... [OK]</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>配置全部妥当后检查一下,没问题的话保存.</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/iscsi/iqn.20.../tpg1/portals&gt; cd /</span><br><span class="line">/&gt;</span><br><span class="line">/&gt; ls</span><br><span class="line">o- / ................................................................... [...]</span><br><span class="line">  o- backstores ........................................................ [...]</span><br><span class="line">  | o- block ........................................................... [Storage Objects: 1]</span><br><span class="line">  | | o- disk0 ......................................................... [/dev/sdb (20.0GiB) write-thru activated]   #磁盘名称</span><br><span class="line">  | |   o- alua ........................................................ [ALUA Groups: 1]</span><br><span class="line">  | |     o- default_tg_pt_gp .......................................... [ALUA state: Active/optimized]</span><br><span class="line">  | o- fileio .......................................................... [Storage Objects: 0]</span><br><span class="line">  | o- pscsi ........................................................... [Storage Objects: 0]</span><br><span class="line">  | o- ramdisk ......................................................... [Storage Objects: 0]</span><br><span class="line">  o- iscsi ............................................................. [Targets: 1]</span><br><span class="line">  | o- iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a ..... [TPGs: 1]                                  #标签名称</span><br><span class="line">  |   o- tpg1 .......................................................... [no-gen-acls, no-auth]</span><br><span class="line">  |     o- acls ......................................................................... [ACLs: 1]</span><br><span class="line">  |     | o- iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a:client ......... [Mapped LUNs: 1]          #自定义标签</span><br><span class="line">  |     |   o- mapped_lun0 .............................................................. [lun0 block/disk0 (rw)]</span><br><span class="line">  |     o- luns ......................................................................... [LUNs: 1]</span><br><span class="line">  |     | o- lun0 ..................................................... [block/disk0 (/dev/sdb) (default_tg_pt_gp)]</span><br><span class="line">  |     o- portals ...................................................................... [Portals: 1]</span><br><span class="line">  |       o- 192.168.56.14:3260 .......................................................... [OK]                      #开启端口</span><br><span class="line">  o- loopback ........................................................................... [Targets: 0]</span><br><span class="line">/&gt; exit</span><br><span class="line">Global pref auto_save_on_exit=true</span><br><span class="line">Last 10 configs saved in /etc/target/backup.</span><br><span class="line">Configuration saved to /etc/target/saveconfig.json</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>重启 SCSI 服务,到此服务器已经配置完毕</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart targetd</span><br></pre></td></tr></table></figure>
+
+<ol start="10">
+<li>操作日志</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"># iscsi操作记录</span><br><span class="line">[root@centos7 ~]# targetcli</span><br><span class="line">Warning: Could not load preferences file /root/.targetcli/prefs.bin.</span><br><span class="line">targetcli shell version 2.1.53</span><br><span class="line">Copyright 2011-2013 by Datera, Inc and others.</span><br><span class="line">For help on commands, type &#x27;help&#x27;.</span><br><span class="line">/&gt;</span><br><span class="line">/&gt; ls</span><br><span class="line">o- / ......................................................................................................................... [...]</span><br><span class="line">  o- backstores .............................................................................................................. [...]</span><br><span class="line">  | o- block .................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- fileio ................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- pscsi .................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- ramdisk ................................................................................................ [Storage Objects: 0]</span><br><span class="line">  o- iscsi ............................................................................................................ [Targets: 0]</span><br><span class="line">  o- loopback ......................................................................................................... [Targets: 0]</span><br><span class="line">/&gt;</span><br><span class="line">/&gt; cd backstores/block</span><br><span class="line">/backstores/block&gt;</span><br><span class="line">/backstores/block&gt; ls</span><br><span class="line">o- block ...................................................................................................... [Storage Objects: 0]</span><br><span class="line">/backstores/block&gt;</span><br><span class="line">/backstores/block&gt;</span><br><span class="line">/backstores/block&gt;</span><br><span class="line">/backstores/block&gt; cd /</span><br><span class="line">/&gt; ls</span><br><span class="line">o- / ......................................................................................................................... [...]</span><br><span class="line">  o- backstores .............................................................................................................. [...]</span><br><span class="line">  | o- block .................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- fileio ................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- pscsi .................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- ramdisk ................................................................................................ [Storage Objects: 0]</span><br><span class="line">  o- iscsi ............................................................................................................ [Targets: 0]</span><br><span class="line">  o- loopback ......................................................................................................... [Targets: 0]</span><br><span class="line">/&gt;</span><br><span class="line">/&gt; cd /backstores/block</span><br><span class="line">/backstores/block&gt; create disk0 /dev/sdb</span><br><span class="line">Created block storage object disk0 using /dev/sdb.</span><br><span class="line">/backstores/block&gt;</span><br><span class="line">/backstores/block&gt; cd /</span><br><span class="line">/&gt; ls</span><br><span class="line">o- / ......................................................................................................................... [...]</span><br><span class="line">  o- backstores .............................................................................................................. [...]</span><br><span class="line">  | o- block .................................................................................................. [Storage Objects: 1]</span><br><span class="line">  | | o- disk0 .......................................................................... [/dev/sdb (5.0GiB) write-thru deactivated]</span><br><span class="line">  | |   o- alua ................................................................................................... [ALUA Groups: 1]</span><br><span class="line">  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]</span><br><span class="line">  | o- fileio ................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- pscsi .................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- ramdisk ................................................................................................ [Storage Objects: 0]</span><br><span class="line">  o- iscsi ............................................................................................................ [Targets: 0]</span><br><span class="line">  o- loopback ......................................................................................................... [Targets: 0]</span><br><span class="line">/&gt;</span><br><span class="line">/&gt; cd iscsi</span><br><span class="line">/iscsi&gt; create</span><br><span class="line">Created target iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a.</span><br><span class="line">Created TPG 1.</span><br><span class="line">Global pref auto_add_default_portal=true</span><br><span class="line">Created default portal listening on all IPs (0.0.0.0), port 3260.</span><br><span class="line">/iscsi&gt;</span><br><span class="line">/iscsi&gt; cd iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a/</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt;</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt;</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt; ls</span><br><span class="line">o- iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a ............................................................. [TPGs: 1]</span><br><span class="line">  o- tpg1 ................................................................................................... [no-gen-acls, no-auth]</span><br><span class="line">    o- acls .............................................................................................................. [ACLs: 0]</span><br><span class="line">    o- luns .............................................................................................................. [LUNs: 0]</span><br><span class="line">    o- portals ........................................................................................................ [Portals: 1]</span><br><span class="line">      o- 0.0.0.0:3260 ......................................................................................................... [OK]</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt;</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt; cd tpg1/luns</span><br><span class="line">/iscsi/iqn.20...16a/tpg1/luns&gt;</span><br><span class="line">/iscsi/iqn.20...16a/tpg1/luns&gt; create /backstores/block/disk0</span><br><span class="line">Created LUN 0.</span><br><span class="line">/iscsi/iqn.20...16a/tpg1/luns&gt;</span><br><span class="line">/iscsi/iqn.20...16a/tpg1/luns&gt; cd ..</span><br><span class="line">/iscsi/iqn.20...38eca16a/tpg1&gt; cd acls</span><br><span class="line">/iscsi/iqn.20...16a/tpg1/acls&gt; ls</span><br><span class="line">o- acls .................................................................................................................. [ACLs: 0]</span><br><span class="line">/iscsi/iqn.20...16a/tpg1/acls&gt;</span><br><span class="line">/iscsi/iqn.20...16a/tpg1/acls&gt; create iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a:client</span><br><span class="line">Created Node ACL for iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a:client</span><br><span class="line">Created mapped LUN 0.</span><br><span class="line">/iscsi/iqn.20...16a/tpg1/acls&gt;</span><br><span class="line">/iscsi/iqn.20...16a/tpg1/acls&gt; cd ..</span><br><span class="line">/iscsi/iqn.20...38eca16a/tpg1&gt; cd ..</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt; ls</span><br><span class="line">o- iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a ............................................................. [TPGs: 1]</span><br><span class="line">  o- tpg1 ................................................................................................... [no-gen-acls, no-auth]</span><br><span class="line">    o- acls .............................................................................................................. [ACLs: 1]</span><br><span class="line">    | o- iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a:client ......................................... [Mapped LUNs: 1]</span><br><span class="line">    |   o- mapped_lun0 ..................................................................................... [lun0 block/disk0 (rw)]</span><br><span class="line">    o- luns .............................................................................................................. [LUNs: 1]</span><br><span class="line">    | o- lun0 .......................................................................... [block/disk0 (/dev/sdb) (default_tg_pt_gp)]</span><br><span class="line">    o- portals ........................................................................................................ [Portals: 1]</span><br><span class="line">      o- 0.0.0.0:3260 ......................................................................................................... [OK]</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt;</span><br><span class="line">/iscsi/iqn.20....062438eca16a&gt; cd tpg1/portals/</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt; ls</span><br><span class="line">o- portals ............................................................................................................ [Portals: 1]</span><br><span class="line">  o- 0.0.0.0:3260 ............................................................................................................. [OK]</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt;</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt; delete 0.0.0.0 3260</span><br><span class="line">Deleted network portal 0.0.0.0:3260</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt;</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt; ls</span><br><span class="line">o- portals ............................................................................................................ [Portals: 0]</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt; create 192.168.56.14</span><br><span class="line">Using default IP port 3260</span><br><span class="line">Created network portal 192.168.56.14:3260.</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt; ls</span><br><span class="line">o- portals ............................................................................................................ [Portals: 1]</span><br><span class="line">  o- 192.168.56.14:3260 ....................................................................................................... [OK]</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt;</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt; create 0.0.0.0</span><br><span class="line">Using default IP port 3260</span><br><span class="line">Binding to INADDR_ANY (0.0.0.0)</span><br><span class="line">Could not create NetworkPortal in configFS</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt;</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt; ls</span><br><span class="line">o- portals ............................................................................................................ [Portals: 1]</span><br><span class="line">  o- 192.168.56.14:3260 ....................................................................................................... [OK]</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt;</span><br><span class="line">/iscsi/iqn.20.../tpg1/portals&gt; cd /</span><br><span class="line">/&gt; ls</span><br><span class="line">o- / ......................................................................................................................... [...]</span><br><span class="line">  o- backstores .............................................................................................................. [...]</span><br><span class="line">  | o- block .................................................................................................. [Storage Objects: 1]</span><br><span class="line">  | | o- disk0 ............................................................................ [/dev/sdb (5.0GiB) write-thru activated]</span><br><span class="line">  | |   o- alua ................................................................................................... [ALUA Groups: 1]</span><br><span class="line">  | |     o- default_tg_pt_gp ....................................................................... [ALUA state: Active/optimized]</span><br><span class="line">  | o- fileio ................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- pscsi .................................................................................................. [Storage Objects: 0]</span><br><span class="line">  | o- ramdisk ................................................................................................ [Storage Objects: 0]</span><br><span class="line">  o- iscsi ............................................................................................................ [Targets: 1]</span><br><span class="line">  | o- iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a ......................................................... [TPGs: 1]</span><br><span class="line">  |   o- tpg1 ............................................................................................... [no-gen-acls, no-auth]</span><br><span class="line">  |     o- acls .......................................................................................................... [ACLs: 1]</span><br><span class="line">  |     | o- iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a:client ..................................... [Mapped LUNs: 1]</span><br><span class="line">  |     |   o- mapped_lun0 ................................................................................. [lun0 block/disk0 (rw)]</span><br><span class="line">  |     o- luns .......................................................................................................... [LUNs: 1]</span><br><span class="line">  |     | o- lun0 ...................................................................... [block/disk0 (/dev/sdb) (default_tg_pt_gp)]</span><br><span class="line">  |     o- portals .................................................................................................... [Portals: 1]</span><br><span class="line">  |       o- 192.168.56.14:3260 ............................................................................................... [OK]</span><br><span class="line">  o- loopback ......................................................................................................... [Targets: 0]</span><br><span class="line">/&gt;</span><br><span class="line">/&gt; exit</span><br><span class="line">Global pref auto_save_on_exit=true</span><br><span class="line">Configuration saved to /etc/target/saveconfig.json</span><br><span class="line">[root@centos7 ~]#</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="◆-配置-Linux-客户端-◆"><a href="#◆-配置-Linux-客户端-◆" class="headerlink" title="◆ 配置 Linux 客户端 ◆"></a>◆ 配置 Linux 客户端 ◆</h3><ol>
+<li>安装 iSCSI 客户端组件,在 RHEL7 系统中已经默认集成,如果没有请执行以下步骤,此处就略过</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y iscsi-initiator-utils iscsi-initiator-utils-iscsiuio</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>编辑 iSCSI 客户端中的 initiator 名称文件,把服务端的访问控制列表名称填写进来,然后重启 iscsid 服务程序,并将其加入到开机自启动列表</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/iscsi/initiatorname.iscsi /etc/iscsi/initiatorname.iscsi.bak</span><br><span class="line"></span><br><span class="line">cat &gt; /etc/iscsi/initiatorname.iscsi&lt;&lt;EOF</span><br><span class="line">InitiatorName=iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a:client</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">systemctl restart iscsid &amp;&amp; systemctl enable iscsid</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>发现 iSCSI 服务端存储资源,其中：-m discovery 参数的目的是扫描并发现存储资源,-t st 参数为执行扫描操作的类型,-p 参数后为 iSCSI 服务端的 IP 地址</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iscsiadm -m discovery -t st -p 192.168.56.14</span><br><span class="line"># 结果如下：</span><br><span class="line">192.168.56.14:3260,1 iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>若报错 iscsiadm: cannot make connection to 192.168.56.14: No route to host</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 服务端查看防火墙状态</span><br><span class="line">systemctl status firewalld</span><br><span class="line"># 开放3260端口</span><br><span class="line">firewall-cmd --permanent --add-port=3260/tcp</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">firewall-cmd --list-all</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>接下来准备登陆 iSCSI 服务器,其中：-m node 参数为将客户端主机作为一台节点服务器,-T iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a 参数为要使用的存储标签,-p 后面为 iSCSI 服务器的 IP 地址, –login 参数为登陆服务器,如果加 -u 参数为卸载挂载资源</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">iscsiadm -m node -T iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a -p 192.168.56.23 --login</span><br><span class="line"># 结果如下</span><br><span class="line">Logging in to [iface: default, target: iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a, portal: 192.168.56.23,3260] (multiple)</span><br><span class="line">Login to [iface: default, target: iqn.2003-01.org.linux-iscsi.centos7.x8664:sn.062438eca16a, portal: 192.168.56.23,3260] successful.</span><br><span class="line"></span><br><span class="line"># 查看iscsi状态</span><br><span class="line">systemctl status iscsi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>此时在 iSCSI 客户端上会多出一个/dev/sdb 磁盘设备文件,接下来我们直接格式化挂在到/network-disk 目录下</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"># LVM方式</span><br><span class="line">[root@centos7 ~]# vgs</span><br><span class="line">VG         #PV #LV #SN Attr   VSize   VFree</span><br><span class="line">centos       1   2   0 wz--n- &lt;19.51g  4.00m</span><br><span class="line">vg-targetd   1   0   0 wz--n-  &lt;5.00g &lt;5.00g #此处的VG就是远程的磁盘</span><br><span class="line"></span><br><span class="line">[root@centos7 ~]# lvcreate -n app -L 2G vg-targetd  # 创建2G的LV</span><br><span class="line">  Logical volume &quot;app&quot; created.</span><br><span class="line"></span><br><span class="line">[root@centos7 ~]# mkfs -t ext4 /dev/vg-targetd/app # 格式化LV</span><br><span class="line">mke2fs 1.42.9 (28-Dec-2013)</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">[root@centos7 ~]# lvs # 查看lv</span><br><span class="line">  LV   VG         Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert</span><br><span class="line">  root centos     -wi-ao---- &lt;17.51g</span><br><span class="line">  swap centos     -wi-ao----  &lt;2.00g</span><br><span class="line">  app  vg-targetd -wi-a-----   2.00g</span><br><span class="line"></span><br><span class="line">[root@centos7 ~]# mkdir /network-disk #创建挂载目录</span><br><span class="line"></span><br><span class="line">[root@centos7 ~]# mount /dev/vg-targetd/app /network-disk/ # 挂载</span><br><span class="line"></span><br><span class="line"># 分区方式</span><br><span class="line">[root@centos7 ~]# ll /dev/sd*</span><br><span class="line">brw-rw---- 1 root disk 8,  0 Feb 25 23:09 /dev/sda</span><br><span class="line">brw-rw---- 1 root disk 8,  1 Feb 25 23:09 /dev/sda1</span><br><span class="line">brw-rw---- 1 root disk 8,  2 Feb 25 23:09 /dev/sda2</span><br><span class="line">brw-rw---- 1 root disk 8, 16 Feb 25 23:42 /dev/sdb #此处就是远程的磁盘</span><br><span class="line"></span><br><span class="line">[root@centos7 ~]# mkfs.ext4 /dev/sdb #格式化这个设备</span><br><span class="line">mke2fs 1.42.9 (28-Dec-2013)</span><br><span class="line">/dev/sdb is entire device, not just one partition!</span><br><span class="line">Proceed anyway? (y,n) y</span><br><span class="line">Filesystem label=</span><br><span class="line">OS type: Linux</span><br><span class="line">Block size=4096 (log=2)</span><br><span class="line">Fragment size=4096 (log=2)</span><br><span class="line">Stride=0 blocks, Stripe width=1024 blocks</span><br><span class="line">327680 inodes, 1310720 blocks</span><br><span class="line">65536 blocks (5.00%) reserved for the super user</span><br><span class="line">First data block=0</span><br><span class="line">Maximum filesystem blocks=1342177280</span><br><span class="line">40 block groups</span><br><span class="line">32768 blocks per group, 32768 fragments per group</span><br><span class="line">8192 inodes per group</span><br><span class="line">Superblock backups stored on blocks:</span><br><span class="line">        32768, 98304, 163840, 229376, 294912, 819200, 884736</span><br><span class="line">Allocating group tables: done</span><br><span class="line">Writing inode tables: done</span><br><span class="line">Creating journal (32768 blocks): done</span><br><span class="line">Writing superblocks and filesystem accounting information: done</span><br><span class="line"></span><br><span class="line">[root@centos7 ~]# mkdir /network-disk #创建挂载目录</span><br><span class="line">[root@centos7 ~]# mount /dev/sdb /network-disk/ #挂载设备</span><br><span class="line">[root@centos7 ~]# df -h</span><br><span class="line">Filesystem               Size  Used Avail Use% Mounted on</span><br><span class="line">devtmpfs                 899M     0  899M   0% /dev</span><br><span class="line">tmpfs                    910M     0  910M   0% /dev/shm</span><br><span class="line">tmpfs                    910M   11M  900M   2% /run</span><br><span class="line">tmpfs                    910M     0  910M   0% /sys/fs/cgroup</span><br><span class="line">/dev/mapper/centos-root   18G  7.5G   11G  43% /</span><br><span class="line">/dev/sda1                497M  187M  310M  38% /boot</span><br><span class="line">tmpfs                    182M     0  182M   0% /run/user/0</span><br><span class="line">/dev/sdb                 4.8G   20M  4.6G   1% /network-disk</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>iSCSI 客户端经过以上步骤之后,这个设备文件就可以像使用本地磁盘文件一样的操作啦</p>
+<h3 id="◆-配置自动挂载-◆"><a href="#◆-配置自动挂载-◆" class="headerlink" title="◆ 配置自动挂载 ◆"></a>◆ 配置自动挂载 ◆</h3><p>由于/dev/sdb/是一个网络设备,而 iSCSI 是基于 TCP/IP 网络传输数据的,因此在配置自动挂载是应该加入_netdev 参数,说明其是一个网络设备</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[root@centos7 /]# ll /dev/disk/by-uuid/</span><br><span class="line">total 0</span><br><span class="line">lrwxrwxrwx. 1 root root 10 Nov  4 11:45 12b3708e-7ca4-4911-bfa2-57b85960e8e5 -&gt; ../../dm-0</span><br><span class="line">lrwxrwxrwx. 1 root root  9 Nov  4 11:45 2018-03-22-19-04-59-00 -&gt; ../../sr0</span><br><span class="line">lrwxrwxrwx. 1 root root 10 Nov  4 11:45 3d4eea6b-1db9-4d30-9174-bfac6faa4cab -&gt; ../../sda1</span><br><span class="line">lrwxrwxrwx. 1 root root 10 Nov  4 11:45 e791c0bf-f6e9-4843-b18d-be40cf3964c2 -&gt; ../../dm-1</span><br><span class="line">lrwxrwxrwx. 1 root root  9 Nov  4 12:08 ff233cc4-2255-4973-a686-9d394384faf6 -&gt; ../../sdb</span><br><span class="line"></span><br><span class="line">[root@centos7 /]# vim /etc/fstab</span><br><span class="line">[root@centos7 /]# cat /etc/fstab</span><br><span class="line"></span><br><span class="line"># /etc/fstab</span><br><span class="line"># Created by anaconda on Sat Oct 13 12:32:13 2018</span><br><span class="line">#</span><br><span class="line"># Accessible filesystems, by reference, are maintained under &#x27;/dev/disk&#x27;</span><br><span class="line"># See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</span><br><span class="line">/dev/mapper/rhel-root   /  xfs  defaults  0 0</span><br><span class="line">UUID=3d4eea6b-1db9-4d30-9174-bfac6faa4cab /boot  xfs  defaults  0 0</span><br><span class="line">UUID=ff233cc4-2255-4973-a686-9d394384faf6  /network-disk xfs defaults,_netdev   0 0</span><br><span class="line"></span><br><span class="line">[root@centos7 /]# mount -a</span><br></pre></td></tr></table></figure>
+
+<h3 id="◆-配置-Windows-客户端-◆"><a href="#◆-配置-Windows-客户端-◆" class="headerlink" title="◆ 配置 Windows 客户端 ◆"></a>◆ 配置 Windows 客户端 ◆</h3><ol>
+<li>单击控制面板 –&gt; 管理工具 –&gt; iSCSI 发起程序</li>
+<li>在目标选项卡 –&gt; 输入服务器 IP 地址 –&gt; 单击快速连接</li>
+<li>选择配置选项卡 –&gt; 单击更改 –&gt; 在标签末尾加上自定义的字符,此处为：client –&gt; 单击确定</li>
+<li>单击目标选项卡 –&gt; 单击下方的连接按钮</li>
+<li>单击此电脑 –&gt; 右键选择管理 –&gt; 选择磁盘管理 –&gt; 即可看到磁盘信息</li>
+</ol>
+<h2 id="部署-iSCSI-存储-Config-版"><a href="#部署-iSCSI-存储-Config-版" class="headerlink" title="部署 iSCSI 存储-Config 版"></a>部署 iSCSI 存储-Config 版</h2><h3 id="◆-服务端配置-◆"><a href="#◆-服务端配置-◆" class="headerlink" title="◆ 服务端配置 ◆"></a>◆ 服务端配置 ◆</h3><ol>
+<li>配置 yum 源</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line">yum -y install epel-release</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装相应软件</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y scsi-target-utils</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>添加两块硬盘,创建 LVM 逻辑卷整合磁盘空间</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pvcreate /dev/sdb /dev/sdc</span><br><span class="line">vgcreate my_vg /dev/sdb /dev/sdc</span><br><span class="line">lvcreate -L 5G -n my_lv my_vg</span><br><span class="line">mkfs.ext4 /dev/my_vg/my_lv</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>创建 IQN 存储标签</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tgtadm -L iscsi -o new -m target -t 1 -T iqn.2018-1.com.lyshark.www:my_lvm		#创建标签</span><br><span class="line">tgtadm –L iscsi –o show –m target	#查到标签</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------</span><br><span class="line">[参数说明]</span><br><span class="line">-L		#指定操作类型为iscsi</span><br><span class="line">-O		#指定为new新建</span><br><span class="line">-m		#指定服务器</span><br><span class="line">-t		#标签编号</span><br><span class="line">-T		#指定域名:注意要反写</span><br><span class="line">-l		#指定lun的ID号</span><br><span class="line">-t		#指定客户机的地址&lt;如 –l 192.168.1.1&gt;</span><br><span class="line">-------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>绑定存储资源</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tgtadm -L iscsi -o new -m lu -t 1 -l 1 -b /dev/my_vg/my_lv			#绑定存储资源</span><br><span class="line">tgtadm -L iscsi -o show -m target						#再次查看</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>设置权限允许谁来访问</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tgtadm -L iscsi -o bind -m target -t 1 -I 192.168.1.1 #允许192.168.1.1访问</span><br><span class="line">-------------------------------------------------------------------------</span><br><span class="line">#注:如果想让结果永久生效要写入配置文件,&lt;只需要这一步全部搞定&gt;</span><br><span class="line">vim /etc/tgt/targets.conf</span><br><span class="line">&lt;target iqn.2018-01.com.lyshark.www:my_lvm&gt;		#指定标签名&lt;my_lvm&gt;</span><br><span class="line">		backing-store /dev/my_vg/my_lv		#服务器共享的资源</span><br><span class="line">		initiator-address 192.168.1.1		#允许的登陆客户端</span><br><span class="line">&lt;/target&gt;</span><br><span class="line">-------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>启动并设置开机自启动</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart tgtd</span><br><span class="line">chkconfig tgtd on</span><br></pre></td></tr></table></figure>
+
+<h3 id="◆Linux-客户端配置-◆"><a href="#◆Linux-客户端配置-◆" class="headerlink" title="◆Linux 客户端配置 ◆"></a>◆Linux 客户端配置 ◆</h3><ol>
+<li>在客户端安装相应软件</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y iscsi-initiator-utils</span><br><span class="line">systemctl restart iscsid</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>扫描服务端可用节点</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iscsiadm -m discovery -t sendtargets -p 192.168.1.1				#指定服务器IP</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>&lt;挂载/卸载&gt;存储节点到客户端</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iscsiadm -m node -T iqn.2018-01.com.lyshark.www:my_lvm --login				#挂载</span><br><span class="line">iscsiadm -m node -T iqn.2018-01.com.lyshark.www:my_lvm --logout				#卸载</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>客户端查看网络驱动器</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@centos7 ~] #fdisk -l</span><br><span class="line"></span><br><span class="line">Disk /dev/sdb: 5368 MB, 5368709120 bytes, 10485760 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>格式化与挂载</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sdb</span><br><span class="line">mkdir /ghost/</span><br><span class="line">mount /dev/sdb /ghost/</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>配置开机自动挂载</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fstab</span><br><span class="line">[写入内容]</span><br><span class="line">/dev/sdb  /ghost  ext4  defaults,_netdev  0 0</span><br><span class="line">mount -a #重新挂载</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置文件说明"><a href="#配置文件说明" class="headerlink" title="配置文件说明"></a>配置文件说明</h2><p><a target="_blank" rel="noopener" href="https://www.systutorials.com/docs/linux/man/8-targetd/">https://www.systutorials.com/docs/linux/man/8-targetd/</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"># A sample /etc/target/targetd.yaml file.</span><br><span class="line">password:</span><br><span class="line"># defaults below; uncomment and edit</span><br><span class="line">#block_pools: [vg-targetd/thin_pool] # just 1 by default, but can be more</span><br><span class="line">#fs_pools: []  # Path to btrfs FS, eg. /my_btrfs_mount</span><br><span class="line">#user: admin</span><br><span class="line">#target_name: iqn.2003-01.org.example.mach1:1234</span><br><span class="line"># log level (debug, info, warning, error, critical)</span><br><span class="line">#log_level: info</span><br><span class="line">#ssl: false</span><br><span class="line"># if ssl is activated:</span><br><span class="line">#ssl_cert: /etc/target/targetd_cert.pem</span><br><span class="line">#ssl_key: /etc/target/targetd_key.pem</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">USAGE</span><br><span class="line">Run targetd as root.</span><br><span class="line"></span><br><span class="line">CONFIGURATION</span><br><span class="line">targetd uses /etc/target/targetd.yaml for configuration. It is in YAML format. targetd currently uses scalar values and collection values, see example for details.</span><br><span class="line">CONFIGURATION FILE SETTINGS</span><br><span class="line"></span><br><span class="line">block_pools</span><br><span class="line">Sets the LVM Volume Group(s) that targetd will use to allocate volumes. Defaults to &quot;vg-targetd&quot;.</span><br><span class="line">Alternatively, targetd can allocate thinp (thin-provisioned) volumes out of a thinpool LV. These should be listed as &quot;&lt;vgname&gt;/&lt;poolname&gt;&quot;, with the VG and thinpool LV names separated by a &quot;/&quot;. These should already be created; targetd will not create VGs or thinpool LVs.</span><br><span class="line"></span><br><span class="line">fs_pools</span><br><span class="line">Sets the mount point(s) that targetd will use to export filesystems over NFS. Defaults to none.</span><br><span class="line"></span><br><span class="line">user</span><br><span class="line">password</span><br><span class="line">Sets the username and password required to use the remote API. &quot;user&quot; defaults to admin, but password must be set prior to using targetd.</span><br><span class="line"></span><br><span class="line">target_name</span><br><span class="line">Sets the iSCSI target name that targetd will use. Default is iqn.2003-01.org.linux-iscsi.&lt;hostname&gt;:targetd.</span><br><span class="line"></span><br><span class="line">ssl</span><br><span class="line">ssl_key</span><br><span class="line">ssl_cert</span><br><span class="line">Settings for enabling SSL/TLS encryption. ssl defaults to off. If enabled, it will default to looking for key and cert files named targetd_key.pem and targetd_cert.pem in /etc/target. These paths may also be specified, using the ssl_key and ssl_cert config settings.</span><br><span class="line"></span><br><span class="line">Key and self-signed cert may be generated using openssl:</span><br><span class="line">openssl genrsa -out targetd_key.pem 2048</span><br><span class="line">openssl req -new -x509 -key targetd_key.pem -out targetd_cert.pem -days 9999</span><br><span class="line"></span><br><span class="line">FILES</span><br><span class="line">/etc/target/targetd.yaml</span><br><span class="line">/etc/target/targetd_key.pem</span><br><span class="line">/etc/target/targetd_cert.pem</span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Murray</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.rainbowrise.top/2023/07/06/iSCSI%E7%AC%94%E8%AE%B0/">https://www.rainbowrise.top/2023/07/06/iSCSI%E7%AC%94%E8%AE%B0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Murray</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/ISCSI/">
+                                    <span class="chip bg-color">ISCSI</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NTE3MC8zMTYzNw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/07/07/Nginx%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Nginx笔记">
+                        
+                        <span class="card-title">Nginx笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Nginx/" class="post-category">
+                                    Nginx
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Nginx/">
+                        <span class="chip bg-color">Nginx</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/07/01/ELK%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="ELK笔记">
+                        
+                        <span class="card-title">ELK笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Docker/" class="post-category">
+                                    Docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
+                    </a>
+                    
+                    <a href="/tags/ELK/">
+                        <span class="chip bg-color">ELK</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 马瑞个人笔记<br />'
+            + '文章作者: Murray<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2024</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">Murray</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                &nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                &nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            
+            <br><span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "08";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            
+            <br><span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备2021006498号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sunglowrise" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:sunglowrise@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/ma-liang-19-36" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/ma-liang-19-36" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

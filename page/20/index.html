@@ -262,33 +262,40 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%87%E4%BB%BD%E9%85%8D%E7%BD%AE%EF%BC%88%E5%8F%8C%E6%9C%BA%E5%BC%82%E5%9C%B0%E7%83%AD%E5%A4%87%E4%BB%BD%EF%BC%89/">
+                    <a href="/2020/10/01/Linux%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%EF%BC%88ntpdate%EF%BC%89/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="MySQL主从备份配置（双机异地热备份）">
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Linux时间同步（ntpdate）">
                             
-                            <span class="card-title">MySQL主从备份配置（双机异地热备份）</span>
+                            <span class="card-title">Linux时间同步（ntpdate）</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                一、MySQL备份工作原理
-MYSQL主从同步是在MySQL主从复制（Master-Slave Replication）基础上实现的，通过设置在Master上的binlog（主服务器数据库的每次操作都会记录在二进制日志文件mysql-bin
+                                用 ntpdate 从时间服务器更新时间
+手动同步
+
+123456# 安装ntpdate指令yum install ntp# 手动同步ntp时间ntpdate time.nuri.net
+
+
+自动同步
+
+12345# 修改/etc/cron
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -299,12 +306,8 @@ MYSQL主从同步是在MySQL主从复制（Master-Slave Replication）基础上�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
-                        </a>
-                        
-                        <a href="/tags/Mysql/">
-                            <span class="chip bg-color">Mysql</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
                     </div>
@@ -314,32 +317,32 @@ MYSQL主从同步是在MySQL主从复制（Master-Slave Replication）基础上�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/MySQL%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">
+                    <a href="/2020/10/01/Linux%E6%B8%85%E7%90%86%E5%86%85%E5%AD%98/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="MySQL常用函数">
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Linux清理内存">
                             
-                            <span class="card-title">MySQL常用函数</span>
+                            <span class="card-title">Linux清理内存</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                mysql函数大全一、数学函数1234567891011121314151617ABS(x)   返回x的绝对值BIN(x)   返回x的二进制（OCT返回八进制，HEX返回十六进制）CEILING(x)   返回大于x的最小整数值EXP(
+                                Centos 清理内存1234567891011121314# 内存使用情况free -mh3 清理内存sync;echo 3 &gt; /proc/sys/vm/drop_caches# 释放网页缓存(To free pagecache)
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -350,12 +353,8 @@ MYSQL主从同步是在MySQL主从复制（Master-Slave Replication）基础上�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
-                        </a>
-                        
-                        <a href="/tags/Mysql/">
-                            <span class="chip bg-color">Mysql</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
                     </div>
@@ -365,34 +364,36 @@ MYSQL主从同步是在MySQL主从复制（Master-Slave Replication）基础上�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/">
+                    <a href="/2020/10/01/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85Windows%E5%AD%97%E4%BD%93%EF%BC%88Centos%EF%BC%89/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="MySQL数据库备份与还原">
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Linux系统安装Windows字体（Centos）">
                             
-                            <span class="card-title">MySQL数据库备份与还原</span>
+                            <span class="card-title">Linux系统安装Windows字体（Centos）</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                MySQL备份和还原是利用mysqldump、mysql和source命令来完成的方法一
-复制表结构1CREATE TABLE tableName_new LIKE databaseName.tableName;
-复制表数据1INSERT 
+                                Linux 系统安装 Windows 字体1. 复制字体
+在”C:\Windows\Fonts”目录下找到所要安装字体，这里以”simsun.ttf”为例。如果安装的字体找不到，就去网上下载。
+
+2. 上传字体至 CentOS 系统
+在/u
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -403,12 +404,8 @@ MYSQL主从同步是在MySQL主从复制（Master-Slave Replication）基础上�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
-                        </a>
-                        
-                        <a href="/tags/Mysql/">
-                            <span class="chip bg-color">Mysql</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
                     </div>
@@ -418,45 +415,36 @@ MYSQL主从同步是在MySQL主从复制（Master-Slave Replication）基础上�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E8%B0%83%E4%BC%98/">
+                    <a href="/2020/10/01/Linux%E8%BD%AF%E4%BB%B6%E6%BA%90/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="MySQL数据库调优">
+                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Linux软件源">
                             
-                            <span class="card-title">MySQL数据库调优</span>
+                            <span class="card-title">Linux软件源</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                MySQL数据库调优目的
-安全 —&gt; 数据可持续性
-性能 —&gt; 数据的高性能访问
+                                动态查看日志文件1tail -f /var/log/messages
 
-优化范围
-存储、主机和操作系统方面
-主机架构稳定性
-I/O规划及配置
-Swap交换分区
-OS内核参数和网络问题
+查看端口：1netstat -anp | grep 8080
 
-
-应用程序方面
-应用程序稳定性
+开启端口：123456789101112131415161718firewall-cmd --query
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -467,12 +455,8 @@ OS内核参数和网络问题
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
-                        </a>
-                        
-                        <a href="/tags/Mysql/">
-                            <span class="chip bg-color">Mysql</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
                     </div>
@@ -482,32 +466,35 @@ OS内核参数和网络问题
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/Mysql%20%E6%9F%A5%E7%9C%8B%E8%BF%9E%E6%8E%A5%E6%95%B0/">
+                    <a href="/2020/10/01/Linux%E9%98%B2%E7%81%AB%E5%A2%99/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Mysql 查看连接数">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Linux防火墙">
                             
-                            <span class="card-title">Mysql 查看连接数</span>
+                            <span class="card-title">Linux防火墙</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455命令： show processlis
+                                iptables 防火墙
+常用命令
+
+123456789service iptables start #开启防火墙service iptables restart #重启防火墙service iptables stop #关闭防火墙serv
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -518,12 +505,8 @@ OS内核参数和网络问题
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
-                        </a>
-                        
-                        <a href="/tags/Mysql/">
-                            <span class="chip bg-color">Mysql</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
                     </div>
@@ -533,34 +516,40 @@ OS内核参数和网络问题
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/Mysql%E9%97%AE%E9%A2%98%E6%9F%A5%E8%AF%A2/">
+                    <a href="/2020/10/01/Shell%E7%BC%96%E7%A8%8B%E8%AF%AD%E6%B3%95/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Mysql问题查询">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Shell编程语法">
                             
-                            <span class="card-title">Mysql问题查询</span>
+                            <span class="card-title">Shell编程语法</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1. 查询mysql链接是否释放123456# 查询 mysql 占用的链接是不是释放netstat -naplt | grep 3306# 统计数量netstat -naplt | grep 3306 | wc -l
+                                shell 编程单引号字符串的限制
+ 单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；
+ 单引号字串中不能出现单引号（对单引号使用转义符后也不行）。
 
-2. 查询mysq
+双引号的优点
+双引号里可以有变量
+双引号里可以出现转义字符
+
+Linux 
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -571,12 +560,12 @@ OS内核参数和网络问题
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
-                        <a href="/tags/Mysql/">
-                            <span class="chip bg-color">Mysql</span>
+                        <a href="/tags/Shell/">
+                            <span class="chip bg-color">Shell</span>
                         </a>
                         
                     </div>
@@ -586,32 +575,34 @@ OS内核参数和网络问题
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/Oracle%E5%AD%A6%E4%B9%A0/">
+                    <a href="/2020/10/01/Ubuntu16%E3%80%81Ubuntu18%20%E8%AE%BE%E7%BD%AEIP/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Oracle学习">
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Ubuntu16、Ubuntu18 设置IP">
                             
-                            <span class="card-title">Oracle学习</span>
+                            <span class="card-title">Ubuntu16、Ubuntu18 设置IP</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                SQL语言的种类：12345①数据查询语言DQL：select②数据定义语言DDL：create、drop、alter、truncate③数据操纵语言DML：insert、update、delete④事务控制语言TCL：commit、 ro
+                                设置 root 账号1sudo  passwd root
+
+设置时区1234timedatectl set-local-rtc 1timedatectl set-timezone Asia/Shanghaitimedatectl statu
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -622,12 +613,12 @@ OS内核参数和网络问题
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
-                        <a href="/tags/Oracle/">
-                            <span class="chip bg-color">Oracle</span>
+                        <a href="/tags/Ubuntu/">
+                            <span class="chip bg-color">Ubuntu</span>
                         </a>
                         
                     </div>
@@ -637,38 +628,36 @@ OS内核参数和网络问题
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/PLSQL%20Developer%E8%BF%9E%E6%8E%A5%E6%9C%AC%E5%9C%B0Oracle%2011g%2064%E4%BD%8D%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                    <a href="/2020/10/01/Ubuntu%E4%B8%ADdpkg%20lock%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%88apt%E3%80%81apt-get%E8%BF%90%E8%A1%8C%E6%8A%A5%E9%94%99%EF%BC%89/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="PLSQL Developer连接本地Oracle 11g 64位数据库">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Ubuntu中dpkg lock解决方案（apt、apt-get运行报错）">
                             
-                            <span class="card-title">PLSQL Developer连接本地Oracle 11g 64位数据库</span>
+                            <span class="card-title">Ubuntu中dpkg lock解决方案（apt、apt-get运行报错）</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                PL/SQL Developer连接本地Oracle 11g 64位数据库
+                                关于 Ubuntu 中 Could not get lock /var/lib/dpkg/lock 解决方案
 
-登录PL/SQL Developer
+在 Ubuntu 中，有时候运用 sudo apt-get install 安装软件时，会出现一下的情况
 
-
-
-没有数据库的TNS，先以非登录方式登录PL/SQL Developer，设置Oracle Home和OCI Libar
+12E: Could
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -679,16 +668,12 @@ OS内核参数和网络问题
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
-                        <a href="/tags/Oracle/">
-                            <span class="chip bg-color">Oracle</span>
-                        </a>
-                        
-                        <a href="/tags/PLSQL/">
-                            <span class="chip bg-color">PLSQL</span>
+                        <a href="/tags/Ubuntu/">
+                            <span class="chip bg-color">Ubuntu</span>
                         </a>
                         
                     </div>
@@ -698,36 +683,36 @@ OS内核参数和网络问题
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/SQLyog%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+                    <a href="/2020/10/01/Ubuntu%E6%B7%BB%E5%8A%A0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%88%B0%E6%A1%8C%E9%9D%A2%EF%BC%88desktop%EF%BC%89/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="sqlplus 中遇到的问题">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Ubuntu添加应用程序到桌面（desktop）">
                             
-                            <span class="card-title">sqlplus 中遇到的问题</span>
+                            <span class="card-title">Ubuntu添加应用程序到桌面（desktop）</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                SQLYog快捷键大全123Ctrl+M   创建一个新的连接Ctrl+N   使用当前设置新建连接Ctrl+F4   断开当前连接
+                                当前用户
+用户的快捷方式放在用户目录下的.local/share/applications/文件夹里，这种快捷方式一般是在启动器上右键点击图标的锁定在启动器后自动生成的
 
-对象浏览器12F5   刷新对象浏览器(默认)Ctrl+B   设置焦点于对象浏览器
 
-SQL 窗口12
+如果只需要对当前用户创建快捷方式，那么可以打开软件，然后右键软件图
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -738,16 +723,12 @@ SQL 窗口12
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
-                        <a href="/tags/Mysql/">
-                            <span class="chip bg-color">Mysql</span>
-                        </a>
-                        
-                        <a href="/tags/SQLyog/">
-                            <span class="chip bg-color">SQLyog</span>
+                        <a href="/tags/Ubuntu/">
+                            <span class="chip bg-color">Ubuntu</span>
                         </a>
                         
                     </div>
@@ -772,7 +753,7 @@ SQL 窗口12
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">20 / 28</div>
+            <div class="center-align b-text-gray">20 / 37</div>
         </div>
         <div class="col s6 m4 l4">
             

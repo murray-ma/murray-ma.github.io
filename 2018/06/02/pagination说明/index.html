@@ -328,8 +328,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Js/">
-                                <span class="chip bg-color">Js</span>
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
                             </a>
                         
                     </div>
@@ -340,8 +340,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category">
-                                JavaScript
+                            <a href="/categories/JS/" class="post-category">
+                                JS
                             </a>
                         
                     </div>
@@ -383,16 +383,10 @@
 <p>数据源支持 4 种格式</p>
 <ol>
 <li><p><strong>Array</strong></p>
-<p> 直接提供一个数组，如：</p>
-<pre><code> [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;]
-</code></pre>
+<p> 直接提供一个数组，如：<br> [‘1’, ‘2’, ‘3’, ‘4’]</p>
 </li>
 <li><p><strong>Object</strong></p>
-<p> 提供一个对象，里面要包含数组，可以通过 <code>locator: &#39;data&#39;</code> 指定这个数组</p>
-<pre><code> &#123;
-     data: [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;]
- &#125;        
-</code></pre>
+<p> 提供一个对象，里面要包含数组，可以通过 <code>locator: &#39;data&#39;</code> 指定这个数组<br> {<br> data: [‘1’, ‘2’, ‘3’, ‘4’]<br> }</p>
 </li>
 <li><p><strong>Function</strong></p>
 <p> 提供一个自定义函数，根据自己的业务逻辑返回数组，自定义程度很高，可以实现上面 2 种方式</p>
@@ -403,10 +397,9 @@
      for(var i = 1; i &lt; 196; i++)&#123;
          result.push(i);
      &#125;
- 
+
      done(result);
  &#125;
- 
 </code></pre>
 <p> 也可以发送请求获取数据，使用 <code>done</code> 异步返回数据</p>
 <pre><code> dataSource: function(done)&#123;
@@ -418,31 +411,27 @@
          &#125;
      &#125;);
  &#125;
- 
 </code></pre>
 </li>
 <li><p><strong>URL</strong></p>
-<p> 提供一个URL，通过 Ajax 返回数据，适用于异步分页，每次请求返回一页的数据，返回的数据也可以通过 <code>locator</code> 查找</p>
-<p> 如果URL为 file, http 或 https 协议，会用 <code>jsonp</code> 发送请求，否则为 Ajax</p>
+<p> 提供一个 URL，通过 Ajax 返回数据，适用于异步分页，每次请求返回一页的数据，返回的数据也可以通过 <code>locator</code> 查找</p>
+<p> 如果 URL 为 file, http 或 https 协议，会用 <code>jsonp</code> 发送请求，否则为 Ajax</p>
 <pre><code> /test.json
- 
 </code></pre>
 <p> 每次分页发起请求时，会附加两个参数 <code>pageNumber</code> 和 <code>pageSize</code> ，也可使用 <code>alias</code> 来指定参数名</p>
 <pre><code> /test.json?pageNumber=2&amp;pageSize=10
- 
 </code></pre>
-<h3 id="locator-string-function"><a href="#locator-string-function" class="headerlink" title="locator string | function"></a>locator <em>string | function</em></h3><p>这个参数与 <code>dataSource</code> 相关，一般情况下，<code>dataSource</code> 是一个数组，可以直接传给分页组件处理。但如果返回的是 Object，那么就需要指定那个数组，默认为 <code>data</code></p>
 </li>
 </ol>
+<h3 id="locator-string-function"><a href="#locator-string-function" class="headerlink" title="locator string | function"></a>locator <em>string | function</em></h3><p>这个参数与 <code>dataSource</code> 相关，一般情况下，<code>dataSource</code> 是一个数组，可以直接传给分页组件处理。但如果返回的是 Object，那么就需要指定那个数组，默认为 <code>data</code></p>
 <p>指定 <code>locator</code> 可定位到数据源的位置，支持 2 种方式</p>
 <ol>
 <li><p><strong>String</strong></p>
 <pre><code> &#123;
      data: [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;]
  &#125;
- 
 </code></pre>
-<p> 指定 <code>locator: &#39;data&#39;</code> 之后，最终传给分页组件的就是 <code>[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;]</code> </p>
+<p> 指定 <code>locator: &#39;data&#39;</code> 之后，最终传给分页组件的就是 <code>[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;]</code></p>
 <p> 此外，还支持多层定位，如果 <code>dataSource</code> 是如下，则可用 <code>locator: &#39;a.b&#39;</code></p>
 <pre><code> &#123;
      a: &#123;b: [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;]&#125;
@@ -537,7 +526,7 @@
 &#125;
 </code></pre>
 <p>那么通过 Ajax 发起请求时，会替换默认的 <code>pageNumber</code> 和 <code>pageSize</code></p>
-<pre><code>/test.json?pageNum=2&amp;limit=10    
+<pre><code>/test.json?pageNum=2&amp;limit=10
 </code></pre>
 <h2 id="Display-control"><a href="#Display-control" class="headerlink" title="Display control"></a>Display control</h2><h3 id="showPrevious-boolean-default-true"><a href="#showPrevious-boolean-default-true" class="headerlink" title="showPrevious boolean (default true)"></a>showPrevious <em>boolean (default <code>true</code>)</em></h3><p>是否显示 ‘上一页’</p>
 <h3 id="showNext-boolean-default-true"><a href="#showNext-boolean-default-true" class="headerlink" title="showNext boolean (default true)"></a>showNext <em>boolean (default <code>true</code>)</em></h3><p>是否显示 ‘下一页’</p>
@@ -581,7 +570,7 @@ pageSize: 10
 </ul>
 <p>See <a href="/index.html#format_navigator">demo</a></p>
 <h3 id="formatGoInput-string-function"><a href="#formatGoInput-string-function" class="headerlink" title="formatGoInput string | function"></a>formatGoInput <em>string | function</em></h3><p>跳转输入框格式化模板，默认为 <code>&lt;%= input %&gt;</code>，也可提供一个自定义函数，返回一个这样的字符串</p>
-<p><code>&lt;%= input %&gt;</code> 相当于 <code>&lt;input type=&quot;text&quot; class=&quot;J-paginationjs-go-pagenumber&quot;&gt;</code> 的一个包装，所以，也可自定义一个输入框标签元素，只需要确保带有 <code>J-paginationjs-go-pagenumber</code> 这个class即可</p>
+<p><code>&lt;%= input %&gt;</code> 相当于 <code>&lt;input type=&quot;text&quot; class=&quot;J-paginationjs-go-pagenumber&quot;&gt;</code> 的一个包装，所以，也可自定义一个输入框标签元素，只需要确保带有 <code>J-paginationjs-go-pagenumber</code> 这个 class 即可</p>
 <p>提供 4 个模板变量</p>
 <ul>
 <li><code>input</code> 输入框</li>
@@ -591,7 +580,7 @@ pageSize: 10
 </ul>
 <p>See <a href="/index.html#format_go_input">demo</a></p>
 <h3 id="formatGoButton-string-function"><a href="#formatGoButton-string-function" class="headerlink" title="formatGoButton string | function"></a>formatGoButton <em>string | function</em></h3><p>跳转按钮格式化模板，默认为 <code>&lt;%= button %&gt;</code>，也可提供一个自定义函数，返回一个这样的字符串</p>
-<p><code>&lt;%= button %&gt;</code> 相当于 <code>&lt;input type=&quot;button&quot; class=&quot;J-paginationjs-go-button&quot;&gt;</code>，所以，也可自定义一个跳转按钮的标签元素，只需要确保带有 <code>J-paginationjs-go-button</code> 这个class即可</p>
+<p><code>&lt;%= button %&gt;</code> 相当于 <code>&lt;input type=&quot;button&quot; class=&quot;J-paginationjs-go-button&quot;&gt;</code>，所以，也可自定义一个跳转按钮的标签元素，只需要确保带有 <code>J-paginationjs-go-button</code> 这个 class 即可</p>
 <p>提供 4 个模板变量</p>
 <ul>
 <li><code>button</code> 按钮</li>
@@ -661,12 +650,12 @@ pageSize: 10
 </tr>
 </tbody></table>
 <p>参数的更多信息，请参阅 <a target="_blank" rel="noopener" href="http://api.jquery.com/jquery.ajax/">JQuery API Documentation</a></p>
-<h3 id="triggerPagingOnInit-boolean-default-true"><a href="#triggerPagingOnInit-boolean-default-true" class="headerlink" title="triggerPagingOnInit boolean (default true)"></a>triggerPagingOnInit <em>boolean (default <code>true</code>)</em></h3><p>是否在初始化时触发默认分页，有些情况下，你可能希望默认触发首次分页，因为你已经用AJAX加载了内容并且内容已显示</p>
+<h3 id="triggerPagingOnInit-boolean-default-true"><a href="#triggerPagingOnInit-boolean-default-true" class="headerlink" title="triggerPagingOnInit boolean (default true)"></a>triggerPagingOnInit <em>boolean (default <code>true</code>)</em></h3><p>是否在初始化时触发默认分页，有些情况下，你可能希望默认触发首次分页，因为你已经用 AJAX 加载了内容并且内容已显示</p>
 <p>也有其他的用法，例如：默认加载第二页的数据</p>
 <pre><code>triggerPagingOnInit: true，
 pageNum: 2
 </code></pre>
-<h3 id="hideWhenLessThanOnePage-boolean-default-false"><a href="#hideWhenLessThanOnePage-boolean-default-false" class="headerlink" title="hideWhenLessThanOnePage boolean (default false)"></a>hideWhenLessThanOnePage <em>boolean (default <code>false</code>)</em></h3><p>是否在总页数小于1页时隐藏分页</p>
+<h3 id="hideWhenLessThanOnePage-boolean-default-false"><a href="#hideWhenLessThanOnePage-boolean-default-false" class="headerlink" title="hideWhenLessThanOnePage boolean (default false)"></a>hideWhenLessThanOnePage <em>boolean (default <code>false</code>)</em></h3><p>是否在总页数小于 1 页时隐藏分页</p>
 <h3 id="inlineStyle-boolean-default-true"><a href="#inlineStyle-boolean-default-true" class="headerlink" title="inlineStyle boolean (default true)"></a>inlineStyle <em>boolean (default <code>true</code>)</em></h3><p>是否使用内联样式</p>
 <p>分页组件自带了样式内容，默认情况下，会在 head 里插入一个 <code>style</code> 标签元素，并放入分页自带的样式内容</p>
 <p>如果你觉得使用 <code>link</code> 外链样式文件更好，那么可以将此项设置为 <code>false</code>来阻止插入行为，并将你的样式文件以 <code>link</code> 方式引用</p>
@@ -682,12 +671,7 @@ pageNum: 2
 <pre><code>container.pagination(&#39;go&#39;, 8)
 container.pagination(8)
 </code></pre>
-<p>也支持自定义回调函数，例如：</p>
-<pre><code>container.pagination(&#39;go&#39;, 8, function(data, pagination)&#123;
-    // template method of yourself
-&#125;)
-</code></pre>
-<p>注意，设置自定义函数后，就不会再调用分页的回调函数 <code>callback</code> 了</p>
+<p>也支持自定义回调函数，例如：<br>container.pagination(‘go’, 8, function(data, pagination){<br>// template method of yourself<br>})<br>注意，设置自定义函数后，就不会再调用分页的回调函数 <code>callback</code> 了</p>
 <h3 id="disable"><a href="#disable" class="headerlink" title="disable"></a>disable</h3><p>禁用分页，执行后分页不可用，要重新恢复可用需要调用解锁事件 <code>container.pagination(&#39;enable&#39;)</code></p>
 <p>每次异步翻页发出请求前，会自动调用此方法，请求成功之后会自动调用 <code>enable</code> 解锁</p>
 <h3 id="enable"><a href="#enable" class="headerlink" title="enable"></a>enable</h3><p>解锁分页，执行后分页恢复可用</p>
@@ -744,6 +728,7 @@ container.pagination(8)
 <h1 id="Configuring-Defaults"><a href="#Configuring-Defaults" class="headerlink" title="Configuring Defaults"></a>Configuring Defaults</h1><p>分页可通过 <code>$.fn.pagination.defaults</code> 对象来修改默认配置，修改后，将影响所有之后创建的实例</p>
 <p>例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.extend($.fn.pagination.defaults, &#123;</span><br><span class="line">	pageSize: 20</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <p>之后所有新建的分页实例，每页条数都是 20</p>
 <hr>
 <p><a target="_blank" rel="noopener" href="https://github.com/superRaytin/paginationjs/issues">帮助改进这些文档，新建一个 issue 或 pull request</a></p>
@@ -811,8 +796,8 @@ container.pagination(8)
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Js/">
-                                    <span class="chip bg-color">Js</span>
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
                                 </a>
                             
                         </div>
@@ -1033,8 +1018,8 @@ container.pagination(8)
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/JS/" class="post-category">
+                                    JS
                                 </a>
                             
                             
@@ -1044,8 +1029,8 @@ container.pagination(8)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Js/">
-                        <span class="chip bg-color">Js</span>
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>
@@ -1082,8 +1067,8 @@ container.pagination(8)
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/JS/" class="post-category">
+                                    JS
                                 </a>
                             
                             
@@ -1093,8 +1078,8 @@ container.pagination(8)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Js/">
-                        <span class="chip bg-color">Js</span>
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>

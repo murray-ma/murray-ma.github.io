@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Mysql/">
                                 <span class="chip bg-color">Mysql</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -344,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -383,7 +383,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="mysqlslap（MySQL自带的性能压力测试工具）"><a href="#mysqlslap（MySQL自带的性能压力测试工具）" class="headerlink" title="mysqlslap（MySQL自带的性能压力测试工具）"></a>mysqlslap（MySQL自带的性能压力测试工具）</h3><blockquote>
+                <h3 id="mysqlslap（MySQL-自带的性能压力测试工具）"><a href="#mysqlslap（MySQL-自带的性能压力测试工具）" class="headerlink" title="mysqlslap（MySQL 自带的性能压力测试工具）"></a>mysqlslap（MySQL 自带的性能压力测试工具）</h3><blockquote>
 <p>mysqlslap 是 Mysql 自带的压力测试工具，可以模拟出大量客户端同时操作数据库的情况，通过结果信息来了解数据库的性能状况。mysqlslap 的一个主要工作场景就是对数据库服务器做基准测试。</p>
 </blockquote>
 <h4 id="简单用法"><a href="#简单用法" class="headerlink" title="简单用法"></a>简单用法</h4><blockquote>
@@ -403,6 +403,7 @@
 <h4 id="使用自己的测试库和测试语句"><a href="#使用自己的测试库和测试语句" class="headerlink" title="使用自己的测试库和测试语句"></a>使用自己的测试库和测试语句</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysqlslap –uroot –p123456 –-concurrency=50 –-create-schema=employees –-query=<span class="string">&quot;SELECT * FROM dept_emp;&quot;</span></span><br><span class="line"><span class="comment"># -–create-schema 用来指定测试库名称</span></span><br><span class="line"><span class="comment"># -–query 是自定义的测试语句</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 实际使用时，一般是测试多个复杂的语句，可以定义一个脚本文件，示例：</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;SELECT * FROM employees; SELECT * FROM titles; SELECT * FROM dept_emp;&quot;</span> &gt; ~/select_query.sql</span><br><span class="line"><span class="comment"># 把多个查询语句写入了一个 sql 文件，然后使用此文件执行测试</span></span><br><span class="line">mysqlslap –uroot –p123456 –-concurrency=20 –-number-of-queries=1000 -–create-schema=employees –-query=<span class="string">&quot;select_query.sql&quot;</span> –-delimiter=<span class="string">&quot;;&quot;</span></span><br><span class="line"><span class="comment"># -–query 指定了sql文件</span></span><br><span class="line"><span class="comment"># -–delimiter 说明sql文件中语句间的分隔符</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="使用语法"><a href="#使用语法" class="headerlink" title="使用语法"></a>使用语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqlslap [options]</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>常用参数 [options] 详细说明：</p>
 </blockquote>
@@ -415,39 +416,39 @@
 </thead>
 <tbody><tr>
 <td>–auto-generate-sql, -a</td>
-<td>自动生成测试表和数据，表示用mysqlslap工具自己生成的SQL脚本来测试并发压力。</td>
+<td>自动生成测试表和数据，表示用 mysqlslap 工具自己生成的 SQL 脚本来测试并发压力。</td>
 </tr>
 <tr>
 <td>–auto-generate-sql-load-type=type</td>
-<td>测试语句的类型。代表要测试的环境是读操作还是写操作还是两者混合的。取值包括：read，key，write，update和mixed(默认)。</td>
+<td>测试语句的类型。代表要测试的环境是读操作还是写操作还是两者混合的。取值包括：read，key，write，update 和 mixed(默认)。</td>
 </tr>
 <tr>
 <td>–auto-generate-sql-add-auto-increment</td>
-<td>代表对生成的表自动添加auto_increment列，从5.1.18版本开始支持。</td>
+<td>代表对生成的表自动添加 auto_increment 列，从 5.1.18 版本开始支持。</td>
 </tr>
 <tr>
 <td>–number-char-cols=N, -x N</td>
-<td>自动生成的测试表中包含多少个字符类型的列，默认1</td>
+<td>自动生成的测试表中包含多少个字符类型的列，默认 1</td>
 </tr>
 <tr>
 <td>–number-int-cols=N, -y N</td>
-<td>自动生成的测试表中包含多少个数字类型的列，默认1</td>
+<td>自动生成的测试表中包含多少个数字类型的列，默认 1</td>
 </tr>
 <tr>
 <td>–number-of-queries=N</td>
-<td>总的测试查询次数(并发客户数×每客户查询次数)</td>
+<td>总的测试查询次数(并发客户数 × 每客户查询次数)</td>
 </tr>
 <tr>
 <td>–query=name,-q</td>
-<td>使用自定义脚本执行测试，例如可以调用自定义的一个存储过程或者sql语句来执行测试。</td>
+<td>使用自定义脚本执行测试，例如可以调用自定义的一个存储过程或者 sql 语句来执行测试。</td>
 </tr>
 <tr>
 <td>–create-schema</td>
-<td>代表自定义的测试库名称，测试的schema，MySQL中schema也就是database。</td>
+<td>代表自定义的测试库名称，测试的 schema，MySQL 中 schema 也就是 database。</td>
 </tr>
 <tr>
 <td>–commint=N</td>
-<td>多少条DML后提交一次。</td>
+<td>多少条 DML 后提交一次。</td>
 </tr>
 <tr>
 <td>–compress, -C</td>
@@ -455,7 +456,7 @@
 </tr>
 <tr>
 <td>–concurrency=N, -c N</td>
-<td>表示并发量，也就是模拟多少个客户端同时执行select。可指定多个值，以逗号或者–delimiter参数指定的值做为分隔符。例如：–concurrency=100,200,500。</td>
+<td>表示并发量，也就是模拟多少个客户端同时执行 select。可指定多个值，以逗号或者–delimiter 参数指定的值做为分隔符。例如：–concurrency=100,200,500。</td>
 </tr>
 <tr>
 <td>–engine=engine_name, -e engine_name</td>
@@ -471,14 +472,15 @@
 </tr>
 <tr>
 <td>–detach=N</td>
-<td>执行N条语句后断开重连。</td>
+<td>执行 N 条语句后断开重连。</td>
 </tr>
 <tr>
 <td>–debug-info, -T</td>
-<td>打印内存和CPU的相关信息。</td>
+<td>打印内存和 CPU 的相关信息。</td>
 </tr>
 </tbody></table>
 <h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单线程测试</span></span><br><span class="line">mysqlslap -a -uroot -p123456</span><br><span class="line"></span><br><span class="line"><span class="comment"># 多线程测试。使用–-concurrency来模拟并发连接。</span></span><br><span class="line">mysqlslap -a -c 100 -uroot -p123456</span><br><span class="line"></span><br><span class="line"><span class="comment"># 迭代测试。用于需要多次执行测试得到平均值。</span></span><br><span class="line">mysqlslap -a -i 10 -uroot -p123456</span><br><span class="line"></span><br><span class="line">mysqlslap --auto-generate-sql-add-autoincrement -a -uroot -p123456</span><br><span class="line">mysqlslap -a --auto-generate-sql-load-type=<span class="built_in">read</span> -uroot -p123456</span><br><span class="line">mysqlslap -a --auto-generate-secondary-indexes=3 -uroot -p123456</span><br><span class="line">mysqlslap -a --auto-generate-sql-write-number=1000 -uroot -p123456</span><br><span class="line">mysqlslap --create-schema world -q <span class="string">&quot;select count(*) from City&quot;</span> -uroot -p123456</span><br><span class="line">mysqlslap -a -e innodb -uroot -p123456</span><br><span class="line">mysqlslap -a --number-of-queries=10 -uroot -p123456</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试同时不同的存储引擎的性能进行对比：</span></span><br><span class="line">mysqlslap -a --concurrency=50,100 --number-of-queries 1000 --iterations=5 --engine=myisam,innodb --debug-info -uroot -p123456</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行一次测试，分别50和100个并发，执行1000次总查询：</span></span><br><span class="line">mysqlslap -a --concurrency=50,100 --number-of-queries 1000 --debug-info -uroot -p123456</span><br><span class="line"></span><br><span class="line"><span class="comment"># 50和100个并发分别得到一次测试结果(Benchmark)，并发数越多，执行完所有查询的时间越长。为了准确起见，可以多迭代测试几次:</span></span><br><span class="line">mysqlslap -a --concurrency=50,100 --number-of-queries 1000 --iterations=5 --debug-info -uroot -p123456</span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>
@@ -542,12 +544,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Mysql/">
                                     <span class="chip bg-color">Mysql</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -768,8 +770,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -779,12 +781,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -821,8 +823,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -832,12 +834,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

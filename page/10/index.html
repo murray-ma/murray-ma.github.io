@@ -262,25 +262,26 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/01/APT%E3%80%81DEB%E3%80%81YUM%E3%80%81RPM%E6%8C%87%E4%BB%A4%E7%94%A8%E6%B3%95/">
+                    <a href="/2021/09/29/Keepalived%E7%AC%94%E8%AE%B0/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="APT、DEB、YUM、RPM指令用法">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Keepalived笔记">
                             
-                            <span class="card-title">APT、DEB、YUM、RPM指令用法</span>
+                            <span class="card-title">Keepalived笔记</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                APT 软件工具 (Debian, Ubuntu 以及类似系统)12345678apt-get install package_name 安装/更新一个 deb 包 apt-cdrom install package_name 从光盘安装/
+                                工作原理简介
+Keepalived 本质就是为 ipvs 服务的，它也不需要共享存储。IPVS 其实就是一些规则，Keepalived 主要的任务就是去调用 ipvsadm 命令，来生成规则，并自动实现将用户需要访问的地址转移到可用 LVS
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-29
                             </span>
                             <span class="publish-author">
                                 
@@ -302,6 +303,10 @@
                             <span class="chip bg-color">Linux</span>
                         </a>
                         
+                        <a href="/tags/Keepalived/">
+                            <span class="chip bg-color">Keepalived</span>
+                        </a>
+                        
                     </div>
                     
                 </div>
@@ -309,32 +314,32 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/01/Apline%20%E7%9B%B8%E5%85%B3/">
+                    <a href="/2021/09/29/kafka%E7%AC%94%E8%AE%B0/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Apline 相关">
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="kafka笔记">
                             
-                            <span class="card-title">Apline 相关</span>
+                            <span class="card-title">kafka笔记</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                软件源123456789101112# 永久修改apk下载源地址vi etc/apk/repositories# 替换为阿里源http://mirrors.aliyun.com/alpine/v3.8/main/http://mirrors
+                                部署 kafka123456789101112131415161718192021222324252627282930313233343536// 定义docker-compose.ymlversion: &quot;3&quot;serv
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-29
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                                <a href="/categories/MQ/" class="post-category">
+                                    MQ
                                 </a>
                                 
                                 
@@ -345,12 +350,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Linux/">
-                            <span class="chip bg-color">Linux</span>
+                        <a href="/tags/MQ/">
+                            <span class="chip bg-color">MQ</span>
                         </a>
                         
-                        <a href="/tags/Apline/">
-                            <span class="chip bg-color">Apline</span>
+                        <a href="/tags/kafka/">
+                            <span class="chip bg-color">kafka</span>
                         </a>
                         
                     </div>
@@ -360,33 +365,35 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/01/CPU%E8%BF%87%E9%AB%98%E7%9A%84%E6%8E%92%E6%9F%A5%E6%96%B9%E6%B3%95/">
+                    <a href="/2021/08/29/RabbitMQ%E7%AC%94%E8%AE%B0/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="CPU过高的排查方法">
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="RabbitMQ笔记">
                             
-                            <span class="card-title">CPU过高的排查方法</span>
+                            <span class="card-title">RabbitMQ笔记</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                根据top命令，发现PID为28555的python进程占用CPU高达98.9%，出现故障。
-通过ps aux | grep PID命令，进一步确定是python进程出现的问题。但是，怎么定位到具体线程或者代码呢？首先显示线程列表:ps -
+                                培训笔记
+rabbitmq 的消息是否可以设置优先级？
+
+==&gt; RabbitMQ 在 3.5.0 版本的时候实现了优先级队列。任何一个队列都可以通过客户端配置参数方式设置一个优先级(但是不能使用策略的方式配置这个参数)。当前优先级的
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-29
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                                <a href="/categories/MQ/" class="post-category">
+                                    MQ
                                 </a>
                                 
                                 
@@ -397,8 +404,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Linux/">
-                            <span class="chip bg-color">Linux</span>
+                        <a href="/tags/MQ/">
+                            <span class="chip bg-color">MQ</span>
+                        </a>
+                        
+                        <a href="/tags/Rabbitmq/">
+                            <span class="chip bg-color">Rabbitmq</span>
                         </a>
                         
                     </div>
@@ -408,32 +419,33 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/01/Centos%20%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">
+                    <a href="/2021/08/08/GitHub%E4%B8%8A%E4%BC%98%E7%A7%80%E7%9A%84Go%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Centos 网络配置">
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="GitHub上优秀的Go开源项目">
                             
-                            <span class="card-title">Centos 网络配置</span>
+                            <span class="card-title">GitHub上优秀的Go开源项目</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Centos 网络配制（静态）123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657
+                                GitHub 上优秀的 Go 开源项目
+近一年来，学习和研究 Go 语言，断断续续的收集了一些比较优秀的开源项目，这些项目都非常不错，可以供我们学习和研究 Go 用，从中可以学到很多关于 Go 的使用、技巧以及相关工具和方法。我把他们整理发
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-08
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                                <a href="/categories/Go/" class="post-category">
+                                    Go
                                 </a>
                                 
                                 
@@ -444,8 +456,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Linux/">
-                            <span class="chip bg-color">Linux</span>
+                        <a href="/tags/Go/">
+                            <span class="chip bg-color">Go</span>
                         </a>
                         
                     </div>
@@ -455,38 +467,36 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/01/ECS%20Linux%E5%A2%9E%E5%8A%A0%E6%88%96%E5%88%A0%E9%99%A4%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98swap/">
+                    <a href="/2021/08/08/Go%E7%AC%94%E8%AE%B0/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="ECS Linux增加或删除虚拟内存swap">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Go笔记">
                             
-                            <span class="card-title">ECS Linux增加或删除虚拟内存swap</span>
+                            <span class="card-title">Go笔记</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                ECS Linux增加或删除虚拟内存swap一、增加swap
+                                使用 golang 开发
+直接设置代理 https://goproxy.io/
+使用阿里云镜像代理：https://mirrors.aliyun.com/goproxy/
 
-使用如下命令，创建1G的swap空间
-1dd if=/dev/zero of=/tmp/swap bs=1MB count=1024
-
-制作一个swap文件
-1mkswap /
+go 能做什么？12345678910111、命令行程序。不分wi
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-08
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                                <a href="/categories/Go/" class="post-category">
+                                    Go
                                 </a>
                                 
                                 
@@ -497,8 +507,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Linux/">
-                            <span class="chip bg-color">Linux</span>
+                        <a href="/tags/Go/">
+                            <span class="chip bg-color">Go</span>
                         </a>
                         
                     </div>
@@ -508,32 +518,37 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/01/JDK%20%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%88Linux%EF%BC%89/">
+                    <a href="/2021/08/08/beego%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="JDK 环境变量（Linux）">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="beego项目笔记">
                             
-                            <span class="card-title">JDK 环境变量（Linux）</span>
+                            <span class="card-title">beego项目笔记</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                配置环境变量方式一：设置当前用户环境变量:123456789vim ~/.bashrc# 在打开的文件的末尾添加export JAVA_HOME=/usr/lib/jvm/jdk7export CLASSPATH=.:$JAVA_HOME/
+                                配置环境变量12345678# GOROOT: go安装根目录GOROOTGOROOT/bin# GOPATH: Go全局目录GOPATHGOPATH/bin
+
+beego 安装
+beego 的安装是典型的 Go 安装包的形式
+
+12go 
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-08
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Java/" class="post-category">
-                                    Java
+                                <a href="/categories/Go/" class="post-category">
+                                    Go
                                 </a>
                                 
                                 
@@ -544,12 +559,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Linux/">
-                            <span class="chip bg-color">Linux</span>
+                        <a href="/tags/Go/">
+                            <span class="chip bg-color">Go</span>
                         </a>
                         
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
+                        <a href="/tags/Beego/">
+                            <span class="chip bg-color">Beego</span>
                         </a>
                         
                     </div>
@@ -559,36 +574,34 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/01/Libreoffice%20%E4%B9%8B%20Office%20%E8%BD%AC%20Pdf/">
+                    <a href="/2021/06/29/K8S%E6%9E%B6%E6%9E%84%E5%9B%BE/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Libreoffice 之 Office 转 Pdf">
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="K8S架构图">
                             
-                            <span class="card-title">Libreoffice 之 Office 转 Pdf</span>
+                            <span class="card-title">K8S架构图</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                安装libreOffice12apt install -y libreoffice
+                                
 
-安装pypi12pip install -i https://pypi.douban.com/simple pillow pypdf2 wand
 
-测试示
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-29
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Other/" class="post-category">
-                                    Other
+                                <a href="/categories/K8S/" class="post-category">
+                                    K8S
                                 </a>
                                 
                                 
@@ -599,12 +612,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Linux/">
-                            <span class="chip bg-color">Linux</span>
-                        </a>
-                        
-                        <a href="/tags/Office/">
-                            <span class="chip bg-color">Office</span>
+                        <a href="/tags/K8S/">
+                            <span class="chip bg-color">K8S</span>
                         </a>
                         
                     </div>
@@ -614,32 +623,53 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/01/Linux%20%E4%B9%8B%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E4%B8%8E%E6%8C%82%E8%BD%BD/">
+                    <a href="/2021/06/29/K8s%E4%B9%8BGlusterFS%E9%9B%86%E7%BE%A4%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Linux 之磁盘分区与挂载">
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="K8s之GlusterFS集群文件系统安装使用">
                             
-                            <span class="card-title">Linux 之磁盘分区与挂载</span>
+                            <span class="card-title">K8s之GlusterFS集群文件系统安装使用</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                磁盘分区与挂载12345678910111213141516171819202122# 查看磁盘df -hfdisk -l# 分区与格式化fdisk /dev/sdb# 格式化分区mkfs.ext4 /dev/sdb1# 查看磁盘IDblk
+                                架构
+
+
+IP
+主机名
+clusterFs 角色
+
+
+
+10.94.12.220
+k8s-master
+master
+
+
+10.94.12.221
+k8s-node1
+slave
+
+
+10.94.12.222
+k8s-node2
+slave
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-29
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                                <a href="/categories/K8S/" class="post-category">
+                                    K8S
                                 </a>
                                 
                                 
@@ -650,8 +680,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Linux/">
-                            <span class="chip bg-color">Linux</span>
+                        <a href="/tags/K8S/">
+                            <span class="chip bg-color">K8S</span>
+                        </a>
+                        
+                        <a href="/tags/GlusterFS/">
+                            <span class="chip bg-color">GlusterFS</span>
                         </a>
                         
                     </div>
@@ -661,34 +695,32 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/01/Linux%20%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
+                    <a href="/2021/06/29/k8s%20yaml%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Linux 定时任务">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="k8s yaml文件详解">
                             
-                            <span class="card-title">Linux 定时任务</span>
+                            <span class="card-title">k8s yaml文件详解</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Linux定时任务130 */2 * * * supervisorctl -c /etc/supervisor/supervisord.conf restart receiverapp
-重启crontab
-12# /etc/rc.d/ini
+                                k8s yaml 文件详解12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-29
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                                <a href="/categories/K8S/" class="post-category">
+                                    K8S
                                 </a>
                                 
                                 
@@ -699,8 +731,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Linux/">
-                            <span class="chip bg-color">Linux</span>
+                        <a href="/tags/K8S/">
+                            <span class="chip bg-color">K8S</span>
+                        </a>
+                        
+                        <a href="/tags/Yaml/">
+                            <span class="chip bg-color">Yaml</span>
                         </a>
                         
                     </div>
@@ -725,7 +761,7 @@
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">10 / 28</div>
+            <div class="center-align b-text-gray">10 / 37</div>
         </div>
         <div class="col s6 m4 l4">
             

@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Sqlplus/">
                                 <span class="chip bg-color">Sqlplus</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -344,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -387,23 +387,24 @@
 <p>需要更改客户端字符集，使之与服务端字符集一致。</p>
 </blockquote>
 <ul>
-<li><p>操作系统语言：</p>
+<li>操作系统语言：</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo $LANG</span><br><span class="line">zh_CN.UTF-8</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查询数据库语言：</p>
+
+<ul>
+<li>查询数据库语言：</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># NLS_CHARACTERSET 为server端字符集</span></span><br><span class="line"><span class="keyword">select</span> * from V<span class="variable">$NLS_PARAMETERS</span> <span class="built_in">where</span> parameter = <span class="string">&#x27;NLS_CHARACTERSET&#x27;</span>;</span><br><span class="line">SELECT * FROM nls_database_parameters <span class="built_in">where</span> parameter = <span class="string">&#x27;NLS_CHARACTERSET&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># NLS_CHARACTERSET 为server端字符集</span></span><br><span class="line">SQL&gt; <span class="keyword">select</span> userenv(<span class="string">&#x27;language&#x27;</span>) from dual;</span><br><span class="line"><span class="comment"># SIMPLIFIED CHINESE_CHINA.AL32UTF8</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置NLS_LANG</p>
+
+<ul>
+<li>设置 NLS_LANG</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep -i nls ~/.bashrc</span><br><span class="line">export NLS_LANG=&quot;SIMPLIFIED CHINESE_CHINA.AL32UTF8&quot;</span><br></pre></td></tr></table></figure>
 
-
-</li>
-</ul>
 <h3 id="sqlplus-格式化输出"><a href="#sqlplus-格式化输出" class="headerlink" title="sqlplus 格式化输出"></a>sqlplus 格式化输出</h3><ul>
-<li>设置linesize（输出的最大行宽）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 查看linesize</span><br><span class="line">show linesize</span><br><span class="line"></span><br><span class="line"># 设置linesize</span><br><span class="line">set linesize 120</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>设置 linesize（输出的最大行宽）</li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 查看linesize</span><br><span class="line">show linesize</span><br><span class="line"></span><br><span class="line"># 设置linesize</span><br><span class="line">set linesize 120</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -468,12 +469,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Sqlplus/">
                                     <span class="chip bg-color">Sqlplus</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -694,8 +695,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -705,12 +706,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Oracle/">
                         <span class="chip bg-color">Oracle</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -747,8 +748,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -758,12 +759,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

@@ -383,88 +383,96 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="使用python操作InfluxDB"><a href="#使用python操作InfluxDB" class="headerlink" title="使用python操作InfluxDB"></a>使用python操作InfluxDB</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">环境： CentOS6.5_x64       </span><br><span class="line">InfluxDB版本：1.1.0    </span><br><span class="line">Python版本 ： 2.6              </span><br></pre></td></tr></table></figure>
+                <h3 id="使用-python-操作-InfluxDB"><a href="#使用-python-操作-InfluxDB" class="headerlink" title="使用 python 操作 InfluxDB"></a>使用 python 操作 InfluxDB</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">环境： CentOS6.5_x64</span><br><span class="line">InfluxDB版本：1.1.0</span><br><span class="line">Python版本 ： 2.6</span><br></pre></td></tr></table></figure>
 
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
-<li><p>启动服务器<br>执行如下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service influxdb start</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>示例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# service influxdb start</span><br><span class="line">Starting influxdb...</span><br><span class="line">influxdb process was started [ OK ]</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装influxdb-python<br>github地址： <a target="_blank" rel="noopener" href="https://github.com/influxdata/influxdb-python">https://github.com/influxdata/influxdb-python</a>                       </p>
-</li>
+<li>启动服务器<br>执行如下命令：</li>
 </ul>
-<p>安装pip ：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service influxdb start</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>示例如下：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# service influxdb start</span><br><span class="line">Starting influxdb...</span><br><span class="line">influxdb process was started [ OK ]</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装 influxdb-python<br>github 地址： <a target="_blank" rel="noopener" href="https://github.com/influxdata/influxdb-python">https://github.com/influxdata/influxdb-python</a></li>
+</ul>
+<p>安装 pip ：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install python-pip</span><br></pre></td></tr></table></figure>
 
-<p>安装influxdb-python ：     </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install influxdb        </span><br></pre></td></tr></table></figure>
+<p>安装 influxdb-python ：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install influxdb</span><br></pre></td></tr></table></figure>
 
-<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p>使用InfluxDBClient类操作数据库，示例如下：           </p>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p>使用 InfluxDBClient 类操作数据库，示例如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from influxdb import InfluxDBClient</span><br><span class="line">client = InfluxDBClient(&#x27;localhost&#x27;, 8086, &#x27;root&#x27;, &#x27;&#x27;, &#x27;&#x27;) # 初始化</span><br></pre></td></tr></table></figure>
 
 <h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><ul>
-<li><p>显示已存在的所有数据库<br>使用get_list_database函数，示例如下：      </p>
+<li>显示已存在的所有数据库<br>使用 get_list_database 函数，示例如下：</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print client.get_list_database() # 显示所有数据库名称</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建新数据库<br>使用create_database函数，示例如下：       </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.create_database(&#x27;testdb&#x27;) # 创建数据库      </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除数据库<br>使用drop_database函数，示例如下：             </p>
+
+<ul>
+<li>创建新数据库<br>使用 create_database 函数，示例如下：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.create_database(&#x27;testdb&#x27;) # 创建数据库</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除数据库<br>使用 drop_database 函数，示例如下：</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.drop_database(&#x27;testdb&#x27;) # 删除数据库</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<p>数据库操作完整示例如下：        </p>
+<p>数据库操作完整示例如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line">#-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">from influxdb import InfluxDBClient</span><br><span class="line">client = InfluxDBClient(&#x27;localhost&#x27;, 8086, &#x27;root&#x27;, &#x27;&#x27;, &#x27;&#x27;) # 初始化</span><br><span class="line">print client.get_list_database() # 显示所有数据库名称</span><br><span class="line">client.create_database(&#x27;testdb&#x27;) # 创建数据库</span><br><span class="line">print client.get_list_database() # 显示所有数据库名称</span><br><span class="line">client.drop_database(&#x27;testdb&#x27;) # 删除数据库</span><br><span class="line">print client.get_list_database() # 显示所有数据库名称</span><br></pre></td></tr></table></figure>
 
-<h3 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a>表操作</h3><p>InfluxDBClient中要指定连接的数据库，示例如下：      </p>
+<h3 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a>表操作</h3><p>InfluxDBClient 中要指定连接的数据库，示例如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client = InfluxDBClient(&#x27;localhost&#x27;, 8086, &#x27;root&#x27;, &#x27;&#x27;, &#x27;testdb&#x27;) # 初始化（指定要操作的数据库）</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>显示指定数据库中已存在的表<br>可以通过influxql语句实现，示例如下：          </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = client.query(&#x27;show measurements;&#x27;) # 显示数据库中的表</span><br><span class="line">print(&quot;Result: &#123;0&#125;&quot;.format(result))</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建新表并添加数据</p>
-</li>
+<li>显示指定数据库中已存在的表<br>可以通过 influxql 语句实现，示例如下：</li>
 </ul>
-<p>InfluxDB没有提供单独的建表语句，可以通过并添加数据的方式建表，示例如下：        </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = client.query(&#x27;show measurements;&#x27;) # 显示数据库中的表</span><br><span class="line">print(&quot;Result: &#123;0&#125;&quot;.format(result))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建新表并添加数据</li>
+</ul>
+<p>InfluxDB 没有提供单独的建表语句，可以通过并添加数据的方式建表，示例如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">json_body = [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;measurement&quot;: &quot;students&quot;,</span><br><span class="line">        &quot;tags&quot;: &#123;</span><br><span class="line">            &quot;stuid&quot;: &quot;s123&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        #&quot;time&quot;: &quot;2017-03-12T22:00:00Z&quot;,</span><br><span class="line">        &quot;fields&quot;: &#123;</span><br><span class="line">            &quot;score&quot;: 89</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">client = InfluxDBClient(&#x27;localhost&#x27;, 8086, &#x27;root&#x27;, &#x27;&#x27;, &#x27;testdb&#x27;) # 初始化（指定要操作的数据库）</span><br><span class="line">client.write_points(json_body) # 写入数据，同时创建表</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>删除表<br>可以通过influxql语句实现，示例如下：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.query(&quot;drop measurement students&quot;) # 删除表</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>删除表<br>可以通过 influxql 语句实现，示例如下：</li>
 </ul>
-<p>数据表操作完整示例如下：        </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.query(&quot;drop measurement students&quot;) # 删除表</span><br></pre></td></tr></table></figure>
+
+<p>数据表操作完整示例如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line">#-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">from influxdb import InfluxDBClient</span><br><span class="line"></span><br><span class="line">json_body = [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;measurement&quot;: &quot;students&quot;,</span><br><span class="line">        &quot;tags&quot;: &#123;</span><br><span class="line">            &quot;stuid&quot;: &quot;s123&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        #&quot;time&quot;: &quot;2017-03-12T22:00:00Z&quot;,</span><br><span class="line">        &quot;fields&quot;: &#123;</span><br><span class="line">            &quot;score&quot;: 89</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">def showDBNames(client):</span><br><span class="line">        result = client.query(&#x27;show measurements;&#x27;) # 显示数据库中的表</span><br><span class="line">        print(&quot;Result: &#123;0&#125;&quot;.format(result))</span><br><span class="line"></span><br><span class="line">client = InfluxDBClient(&#x27;localhost&#x27;, 8086, &#x27;root&#x27;, &#x27;&#x27;, &#x27;testdb&#x27;) # 初始化（指定要操作的数据库）</span><br><span class="line">showDBNames(client)</span><br><span class="line">client.write_points(json_body) # 写入数据，同时创建表</span><br><span class="line">showDBNames(client)</span><br><span class="line">client.query(&quot;drop measurement students&quot;) # 删除表</span><br><span class="line">showDBNames(client)</span><br></pre></td></tr></table></figure>
 
-<h3 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h3><p>InfluxDBClient中要指定连接的数据库，示例如下：      </p>
+<h3 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h3><p>InfluxDBClient 中要指定连接的数据库，示例如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client = InfluxDBClient(&#x27;localhost&#x27;, 8086, &#x27;root&#x27;, &#x27;&#x27;, &#x27;testdb&#x27;) # 初始化（指定要操作的数据库）</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>添加      </li>
+<li>添加</li>
 </ul>
-<p>可以通过write_points实现，示例如下：        </p>
+<p>可以通过 write_points 实现，示例如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">json_body = [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;measurement&quot;: &quot;students&quot;,</span><br><span class="line">        &quot;tags&quot;: &#123;</span><br><span class="line">            &quot;stuid&quot;: &quot;s123&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        #&quot;time&quot;: &quot;2017-03-12T22:00:00Z&quot;,</span><br><span class="line">        &quot;fields&quot;: &#123;</span><br><span class="line">            &quot;score&quot;: 89</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">client.write_points(json_body) # 写入数据</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>查询</li>
 </ul>
-<p>可以通过influxql语句实现，示例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = client.query(&#x27;select * from students;&#x27;)    </span><br><span class="line">print(&quot;Result: &#123;0&#125;&quot;.format(result))</span><br></pre></td></tr></table></figure>
+<p>可以通过 influxql 语句实现，示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = client.query(&#x27;select * from students;&#x27;)</span><br><span class="line">print(&quot;Result: &#123;0&#125;&quot;.format(result))</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>更新</li>
 </ul>
-<p>tags 和 timestamp相同时数据会执行覆盖操作，相当于InfluxDB的更新操作。      </p>
+<p>tags 和 timestamp 相同时数据会执行覆盖操作，相当于 InfluxDB 的更新操作。</p>
 <ul>
 <li>删除</li>
 </ul>
-<p>使用influxql语句实现，delete语法，示例如下：       </p>
+<p>使用 influxql 语句实现，delete 语法，示例如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.query(&#x27;delete from students;&#x27;) # 删除数据</span><br></pre></td></tr></table></figure>
-<p>数据操作完整示例如下：             </p>
+
+<p>数据操作完整示例如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line">#-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">from influxdb import InfluxDBClient</span><br><span class="line"></span><br><span class="line">json_body = [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;measurement&quot;: &quot;students&quot;,</span><br><span class="line">        &quot;tags&quot;: &#123;</span><br><span class="line">            &quot;stuid&quot;: &quot;s123&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        #&quot;time&quot;: &quot;2017-03-12T22:00:00Z&quot;,</span><br><span class="line">        &quot;fields&quot;: &#123;</span><br><span class="line">            &quot;score&quot;: 89</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">def showDatas(client):</span><br><span class="line">        result = client.query(&#x27;select * from students;&#x27;)</span><br><span class="line">        print(&quot;Result: &#123;0&#125;&quot;.format(result))</span><br><span class="line"></span><br><span class="line">client = InfluxDBClient(&#x27;localhost&#x27;, 8086, &#x27;root&#x27;, &#x27;&#x27;, &#x27;testdb&#x27;) # 初始化</span><br><span class="line">client.write_points(json_body) # 写入数据</span><br><span class="line">showDatas(client)  # 查询数据</span><br><span class="line">client.query(&#x27;delete from students;&#x27;) # 删除数据</span><br><span class="line">showDatas(client)  # 查询数据</span><br></pre></td></tr></table></figure>
 
                 

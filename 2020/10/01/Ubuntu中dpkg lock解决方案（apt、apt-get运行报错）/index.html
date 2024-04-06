@@ -383,17 +383,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="关于Ubuntu中Could-not-get-lock-var-lib-dpkg-lock解决方案"><a href="#关于Ubuntu中Could-not-get-lock-var-lib-dpkg-lock解决方案" class="headerlink" title="关于Ubuntu中Could not get lock /var/lib/dpkg/lock解决方案"></a>关于Ubuntu中Could not get lock /var/lib/dpkg/lock解决方案</h4><hr>
+                <h4 id="关于-Ubuntu-中-Could-not-get-lock-var-lib-dpkg-lock-解决方案"><a href="#关于-Ubuntu-中-Could-not-get-lock-var-lib-dpkg-lock-解决方案" class="headerlink" title="关于 Ubuntu 中 Could not get lock /var/lib/dpkg/lock 解决方案"></a>关于 Ubuntu 中 Could not get lock /var/lib/dpkg/lock 解决方案</h4><hr>
 <blockquote>
-<p>在Ubuntu中，有时候运用sudo  apt-get install 安装软件时，会出现一下的情况</p>
+<p>在 Ubuntu 中，有时候运用 sudo apt-get install 安装软件时，会出现一下的情况</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>主要是因为apt还在运行，此时的解决方案:</p>
+<p>主要是因为 apt 还在运行，此时的解决方案:</p>
 </blockquote>
 <ol>
-<li>找到并且杀掉所有的apt-get 和apt进程</li>
+<li>找到并且杀掉所有的 apt-get 和 apt 进程</li>
 </ol>
 <ul>
 <li><code>ps -A | grep apt</code>找出所有的 apt 以及 apt-get 进程</li>
@@ -403,12 +403,12 @@
 <li>删除锁定文件</li>
 </ol>
 <ul>
-<li><p>一旦运行了apt-get 或者 apt 命令，锁定文件将会创建于<code>/var/lib/apt/lists/</code>、<code>/var/lib/dpkg/</code>、<code>/var/cache/apt/archives/</code> 中,这有助于运行中的 apt-get 或者 apt 进程能够避免被其它需要使用相同文件的用户或者系统进程所打断。当该进程执行完毕后，锁定文件将会删除。</p>
+<li><p>一旦运行了 apt-get 或者 apt 命令，锁定文件将会创建于<code>/var/lib/apt/lists/</code>、<code>/var/lib/dpkg/</code>、<code>/var/cache/apt/archives/</code> 中,这有助于运行中的 apt-get 或者 apt 进程能够避免被其它需要使用相同文件的用户或者系统进程所打断。当该进程执行完毕后，锁定文件将会删除。</p>
 </li>
 <li><p>首先运行命令<code>$ sudo rm /var/lib/dpkg/lock</code>来移除 <code>/var/lib/dpkg/</code> 文件夹下的锁定文件。然后运行<code>$ sudo dpkg --configure -a</code>强制重新配置软件包。</p>
 </li>
 <li><p>也可以删除 <code>/var/lib/apt/lists/</code> 以及缓存文件夹下的锁定文件</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo rm /var/lib/apt/lists/lock</span><br><span class="line">$ sudo rm /var/cache/apt/archives/lock</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo rm /var/lib/apt/lists/lock</span><br><span class="line">$ sudo rm /var/cache/apt/archives/lock</span><br></pre></td></tr></table></figure></li>
 <li><p>更新软件包源列表<code>$ sudo apt update</code> 或者 <code>$ sudo apt-get update</code></p>
 </li>
 </ul>

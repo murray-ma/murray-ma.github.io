@@ -328,16 +328,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Oracle/">
                                 <span class="chip bg-color">Oracle</span>
                             </a>
                         
                             <a href="/tags/PLSQL/">
                                 <span class="chip bg-color">PLSQL</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -348,8 +348,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -387,59 +387,60 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>PL/SQL Developer连接本地Oracle 11g 64位数据库</p>
+                <p>PL/SQL Developer 连接本地 Oracle 11g 64 位数据库</p>
 <ol>
-<li>登录PL/SQL Developer</li>
+<li>登录 PL/SQL Developer</li>
 </ol>
-<p><img src="https://gitee.com/sunglowrise/images/raw/master/ydnote/2018/20181206093607-oracle-1.png"></p>
+<p><img src="https://raw.githubusercontent.com/sunglowrise/images/master/ydnote/2018/20181206093607-oracle-1.png"></p>
 <blockquote>
-<p>没有数据库的TNS，先以非登录方式登录PL/SQL Developer，设置Oracle Home和OCI Libaray。</p>
+<p>没有数据库的 TNS，先以非登录方式登录 PL/SQL Developer，设置 Oracle Home 和 OCI Libaray。</p>
 </blockquote>
-<p><img src="https://gitee.com/sunglowrise/images/raw/master/ydnote/2018/20181206093728-oracle-2.png"></p>
+<p><img src="https://raw.githubusercontent.com/sunglowrise/images/master/ydnote/2018/20181206093728-oracle-2.png"></p>
 <blockquote>
-<p>在Oracle Home这选项下，没有自动识别到Oracle Home目录，于是手动指定Oracle Home路径。</p>
+<p>在 Oracle Home 这选项下，没有自动识别到 Oracle Home 目录，于是手动指定 Oracle Home 路径。</p>
 </blockquote>
-<p><img src="https://gitee.com/sunglowrise/images/raw/master/ydnote/2018/20181206093757-oracle-3.png"></p>
+<p><img src="https://raw.githubusercontent.com/sunglowrise/images/master/ydnote/2018/20181206093757-oracle-3.png"></p>
 <blockquote>
-<p>点击”确定”，退出PL/SQL Developer，再次登录。</p>
+<p>点击”确定”，退出 PL/SQL Developer，再次登录。</p>
 </blockquote>
-<p><img src="https://gitee.com/sunglowrise/images/raw/master/ydnote/2018/20181206093835-oracle-4.png"></p>
-<p>还是选择不到数据库TNS，尝试无数据库登录，看看报什么错误。</p>
-<p><img src="https://gitee.com/sunglowrise/images/raw/master/ydnote/2018/20181206093854-oracle-5.png"></p>
+<p><img src="https://raw.githubusercontent.com/sunglowrise/images/master/ydnote/2018/20181206093835-oracle-4.png"></p>
+<p>还是选择不到数据库 TNS，尝试无数据库登录，看看报什么错误。</p>
+<p><img src="https://raw.githubusercontent.com/sunglowrise/images/master/ydnote/2018/20181206093854-oracle-5.png"></p>
 <blockquote>
-<p>终于找到问题的关键点了，安装的PL/SQL Deleloper只能识别32的oci.dll。然而发现PL/SQL Deleloper不区分64位和32位。只能从oci.dll入手解决问题。</p>
+<p>终于找到问题的关键点了，安装的 PL/SQL Deleloper 只能识别 32 的 oci.dll。然而发现 PL/SQL Deleloper 不区分 64 位和 32 位。只能从 oci.dll 入手解决问题。</p>
 </blockquote>
 <ol start="2">
-<li>安装oracle Clinet</li>
+<li>安装 oracle Clinet</li>
 </ol>
 <blockquote>
-<p>首先到Oracle官网上下载Oracle 11g Client，需要登Oracle 帐号才能下载。目前下载地址：<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html">http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html</a></p>
+<p>首先到 Oracle 官网上下载 Oracle 11g Client，需要登 Oracle 帐号才能下载。目前下载地址：<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html">http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html</a></p>
 </blockquote>
-<p><img src="https://gitee.com/sunglowrise/images/raw/master/ydnote/2018/20181206093955-oracle-6.png"></p>
+<p><img src="https://raw.githubusercontent.com/sunglowrise/images/master/ydnote/2018/20181206093955-oracle-6.png"></p>
 <blockquote>
-<p>将下载的Oracle Client文件instantclient-basic-nt-11.2.0.4.0.zip解压到C盘。然后在解压后的C:\Oracle\instantclient_11_2目录下新建NETWORK\ADMIN目录，在ADMIN目录下新建tnsnames.ora文件，添加数据库TNS。</p>
+<p>将下载的 Oracle Client 文件 instantclient-basic-nt-11.2.0.4.0.zip 解压到 C 盘。然后在解压后的 C:\Oracle\instantclient_11_2 目录下新建 NETWORK\ADMIN 目录，在 ADMIN 目录下新建 tnsnames.ora 文件，添加数据库 TNS。</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ORCL =</span><br><span class="line">  (DESCRIPTION =</span><br><span class="line">    (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))</span><br><span class="line">    (CONNECT_DATA =</span><br><span class="line">      (SERVER = DEDICATED)</span><br><span class="line">      (SERVICE_NAME = orcl)</span><br><span class="line">    )</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>注意：tnsnames.ora可以从Oracle数据库HOME目录(%ORACLE_HOME%\product\11.2.0\dbhome_1\NETWORK\ADMIN)<br>把tnsnames.ora拷贝过来。然后确定HOST配置是否正确，如果HOST是主机名，需要把主机名后面的域名去掉。</p>
+<p>注意：tnsnames.ora 可以从 Oracle 数据库 HOME 目录(%ORACLE_HOME%\product\11.2.0\dbhome_1\NETWORK\ADMIN)<br>把 tnsnames.ora 拷贝过来。然后确定 HOST 配置是否正确，如果 HOST 是主机名，需要把主机名后面的域名去掉。</p>
 </blockquote>
 <ol start="3">
-<li>配置PL/SQL Developer的Oracle Home和OCI Libaray</li>
+<li>配置 PL/SQL Developer 的 Oracle Home 和 OCI Libaray</li>
 </ol>
 <blockquote>
-<p>以非登录模式进入PL/SQL Developer，将Oracle Home路径指定为Oracle Client目录(C:\Oracle\instantclient_11_2)，OCI Libaray路径为Oracle Client目录的oci.dll(C:\Oracle\instantclient_11_2\oci.dll)。</p>
+<p>以非登录模式进入 PL/SQL Developer，将 Oracle Home 路径指定为 Oracle Client 目录(C:\Oracle\instantclient_11_2)，OCI Libaray 路径为 Oracle Client 目录的 oci.dll(C:\Oracle\instantclient_11_2\oci.dll)。</p>
 </blockquote>
-<p><img src="https://gitee.com/sunglowrise/images/raw/master/ydnote/2018/20181206094011-oracle-7.png"></p>
+<p><img src="https://raw.githubusercontent.com/sunglowrise/images/master/ydnote/2018/20181206094011-oracle-7.png"></p>
 <blockquote>
-<p>点击”确定”，现在配置已完成。退出PL/SQL Developer。</p>
+<p>点击”确定”，现在配置已完成。退出 PL/SQL Developer。</p>
 </blockquote>
 <ol start="4">
-<li>验证Oracle Client</li>
+<li>验证 Oracle Client</li>
 </ol>
 <blockquote>
-<p>打开新的PL/SQL Developer，输入用户名和密码，在database选项下，选配置的TNS。</p>
+<p>打开新的 PL/SQL Developer，输入用户名和密码，在 database 选项下，选配置的 TNS。</p>
 </blockquote>
-<p><img src="https://gitee.com/sunglowrise/images/raw/master/ydnote/2018/20181206094025-oracle-8.png"></p>
+<p><img src="https://raw.githubusercontent.com/sunglowrise/images/master/ydnote/2018/20181206094025-oracle-8.png"></p>
 
                 
             </div>
@@ -504,16 +505,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Oracle/">
                                     <span class="chip bg-color">Oracle</span>
                                 </a>
                             
                                 <a href="/tags/PLSQL/">
                                     <span class="chip bg-color">PLSQL</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -734,8 +735,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -745,12 +746,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Oracle/">
                         <span class="chip bg-color">Oracle</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -787,8 +788,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -798,16 +799,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
-                    <a href="/tags/Mysql/">
-                        <span class="chip bg-color">Mysql</span>
-                    </a>
-                    
                     <a href="/tags/SQLyog/">
                         <span class="chip bg-color">SQLyog</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

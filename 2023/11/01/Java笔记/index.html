@@ -1,0 +1,1378 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java笔记, Java,Python,GO">
+    <meta name="description" content="IT文章及知识分享">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Java笔记 | 马瑞个人笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="马瑞个人笔记" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">马瑞个人笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">马瑞个人笔记</div>
+        <div class="logo-desc">
+            
+            IT文章及知识分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+        padding-top: 1.5rem
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        <!-- height: calc(100vh - 250px); -->
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-11-01
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="jar-文件修改"><a href="#jar-文件修改" class="headerlink" title="jar 文件修改"></a>jar 文件修改</h1><ul>
+<li>解压</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar -xvf test.jar</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>打包</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar -cvf0M test.jar .</span><br></pre></td></tr></table></figure>
+
+<h1 id="jar-工具"><a href="#jar-工具" class="headerlink" title="jar 工具"></a>jar 工具</h1><ol>
+<li><p>如果要替换的文件直接在 war 包、jar 包的根目录下，直接使用 jar uvf 命令替换即可<br>jar uvf &lt;file.war&gt; <new-file></p>
+</li>
+<li><p>如果要替换的文件在 war 包的二级及以下目录下，则需要以下步骤<br>a. 使用 jar tvf war 包 | grep 目标文件名 查询出目标文件在 war 包中的目录</p>
+</li>
+</ol>
+<p>b. 使用 jar xvf war 包 目标文件名(全路径),将目标文件及所在 war 包中的目录解压到当前路径</p>
+<p>c. 修改目标文件的内容，或者将要新的目标文件替换掉提取出来的目标文件</p>
+<p>d. 使用 jar uvf war 包 目标文件名, 将新目标文件替换到 war 包中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 解压jar包</span><br><span class="line">jar xvf hello.jar</span><br><span class="line"># 压缩jar</span><br><span class="line">jar cvf hello.jar hello</span><br><span class="line"># 显示jar</span><br><span class="line">jar tvf hello.jar</span><br><span class="line"># 添加文件</span><br><span class="line">jar uf hello.jar HelloWorld.java</span><br><span class="line"># 创建带manifest.mf文件的jar包</span><br><span class="line">jar cvfm hello.jar manifest.mf hello</span><br><span class="line"># 忽略manifest.mf文件，生成的jar包中不包括META-INF目录及manifest.mf文件</span><br><span class="line">jar cvfM hello.jar hello</span><br><span class="line"></span><br><span class="line">修改CloudOS首页示例：</span><br><span class="line"># 查看main.js位置</span><br><span class="line">jar tvf papaya.jar | grep main</span><br><span class="line"># 解压</span><br><span class="line">jar xvf papaya.jar</span><br><span class="line"># 修改main.js</span><br><span class="line">vim BOOT-INF/classes/static/js/main.js</span><br><span class="line"># 添加main.js到jar包中</span><br><span class="line">jar uf papaya.jar BOOT-INF/classes/static/js/main.js</span><br></pre></td></tr></table></figure>
+
+<h1 id="排查-CPU-占用过高"><a href="#排查-CPU-占用过高" class="headerlink" title="排查 CPU 占用过高"></a>排查 CPU 占用过高</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 1. top命令查看CPU的进程，记录PID</span><br><span class="line">top</span><br><span class="line"></span><br><span class="line"># 2. 查看PID的线程,查看CPU较高的线程PID</span><br><span class="line">top -Hp &lt;PID&gt;</span><br><span class="line"></span><br><span class="line">#3. 将线程PID转换为十六进制</span><br><span class="line">printf &#x27;%x&#x27; &lt;PID&gt;</span><br><span class="line"></span><br><span class="line"># 4. 用jstack查询进程堆栈</span><br><span class="line">jstack &lt;PID&gt; &gt; bug.txt</span><br><span class="line"></span><br><span class="line"># 5. 在bug.txt中搜索线程PID的十六进制</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="JDK-环境变量正确设置之后还是不生效"><a href="#JDK-环境变量正确设置之后还是不生效" class="headerlink" title="JDK 环境变量正确设置之后还是不生效"></a>JDK 环境变量正确设置之后还是不生效</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、环境变量加载是根据path变量进行加载的。从上至下，上面加载了之后，后面再有就不会加载了。</span><br><span class="line">2、jdk安装时会在c:\windows\system32下面生成三个文件，java.exe,javaw.exe,javaws.exe，这三个文件也会加载jdk的路径。</span><br><span class="line">3、%JAVA_HOME%\bin在c:\windows\system32后面时，需要删除2中的三个文件才能使JAVA_HOME生效；否则就需要将JAVA_HOME上移至c:\windows\system32环境变量前面。</span><br><span class="line">4、万能法：直接将带有JAVA_HOME属性的环境变量移动至第一顺位加载。</span><br></pre></td></tr></table></figure>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h1 id="Java-打-jar-包并上传"><a href="#Java-打-jar-包并上传" class="headerlink" title="Java 打 jar 包并上传"></a>Java 打 jar 包并上传</h1><h2 id="创建数据目录"><a href="#创建数据目录" class="headerlink" title="创建数据目录"></a>创建数据目录</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /data/nexus/data</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改挂载文件夹权限"><a href="#修改挂载文件夹权限" class="headerlink" title="修改挂载文件夹权限"></a>修改挂载文件夹权限</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -R 777 /data/nexus</span><br></pre></td></tr></table></figure>
+
+<h2 id="默认用户"><a href="#默认用户" class="headerlink" title="默认用户"></a>默认用户</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户：admin</span><br><span class="line">密码：cat /data/nexus/data/admin.password</span><br></pre></td></tr></table></figure>
+
+<h2 id="maven-配置"><a href="#maven-配置" class="headerlink" title="maven 配置"></a>maven 配置</h2><h3 id="1-在-servers-标签中加入"><a href="#1-在-servers-标签中加入" class="headerlink" title="1. 在 servers 标签中加入"></a>1. 在 servers 标签中加入</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置servers --&gt;</span><br><span class="line">&lt;servers&gt;</span><br><span class="line">  &lt;server&gt;</span><br><span class="line">    &lt;id&gt;nexus&lt;/id&gt;</span><br><span class="line">    &lt;username&gt;admin&lt;/username&gt;</span><br><span class="line">    &lt;password&gt;Nexus!1a2s3d&lt;/password&gt;</span><br><span class="line">  &lt;/server&gt;</span><br><span class="line">  &lt;server&gt;</span><br><span class="line">    &lt;id&gt;nexus-releases&lt;/id&gt;</span><br><span class="line">    &lt;username&gt;admin&lt;/username&gt;</span><br><span class="line">    &lt;password&gt;Nexus!1a2s3d&lt;/password&gt;</span><br><span class="line">  &lt;/server&gt;</span><br><span class="line">  &lt;server&gt;</span><br><span class="line">    &lt;id&gt;nexus-snapshots&lt;/id&gt;</span><br><span class="line">    &lt;username&gt;admin&lt;/username&gt;</span><br><span class="line">    &lt;password&gt;Nexus!1a2s3d&lt;/password&gt;</span><br><span class="line">  &lt;/server&gt;</span><br><span class="line">&lt;/servers&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 配置mirrors --&gt;</span><br><span class="line">&lt;mirrors&gt;</span><br><span class="line">  &lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;nexus&lt;/id&gt;</span><br><span class="line">      &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;</span><br><span class="line">      &lt;name&gt;Nexus Central&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;http://10.0.3.25:8081/repository/maven-public/&lt;/url&gt;</span><br><span class="line">  &lt;/mirror&gt;</span><br><span class="line">&lt;/mirrors&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-或-repositories-标签中加入"><a href="#2-或-repositories-标签中加入" class="headerlink" title="2. 或 repositories 标签中加入"></a>2. 或 repositories 标签中加入</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置nexus远程仓库 --&gt;</span><br><span class="line">&lt;repositories&gt;</span><br><span class="line">    &lt;repository&gt;</span><br><span class="line">      &lt;id&gt;nexus&lt;/id&gt;</span><br><span class="line">      &lt;name&gt;Nexus Snapshot Repository&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;http://10.0.3.25:8081/repository/maven-releases/&lt;/url&gt;</span><br><span class="line">      &lt;releases&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/releases&gt;</span><br><span class="line">      &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;</span><br><span class="line">    &lt;/repository&gt;</span><br><span class="line">&lt;/repositories&gt;</span><br><span class="line"></span><br><span class="line">&lt;pluginRepositories&gt;</span><br><span class="line">  &lt;!-- 插件仓库，maven 的运行依赖插件，也需要从私服下载插件 --&gt;</span><br><span class="line">  &lt;pluginRepository&gt;</span><br><span class="line">    &lt;!-- 插件仓库的 id 不允许重复，如果重复后边配置会覆盖前边 --&gt;</span><br><span class="line">    &lt;id&gt;nexus&lt;/id&gt;</span><br><span class="line">    &lt;name&gt;Public Repositories&lt;/name&gt;</span><br><span class="line">    &lt;url&gt;http://10.0.3.25:8081/repository/maven-public/&lt;/url&gt;</span><br><span class="line">  &lt;/pluginRepository&gt;</span><br><span class="line">&lt;/pluginRepositories&gt;</span><br><span class="line"></span><br><span class="line">&lt;activeProfiles&gt;</span><br><span class="line">    &lt;activeProfile&gt;nexus&lt;/activeProfile&gt;</span><br><span class="line">&lt;activeProfiles&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="springboot-pom-配置"><a href="#springboot-pom-配置" class="headerlink" title="springboot pom 配置"></a>springboot pom 配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;distributionManagement&gt;</span><br><span class="line">    &lt;repository&gt;</span><br><span class="line">        &lt;id&gt;nexus-releases&lt;/id&gt;</span><br><span class="line">        &lt;name&gt;Nexus Releases&lt;/name&gt;</span><br><span class="line">        &lt;url&gt;http://10.0.3.25:8081/repository/maven-releases&lt;/url&gt;</span><br><span class="line">    &lt;/repository&gt;</span><br><span class="line">    &lt;snapshotRepository&gt;</span><br><span class="line">        &lt;id&gt;nexus-snapshots&lt;/id&gt;&lt;!-- id 需要对应 settings 中的配置 id --&gt;</span><br><span class="line">        &lt;name&gt;Nexus Snapshot&lt;/name&gt;</span><br><span class="line">        &lt;url&gt;http://10.0.3.25:8081/repository/maven-snapshots/&lt;/url&gt;</span><br><span class="line">    &lt;/snapshotRepository&gt;</span><br><span class="line">&lt;/distributionManagement&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="打包上传"><a href="#打包上传" class="headerlink" title="打包上传"></a>打包上传</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean --&gt; mvn package -Dmaven.test.skip=true --&gt; mvn deploy</span><br></pre></td></tr></table></figure>
+
+<h2 id="Gradle-配置（groovy）"><a href="#Gradle-配置（groovy）" class="headerlink" title="Gradle 配置（groovy）"></a>Gradle 配置（groovy）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">     id &#x27;java&#x27;</span><br><span class="line">     id &#x27;groovy&#x27;</span><br><span class="line">     id &#x27;maven-publish&#x27;</span><br><span class="line"> &#125;</span><br><span class="line">publishing &#123;</span><br><span class="line">     publications &#123;</span><br><span class="line">         maven(MavenPublication) &#123;</span><br><span class="line">             groupId = &#x27;org.example2&#x27;</span><br><span class="line">             artifactId = &#x27;library&#x27;</span><br><span class="line">             version = &#x27;1.0&#x27;</span><br><span class="line">             //如果是war包填写components.web，如果是jar包填写components.java</span><br><span class="line">             from components.java</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     repositories &#123;</span><br><span class="line">         maven &#123;</span><br><span class="line">             allowInsecureProtocol true</span><br><span class="line">             //指定要上传的maven私服仓库</span><br><span class="line">             url = &quot;http://10.0.3.25:8081/repository/maven-releases/&quot;</span><br><span class="line">             //认证用户和密码</span><br><span class="line">             credentials &#123;</span><br><span class="line">                 username = &quot;admin&quot;</span><br><span class="line">                 password = &quot;Nexus!1a2s3d&quot;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Gradle-配置（kotlin）"><a href="#Gradle-配置（kotlin）" class="headerlink" title="Gradle 配置（kotlin）"></a>Gradle 配置（kotlin）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">     id(&quot;java&quot;)</span><br><span class="line">     id(&quot;maven-publish&quot;)</span><br><span class="line"> &#125;</span><br><span class="line">publishing &#123;</span><br><span class="line">     publications &#123;</span><br><span class="line">         create(&quot;maven&quot;) &#123;</span><br><span class="line">             groupId = &quot;org.example3&quot;</span><br><span class="line">             artifactId = &quot;library&quot;</span><br><span class="line">             version = &quot;1.0&quot;</span><br><span class="line">             from(components[&quot;java&quot;])</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     repositories &#123;</span><br><span class="line">         maven &#123;</span><br><span class="line">             //指定要上传的maven私服仓库</span><br><span class="line">             isAllowInsecureProtocol = true</span><br><span class="line">             setUrl(&quot;http://10.0.3.25:8081/repository/maven-releases/&quot;)</span><br><span class="line">             //认证用户和密码</span><br><span class="line">             credentials &#123;</span><br><span class="line">                 username = &quot;admin&quot;</span><br><span class="line">                 password = &quot;Nexus!1a2s3d&quot;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="打包上传-1"><a href="#打包上传-1" class="headerlink" title="打包上传"></a>打包上传</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle clean --&gt; gradle build --refresh-dependencies --&gt; gradle publish</span><br></pre></td></tr></table></figure>
+
+<h1 id="更新-jar-包"><a href="#更新-jar-包" class="headerlink" title="更新 jar 包"></a>更新 jar 包</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 从容器中导出jar包</span><br><span class="line">docker cp [容器id]:/yyy/xxx.jar  [本地地址]</span><br><span class="line"></span><br><span class="line"># 查看文件位置</span><br><span class="line">jar tvf xxx.jar | grep application.yml</span><br><span class="line"></span><br><span class="line"># 解压</span><br><span class="line">jar xvf xxx.jar</span><br><span class="line"></span><br><span class="line"># 修改</span><br><span class="line">vim BOOT-INF/classes/application.yml</span><br><span class="line"></span><br><span class="line"># 添加文件到jar包中</span><br><span class="line">jar uf xxx.jar BOOT-INF/classes/application.yml</span><br><span class="line"></span><br><span class="line"># 替换容器中的xxx.jar文件</span><br><span class="line">docker cp [本地地址] [容器id]:/yyy/xxx.jar</span><br><span class="line"></span><br><span class="line"># 镜像固化</span><br><span class="line">docker commit -a=&quot;h3c&quot; -m=&quot;index customized&quot; [容器id] [镜像名]:[Tag]</span><br></pre></td></tr></table></figure>
+
+<h1 id="MANIFEST-MF"><a href="#MANIFEST-MF" class="headerlink" title="MANIFEST.MF"></a>MANIFEST.MF</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Manifest-Version: 1.0</span><br><span class="line">Spring-Boot-Classpath-Index: BOOT-INF/classpath.idx</span><br><span class="line">Implementation-Title: elastic</span><br><span class="line">Implementation-Version: 0.0.1-SNAPSHOT</span><br><span class="line">Spring-Boot-Layers-Index: BOOT-INF/layers.idx</span><br><span class="line">Start-Class: com.murray.elastic.ElasticApplication</span><br><span class="line">Spring-Boot-Classes: BOOT-INF/classes/</span><br><span class="line">Spring-Boot-Lib: BOOT-INF/lib/</span><br><span class="line">Build-Jdk-Spec: 1.8</span><br><span class="line">Spring-Boot-Version: 2.4.5</span><br><span class="line">Created-By: Maven Jar Plugin 3.2.0</span><br><span class="line">Main-Class: org.springframework.boot.loader.JarLauncher</span><br></pre></td></tr></table></figure>
+
+<h1 id="ThreadPoolExecutor-类"><a href="#ThreadPoolExecutor-类" class="headerlink" title="ThreadPoolExecutor 类"></a>ThreadPoolExecutor 类</h1><h2 id="一、ThreadPoolExecutor-类讲解"><a href="#一、ThreadPoolExecutor-类讲解" class="headerlink" title="一、ThreadPoolExecutor 类讲解"></a>一、ThreadPoolExecutor 类讲解</h2><h3 id="1、线程池状态"><a href="#1、线程池状态" class="headerlink" title="1、线程池状态"></a>1、线程池状态</h3><p>线程池的五种状态：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RUNNING：    允许提交并处理任务</span><br><span class="line">SHUTDOWN：   不允许提交新的任务，但是会处理完已提交的任务</span><br><span class="line">STOP：       不允许提交新的任务，也不会处理阻塞队列中未执行的任务，并设置正在执行的线程的中断标志位</span><br><span class="line">TIDYING：    所有任务执行完毕，池中工作的线程数为0，等待执行terminated()勾子方法</span><br><span class="line">TERMINATED： terminated()勾子方法执行完毕</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>线程池的 shutdown() 方法，将线程池由 RUNNING（运行状态）转换为 SHUTDOWN 状态</li>
+<li>线程池的 shutdownNow()方法，将线程池由 RUNNING 或 SHUTDOWN 状态转换为 STOP 状态。<br>注：SHUTDOWN 状态 和 STOP 状态 先会转变为 TIDYING 状态，最终都会变为 TERMINATED</li>
+</ul>
+<h3 id="2、ThreadPoolExecutor-构造函数"><a href="#2、ThreadPoolExecutor-构造函数" class="headerlink" title="2、ThreadPoolExecutor 构造函数"></a>2、ThreadPoolExecutor 构造函数</h3><p>ThreadPoolExecutor 继承自 AbstractExecutorService，而 AbstractExecutorService 实现了 ExecutorService 接口。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public ThreadPoolExecutor(</span><br><span class="line">  int corePoolSize,</span><br><span class="line">  int maximumPoolSize,</span><br><span class="line">  long keepAliveTime,</span><br><span class="line">  TimeUnit unit,</span><br><span class="line">  BlockingQueue&lt;Runnable&gt; workQueue,</span><br><span class="line">  ThreadFactory threadFactory,</span><br><span class="line">  RejectedExecutionHandler handler)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1）线程池工作原理："><a href="#2-1）线程池工作原理：" class="headerlink" title="2.1）线程池工作原理："></a>2.1）线程池工作原理：</h4><pre><code>corePoolSize ：线程池中核心线程数的最大值
+
+maximumPoolSize ：线程池中能拥有最多线程数
+
+workQueue：用于缓存任务的阻塞队列
+</code></pre>
+<p>当调用线程池 execute() 方法添加一个任务时，线程池会做如下判断：</p>
+<pre><code>如果有空闲线程，则直接执行该任务；
+
+如果没有空闲线程，且当前运行的线程数少于corePoolSize，则创建新的线程执行该任务；
+
+如果没有空闲线程，且当前的线程数等于corePoolSize，同时阻塞队列未满，则将任务入队列，而不添加新的线程；
+
+如果没有空闲线程，且阻塞队列已满，同时池中的线程数小于maximumPoolSize ，则创建新的线程执行任务；
+
+如果没有空闲线程，且阻塞队列已满，同时池中的线程数等于maximumPoolSize ，则根据构造函数中的 handler 指定的策略来拒绝新的任务。
+</code></pre>
+<h4 id="2-2）KeepAliveTime："><a href="#2-2）KeepAliveTime：" class="headerlink" title="2.2）KeepAliveTime："></a>2.2）KeepAliveTime：</h4><pre><code>keepAliveTime ：表示空闲线程的存活时间
+
+TimeUnit unit ：表示keepAliveTime的单位
+</code></pre>
+<p>当一个线程无事可做，超过一定的时间（keepAliveTime）时，线程池会判断，如果当前运行的线程数大于 corePoolSize，那么这个线程就被停掉。所以线程池的所有任务完成后，它最终会收缩到 corePoolSize 的大小。</p>
+<p>注：如果线程池设置了 allowCoreThreadTimeout 参数为 true（默认 false），那么当空闲线程超过 keepaliveTime 后直接停掉。（不会判断线程数是否大于 corePoolSize）即：最终线程数会变为 0。</p>
+<h4 id="2-3）workQueue-任务队列："><a href="#2-3）workQueue-任务队列：" class="headerlink" title="2.3）workQueue 任务队列："></a>2.3）workQueue 任务队列：</h4><pre><code>workQueue ：它决定了缓存任务的排队策略
+</code></pre>
+<p>ThreadPoolExecutor 线程池推荐了三种等待队列，它们是：SynchronousQueue 、LinkedBlockingQueue 和 ArrayBlockingQueue。</p>
+<h4 id="1）有界队列："><a href="#1）有界队列：" class="headerlink" title="1）有界队列："></a>1）有界队列：</h4><pre><code>SynchronousQueue ：一个不存储元素的阻塞队列，每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于 阻塞状态，吞吐量通常要高于LinkedBlockingQueue，静态工厂方法 Executors.newCachedThreadPool 使用了这个队列。
+
+ArrayBlockingQueue：一个由数组支持的有界阻塞队列。此队列按 FIFO（先进先出）原则对元素进行排序。一旦创建了这样的缓存区，就不能再增加其容量。试图向已满队列中放入元素会导致操作受阻塞；试图从空队列中提取元素将导致类似阻塞。
+</code></pre>
+<h4 id="2）无界队列："><a href="#2）无界队列：" class="headerlink" title="2）无界队列："></a>2）无界队列：</h4><pre><code>LinkedBlockingQueue：基于链表结构的无界阻塞队列，它可以指定容量也可以不指定容量（实际上任何无限容量的队列/栈都是有容量的，这个容量就是Integer.MAX_VALUE）
+
+PriorityBlockingQueue：是一个按照优先级进行内部元素排序的无界阻塞队列。队列中的元素必须实现 Comparable 接口，这样才能通过实现compareTo()方法进行排序。优先级最高的元素将始终排在队列的头部；PriorityBlockingQueue 不会保证优先级一样的元素的排序。
+</code></pre>
+<p>注意：keepAliveTime 和 maximumPoolSize 及 BlockingQueue 的类型均有关系。如果 BlockingQueue 是无界的，那么永远不会触发 maximumPoolSize，自然 keepAliveTime 也就没有了意义。</p>
+<h4 id="2-4）threadFactory："><a href="#2-4）threadFactory：" class="headerlink" title="2.4）threadFactory："></a>2.4）threadFactory：</h4><pre><code>threadFactory ：指定创建线程的工厂。（可以不指定）
+</code></pre>
+<p>如果不指定线程工厂时，ThreadPoolExecutor 会使用 ThreadPoolExecutor.defaultThreadFactory 创建线程。默认工厂创建的线程：同属于相同的线程组，具有同为 Thread.NORM_PRIORITY 的优先级，以及名为 “pool-XXX-thread-” 的线程名（XXX 为创建线程时顺序序号），且创建的线程都是非守护进程。</p>
+<h4 id="2-5）handler-拒绝策略："><a href="#2-5）handler-拒绝策略：" class="headerlink" title="2.5）handler 拒绝策略："></a>2.5）handler 拒绝策略：</h4><pre><code>handler ：表示当 workQueue 已满，且池中的线程数达到 maximumPoolSize 时，线程池拒绝添加新任务时采取的策略。（可以不指定）
+</code></pre>
+<p>策略说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ThreadPoolExecutor.AbortPolicy()：         抛出RejectedExecutionException异常。默认策略</span><br><span class="line">ThreadPoolExecutor.CallerRunsPolicy()：    由向线程池提交任务的线程来执行该任务</span><br><span class="line">ThreadPoolExecutor.DiscardPolicy()：       抛弃当前的任务</span><br><span class="line">ThreadPoolExecutor.DiscardOldestPolicy()： 抛弃最旧的任务（最先提交而没有得到执行的任务）</span><br></pre></td></tr></table></figure>
+
+<p>最科学的的还是 AbortPolicy 提供的处理方式：抛出异常，由开发人员进行处理。</p>
+<h3 id="3、常用方法："><a href="#3、常用方法：" class="headerlink" title="3、常用方法："></a>3、常用方法：</h3><p>除了在创建线程池时指定上述参数的值外，还可在线程池创建以后通过如下方法进行设置。此外，还有一些方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">getCorePoolSize()：返回线程池的核心线程数，这个值是一直不变的，返回在构造函数中设置的coreSize大小；</span><br><span class="line">getMaximumPoolSize()：返回线程池的最大线程数，这个值是一直不变的，返回在构造函数中设置的coreSize大小；</span><br><span class="line">getLargestPoolSize()：记录了曾经出现的最大线程个数（水位线）；</span><br><span class="line">getPoolSize()：线程池中当前线程的数量；</span><br><span class="line">getActiveCount()：Returns the approximate（近似） number of threads that are actively executing tasks；</span><br><span class="line">prestartAllCoreThreads()：会启动所有核心线程，无论是否有待执行的任务，线程池都会创建新的线程，直到池中线程数量达到 corePoolSize；</span><br><span class="line">prestartCoreThread()：会启动一个核心线程（同上）；</span><br><span class="line">allowCoreThreadTimeOut(true)：允许核心线程在KeepAliveTime时间后，退出；</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、Executors-类："><a href="#4、Executors-类：" class="headerlink" title="4、Executors 类："></a>4、Executors 类：</h3><p>Executors 类的底层实现便是 ThreadPoolExecutor！ Executors 工厂方法有：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Executors.newCachedThreadPool()：无界线程池，可以进行自动线程回收</span><br><span class="line">Executors.newFixedThreadPool(int)：固定大小线程池</span><br><span class="line">Executors.newSingleThreadExecutor()：单个后台线程</span><br></pre></td></tr></table></figure>
+
+<p>它们均为大多数使用场景预定义了设置。不过在阿里 java 文档中说明，尽量不要用该类创建线程池。</p>
+<h2 id="二、线程池相关接口介绍："><a href="#二、线程池相关接口介绍：" class="headerlink" title="二、线程池相关接口介绍："></a>二、线程池相关接口介绍：</h2><h3 id="1、ExecutorService-接口："><a href="#1、ExecutorService-接口：" class="headerlink" title="1、ExecutorService 接口："></a>1、ExecutorService 接口：</h3><p>该接口是真正的线程池接口。上面的 ThreadPoolExecutor 以及下面的 ScheduledThreadPoolExecutor 都是该接口的实现类。改接口常用方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Future&lt;?&gt; submit(Runnable task)：提交Runnable任务到线程池，返回Future对象，由于Runnable没有返回值，也就是说调用Future对象get()方法返回null；</span><br><span class="line">&lt;T&gt; Future&lt;T&gt; submit(Callable&lt;T&gt; task)：提交Callable任务到线程池，返回Future对象，调用Future对象get()方法可以获取Callable的返回值；</span><br><span class="line">&lt;T&gt; Future&lt;T&gt; submit(Runnable task，T result)：提交Runnable任务到线程池，返回Future对象，调用Future对象get()方法可以获取Runnable的参数值；</span><br><span class="line">invokeAll(collection of tasks)/invokeAll(collection of tasks, long timeout, TimeUnit unit)：invokeAll会按照任务集合中的顺序将所有的Future添加到返回的集合中，该方法是一个阻塞的方法。只有当所有的任务都执行完毕时，或者调用线程被中断，又或者超出指定时限时，invokeAll方法才会返回。当invokeAll返回之后每个任务要么返回，要么取消，此时客户端可以调用get/isCancelled来判断具体是什么情况。</span><br><span class="line">invokeAny(collection of tasks)/invokeAny(collection of tasks, long timeout, TimeUnit unit)：阻塞的方法，不会返回 Future 对象，而是返回集合中某一个Callable 对象的结果，而且无法保证调用之后返回的结果是哪一个 Callable，如果一个任务运行完毕或者抛出异常，方法会取消其它的 Callable 的执行。和invokeAll区别是只要有一个任务执行完了，就把结果返回，并取消其他未执行完的任务；同样，也带有超时功能；</span><br><span class="line">shutdown()：在完成已提交的任务后关闭服务，不再接受新任；</span><br><span class="line">shutdownNow()：停止所有正在执行的任务并关闭服务；</span><br><span class="line">isTerminated()：测试是否所有任务都执行完毕了；</span><br><span class="line">isShutdown()：测试是否该ExecutorService已被关闭。</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1）submit-方法示例："><a href="#1-1）submit-方法示例：" class="headerlink" title="1.1）submit 方法示例："></a>1.1）submit 方法示例：</h4><p>我们知道，线程池接口中有以下三个主要方法，接下来我们看一下具体示例：</p>
+<h4 id="1）Callable："><a href="#1）Callable：" class="headerlink" title="1）Callable："></a>1）Callable：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public static ThreadPoolExecutor threadPool = new ThreadPoolExecutor(5, 50, 300, TimeUnit.SECONDS,</span><br><span class="line">            new ArrayBlockingQueue&lt;Runnable&gt;(50),</span><br><span class="line">            new ThreadFactory()&#123; public Thread newThread(Runnable r) &#123;</span><br><span class="line">                return new Thread(r, &quot;schema_task_pool_&quot; + r.hashCode());</span><br><span class="line">            &#125;&#125;, new ThreadPoolExecutor.DiscardOldestPolicy());</span><br><span class="line"></span><br><span class="line">public static void callableTest() &#123;</span><br><span class="line">    int a = 1;</span><br><span class="line">    //callable</span><br><span class="line">    Future&lt;Boolean&gt; future = threadPool.submit(new Callable&lt;Boolean&gt;()&#123;</span><br><span class="line">        @Override</span><br><span class="line">        public Boolean call() throws Exception &#123;</span><br><span class="line">            int b = a + 100;</span><br><span class="line">            System.out.println(b);</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    try &#123;</span><br><span class="line">        System.out.println(&quot;feature.get&quot;);</span><br><span class="line">        Boolean boolean1 = future.get();</span><br><span class="line">        System.out.println(boolean1);</span><br><span class="line">    &#125; catch (InterruptedException e) &#123;</span><br><span class="line">        System.out.println(&quot;InterruptedException...&quot;);</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; catch (ExecutionException e) &#123;</span><br><span class="line">        System.out.println(&quot;execute exception...&quot;);</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2）Runnable："><a href="#2）Runnable：" class="headerlink" title="2）Runnable："></a>2）Runnable：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public static void runnableTest() &#123;</span><br><span class="line">    int a = 1;</span><br><span class="line">    //runnable</span><br><span class="line">    Future&lt;?&gt; future1 = threadPool.submit(new Runnable()&#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            int b = a + 100;</span><br><span class="line">            System.out.println(b);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    try &#123;</span><br><span class="line">        System.out.println(&quot;feature.get&quot;);</span><br><span class="line">        Object x = future1.get(900,TimeUnit.MILLISECONDS);</span><br><span class="line">        System.out.println(x);//null</span><br><span class="line">    &#125; catch (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; catch (ExecutionException e) &#123;</span><br><span class="line">        System.out.println(&quot;execute exception...&quot;);</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; catch (TimeoutException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3）Runnable-result："><a href="#3）Runnable-result：" class="headerlink" title="3）Runnable+result："></a>3）Runnable+result：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class RunnableTask implements Runnable &#123;</span><br><span class="line">    Person p;</span><br><span class="line">    RunnableTask(Person p) &#123;</span><br><span class="line">        this.p = p;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        p.setId(1);</span><br><span class="line">        p.setName(&quot;Runnable Task...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Person &#123;</span><br><span class="line">    private Integer id;</span><br><span class="line">    private String name;</span><br><span class="line"></span><br><span class="line">    public Person(Integer id, String name) &#123;</span><br><span class="line">        super();</span><br><span class="line">        this.id = id;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    public Integer getId() &#123;</span><br><span class="line">        return id;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setId(Integer id) &#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;Person [id=&quot; + id + &quot;, name=&quot; + name + &quot;]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void runnableTest2() &#123;</span><br><span class="line">    //runnable + result</span><br><span class="line">    Person p = new Person(0,&quot;person&quot;);</span><br><span class="line">    Future&lt;Person&gt; future2 = threadPool.submit(new RunnableTask(p),p);</span><br><span class="line">    try &#123;</span><br><span class="line">        System.out.println(&quot;feature.get&quot;);</span><br><span class="line">        Person person = future2.get();</span><br><span class="line">        System.out.println(person);</span><br><span class="line">    &#125; catch (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; catch (ExecutionException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2）线程池执行时，Callable-的-call-方法（Runnable-的-run-方法）抛出异常后，会出现什么？"><a href="#1-2）线程池执行时，Callable-的-call-方法（Runnable-的-run-方法）抛出异常后，会出现什么？" class="headerlink" title="1.2）线程池执行时，Callable 的 call 方法（Runnable 的 run 方法）抛出异常后，会出现什么？"></a>1.2）线程池执行时，Callable 的 call 方法（Runnable 的 run 方法）抛出异常后，会出现什么？</h4><p>在上面的例子中我们可以看到，线程池无论是执行 Callable 还是 Runnable，调用返回的 Future 对象 get()方法时需要处理两种异常（如果是调用 get(timeout)方法，需要处理三种异常），如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//在线程池上运行</span><br><span class="line">Future&lt;Object&gt; future = threadPool.submit(callable);</span><br><span class="line">try &#123;</span><br><span class="line">    System.out.println(&quot;feature.get&quot;);</span><br><span class="line">    Object x = future.get(900,TimeUnit.MILLISECONDS);</span><br><span class="line">    System.out.println(x);</span><br><span class="line">&#125; catch (InterruptedException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125; catch (ExecutionException e) &#123;</span><br><span class="line">    System.out.println(&quot;execute exception...&quot;);</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125; catch (TimeoutException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果get方法被打断，进入InterruptedException异常；</span><br><span class="line">如果线程执行过程（call、run方法）中抛出异常，进入ExecutionException异常；</span><br><span class="line">如果get方法超时，进入TimeoutException异常；</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3）submit-和-execute-方法区别："><a href="#1-3）submit-和-execute-方法区别：" class="headerlink" title="1.3）submit()和 execute()方法区别："></a>1.3）submit()和 execute()方法区别：</h4><p>ExecutorService、ScheduledExecutorService 接口的 submit()和 execute()方法都是把任务提交到线程池中，但二者的区别是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">接收的参数不一样，execute只能接收Runnable类型、submit可以接收Runnable和Callable两种类型；</span><br><span class="line">submit有返回值，而execute没有返回值；submit方便Exception处理；</span><br></pre></td></tr></table></figure>
+
+<h4 id="1）submit-方法内部实现："><a href="#1）submit-方法内部实现：" class="headerlink" title="1）submit 方法内部实现："></a>1）submit 方法内部实现：</h4><p>其实 submit 方法也没有什么神秘的，就是将我们的任务封装成了 RunnableFuture 接口（继承了 Runnable、Future 接口），再调用 execute 方法，我们看源码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public Future&lt;?&gt; submit(Runnable task) &#123;</span><br><span class="line">    if (task == null) throw new NullPointerException();</span><br><span class="line">    RunnableFuture&lt;Void&gt; ftask = newTaskFor(task, null);  //转成 RunnableFuture，传的result是null</span><br><span class="line">    execute(ftask);</span><br><span class="line">    return ftask;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public &lt;T&gt; Future&lt;T&gt; submit(Runnable task, T result) &#123;</span><br><span class="line">    if (task == null) throw new NullPointerException();</span><br><span class="line">    RunnableFuture&lt;T&gt; ftask = newTaskFor(task, result);</span><br><span class="line">    execute(ftask);</span><br><span class="line">    return ftask;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public &lt;T&gt; Future&lt;T&gt; submit(Callable&lt;T&gt; task) &#123;</span><br><span class="line">    if (task == null) throw new NullPointerException();</span><br><span class="line">    RunnableFuture&lt;T&gt; ftask = newTaskFor(task);</span><br><span class="line">    execute(ftask);</span><br><span class="line">    return ftask;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2）newTaskFor-方法内部实现："><a href="#2）newTaskFor-方法内部实现：" class="headerlink" title="2）newTaskFor 方法内部实现："></a>2）newTaskFor 方法内部实现：</h4><p>newTaskFor 方法是 new 了一个 FutureTask 返回，所以三个方法其实都是把 task 转成 FutureTask，如果 task 是 Callable，就直接赋值，如果是 Runnable 就转为 Callable 再赋值。</p>
+<p>当 submit 参数是 Callable 时：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">protected &lt;T&gt; RunnableFuture&lt;T&gt; newTaskFor(Callable&lt;T&gt; callable) &#123;</span><br><span class="line">    return new FutureTask&lt;T&gt;(callable);</span><br><span class="line">&#125;</span><br><span class="line">public FutureTask(Callable&lt;V&gt; callable) &#123;</span><br><span class="line">    if (callable == null)</span><br><span class="line">        throw new NullPointerException();</span><br><span class="line">    this.callable = callable;</span><br><span class="line">    this.state = NEW;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>当 submit 参数是 Runnable 时：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// 按顺序看，层层调用</span><br><span class="line">protected &lt;T&gt; RunnableFuture&lt;T&gt; newTaskFor(Runnable runnable, T value) &#123;</span><br><span class="line">    return new FutureTask&lt;T&gt;(runnable, value);</span><br><span class="line">&#125;</span><br><span class="line">public FutureTask(Runnable runnable, V result) &#123;</span><br><span class="line">    this.callable = Executors.callable(runnable, result);  //转 runnable 为 callable</span><br><span class="line">    this.state = NEW;</span><br><span class="line">&#125;</span><br><span class="line">// 以下为Executors中的方法</span><br><span class="line">public static &lt;T&gt; Callable&lt;T&gt; callable(Runnable task, T result) &#123;</span><br><span class="line">    if (task == null)</span><br><span class="line">        throw new NullPointerException();</span><br><span class="line">    return new RunnableAdapter&lt;T&gt;(task, result);</span><br><span class="line">&#125;</span><br><span class="line">static final class RunnableAdapter&lt;T&gt; implements Callable&lt;T&gt; &#123;  //适配器</span><br><span class="line">    final Runnable task;</span><br><span class="line">    final T result;</span><br><span class="line">    RunnableAdapter(Runnable task, T result) &#123;</span><br><span class="line">        this.task = task;</span><br><span class="line">        this.result = result;</span><br><span class="line">    &#125;</span><br><span class="line">    public T call() &#123;</span><br><span class="line">        task.run();</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>看了源码就揭开了神秘面纱了，就是因为 Future 需要返回结果，所以内部 task 必须是 Callable，如果 task 是 Runnable 就偷天换日，在 Runnable 外面包个 Callable 马甲，返回的结果在构造时就写好。</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/liuxiao723846/article/details/108024212">https://blog.csdn.net/liuxiao723846/article/details/108024212</a></p>
+<h4 id="1-4）ScheduledExecutorService-接口："><a href="#1-4）ScheduledExecutorService-接口：" class="headerlink" title="1.4）ScheduledExecutorService 接口："></a>1.4）ScheduledExecutorService 接口：</h4><p>继承 ExecutorService，并且提供了按时间安排执行任务的功能，它提供的方法主要有：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">schedule(task, initDelay): 安排所提交的Callable或Runnable任务在initDelay指定的时间后执行；</span><br><span class="line">scheduleAtFixedRate()：安排所提交的Runnable任务按指定的间隔重复执行；</span><br><span class="line">scheduleWithFixedDelay()：安排所提交的Runnable任务在每次执行完后，等待delay所指定的时间后重复执行；</span><br></pre></td></tr></table></figure>
+
+<p>注：该接口的实现类是 ScheduledThreadPoolExecutor。</p>
+<h3 id="2、Callable-接口："><a href="#2、Callable-接口：" class="headerlink" title="2、Callable 接口："></a>2、Callable 接口：</h3><p>jdk1.5 以后创建线程可以通过一下方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">继承Thread类，实现void run()方法；</span><br><span class="line">实现Runnable接口，实现void run()方法；</span><br><span class="line">实现Callable接口，实现V call() Throws Exception方法</span><br></pre></td></tr></table></figure>
+
+<h4 id="1）Callable-和-Runnale-接口区别："><a href="#1）Callable-和-Runnale-接口区别：" class="headerlink" title="1）Callable 和 Runnale 接口区别："></a>1）Callable 和 Runnale 接口区别：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Callable可以抛出异常，和Future、FutureTask配合可以用来获取异步执行的结果；</span><br><span class="line">Runnable没有返回结果，异常只能内部消化；</span><br></pre></td></tr></table></figure>
+
+<h4 id="2）执行-Callable-的线程的方法可以通过以下两种方式："><a href="#2）执行-Callable-的线程的方法可以通过以下两种方式：" class="headerlink" title="2）执行 Callable 的线程的方法可以通过以下两种方式："></a>2）执行 Callable 的线程的方法可以通过以下两种方式：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">借助FutureTask，使用Thread的start方法来执行；</span><br><span class="line">加入到线程池中，使用线程池的execute或submit执行；</span><br></pre></td></tr></table></figure>
+
+<p>注：Callable 无法直接使用 Thread 来执行；<br>我们都知道，Callable 带有返回值的，如果我们不需要返回值，却又想用 Callable 该如何做？</p>
+<p>jdk 中有个 Void 类型（大写 V），但必须也要 return null。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">threadpool.submit(new Callable&lt;Void&gt;() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public Void call() &#123;</span><br><span class="line">        //...</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="3）通过-Executors-工具类可以把-Runnable-接口转换成-Callable-接口："><a href="#3）通过-Executors-工具类可以把-Runnable-接口转换成-Callable-接口：" class="headerlink" title="3）通过 Executors 工具类可以把 Runnable 接口转换成 Callable 接口："></a>3）通过 Executors 工具类可以把 Runnable 接口转换成 Callable 接口：</h4><p>Executors 中的 callable 方法可以将 Runnable 转成 Callable，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static &lt;T&gt; Callable&lt;T&gt; callable(Runnable task, T result) &#123;</span><br><span class="line">    if (task == null)</span><br><span class="line">        throw new NullPointerException();</span><br><span class="line">    return new RunnableAdapter&lt;T&gt;(task, result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>RunnableAdapter 类在上面已经看过源码，原理就是将返回值 result 作为成员变量，通过参数传递进去，进而实现了 Runnable 可以返回值。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public static void test5() &#123;</span><br><span class="line">  Person p = new Person(0,&quot;person&quot;);</span><br><span class="line">  RunnableTask runnableTask = new RunnableTask(p);//创建runnable</span><br><span class="line">  Callable&lt;Person&gt; callable = Executors.callable(runnableTask,p);//转换</span><br><span class="line">  Future&lt;Person&gt; future1 = threadPool.submit(callable);//在线程池上执行Callable</span><br><span class="line">  try &#123;</span><br><span class="line">      Person person = future1.get();</span><br><span class="line">      System.out.println(person);</span><br><span class="line">  &#125; catch (InterruptedException | ExecutionException e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Runnable runnable = new Runnable() &#123;//创建Runnable</span><br><span class="line">      @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    Callable&lt;Object&gt; callable2 = Executors.callable(runnable);//转换</span><br><span class="line">    Future&lt;Object&gt; future2 = threadPool.submit(callable2);//在线程池上执行Callable</span><br><span class="line">    try &#123;</span><br><span class="line">        Object o = future2.get();</span><br><span class="line">        System.out.println(o);</span><br><span class="line">    &#125; catch (InterruptedException | ExecutionException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、Future-接口："><a href="#3、Future-接口：" class="headerlink" title="3、Future 接口："></a>3、Future 接口：</h3><h4 id="3-1）Future-是用来获取异步计算结果的接口，常用方法："><a href="#3-1）Future-是用来获取异步计算结果的接口，常用方法：" class="headerlink" title="3.1）Future 是用来获取异步计算结果的接口，常用方法："></a>3.1）Future 是用来获取异步计算结果的接口，常用方法：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">boolean cancel(boolean mayInterruptIfRunning)：试图取消对此任务的执行。如果任务已完成、或已取消，或者由于某些其他原因而无法取消，则此尝试将失败。当调用 cancel 时，如果调用成功，而此任务尚未启动，则此任务将永不运行。如果任务已经启动，则 mayInterruptIfRunning 参数确定是否应该以试图停止任务的方式来中断执行此任务的线程。此方法返回后，对 isDone() 的后续调用将始终返回 true。如果此方法返回 true，则对 isCancelled() 的后续调用将始终返回 true。</span><br><span class="line">boolean isCancelled()：如果在任务正常完成前将其取消，则返回 true。</span><br><span class="line">boolean isDone()：如果任务已完成，则返回 true，可能由于正常终止、异常或取消而完成，在所有这些情况中，此方法都将返回 true。</span><br><span class="line">V get()throws InterruptedException,ExecutionException：获取异步结果，此方法会一直阻塞等到计算完成；</span><br><span class="line">V get(long timeout,TimeUnit unit) throws InterruptedException,ExecutionException,TimeoutException：获取异步结果，此方法会在指定时间内一直阻塞等到计算完成，超时后会抛出超时异常。</span><br></pre></td></tr></table></figure>
+
+<p>通过方法分析我们也知道实际上 Future 提供了 3 种功能：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">能够中断执行中的任务；</span><br><span class="line">判断任务是否执行完成；</span><br><span class="line">获取任务执行完成后额结果。</span><br></pre></td></tr></table></figure>
+
+<p>但是 Future 只是一个接口，我们无法直接创建对象，因此就需要其实现类 FutureTask 登场啦。</p>
+<h4 id="3-2）FutureTask-类："><a href="#3-2）FutureTask-类：" class="headerlink" title="3.2）FutureTask 类："></a>3.2）FutureTask 类：</h4><p>1）FutureTask 类的实现：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class FutureTask&lt;V&gt; implements RunnableFuture&lt;V&gt; &#123;</span><br><span class="line">//...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public interface RunnableFuture&lt;V&gt; extends Runnable, Future&lt;V&gt; &#123;</span><br><span class="line">    /**</span><br><span class="line">     * Sets this Future to the result of its computation</span><br><span class="line">     * unless it has been cancelled.</span><br><span class="line">     */</span><br><span class="line">    void run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>FutureTask 实现了 Runnable、Future 两个接口。由于 FutureTask 实现了 Runnable，因此它既可以通过 Thread 包装来直接执行，也可以提交给 ExecuteService 来执行。并且还可以直接通过 get()函数获取执行结果，该函数会阻塞，直到结果返回。因此 FutureTask 既是 Future、Runnable，又是包装了 Callable( 如果是 Runnable 最终也会被转换为 Callable )， 它是这两者的合体。</p>
+<p>2）FutureTask 的构造函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public FutureTask(Callable&lt;V&gt; callable) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public FutureTask(Runnable runnable, V result) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3）示例：（FutureTask-两种构造函数、以及在-Thread-和线程池上运行）"><a href="#3-3）示例：（FutureTask-两种构造函数、以及在-Thread-和线程池上运行）" class="headerlink" title="3.3）示例：（FutureTask 两种构造函数、以及在 Thread 和线程池上运行）"></a>3.3）示例：（FutureTask 两种构造函数、以及在 Thread 和线程池上运行）</h4><p>1）FutureTask 包装过的 Callable 在 Thread、线程池上执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public static void test3() &#123;</span><br><span class="line">    int a = 1,b = 2;</span><br><span class="line">    Callable&lt;Integer&gt; callable = new Callable&lt;Integer&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public Integer call() throws Exception &#123;</span><br><span class="line">            return a + b;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    //通过futureTask来执行Callable</span><br><span class="line">    FutureTask&lt;Integer&gt; futureTask = new FutureTask&lt;&gt;(callable);</span><br><span class="line"></span><br><span class="line">    //1.使用Thread执行线程</span><br><span class="line">    new Thread(futureTask).start();</span><br><span class="line">    try &#123;</span><br><span class="line">        Integer integer = futureTask.get();</span><br><span class="line">        System.out.println(integer);</span><br><span class="line">    &#125; catch (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; catch (ExecutionException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //2.使用线程池执行线程</span><br><span class="line">    Executors.newFixedThreadPool(1).submit(futureTask);</span><br><span class="line">    threadPool.shutdown();</span><br><span class="line">    try &#123;</span><br><span class="line">        Integer integer = futureTask.get();</span><br><span class="line">        System.out.println(integer);</span><br><span class="line">    &#125; catch (InterruptedException | ExecutionException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2）FutureTask 包装过的 Runnable 在 Thread、线程池上执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public static void test4() &#123;</span><br><span class="line">    Person p = new Person(0,&quot;person&quot;);</span><br><span class="line">    RunnableTask runnableTask = new RunnableTask(p);</span><br><span class="line"></span><br><span class="line">    //创建futureTask来执行Runnable</span><br><span class="line">    FutureTask&lt;Person&gt; futureTask = new FutureTask&lt;&gt;(runnableTask,p);</span><br><span class="line"></span><br><span class="line">    //1.使用Thread执行线程</span><br><span class="line">    new Thread(futureTask).start();</span><br><span class="line">    try &#123;</span><br><span class="line">        Person x = futureTask.get();</span><br><span class="line">        System.out.println(x);</span><br><span class="line">    &#125; catch (InterruptedException | ExecutionException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //2.使用线程池执行线程</span><br><span class="line">    threadPool.submit(futureTask);</span><br><span class="line">    threadPool.shutdown();</span><br><span class="line">    try &#123;</span><br><span class="line">        Person y = futureTask.get();</span><br><span class="line">        System.out.println(y);</span><br><span class="line">    &#125; catch (InterruptedException | ExecutionException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Person、RunnableTask 类同上面的示例中。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Murray</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.rainbowrise.top/2023/11/01/Java%E7%AC%94%E8%AE%B0/">https://www.rainbowrise.top/2023/11/01/Java%E7%AC%94%E8%AE%B0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Murray</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NTE3MC8zMTYzNw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/11/11/kubectl%E9%80%9A%E8%BF%87jsonpath%E6%88%AA%E5%8F%96%E5%B1%9E%E6%80%A7/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="kubectl通过jsonpath截取属性">
+                        
+                        <span class="card-title">kubectl通过jsonpath截取属性</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/K8S/" class="post-category">
+                                    K8S
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/K8S/">
+                        <span class="chip bg-color">K8S</span>
+                    </a>
+                    
+                    <a href="/tags/JSonpath/">
+                        <span class="chip bg-color">JSonpath</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/10/26/sigil%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="sigil笔记">
+                        
+                        <span class="card-title">sigil笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Tool/" class="post-category">
+                                    Tool
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tool/">
+                        <span class="chip bg-color">Tool</span>
+                    </a>
+                    
+                    <a href="/tags/EPUB/">
+                        <span class="chip bg-color">EPUB</span>
+                    </a>
+                    
+                    <a href="/tags/Sigil/">
+                        <span class="chip bg-color">Sigil</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 马瑞个人笔记<br />'
+            + '文章作者: Murray<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2024</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">Murray</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                &nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                &nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            
+            <br><span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "08";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            
+            <br><span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备2021006498号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sunglowrise" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:sunglowrise@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/ma-liang-19-36" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/ma-liang-19-36" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

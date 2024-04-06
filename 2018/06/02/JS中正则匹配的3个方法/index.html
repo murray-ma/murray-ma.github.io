@@ -328,8 +328,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Js/">
-                                <span class="chip bg-color">Js</span>
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
                             </a>
                         
                     </div>
@@ -340,8 +340,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category">
-                                JavaScript
+                            <a href="/categories/JS/" class="post-category">
+                                JS
                             </a>
                         
                     </div>
@@ -379,31 +379,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="JS中正则匹配的3个方法：match-exec-test"><a href="#JS中正则匹配的3个方法：match-exec-test" class="headerlink" title="JS中正则匹配的3个方法：match,exec,test"></a>JS中正则匹配的3个方法：match,exec,test</h3><p>javascript中正则匹配有3个方法，match,exec,test。这些方法都跟字符串和RegExp对象有关，但使用场景不一样，容易混淆。</p>
+                <h3 id="JS-中正则匹配的-3-个方法：match-exec-test"><a href="#JS-中正则匹配的-3-个方法：match-exec-test" class="headerlink" title="JS 中正则匹配的 3 个方法：match,exec,test"></a>JS 中正则匹配的 3 个方法：match,exec,test</h3><p>javascript 中正则匹配有 3 个方法，match,exec,test。这些方法都跟字符串和 RegExp 对象有关，但使用场景不一样，容易混淆。</p>
 <blockquote>
-<p>match是字符串的一个方法，接收一个RegExp对象做为参数，其他的是RegExp对象的方法，接收一个字符串参数。</p>
+<p>match 是字符串的一个方法，接收一个 RegExp 对象做为参数，其他的是 RegExp 对象的方法，接收一个字符串参数。</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  var str = &#x27;abcdef12ab34cd56ef&#x27;;</span><br><span class="line">  var patt = new RegExp(&#x27;ab&#x27;); //注意是非全局匹配</span><br><span class="line">  var ret_test = patt.test(str);</span><br><span class="line">  alert(ret_test);</span><br><span class="line"></span><br><span class="line">  var ret_match = str.match(patt);</span><br><span class="line">  alert(ret_match);</span><br><span class="line"></span><br><span class="line">  var ret_exec = patt.exec(str);</span><br><span class="line">  alert(ret_exec);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
 <ol>
-<li><p>regExp.test(string)<br>该方法最简单，在string中找到匹配regExp的字符串则返回true，没找到匹配的字符串则返回false</p>
+<li><p>regExp.test(string)<br>该方法最简单，在 string 中找到匹配 regExp 的字符串则返回 true，没找到匹配的字符串则返回 false</p>
 </li>
-<li><p>regExp.exec(string)<br>该方法稍微复杂些。当regExp没有全局标志时，其返回值为字符串数组：数组的第0号元素为刚匹配到的字符串，如果regExp有子表达式，则数组第1号元素为regExp的第一个子表达式，第2号元素为regExp的第二个字表达式…以此类推。在上例中如果<br>patt = new RegExp(‘f(\d)(\d)’,’g’);则 ret_exec 将为字符串数组：[‘f12’,’1’,’2’]。<br>在设置g属性后，虽然匹配结果不受g的影响，返回结果仍然是一个数组（第一个值是第一个匹配到的字符串，以后的为分组匹配内容），但是会改变index和lastIndex等的值，将该对象的匹配的开始位置设置到紧接这匹配子串的字符位置，当第二次调用exec时，将从lastIndex所指示的字符位置开始检索。同样match方法在设置了g属性后，也会改变index和lastIndex的值，但是是一次性的。无法像exec那样能逐过程累积，因此无法累积获取下一次检索的位置。</p>
+<li><p>regExp.exec(string)<br>该方法稍微复杂些。当 regExp 没有全局标志时，其返回值为字符串数组：数组的第 0 号元素为刚匹配到的字符串，如果 regExp 有子表达式，则数组第 1 号元素为 regExp 的第一个子表达式，第 2 号元素为 regExp 的第二个字表达式…以此类推。在上例中如果<br>patt = new RegExp(‘f(\d)(\d)’,’g’);则 ret_exec 将为字符串数组：[‘f12’,’1’,’2’]。<br>在设置 g 属性后，虽然匹配结果不受 g 的影响，返回结果仍然是一个数组（第一个值是第一个匹配到的字符串，以后的为分组匹配内容），但是会改变 index 和 lastIndex 等的值，将该对象的匹配的开始位置设置到紧接这匹配子串的字符位置，当第二次调用 exec 时，将从 lastIndex 所指示的字符位置开始检索。同样 match 方法在设置了 g 属性后，也会改变 index 和 lastIndex 的值，但是是一次性的。无法像 exec 那样能逐过程累积，因此无法累积获取下一次检索的位置。</p>
 </li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  var patt = new RegExp(&#x27;ab&#x27;, &#x27;g&#x27;);</span><br><span class="line">  var str = &#x27;abcdef12ab34cd56ef&#x27;;</span><br><span class="line">  var ret;</span><br><span class="line">  while((ret = patt.exec(str))!=null) &#123; </span><br><span class="line">    document.write(ret+&quot;&lt;/br&gt;&quot;);</span><br><span class="line">    document.write(&quot;ret.input=&quot;+ret.input+&quot;&lt;/br&gt;&quot;);</span><br><span class="line">    document.write(&quot;ret.index=&quot;+ret.index+&quot;&lt;/br&gt;&quot;);</span><br><span class="line">    document.write(&quot;RegExp.lastIndex =&quot;+RegExp.lastIndex +&quot;&lt;/br&gt;&quot;);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  var patt = new RegExp(&#x27;ab&#x27;, &#x27;g&#x27;);</span><br><span class="line">  var str = &#x27;abcdef12ab34cd56ef&#x27;;</span><br><span class="line">  var ret;</span><br><span class="line">  while((ret = patt.exec(str))!=null) &#123;</span><br><span class="line">    document.write(ret+&quot;&lt;/br&gt;&quot;);</span><br><span class="line">    document.write(&quot;ret.input=&quot;+ret.input+&quot;&lt;/br&gt;&quot;);</span><br><span class="line">    document.write(&quot;ret.index=&quot;+ret.index+&quot;&lt;/br&gt;&quot;);</span><br><span class="line">    document.write(&quot;RegExp.lastIndex =&quot;+RegExp.lastIndex +&quot;&lt;/br&gt;&quot;);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>运行：<br>ab<br>ret.input=abcdef12ab34cd56ef<br>ret.index=0<br>RegExp.lastIndex =2<br>ab<br>ret.input=abcdef12ab34cd56ef<br>ret.index=8<br>RegExp.lastIndex =10</p>
 </blockquote>
-<h3 id="exec方法返回的不是标准的数组，应该算是一个类数组，因为它还有2个属性：input是输入的字符串，index是当前匹配的字符串第一个字符在input中的位置。"><a href="#exec方法返回的不是标准的数组，应该算是一个类数组，因为它还有2个属性：input是输入的字符串，index是当前匹配的字符串第一个字符在input中的位置。" class="headerlink" title="exec方法返回的不是标准的数组，应该算是一个类数组，因为它还有2个属性：input是输入的字符串，index是当前匹配的字符串第一个字符在input中的位置。"></a>exec方法返回的不是标准的数组，应该算是一个类数组，因为它还有2个属性：input是输入的字符串，index是当前匹配的字符串第一个字符在input中的位置。</h3><ol start="3">
-<li><p>string.match(regExp)</p>
-<p>该方法比exec简单一些，因为它不用考虑regExp的lastIndex属性。同样，也需要分两种情况（全局匹配与非全局匹配）</p>
-<p>当regExp没有全局标志时，返回值与调用exec一样，返回一个数组，数组的第0号元素为刚匹配到的字符串，如果regExp有子表达式，则数组第1号元素为regExp的第一个子表达式，第2号元素为regExp的第二个字表达式…以此类推。主意该数组同时还有2个属性：input是输入的字符串string，index是当前匹配的字符串第一个字符在input中的位置。</p>
-<p>当regExp有全局标志(g选项)时，很简单，也符合我们的理解：返回所有匹配到的字符串组成的数组。这是标准数组，没有input属性，也没有index属性。返回值数组中除了匹配到的字符串没有任何其他信息。</p>
-</li>
+<h3 id="exec-方法返回的不是标准的数组，应该算是一个类数组，因为它还有-2-个属性：input-是输入的字符串，index-是当前匹配的字符串第一个字符在-input-中的位置。"><a href="#exec-方法返回的不是标准的数组，应该算是一个类数组，因为它还有-2-个属性：input-是输入的字符串，index-是当前匹配的字符串第一个字符在-input-中的位置。" class="headerlink" title="exec 方法返回的不是标准的数组，应该算是一个类数组，因为它还有 2 个属性：input 是输入的字符串，index 是当前匹配的字符串第一个字符在 input 中的位置。"></a>exec 方法返回的不是标准的数组，应该算是一个类数组，因为它还有 2 个属性：input 是输入的字符串，index 是当前匹配的字符串第一个字符在 input 中的位置。</h3><ol start="3">
+<li>string.match(regExp)</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  var src = &quot;The rain in Spain falls mainly in the plain.&quot;;</span><br><span class="line">  var re = /\w+/g; //有g属性。 </span><br><span class="line">  var i = 0;</span><br><span class="line">  while (i++&lt;10)&#123;</span><br><span class="line">   arr = src.match(re);</span><br><span class="line">   document.write(RegExp.index + &quot;-&quot; + RegExp.lastIndex + &quot;\t&quot; + arr + &quot;&lt;br/&gt;&quot;);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>该方法比 exec 简单一些，因为它不用考虑 regExp 的 lastIndex 属性。同样，也需要分两种情况（全局匹配与非全局匹配）</p>
+<p>当 regExp 没有全局标志时，返回值与调用 exec 一样，返回一个数组，数组的第 0 号元素为刚匹配到的字符串，如果 regExp 有子表达式，则数组第 1 号元素为 regExp 的第一个子表达式，第 2 号元素为 regExp 的第二个字表达式…以此类推。主意该数组同时还有 2 个属性：input 是输入的字符串 string，index 是当前匹配的字符串第一个字符在 input 中的位置。</p>
+<p>当 regExp 有全局标志(g 选项)时，很简单，也符合我们的理解：返回所有匹配到的字符串组成的数组。这是标准数组，没有 input 属性，也没有 index 属性。返回值数组中除了匹配到的字符串没有任何其他信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  var src = &quot;The rain in Spain falls mainly in the plain.&quot;;</span><br><span class="line">  var re = /\w+/g; //有g属性。</span><br><span class="line">  var i = 0;</span><br><span class="line">  while (i++&lt;10)&#123;</span><br><span class="line">   arr = src.match(re);</span><br><span class="line">   document.write(RegExp.index + &quot;-&quot; + RegExp.lastIndex + &quot;\t&quot; + arr + &quot;&lt;br/&gt;&quot;);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>
@@ -467,8 +467,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Js/">
-                                    <span class="chip bg-color">Js</span>
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
                                 </a>
                             
                         </div>
@@ -689,8 +689,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/JS/" class="post-category">
+                                    JS
                                 </a>
                             
                             
@@ -700,12 +700,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Js/">
-                        <span class="chip bg-color">Js</span>
-                    </a>
-                    
                     <a href="/tags/EasyUI/">
                         <span class="chip bg-color">EasyUI</span>
+                    </a>
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>
@@ -742,8 +742,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/JS/" class="post-category">
+                                    JS
                                 </a>
                             
                             
@@ -753,8 +753,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Js/">
-                        <span class="chip bg-color">Js</span>
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>

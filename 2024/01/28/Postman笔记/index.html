@@ -1,0 +1,1207 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Postman笔记, Java,Python,GO">
+    <meta name="description" content="IT文章及知识分享">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Postman笔记 | 马瑞个人笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="马瑞个人笔记" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">马瑞个人笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">马瑞个人笔记</div>
+        <div class="logo-desc">
+            
+            IT文章及知识分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Postman笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+        padding-top: 1.5rem
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        <!-- height: calc(100vh - 250px); -->
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/API/">
+                                <span class="chip bg-color">API</span>
+                            </a>
+                        
+                            <a href="/tags/Postman/">
+                                <span class="chip bg-color">Postman</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/API/" class="post-category">
+                                API
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-28
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 定义全局变量：pm.globals.set(&quot;变量名&quot;, 变量值)</span><br><span class="line">// 定义环境变量：pm.environment.set(&quot;变量名&quot;, 变量值)</span><br><span class="line">// 定义集合变量：pm.collectionVariables.set(&quot;变量名&quot;, 变量值)</span><br><span class="line"></span><br><span class="line">//从响应体中解析token</span><br><span class="line">var data = JSON.parse(responseBody);</span><br><span class="line">if (data.data)&#123;</span><br><span class="line">  tests[&quot;body has data&quot;]=true;</span><br><span class="line">  var token=data.token;</span><br><span class="line">  pm.globals.set(&quot;token&quot;, token);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  tests[&quot;body has no data&quot;]=false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 从header中解析token</span><br><span class="line">var token = postman.getResponseHeader(&quot;X-Subject-Token&quot;);</span><br><span class="line">pm.globals.set(&quot;ptoken&quot;, token);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h2><h3 id="辅助进行参数化"><a href="#辅助进行参数化" class="headerlink" title="辅助进行参数化"></a>辅助进行参数化</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pm.environment.get(&quot;variable_key&quot;);</span><br><span class="line">pm.globals.get(&quot;variable_key&quot;);</span><br><span class="line">pm.variables.get(&quot;variable_key&quot;);</span><br><span class="line">pm.environment.set(&quot;variable_key&quot;, &quot;variable_value&quot;);</span><br><span class="line">pm.environment.unset(&quot;variable_key&quot;);</span><br><span class="line">pm.environment.unset(&quot;variable_key&quot;);</span><br><span class="line">pm.globals.unset(&quot;variable_key&quot;);</span><br><span class="line">pm.sendRequest(&quot;https://postman-echo.com/get&quot;, function (err, response) &#123;</span><br><span class="line">    console.log(response.json());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="常用断言"><a href="#常用断言" class="headerlink" title="常用断言"></a>常用断言</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">【1】校验接口响应的状态码，常见的有 200、404、500当然也包括前面鉴权学到的 401 等等。</span><br><span class="line">pm.test(&quot;Status code is 200&quot;, function () &#123;</span><br><span class="line">    pm.response.to.have.status(200);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">【2】检查响应信息中是否包含某些指定的字符串；</span><br><span class="line">pm.test(&quot;Body matches string&quot;, function () &#123;</span><br><span class="line">    pm.expect(pm.response.text()).to.include(&quot;string_you_want_to_search&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">【3】检查从JSON响应中获取到某个字段，判断其是否与预期字段一致；</span><br><span class="line">pm.test(&quot;Your test name&quot;, function () &#123;</span><br><span class="line">    var jsonData = pm.response.json();</span><br><span class="line">    pm.expect(jsonData.value).to.eql(100);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">【4】检查实际获取的响应体（即 Body 信息）与预期结果的响应体是否一致；</span><br><span class="line">pm.test(&quot;Body is correct&quot;, function () &#123;</span><br><span class="line">    pm.response.to.have.body(&quot;response_body_string&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">【5】检查响应中的头域信息（Headers）是否与预期一致；</span><br><span class="line">pm.test(&quot;Content-Type is present&quot;, function () &#123;</span><br><span class="line">    pm.response.to.have.header(&quot;Content-Type&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">【6】判断实际响应时间是否与低于预期时间</span><br><span class="line">pm.test(&quot;Response time is less than 200ms&quot;, function () &#123;</span><br><span class="line">    pm.expect(pm.response.responseTime).to.be.below(200);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">【7】检查响应码是否与预期集合中的某个值一致</span><br><span class="line">pm.test(&quot;Successful POST request&quot;, function () &#123;</span><br><span class="line">    pm.expect(pm.response.code).to.be.oneOf([201,202]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">【8】检查响应信息中是否包含某个预期值</span><br><span class="line">pm.test(&quot;Status code name has string&quot;, function () &#123;</span><br><span class="line">    pm.response.to.have.status(&quot;Created&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">【9】转化XML格式的响应成JSON对象</span><br><span class="line">var jsonObject = xml2Json(responseBody);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="断言使用示例"><a href="#断言使用示例" class="headerlink" title="断言使用示例"></a><strong>断言使用示例</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//检验响应状态码为200</span><br><span class="line">pm.test(&quot;检验响应状态码为200&quot;, function () &#123;</span><br><span class="line">    pm.response.to.have.status(200);</span><br><span class="line">&#125;);</span><br><span class="line">//检验响应中包含字符串 &quot;postman-echo.com&quot;</span><br><span class="line">pm.test(&quot;检验响应中包含字符串 postman-echo.com&quot;, function () &#123;</span><br><span class="line">    pm.expect(pm.response.text()).to.include(&quot;postman-echo.com&quot;);</span><br><span class="line">&#125;);</span><br><span class="line">//检验 key = age 的value 值等于 18</span><br><span class="line">pm.test(&quot;检验 key = age 的value 值等于 18&quot;, function () &#123;</span><br><span class="line">    var jsonData = pm.response.json();</span><br><span class="line">    pm.expect(jsonData.args.age).to.eql(&quot;18&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="tests"><a href="#tests" class="headerlink" title="tests"></a>tests</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br></pre></td><td class="code"><pre><span class="line">// Tests 编写</span><br><span class="line"></span><br><span class="line">// 值获取</span><br><span class="line">//请求耗时</span><br><span class="line">var time = pm.response.responseTime;</span><br><span class="line">//获取响应code</span><br><span class="line">var code = pm.response.code;</span><br><span class="line">//获取错误描述:例如返回200,下面返回的是OK</span><br><span class="line">var status = pm.response.status;</span><br><span class="line">//获取响应数据</span><br><span class="line">var data = pm.response.json();</span><br><span class="line">//获取响应header</span><br><span class="line">var header = pm.response.headers.get(&quot;key&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 模板判断</span><br><span class="line">//断言响应中是否包含指定字符串</span><br><span class="line">pm.test(&quot;断言响应体包含指定字符串&quot;, function () &#123;</span><br><span class="line">    pm.expect(pm.response.text()).to.include(&quot;指定字符串&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//断言响应是否等于指定字符串</span><br><span class="line">pm.test(&quot;断言响应是否等于指定字符串&quot;, function () &#123;</span><br><span class="line">    pm.response.to.have.body(&quot;指定字符串&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//断言json值是否等于指定值</span><br><span class="line">pm.test(&quot;断言json值是否等于指定值&quot;, function () &#123;</span><br><span class="line">    var jsonData = pm.response.json();</span><br><span class="line">    pm.expect(jsonData.value).to.eql(100);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//断言是否存在Content-Type标头</span><br><span class="line">pm.test(&quot;断言是否存在Content-Type标头&quot;, function () &#123;</span><br><span class="line">    pm.response.to.have.header(&quot;Content-Type&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//断言cookie是否存在</span><br><span class="line">pm.test(&quot;断言cookie是否存在&quot;, () =&gt; &#123;</span><br><span class="line">    pm.expect(pm.cookies.has(&#x27;JSESSIONID&#x27;)).to.be.true;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//断言cookie是否等于特定值</span><br><span class="line">pm.test(&quot;断言cookie是否等于特定值&quot;, () =&gt; &#123;</span><br><span class="line">    pm.expect(pm.cookies.get(&#x27;JSESSIONID&#x27;)).to.eql(&#x27;1&#x27;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//断言响应时间小于200ms</span><br><span class="line">pm.test(&quot;断言响应时间小于200ms&quot;, function () &#123;</span><br><span class="line">    pm.expect(pm.response.responseTime).to.be.below(200);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//断言状态码为200</span><br><span class="line">pm.test(&quot;断言状态码为200&quot;, function () &#123;</span><br><span class="line">    pm.response.to.have.status(200);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//断言状态响应说明是否包指定值</span><br><span class="line">pm.test(&quot;断言状态响应说明是否包指定值&quot;, function () &#123;</span><br><span class="line">    pm.response.to.have.status(&quot;Created&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//断言成功响应状态码,oneOf表示在一组值中</span><br><span class="line">pm.test(&quot;断言成功响应状态码&quot;, function () &#123;</span><br><span class="line">    pm.expect(pm.response.code).to.be.oneOf([201,202]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//断言环境值和响应回来的值</span><br><span class="line">pm.test(&quot;断言环境值和响应回来的值&quot;, function () &#123;</span><br><span class="line">    pm.expect(pm.response.json().name).to.eql(pm.environment.get(&quot;name&quot;));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//断言响应数据类型</span><br><span class="line">/* 响应数据结构如下</span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;Jane&quot;,</span><br><span class="line">  &quot;age&quot;: 29,</span><br><span class="line">  &quot;hobbies&quot;: [</span><br><span class="line">    &quot;skating&quot;,</span><br><span class="line">    &quot;painting&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;email&quot;: null</span><br><span class="line">&#125;</span><br><span class="line">*/</span><br><span class="line">const jsonData = pm.response.json();</span><br><span class="line">pm.test(&quot;Test data type of the response&quot;, () =&gt; &#123;</span><br><span class="line">    pm.expect(jsonData).to.be.an(&quot;object&quot;);//是否为对象类型</span><br><span class="line">    pm.expect(jsonData.name).to.be.a(&quot;string&quot;);//是否为字符串类型</span><br><span class="line">    pm.expect(jsonData.age).to.be.a(&quot;number&quot;);//是否为数字类型</span><br><span class="line">    pm.expect(jsonData.hobbies).to.be.an(&quot;array&quot;);//是否为数组</span><br><span class="line">    pm.expect(jsonData.website).to.be.undefined;//是否未定义</span><br><span class="line">    pm.expect(jsonData.email).to.be.null;//是否为null</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//断言数组</span><br><span class="line">/* 响应数据结构如下</span><br><span class="line">&#123;</span><br><span class="line">  &quot;errors&quot;: [],</span><br><span class="line">  &quot;areas&quot;: [ &quot;goods&quot;, &quot;services&quot; ],</span><br><span class="line">  &quot;settings&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;type&quot;: &quot;notification&quot;,</span><br><span class="line">      &quot;detail&quot;: [ &quot;email&quot;, &quot;sms&quot; ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;type&quot;: &quot;visual&quot;,</span><br><span class="line">      &quot;detail&quot;: [ &quot;light&quot;, &quot;large&quot; ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line">*/</span><br><span class="line">const jsonData = pm.response.json();</span><br><span class="line">pm.test(&quot;Test array properties&quot;, () =&gt; &#123;</span><br><span class="line">    //判断是否为空</span><br><span class="line">    pm.expect(jsonData.errors).to.be.empty;</span><br><span class="line">    //判断是否包含 &quot;goods&quot;</span><br><span class="line">    pm.expect(jsonData.areas).to.include(&quot;goods&quot;);</span><br><span class="line">    //判断 settings 中的object是否有type=&#x27;notification&#x27;</span><br><span class="line">    const notificationSettings = jsonData.settings.find(m =&gt; m.type === &quot;notification&quot;);</span><br><span class="line">    pm.expect(notificationSettings).to.be.an(&quot;object&quot;, &quot;Could not find the setting&quot;);</span><br><span class="line">    //判断是否notificationSettings.detail中是否包含&quot;sms&quot;</span><br><span class="line">    pm.expect(notificationSettings.detail).to.include(&quot;sms&quot;);</span><br><span class="line">    //判断是否notificationSettings.detail中是否包含如下所有成员</span><br><span class="line">    pm.expect(notificationSettings.detail).to.have.members([&quot;email&quot;, &quot;sms&quot;]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//断言一个对象包含键或属性</span><br><span class="line">//断言包含所有的key</span><br><span class="line">pm.expect(&#123;a: 1, b: 2&#125;).to.have.all.keys(&#x27;a&#x27;, &#x27;b&#x27;);</span><br><span class="line">//断言包含任何一个成员</span><br><span class="line">pm.expect(&#123;a: 1, b: 2&#125;).to.have.any.keys(&#x27;a&#x27;, &#x27;b&#x27;);</span><br><span class="line">//断言不包含任何一个成员</span><br><span class="line">pm.expect(&#123;a: 1, b: 2&#125;).to.not.have.any.keys(&#x27;c&#x27;, &#x27;d&#x27;);</span><br><span class="line">//断言是否包含a属性</span><br><span class="line">pm.expect(&#123;a: 1&#125;).to.have.property(&#x27;a&#x27;);</span><br><span class="line">//断言值是否为object对象,并且包含所有的key</span><br><span class="line">pm.expect(&#123;a: 1, b: 2&#125;).to.be.an(&#x27;object&#x27;).that.has.all.keys(&#x27;a&#x27;, &#x27;b&#x27;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//TV4校验</span><br><span class="line"></span><br><span class="line">//定义校验模型,要求值为boolean类型</span><br><span class="line">var schema = &#123;</span><br><span class="line">    &quot;items&quot;: &#123;</span><br><span class="line">        &quot;type&quot;: &quot;boolean&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">//定义测试数据</span><br><span class="line">//满足要求</span><br><span class="line">var data1 = [true, false];</span><br><span class="line">//不满足要求</span><br><span class="line">var data2 = [true, 123];</span><br><span class="line">//校验TV4模型</span><br><span class="line">pm.test(&#x27;校验TV4模型&#x27;, function() &#123;</span><br><span class="line">    pm.expect(tv4.validate(data1, schema)).to.be.true;</span><br><span class="line">    pm.expect(tv4.validate(data2, schema)).to.be.true;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//JSON模型校验</span><br><span class="line"></span><br><span class="line">//构建Ajv</span><br><span class="line">var Ajv = require(&#x27;ajv&#x27;);</span><br><span class="line">//初始化</span><br><span class="line">var ajv = new Ajv(&#123;logger: console&#125;)</span><br><span class="line">//定义规则</span><br><span class="line">var schema = &#123;</span><br><span class="line">    &quot;properties&quot;: &#123;</span><br><span class="line">        &quot;alpha&quot;: &#123;</span><br><span class="line">            &quot;type&quot;: &quot;boolean&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">//定义测试数据</span><br><span class="line">//符合规则</span><br><span class="line">var test1 = &#123;alpha: true&#125;;</span><br><span class="line">//不符合规则</span><br><span class="line">var test2 = &#123;alpha: 123&#125;;</span><br><span class="line">//校验</span><br><span class="line">pm.test(&#x27;JSON模型校验&#x27;, function() &#123;</span><br><span class="line">    pm.expect(ajv.validate(schema, test1)).to.be.true;</span><br><span class="line">    pm.expect(ajv.validate(schema, test2)).to.be.false;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//将请求结果可视化</span><br><span class="line">//数据样例</span><br><span class="line">/**</span><br><span class="line"> [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;name&quot;: &quot;Alice&quot;,</span><br><span class="line">        &quot;email&quot;: &quot;alice@example.com&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;name&quot;: &quot;Jack&quot;,</span><br><span class="line">        &quot;email&quot;: &quot;jack@example.com&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    // ... and so on</span><br><span class="line">]</span><br><span class="line">*/</span><br><span class="line">//数据模板</span><br><span class="line">var template = `</span><br><span class="line">    &lt;table bgcolor=&quot;#FFFFFF&quot;&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;th&gt;Name&lt;/th&gt;</span><br><span class="line">            &lt;th&gt;Email&lt;/th&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">        &#123;&#123;#each response&#125;&#125;</span><br><span class="line">            &lt;tr&gt;</span><br><span class="line">                &lt;td&gt;&#123;&#123;name&#125;&#125;&lt;/td&gt;</span><br><span class="line">                &lt;td&gt;&#123;&#123;email&#125;&#125;&lt;/td&gt;</span><br><span class="line">            &lt;/tr&gt;</span><br><span class="line">        &#123;&#123;/each&#125;&#125;</span><br><span class="line">    &lt;/table&gt;</span><br><span class="line">`;</span><br><span class="line">//填充数据模板</span><br><span class="line">pm.visualizer.set(template, &#123;</span><br><span class="line">    response: pm.response.json()</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="pre-request"><a href="#pre-request" class="headerlink" title="pre-request"></a>pre-request</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br></pre></td><td class="code"><pre><span class="line">// 变量time接收获取的时间戳</span><br><span class="line">var time = new Date().getTime();</span><br><span class="line">pm.environment.set(&quot;time&quot;, time);</span><br><span class="line">console.log(&quot;&gt;&gt;&gt; time1 = &quot; + (time - 1000 * 3600 * 24 * 7) + &quot;ms&quot;);</span><br><span class="line">var time2 = Math.round(new Date().getTime()/1000);</span><br><span class="line">console.log(&quot;&gt;&gt;&gt; time2 = &quot; + time2 + &quot;s&quot;);</span><br><span class="line"></span><br><span class="line">// 引用第三方库 ：moment 等同于 import moment from &#x27;moment&#x27;</span><br><span class="line">var moment = require(&#x27;moment&#x27;);</span><br><span class="line">var current_time = moment().format(&quot;YYYY-MM-DD HH:mm:ss&quot;)</span><br><span class="line">console.log(&quot;&gt;&gt;&gt; current_time = &quot; + current_time);</span><br><span class="line"></span><br><span class="line">// 将获取的参数 pwd 通过MD5方法进行加密处理，并用 md5_pwd 接收</span><br><span class="line">var pwd = &#x27;123456&#x27;;</span><br><span class="line">var md5_pwd = CryptoJS.MD5(pwd).toString(); // MD5加密</span><br><span class="line">console.log(&quot;&gt;&gt;&gt; md5_pwd = &quot; + md5_pwd);</span><br><span class="line">var sha1_pwd= CryptoJS.SHA1(pwd).toString(); // SHA1 加密</span><br><span class="line">console.log(&quot;&gt;&gt;&gt; sha1_pwd = &quot; + sha1_pwd);</span><br><span class="line"></span><br><span class="line">// 封装函数</span><br><span class="line">function dateFormat(fmt) &#123;</span><br><span class="line">    var nowDate = new Date();</span><br><span class="line">     var o = &#123;</span><br><span class="line">        &quot;M+&quot; : nowDate.getMonth()+1,                 //月份</span><br><span class="line">        &quot;d+&quot; : nowDate.getDate(),                    //日</span><br><span class="line">        &quot;h+&quot; : nowDate.getHours(),                   //小时</span><br><span class="line">        &quot;m+&quot; : nowDate.getMinutes(),                 //分</span><br><span class="line">        &quot;s+&quot; : nowDate.getSeconds(),                 //秒</span><br><span class="line">        &quot;q+&quot; : Math.floor((nowDate.getMonth()+3)/3), //季度</span><br><span class="line">        &quot;S&quot;  : nowDate.getMilliseconds()             //毫秒</span><br><span class="line">    &#125;;</span><br><span class="line">    if(/(y+)/.test(fmt)) &#123;</span><br><span class="line">            fmt=fmt.replace(RegExp.$1, (nowDate.getFullYear()+&quot;&quot;).substr(4 - RegExp.$1.length));</span><br><span class="line">    &#125;</span><br><span class="line">     for(var k in o) &#123;</span><br><span class="line">        if(new RegExp(&quot;(&quot;+ k +&quot;)&quot;).test(fmt))&#123;</span><br><span class="line">             fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : ((&quot;00&quot;+ o[k]).substr((&quot;&quot;+ o[k]).length)));</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">    return fmt;</span><br><span class="line">&#125;</span><br><span class="line">var timestamp = dateFormat(&#x27;yyyyMMddhhmmss&#x27;);</span><br><span class="line">console.log(&quot;&gt;&gt;&gt; timestamp = &quot; + timestamp);</span><br><span class="line"></span><br><span class="line">// 生成自增的编号Num</span><br><span class="line">var num = pm.environment.get(&quot;num&quot;) || 1;</span><br><span class="line">num_new = Number(num)+Number(1);</span><br><span class="line">pm.environment.set(&quot;num&quot;, num_new);</span><br><span class="line">console.log(&quot;&gt;&gt;&gt; num = &quot; + num);</span><br><span class="line"></span><br><span class="line">// 使用 Random 函数获取随机数</span><br><span class="line">const randomInt = (min, max) =&gt; Math.floor(Math.random() * (max - min + 1)) + min;  // 取某个数值范围内的随机整数</span><br><span class="line">const getRandomValue = list =&gt; list[randomInt(0, list.length - 1)];     // 取某个数组内的随机数值</span><br><span class="line">const random_wishies= [&quot;山河无恙&quot;,&quot;人月两圆&quot;,&quot;国泰民安&quot;,&quot;万事如意&quot;,&quot;贪吃不胖&quot;];</span><br><span class="line">console.log(&quot;&gt;&gt;&gt; random_wishies = &quot; + getRandomValue(random_wishies));</span><br><span class="line"></span><br><span class="line">// 发送请求</span><br><span class="line">const requests = &#123;</span><br><span class="line">  &#x27;method&#x27;: &#x27;GET&#x27;,</span><br><span class="line">  &#x27;url&#x27;: &#x27;https://httpbin.org/uuid&#x27;,</span><br><span class="line">  &#x27;header&#x27;: &#123;</span><br><span class="line">    &#x27;Foo&#x27;: &#x27;bar&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">pm.sendRequest(requests, function (err, response) &#123;</span><br><span class="line">    const data = response.json()</span><br><span class="line">    console.log(&quot;&gt;&gt;&gt; gen uuid = &quot; + data.uuid);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//动态变量获取</span><br><span class="line">var val = pm.variables.replaceIn(&#x27;&#123;&#123;$randomUUID&#125;&#125;&#x27;);</span><br><span class="line">console.log(&quot;&gt;&gt;&gt; uuid = &quot; + val);</span><br><span class="line">// $guid     一个 uuid-v4 风格 GUID     &quot;611c2e81-2ccb-42d8-9ddc-2d0bfa65c1b4&quot;</span><br><span class="line">// $timestamp     当前 UNIX 时间戳（以秒为单位）     1562757107</span><br><span class="line">// $isoTimestamp     当前 ISO 时间戳（UTC 为零）     2020-06-09T21:10:36.177Z</span><br><span class="line">// $randomUUID     随机的 36 个字符的 UUID     &quot;6929bb52-3ab2-448a-9796-d6480ecad36b&quot;</span><br><span class="line">// $randomAlphaNumeric     随机字母数字字符     6，&quot;y&quot;，&quot;z&quot;</span><br><span class="line">// $randomBoolean     随机布尔值（真/假）     true，false，false，true</span><br><span class="line">// $randomInt     1 至 1000 之间的随机整数     802，494，200</span><br><span class="line">// $randomColor     随机颜色     &quot;red&quot;，&quot;fuchsia&quot;，&quot;grey&quot;</span><br><span class="line">// $randomHexColor     随机十六进制值     &quot;#47594a&quot;，&quot;#431e48&quot;，&quot;#106f21&quot;</span><br><span class="line">// $randomAbbreviation     随机缩写     SQL，PCI，JSON</span><br><span class="line">// $randomIP     随机的 IPv4 地址     241.102.234.100， 216.7.27.38</span><br><span class="line">// $randomIPV6     随机的 IPv6 地址     dbe2:7ae6:119b:c161:1560:6dda:3a9b:90a9</span><br><span class="line">// $randomMACAddress     随机 MAC 地址     33:d4:68:5f:b4:c7， 1f:6e:db:3d:ed:fa</span><br><span class="line">// $randomPassword     随机的 15 个字符的字母数字密码     t9iXe7COoDKv8k3， QAzNFQtvR9cg2rq</span><br><span class="line">// $randomLocale     随机的两个字母的语言代码（ISO 639-1）     &quot;ny&quot;，&quot;sr&quot;，&quot;si&quot;</span><br><span class="line">// $randomUserAgent     随机用户代理     Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.9.8; rv:15.6) Gecko/20100101 Firefox/15.6.6</span><br><span class="line">// Opera/10.27 (Windows NT 5.3; U; AB Presto/2.9.177 Version/10.00)</span><br><span class="line">// $randomProtocol     随机互联网协议     &quot;http&quot;， &quot;https&quot;</span><br><span class="line">// $randomSemver     随机语义版本号     7.0.5，2.5.8，6.4.9</span><br><span class="line">// $randomFirstName     随机名字     Ethan，Chandler，Megane</span><br><span class="line">// $randomLastName     随机姓氏     Schaden，Schneider，Willms</span><br><span class="line">// $randomFullName     随机的名字和姓氏     Connie Runolfsdottir，Sylvan Fay，Jonathon Kunze</span><br><span class="line">// $randomNamePrefix     随机名称前缀     Dr.，Ms.，Mr.</span><br><span class="line">// $randomNameSuffix     随机名称后缀     I，MD，DDS</span><br><span class="line">// $randomCountryCode     随机的 2 个字母的国家/地区代码（ISO 3166-1 alpha-2）     CV，MD，TD</span><br><span class="line">// $randomLatitude     随机纬度坐标     55.2099，27.3644，-84.7514</span><br><span class="line">// $randomLongitude     随机经度坐标     40.6609，171.7139，-159.9757</span><br><span class="line">// $randomImage     随机图像     http://lorempixel.com/640/480/technics</span><br><span class="line">// $randomAvatarImage     随机头像     https://s3.amazonaws.com/uifaces/faces/twitter/johnsmithagency/128.jpg</span><br><span class="line">// $randomImageUrl     随机图片的网址     http://lorempixel.com/640/480</span><br><span class="line">// $randomAbstractImage     随机抽象图片的网址     http://lorempixel.com/640/480/abstract</span><br><span class="line">// $randomAnimalsImage     随机动物图片的网址     http://lorempixel.com/640/480/animals</span><br><span class="line">// $randomBusinessImage     随机库存企业图片的网址     http://lorempixel.com/640/480/business</span><br><span class="line">// $randomCatsImage     随机猫图像的 URL     http://lorempixel.com/640/480/cats</span><br><span class="line">// $randomCityImage     随机城市图片的网址     http://lorempixel.com/640/480/city</span><br><span class="line">// $randomFoodImage     随机食物图片的网址     http://lorempixel.com/640/480/food</span><br><span class="line">// $randomNightlifeImage     随机夜生活图片的网址     http://lorempixel.com/640/480/nightlife</span><br><span class="line">// $randomFashionImage     随机时尚图片的网址     http://lorempixel.com/640/480/fashion</span><br><span class="line">// $randomPeopleImage     一个人的随机图像的 URL     http://lorempixel.com/640/480/people</span><br><span class="line">// $randomNatureImag     随机自然图像的 URL     http://lorempixel.com/640/480/nature</span><br><span class="line">// $randomSportsImage     随机运动图像的 URL     http://lorempixel.com/640/480/sports</span><br><span class="line">// $randomTechnicsImage     随机技术图片的网址     http://lorempixel.com/640/480/technics</span><br><span class="line">// $randomTransportImage     随机交通图片的网址     http://lorempixel.com/640/480/transport</span><br><span class="line">// $randomImageDataUri     随机图像数据 URI     data:image/svg+xml;charset=UTF-8,%3Csvg+xmlns%3D%22http%3A%2F%2Fwww......</span><br><span class="line">// $randomCurrencyCode     随机的 3 个字母的货币代码（ISO-4217）     CDF，ZMK，GNF</span><br><span class="line">// $randomBitcoin     随机比特币地址     3VB8JGT7Y4Z63U68KGGKDXMLLH5</span><br><span class="line">// $randomCompanyName     随机公司名称     Johns - Kassulke， Grady LLC</span><br><span class="line">// $randomBsNoun         interfaces</span><br><span class="line">// $randomDatabaseType     随机数据库类型     tinyint， text</span><br><span class="line">// $randomDatabaseColumn     随机数据库列名称     updatedAt，token，group</span><br><span class="line">// $randomDatabaseCollation     随机数据库排序     cp1250_bin，utf8_general_ci，cp1250_general_ci</span><br><span class="line">// $randomDatabaseEngine     随机数据库引擎     MyISAM，InnoDB，Memory</span><br><span class="line">// $randomDateFuture     未来的随机日期时间     Tue Mar 17 2020 13:11:50 GMT+0530 (India Standard Time)</span><br><span class="line">// $randomDatePast     随机过去的日期时间     Sat Mar 02 2019 09:09:26 GMT+0530 (India Standard Time)</span><br><span class="line">// $randomDateRecent     最近的随机日期时间     Tue Jul 09 2019 23:12:37 GMT+0530 (India Standard Time)</span><br><span class="line">// $randomWeekday     随机工作日     Thursday，Friday，Monday</span><br><span class="line">// $randomMonth     随机月份     February，May，January</span><br><span class="line">// $randomDomainName     随机域名     gracie.biz，armando.biz，trevor.info</span><br><span class="line">// $randomDomainSuffix     随机域后缀     org，net，com</span><br><span class="line">// $randomDomainWord     随机的不合格域名     gwen，jaden，donnell</span><br><span class="line">// $randomEmail     随机电子邮件地址     Pablo62@gmail.com，Ruthe42@hotmail.com，Iva.Kovacek61@hotmail.com</span><br><span class="line">// $randomExampleEmail     来自“示例”域的随机电子邮件地址     Talon28@example.com，Quinten_Kerluke45@example.net，Casey81@example.net</span><br><span class="line">// $randomUserName     随机用户名     Jarrell.Gutkowski，Lottie.Smitham24，Alia99</span><br><span class="line">// $randomUrl     随机网址     https://anais.net，https://tristin.net，http://jakob.name</span><br><span class="line">// $randomFileName     随机文件名（包括不常见的扩展名）     neural_sri_lanka_rupee_gloves.gdoc</span><br><span class="line">// $randomFileType     随机文件类型（包括不常见的文件类型）     model，application，video</span><br><span class="line">// $randomFileExt     随机文件扩展名（包括不常见的扩展名）     war，book，fsc</span><br><span class="line">// $randomCommonFileName     随机文件名     well_modulated.mpg4</span><br><span class="line">// $randomCommonFileType     随机的常见文件类型     application， audio</span><br><span class="line">// $randomCommonFileExt     随机的通用文件扩展名     m2v，wav，png</span><br><span class="line">// $randomFilePath     随机文件路径     /home/programming_chicken.cpio</span><br><span class="line">// $randomDirectoryPath     随机目录路径     /usr/bin，/root，/usr/local/bin</span><br><span class="line">// $randomMimeType     随机 MIME 类型     audio/vnd.vmx.cvsd</span><br><span class="line"></span><br><span class="line">// 环境变量</span><br><span class="line">//设置当前环境变量</span><br><span class="line">pm.environment.set(&quot;key&quot;, &quot;value&quot;);</span><br><span class="line">//获取当前环境变量</span><br><span class="line">pm.environment.get(&quot;key&quot;);</span><br><span class="line">//清除当前环境变量</span><br><span class="line">pm.environment.unset(&quot;key&quot;);</span><br><span class="line">//设置全局环境变量</span><br><span class="line">pm.globals.set(&quot;key&quot;, &quot;value&quot;);</span><br><span class="line">//获取全局环境变量</span><br><span class="line">pm.globals.get(&quot;key&quot;);</span><br><span class="line">//清除全局环境变量</span><br><span class="line">pm.globals.unset(&quot;key&quot;);</span><br><span class="line">//在全局和当前环境变量中获取</span><br><span class="line">pm.variables.get(&quot;key&quot;);</span><br><span class="line">//设置集合</span><br><span class="line">pm.collectionVariables.set(&quot;key&quot;,[&quot;value1&quot;,&quot;value2&quot;,&quot;value3&quot;])</span><br><span class="line">//获取集合</span><br><span class="line">pm.collectionVariables.get(&quot;key&quot;);</span><br><span class="line">//遍历集集合，遍历function(遍历当前值,索引,集合,)</span><br><span class="line">pm.collectionVariables.get(&quot;key&quot;).forEach(function(a,b,c)&#123;</span><br><span class="line">console.log(c+&#x27;\[&#x27;+b+&#x27;] = &#x27; + a);</span><br><span class="line">&#125;);</span><br><span class="line">//清除集合</span><br><span class="line">pm.collectionVariables.unset(&quot;key&quot;);</span><br><span class="line"></span><br><span class="line">// GET 请求</span><br><span class="line">//获取当前请求方式,返回:string</span><br><span class="line">var method = pm.request.method;</span><br><span class="line">//输出当前请求信息,返回:json</span><br><span class="line">var request = pm.request.toJSON();</span><br><span class="line">//输出当前请求url,返回:string</span><br><span class="line">var url = pm.request.url.toString();</span><br><span class="line">//输出当前请求参数,参数(是否编码):true  false ,返回:string</span><br><span class="line">var querypararm =  pm.request.url.getQueryString(false);</span><br><span class="line">//获取请求参数,参数(请求的键值)(string 类型),返回:string</span><br><span class="line">var value = pm.request.url.query.get(&quot;key_name&quot;);</span><br><span class="line">//删除请求参数,参数(请求的键值)</span><br><span class="line">pm.request.url.query.remove(&quot;key_name&quot;);</span><br><span class="line">//添加请求参数,参数(添加请求参数),数组类型</span><br><span class="line">pm.request.url.query.add(&quot;key1=value1&quot;, &quot;key2=value2&quot;);</span><br><span class="line">//判断某个键值是否存在,返回:boolean</span><br><span class="line">var has = pm.request.url.query.has(&quot;key&quot;);</span><br><span class="line"></span><br><span class="line">// 内置请求</span><br><span class="line">//定义请求信息</span><br><span class="line">var requests = &#123;</span><br><span class="line">  url:url,//请求url</span><br><span class="line">  method: &#x27;POST&#x27;,//请求方式</span><br><span class="line">  header: &#123;&#x27;Content-Type&#x27;:&#x27;application/json&#x27;&#125;,//请求header</span><br><span class="line">  body: &#123;</span><br><span class="line">    mode: &#x27;raw&#x27;,//数据模型</span><br><span class="line">    raw: JSON.stringify(&#123;mobile:raw.mobile,useScene:&quot;login&quot;&#125;)//数据</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;;</span><br><span class="line">//发送请求,参数:请求信息,响应函数(异常,响应数据)</span><br><span class="line">pm.sendRequest(requests, function (err, response) &#123;</span><br><span class="line">    var result = response.json();</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// POST 请求</span><br><span class="line">//获取所有headers</span><br><span class="line">var header = pm.request.getHeaders();</span><br><span class="line">//移除header</span><br><span class="line">pm.request.removeHeader(&quot;key&quot;);</span><br><span class="line">//添加header</span><br><span class="line">pm.request.addHeader(&quot;key:value&quot;);</span><br><span class="line">//获得body中的内容,返回:string</span><br><span class="line">var body = pm.request.body.raw;</span><br><span class="line">//重新设置body内容,参数:string</span><br><span class="line">pm.request.body.update(&quot;&quot;);</span><br><span class="line">//添加param参数,参数:string或者QueryParam对象</span><br><span class="line">pm.request.addQueryParams(&quot;key=value&quot;);</span><br><span class="line">//移除para参数,参数:数组字符串</span><br><span class="line">pm.request.removeQueryParams(&quot;1&quot;,&quot;2&quot;);</span><br><span class="line"></span><br><span class="line">// Cookies</span><br><span class="line">//创建一个cookie容器</span><br><span class="line">const cookieJar = pm.cookies.jar();</span><br><span class="line">//设置cookie,参数: url,cookieName,cookieValue,回调函数function(异常,设置成功的cookie)</span><br><span class="line">/**</span><br><span class="line"> * 如果设置失败,提示如下:</span><br><span class="line"> * Unable to access &quot;xxxx.com&quot; cookie store. Try whitelisting the domain in &quot;Manage Cookies</span><br><span class="line"> * 点击界面的 Cookies &gt; Whitelist Domains(左下角) &gt; 在输入框中加入xxxx.com 点击 add</span><br><span class="line"> */</span><br><span class="line">cookieJar.set(&quot;xxxx.com&quot;,&quot;name&quot;,&quot;value&quot;,function(error,cookie)&#123;</span><br><span class="line">    console.log(error);</span><br><span class="line">    console.log(cookie);</span><br><span class="line">&#125;)</span><br><span class="line">//获取cookie,参数: url,cookieName,回调函数function(异常,cookie)</span><br><span class="line">cookieJar.get(&quot;xxxx.com&quot;,&quot;name&quot;,function(error,cookie)&#123;</span><br><span class="line">    console.log(error);</span><br><span class="line">    console.log(cookie);</span><br><span class="line">&#125;)</span><br><span class="line">//获取所有cookie,参数: url,回调函数function(异常,cookie)</span><br><span class="line">cookieJar.getAll(&quot;xxxx.com&quot;, function(error, cookies)&#123;</span><br><span class="line">    console.log(error);</span><br><span class="line">    console.log(cookie);</span><br><span class="line">&#125;);</span><br><span class="line">//删除cookie,参数: url,cookieName,回调函数function(异常)</span><br><span class="line">cookieJar.unset(&quot;xxxx.com&quot;, &quot;name&quot;, function(error)&#123;</span><br><span class="line">    console.log(error);</span><br><span class="line">&#125;);</span><br><span class="line">//删除所有cookie,参数: url,回调函数function(异常)</span><br><span class="line">cookieJar.clear(&quot;xxxx.com&quot;, &quot;name&quot;, function(error)&#123;</span><br><span class="line">    console.log(error);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 工具</span><br><span class="line">//字符串转json对象</span><br><span class="line">var json =JSON.parse(&quot;&quot;);</span><br><span class="line">//json对象转字符串</span><br><span class="line">var string = JSON.stringify(obj);</span><br><span class="line">//获取当前时间的时间格式</span><br><span class="line">var time = require(&#x27;moment&#x27;)().format(&quot;YYYY-MM-DD HH:mm:ss&quot;);</span><br><span class="line">//参数编码参数</span><br><span class="line">var encodeURI = encodeURIComponent(&quot;&quot;);</span><br><span class="line">//编码整个url</span><br><span class="line">var encodeURI = encodeURI(&quot;&quot;);</span><br><span class="line">//base64编码</span><br><span class="line">var content = CryptoJS.enc.Utf8.parse(&quot;1&quot;);</span><br><span class="line">var base64Content = CryptoJS.enc.Base64.stringify(content);</span><br><span class="line">//base64解码</span><br><span class="line">var parsedWordArray = CryptoJS.enc.Base64.parse(base64Content);</span><br><span class="line">var wordString = parsedWordArray.toString(CryptoJS.enc.Utf8);</span><br><span class="line">//xml转换json对象,参数：请求响应的xml</span><br><span class="line">var jsonObject = xml2Json(responseBody);</span><br><span class="line">//解析响应的csv</span><br><span class="line">const parse = require(&#x27;csv-parse/lib/sync&#x27;);</span><br><span class="line">const responseJson = parse(pm.response.text());</span><br><span class="line">//解析html</span><br><span class="line">const $ = cheerio.load(pm.response.text());</span><br><span class="line">console.log($.html());</span><br><span class="line">//MD5加密</span><br><span class="line">var md5 = CryptoJS.MD5(&quot;&quot;).toString();</span><br><span class="line">//SHA1加密</span><br><span class="line">var sha1 = CryptoJS.SHA1(&quot;&quot;).toString();</span><br><span class="line">//AES加密</span><br><span class="line">const keys = CryptoJS.enc.Utf8.parse(&quot;123456789&quot;);//秘钥</span><br><span class="line">const ivs = CryptoJS.enc.Utf8.parse(&#x27;tltlaycvtweasa&#x27;);//偏移量</span><br><span class="line">let encryptedWord = CryptoJS.enc.Utf8.parse(&quot;1&quot;);//加密内容</span><br><span class="line">var encrypted = CryptoJS.AES.encrypt(encryptedWord, keys, &#123; iv: ivs,mode:CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7&#125;); //加密结果</span><br><span class="line">var ciphertext = encrypted.toString(); //密文</span><br><span class="line">// md5函数</span><br><span class="line">function calcMd5() &#123;</span><br><span class="line">    var contentType = request.headers[&quot;content-type&quot;];</span><br><span class="line">    if (request.data &amp;&amp; !contentType.startsWith(&#x27;application/x-www-form-urlencoded&#x27;)) &#123;</span><br><span class="line">        var data = request.data;</span><br><span class="line">        var md5 = CryptoJS.MD5(data);</span><br><span class="line">        var md5String = md5.toString(CryptoJS.enc.Base64);</span><br><span class="line">        console.log(&quot;data:&quot; + data + &quot;\nmd5:&quot; + md5String);</span><br><span class="line">        return md5String;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// uuid函数</span><br><span class="line">function createUuid() &#123;</span><br><span class="line">    return &#x27;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#x27;.replace(/[xy]/g, function(c) &#123;</span><br><span class="line">        var r = Math.random()*16|0, v = c == &#x27;x&#x27; ? r : (r&amp;0x3|0x8);</span><br><span class="line">        return v.toString(16);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function getLength(str) &#123;</span><br><span class="line">    let len = 0;</span><br><span class="line">    for (let i = 0; i&lt; str.length; i++) &#123;</span><br><span class="line">        let codeVal = str.charCodeAt(i);</span><br><span class="line">        if (codeVal &gt;= 0 &amp;&amp; codeVal&lt;= 128) &#123;</span><br><span class="line">            len += 1;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            len += 2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return len;</span><br><span class="line">&#125;</span><br><span class="line">let str1 = &quot;Hello World!&quot;;</span><br><span class="line">let str2 = &quot;你好，世界！&quot;;</span><br><span class="line">console.log(getLength(str1)); // 12</span><br><span class="line">console.log(getLength(str2)); // 12</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Murray</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.rainbowrise.top/2024/01/28/Postman%E7%AC%94%E8%AE%B0/">https://www.rainbowrise.top/2024/01/28/Postman%E7%AC%94%E8%AE%B0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Murray</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/API/">
+                                    <span class="chip bg-color">API</span>
+                                </a>
+                            
+                                <a href="/tags/Postman/">
+                                    <span class="chip bg-color">Postman</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NTE3MC8zMTYzNw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/01/28/PS%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="PS笔记">
+                        
+                        <span class="card-title">PS笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Other/" class="post-category">
+                                    Other
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Photoshop/">
+                        <span class="chip bg-color">Photoshop</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/06/IPVS%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="IPVS笔记">
+                        
+                        <span class="card-title">IPVS笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/Ipvs/">
+                        <span class="chip bg-color">Ipvs</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 马瑞个人笔记<br />'
+            + '文章作者: Murray<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2024</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">Murray</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                &nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                &nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            
+            <br><span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "08";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            
+            <br><span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备2021006498号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sunglowrise" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:sunglowrise@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/ma-liang-19-36" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/ma-liang-19-36" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

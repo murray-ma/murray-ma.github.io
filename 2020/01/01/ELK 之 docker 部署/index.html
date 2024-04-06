@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Elasticsearch 之 Docker部署, Java,Python,GO">
+    <meta name="keywords" content="ELK 之 Docker部署, Java,Python,GO">
     <meta name="description" content="IT文章及知识分享">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Elasticsearch 之 Docker部署 | 马瑞个人笔记</title>
+    <title>ELK 之 Docker部署 | 马瑞个人笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -204,12 +204,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Elasticsearch 之 Docker部署</h1>
+                    <h1 class="description center-align post-title">ELK 之 Docker部署</h1>
                 </div>
             </div>
         </div>
@@ -384,67 +384,76 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="ELK-之-docker-部署"><a href="#ELK-之-docker-部署" class="headerlink" title="ELK 之 docker 部署"></a>ELK 之 docker 部署</h3><blockquote>
-<p>基于docker部署使用ELK+FileBeat日志管理平台, ELK+Filebeat的集中式日志解决方案也是大热。</p>
+<p>基于 docker 部署使用 ELK+FileBeat 日志管理平台, ELK+Filebeat 的集中式日志解决方案也是大热。</p>
 </blockquote>
-<p><img src="https://gitee.com/sunglowrise/images/raw/master/ydnote/2019/elk%E6%B5%81%E7%A8%8B.png" alt="ELK流程"></p>
-<h3 id="elk镜像"><a href="#elk镜像" class="headerlink" title="elk镜像"></a>elk镜像</h3><ul>
-<li><p>拉取镜像</p>
+<p><img src="https://raw.githubusercontent.com/sunglowrise/images/master/ydnote/2019/elk%E6%B5%81%E7%A8%8B.png" alt="ELK流程"></p>
+<h3 id="elk-镜像"><a href="#elk-镜像" class="headerlink" title="elk 镜像"></a>elk 镜像</h3><ul>
+<li>拉取镜像</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull sebp/elk</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动容器</p>
-<blockquote>
-<p>运行elk容器的时候，需将宿主机的端口转发到该容器，其中ES端口为9200，kibana端口为5601，logstash为5044（注：可进入容器自行修改，再自由分配）；建议将配置文件和数据存放在宿主机，便于后期维护，因此还需要将宿主机目录挂载在容器/data当中。</p>
+
+<ul>
+<li>启动容器<blockquote>
+<p>运行 elk 容器的时候，需将宿主机的端口转发到该容器，其中 ES 端口为 9200，kibana 端口为 5601，logstash 为 5044（注：可进入容器自行修改，再自由分配）；建议将配置文件和数据存放在宿主机，便于后期维护，因此还需要将宿主机目录挂载在容器/data 当中。</p>
 </blockquote>
+</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">--name elk \</span><br><span class="line">--ulimit nofile=65536:65536 \</span><br><span class="line">-p 5601:5601 \</span><br><span class="line">-p 9200:9200 \</span><br><span class="line">-p 5044:5044 \</span><br><span class="line">-v /etc/localtime:/etc/localtime \</span><br><span class="line">-v /opt/elk/data:/data \</span><br><span class="line">sebp/elk</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ELK服务端简单配置</p>
-<blockquote>
-<p>这里是将ELK作为服务端，而sebp/elk镜像默认生成有ssl证书，将证书拷贝至客户端即可，容器中logstash的相关配置位于/etc/logstash/conf.d，输入默认配置如下：</p>
+
+<ul>
+<li>ELK 服务端简单配置<blockquote>
+<p>这里是将 ELK 作为服务端，而 sebp/elk 镜像默认生成有 ssl 证书，将证书拷贝至客户端即可，容器中 logstash 的相关配置位于/etc/logstash/conf.d，输入默认配置如下：</p>
 </blockquote>
+</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">input &#123;</span><br><span class="line">  beats &#123;</span><br><span class="line">    port =&gt; 5044</span><br><span class="line">    ssl =&gt; false</span><br><span class="line">    ssl_certificate =&gt; &quot;/etc/pki/tls/certs/logstash-beats.crt&quot;</span><br><span class="line">    ssl_key =&gt; &quot;/etc/pki/tls/private/logstash-beats.key&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>注：产生的数据文件及相关配置文件，可统一至于 之前挂载的 /data目录下</p>
+<p>注：产生的数据文件及相关配置文件，可统一至于 之前挂载的 /data 目录下</p>
 </blockquote>
-</li>
-<li><p>简单测试</p>
-<blockquote>
+<ul>
+<li>简单测试<blockquote>
 <p>访问：<a target="_blank" rel="noopener" href="http://127.0.0.1:5601/">http://127.0.0.1:5601</a></p>
 </blockquote>
 </li>
 </ul>
 <p><strong>Elasticsearch 无法启动</strong></p>
 <ul>
-<li>报错<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[2019-09-20T20:41:54,798][ERROR][o.e.b.Bootstrap] [elk] node validation exception</span><br><span class="line">[1] bootstrap checks failed</span><br><span class="line">[1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br></pre></td></tr></table></figure></li>
-<li>解决<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># /etc/sysctl.conf 文件最后添加一行</span><br><span class="line">vm.max_map_count=262144</span><br><span class="line"></span><br><span class="line"># 加载设置好的系统参数</span><br><span class="line">sudo sysctl -p</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>报错</li>
 </ul>
-<h3 id="ELK客户端配置"><a href="#ELK客户端配置" class="headerlink" title="ELK客户端配置"></a>ELK客户端配置</h3><blockquote>
-<p>ELK客户端配置核心在于Filebeat的相关配置</p>
-</blockquote>
-<h4 id="1-添加elastic-key至客户端"><a href="#1-添加elastic-key至客户端" class="headerlink" title="1. 添加elastic key至客户端"></a>1. 添加elastic key至客户端</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[2019-09-20T20:41:54,798][ERROR][o.e.b.Bootstrap] [elk] node validation exception</span><br><span class="line">[1] bootstrap checks failed</span><br><span class="line">[1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-安装apt-transport-https"><a href="#2-安装apt-transport-https" class="headerlink" title="2. 安装apt-transport-https"></a>2. 安装apt-transport-https</h4><blockquote>
-<p>由于将使用https传输的elastic数据，需安装apt-transport-https</p>
+<ul>
+<li>解决</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># /etc/sysctl.conf 文件最后添加一行</span><br><span class="line">vm.max_map_count=262144</span><br><span class="line"></span><br><span class="line"># 加载设置好的系统参数</span><br><span class="line">sudo sysctl -p</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="ELK-客户端配置"><a href="#ELK-客户端配置" class="headerlink" title="ELK 客户端配置"></a>ELK 客户端配置</h3><blockquote>
+<p>ELK 客户端配置核心在于 Filebeat 的相关配置</p>
+</blockquote>
+<h4 id="1-添加-elastic-key-至客户端"><a href="#1-添加-elastic-key-至客户端" class="headerlink" title="1. 添加 elastic key 至客户端"></a>1. 添加 elastic key 至客户端</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-安装-apt-transport-https"><a href="#2-安装-apt-transport-https" class="headerlink" title="2. 安装 apt-transport-https"></a>2. 安装 apt-transport-https</h4><blockquote>
+<p>由于将使用 https 传输的 elastic 数据，需安装 apt-transport-https</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y apt-transport-https</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-添加elastic库并更新apt-get库"><a href="#3-添加elastic库并更新apt-get库" class="headerlink" title="3. 添加elastic库并更新apt-get库"></a>3. 添加elastic库并更新apt-get库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;deb https://artifacts.elastic.co/packages/6.x/apt stable main&quot; | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<h4 id="3-添加-elastic-库并更新-apt-get-库"><a href="#3-添加-elastic-库并更新-apt-get-库" class="headerlink" title="3. 添加 elastic 库并更新 apt-get 库"></a>3. 添加 elastic 库并更新 apt-get 库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;deb https://artifacts.elastic.co/packages/6.x/apt stable main&quot; | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-安装Filebeat及相关配置"><a href="#4-安装Filebeat及相关配置" class="headerlink" title="4. 安装Filebeat及相关配置"></a>4. 安装Filebeat及相关配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y filebeat</span><br><span class="line">sudo vi /etc/filebeat/filebeat.yml</span><br></pre></td></tr></table></figure>
+<h4 id="4-安装-Filebeat-及相关配置"><a href="#4-安装-Filebeat-及相关配置" class="headerlink" title="4. 安装 Filebeat 及相关配置"></a>4. 安装 Filebeat 及相关配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y filebeat</span><br><span class="line">sudo vi /etc/filebeat/filebeat.yml</span><br></pre></td></tr></table></figure>
 
 <p><strong>相关配置</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">filebeat.inputs:</span><br><span class="line">- type: log</span><br><span class="line">  enabled: true</span><br><span class="line">  paths:</span><br><span class="line">    - /var/log/simple-flask.log</span><br><span class="line">    #- c:\programdata\elasticsearch\logs\*</span><br><span class="line"></span><br><span class="line">  fields:</span><br><span class="line">    region: Beijing</span><br><span class="line">    type: log</span><br><span class="line"></span><br><span class="line">output.logstash:</span><br><span class="line">  hosts: [&quot;&lt;logstash_ip&gt;:5044&quot;]</span><br><span class="line">  bulk_max_size: 2048</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4 id="5-启动Filebeat"><a href="#5-启动Filebeat" class="headerlink" title="5. 启动Filebeat"></a>5. 启动Filebeat</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start filebeat  // 启动  </span><br><span class="line">sudo systemctl <span class="built_in">enable</span> filebeat // 设置为开机启动</span><br><span class="line">sudo systemctl status filebeat // 检查服务状态</span><br></pre></td></tr></table></figure>
+<h4 id="5-启动-Filebeat"><a href="#5-启动-Filebeat" class="headerlink" title="5. 启动 Filebeat"></a>5. 启动 Filebeat</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start filebeat  // 启动</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> filebeat // 设置为开机启动</span><br><span class="line">sudo systemctl status filebeat // 检查服务状态</span><br></pre></td></tr></table></figure>
 
 <h4 id="6-kibana-配置"><a href="#6-kibana-配置" class="headerlink" title="6. kibana 配置"></a>6. kibana 配置</h4><ul>
 <li><ol>
-<li>点击左侧management，选择Kibana菜单中的”Index Patterns”，创建”Index Pattern”。</li>
+<li>点击左侧 management，选择 Kibana 菜单中的”Index Patterns”，创建”Index Pattern”。</li>
 </ol>
 </li>
 <li><ol start="2">
-<li>在”Create index pattern” 的 Step1 中输入”filebeat-*”，点击”Next step”。</li>
+<li>在”Create index pattern” 的 Step1 中输入”filebeat-*“，点击”Next step”。</li>
 </ol>
 </li>
 <li><ol start="3">

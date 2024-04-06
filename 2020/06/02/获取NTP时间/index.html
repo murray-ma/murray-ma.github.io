@@ -328,8 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Ntp/">
-                                <span class="chip bg-color">Ntp</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/NTP/">
+                                <span class="chip bg-color">NTP</span>
                             </a>
                         
                     </div>
@@ -379,8 +383,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="NTP服务器"><a href="#NTP服务器" class="headerlink" title="NTP服务器"></a>NTP服务器</h3><h4 id="NTP服务器地址"><a href="#NTP服务器地址" class="headerlink" title="NTP服务器地址"></a>NTP服务器地址</h4><p>210.72.145.39 或者202.112.29.82</p>
-<h4 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static Date getNtpTime(String addr)&#123;</span><br><span class="line">    //创建NTP客户端</span><br><span class="line">    NTPUDPClient ntpudpClient = new NTPUDPClient();</span><br><span class="line">    //设置默认超时时间5000毫秒</span><br><span class="line">    ntpudpClient.setDefaultTimeout(5000);</span><br><span class="line">    Date date = new Date();</span><br><span class="line">    try&#123;</span><br><span class="line">        ntpudpClient.open();</span><br><span class="line">        //配置远程时钟服务器地址</span><br><span class="line">        InetAddress remoteAddr = InetAddress.getByName(addr);</span><br><span class="line">        TimeInfo timeInfo = ntpudpClient.getTime(remoteAddr);</span><br><span class="line">        //获取时间</span><br><span class="line">        date = TimeStamp.getNtpTime(timeInfo.getReturnTime()).getDate();</span><br><span class="line">    &#125;catch(Exception e)&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;finally&#123;</span><br><span class="line">        //关闭客户端</span><br><span class="line">        ntpudpClient.close();</span><br><span class="line">    &#125;</span><br><span class="line">    return date;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+                <h3 id="NTP-服务器"><a href="#NTP-服务器" class="headerlink" title="NTP 服务器"></a>NTP 服务器</h3><h4 id="NTP-服务器地址"><a href="#NTP-服务器地址" class="headerlink" title="NTP 服务器地址"></a>NTP 服务器地址</h4><p>210.72.145.39 或者 202.112.29.82</p>
+<h4 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static Date getNtpTime(String addr)&#123;</span><br><span class="line">    //创建NTP客户端</span><br><span class="line">    NTPUDPClient ntpudpClient = new NTPUDPClient();</span><br><span class="line">    //设置默认超时时间5000毫秒</span><br><span class="line">    ntpudpClient.setDefaultTimeout(5000);</span><br><span class="line">    Date date = new Date();</span><br><span class="line">    try&#123;</span><br><span class="line">        ntpudpClient.open();</span><br><span class="line">        //配置远程时钟服务器地址</span><br><span class="line">        InetAddress remoteAddr = InetAddress.getByName(addr);</span><br><span class="line">        TimeInfo timeInfo = ntpudpClient.getTime(remoteAddr);</span><br><span class="line">        //获取时间</span><br><span class="line">        date = TimeStamp.getNtpTime(timeInfo.getReturnTime()).getDate();</span><br><span class="line">    &#125;catch(Exception e)&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;finally&#123;</span><br><span class="line">        //关闭客户端</span><br><span class="line">        ntpudpClient.close();</span><br><span class="line">    &#125;</span><br><span class="line">    return date;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>
@@ -444,8 +449,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Ntp/">
-                                    <span class="chip bg-color">Ntp</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/NTP/">
+                                    <span class="chip bg-color">NTP</span>
                                 </a>
                             
                         </div>

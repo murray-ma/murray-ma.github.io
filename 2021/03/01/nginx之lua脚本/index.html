@@ -384,36 +384,39 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><p><a target="_blank" rel="noopener" href="https://www.oschina.net/translate/augment-your-api-without-touching-it?print">https://www.oschina.net/translate/augment-your-api-without-touching-it?print</a></p>
-<h3 id="使用lua扩展nginx"><a href="#使用lua扩展nginx" class="headerlink" title="使用lua扩展nginx"></a>使用lua扩展nginx</h3><blockquote>
-<p>扩展nginx我们必须先提供lua的支持，它不是ngnix的一部分。无需担心因为已有很多组件编译进了lua，像:</p>
+<h3 id="使用-lua-扩展-nginx"><a href="#使用-lua-扩展-nginx" class="headerlink" title="使用 lua 扩展 nginx"></a>使用 lua 扩展 nginx</h3><blockquote>
+<p>扩展 nginx 我们必须先提供 lua 的支持，它不是 ngnix 的一部分。无需担心因为已有很多组件编译进了 lua，像:</p>
 </blockquote>
 <ul>
 <li>openresty</li>
 </ul>
 <blockquote>
-<p>自己安装nginx扩展lua:</p>
+<p>自己安装 nginx 扩展 lua:</p>
 </blockquote>
 <ul>
 <li>Lua nginx module</li>
 <li>HttpProxy module</li>
 </ul>
 <h3 id="OpenResty"><a href="#OpenResty" class="headerlink" title="OpenResty"></a>OpenResty</h3><ul>
-<li>官方：<a target="_blank" rel="noopener" href="http://openresty.org/cn/linux-packages.html">http://openresty.org/cn/linux-packages.html</a></li>
+<li><p>官方：<a target="_blank" rel="noopener" href="http://openresty.org/cn/linux-packages.html">http://openresty.org/cn/linux-packages.html</a></p>
+</li>
+<li><p>ubuntu 下安装 openresty</p>
+</li>
 </ul>
-<ul>
-<li><p>ubuntu下安装openresty</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入我们的 GPG 密钥：</span></span><br><span class="line">wget -qO - https://openresty.org/package/pubkey.gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 add-apt-repository 命令</span></span><br><span class="line">sudo apt-get -y install software-properties-common</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加我们官方 official APT 仓库：</span></span><br><span class="line">sudo add-apt-repository -y <span class="string">&quot;deb http://openresty.org/package/ubuntu <span class="subst">$(lsb_release -sc)</span> main&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 APT 索引：</span></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装软件包openresty</span></span><br><span class="line">sudo apt-get install openresty</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上面指令同时会安装上推荐的安装 openresty-opm 和 openresty-restydoc， 若不想自动关联安装，可以用下面方法关闭自动关联安装：</span></span><br><span class="line">sudo apt-get install --no-install-recommends openresty</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>openresty测试</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改openresty配置</span></span><br><span class="line">vim /etc/openresty/nginx.conf</span><br><span class="line"><span class="comment"># 在http模块，添加</span></span><br><span class="line">include /etc/openresty/conf.d/*.conf;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试配置</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /etc/openresty/conf.d</span><br><span class="line">vim lua-demo.conf</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  </span><br><span class="line">        listen 8881 default_server;</span><br><span class="line"></span><br><span class="line">        root /var/www/html;</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">        server_name _;</span><br><span class="line"></span><br><span class="line">        location /lua &#123;</span><br><span class="line">                content_by_lua <span class="string">&#x27;ngx.say(&quot;hello, lua.&quot;)&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启openresty</span></span><br><span class="line">service openresty restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line">curl <span class="string">&#x27;127.0.0.1:8881/lua&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line"><span class="comment"># hello, lua.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>json转xml测试</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装依赖 LuaXml、cjson</span></span><br><span class="line"><span class="comment"># 待完善</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># lua脚本(xml_to_json.lua)</span></span><br><span class="line"><span class="built_in">local</span> xml = require(<span class="string">&quot;LuaXml&quot;</span>)</span><br><span class="line">require(<span class="string">&quot;os&quot;</span>)</span><br><span class="line"><span class="built_in">local</span> cjson = require(<span class="string">&quot;cjson&quot;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="built_in">local</span> path = ngx.var.request:<span class="built_in">split</span>(<span class="string">&quot; &quot;</span>)[2]</span><br><span class="line"><span class="built_in">local</span> m = ngx.re.match(path,[=[/([^/]+)\.(json|xml)$]=]) -- match last word</span><br><span class="line"><span class="built_in">local</span> res = ngx.location.capture(<span class="string">&quot;/data/word/&quot;</span>.. m[1] .. <span class="string">&quot;.json&quot;</span> )</span><br><span class="line"><span class="built_in">local</span> value=cjson.new().decode(res.body)</span><br><span class="line"> </span><br><span class="line"><span class="built_in">local</span> response = xml.new(<span class="string">&quot;response&quot;</span>)</span><br><span class="line"> </span><br><span class="line">response.word= xml.new(<span class="string">&quot;word&quot;</span>)</span><br><span class="line">response.sentiment = xml.new(<span class="string">&quot;sentiment&quot;</span>)</span><br><span class="line">response.timestamp = xml.new(<span class="string">&quot;timestamp&quot;</span>)</span><br><span class="line">table.insert(response.word, value.word)</span><br><span class="line">table.insert(response.sentiment, value.sentiment)</span><br><span class="line">table.insert(response.timestamp, os.date())</span><br><span class="line"> </span><br><span class="line">ngx.say(<span class="string">&#x27;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x27;</span>, xml.str(response,0))</span><br><span class="line"></span><br><span class="line"><span class="comment"># openresty 配置</span></span><br><span class="line">location ~ ^/data/word/(.*).json$ &#123;</span><br><span class="line">  content_by_lua_file /etc/openresty/conf.d/xml_to_json.lua;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-</li>
+<ul>
+<li>openresty 测试</li>
 </ul>
-<h4 id="nginx执行步骤"><a href="#nginx执行步骤" class="headerlink" title="nginx执行步骤"></a>nginx执行步骤</h4><blockquote>
-<p>nginx在处理每一个用户请求时，都是按照若干个不同的阶段依次处理的，与配置文件上的顺序没有关系，详细内容可以阅读《深入理解nginx:模块开发与架构解析》，这里只做简单介绍</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改openresty配置</span></span><br><span class="line">vim /etc/openresty/nginx.conf</span><br><span class="line"><span class="comment"># 在http模块，添加</span></span><br><span class="line">include /etc/openresty/conf.d/*.conf;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试配置</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /etc/openresty/conf.d</span><br><span class="line">vim lua-demo.conf</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line"></span><br><span class="line">        listen 8881 default_server;</span><br><span class="line"></span><br><span class="line">        root /var/www/html;</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">        server_name _;</span><br><span class="line"></span><br><span class="line">        location /lua &#123;</span><br><span class="line">                content_by_lua <span class="string">&#x27;ngx.say(&quot;hello, lua.&quot;)&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启openresty</span></span><br><span class="line">service openresty restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line">curl <span class="string">&#x27;127.0.0.1:8881/lua&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line"><span class="comment"># hello, lua.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>json 转 xml 测试</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装依赖 LuaXml、cjson</span></span><br><span class="line"><span class="comment"># 待完善</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># lua脚本(xml_to_json.lua)</span></span><br><span class="line"><span class="built_in">local</span> xml = require(<span class="string">&quot;LuaXml&quot;</span>)</span><br><span class="line">require(<span class="string">&quot;os&quot;</span>)</span><br><span class="line"><span class="built_in">local</span> cjson = require(<span class="string">&quot;cjson&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">local</span> path = ngx.var.request:<span class="built_in">split</span>(<span class="string">&quot; &quot;</span>)[2]</span><br><span class="line"><span class="built_in">local</span> m = ngx.re.match(path,[=[/([^/]+)\.(json|xml)$]=]) -- match last word</span><br><span class="line"><span class="built_in">local</span> res = ngx.location.capture(<span class="string">&quot;/data/word/&quot;</span>.. m[1] .. <span class="string">&quot;.json&quot;</span> )</span><br><span class="line"><span class="built_in">local</span> value=cjson.new().decode(res.body)</span><br><span class="line"></span><br><span class="line"><span class="built_in">local</span> response = xml.new(<span class="string">&quot;response&quot;</span>)</span><br><span class="line"></span><br><span class="line">response.word= xml.new(<span class="string">&quot;word&quot;</span>)</span><br><span class="line">response.sentiment = xml.new(<span class="string">&quot;sentiment&quot;</span>)</span><br><span class="line">response.timestamp = xml.new(<span class="string">&quot;timestamp&quot;</span>)</span><br><span class="line">table.insert(response.word, value.word)</span><br><span class="line">table.insert(response.sentiment, value.sentiment)</span><br><span class="line">table.insert(response.timestamp, os.date())</span><br><span class="line"></span><br><span class="line">ngx.say(<span class="string">&#x27;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x27;</span>, xml.str(response,0))</span><br><span class="line"></span><br><span class="line"><span class="comment"># openresty 配置</span></span><br><span class="line">location ~ ^/data/word/(.*).json$ &#123;</span><br><span class="line">  content_by_lua_file /etc/openresty/conf.d/xml_to_json.lua;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="nginx-执行步骤"><a href="#nginx-执行步骤" class="headerlink" title="nginx 执行步骤"></a>nginx 执行步骤</h4><blockquote>
+<p>nginx 在处理每一个用户请求时，都是按照若干个不同的阶段依次处理的，与配置文件上的顺序没有关系，详细内容可以阅读《深入理解 nginx:模块开发与架构解析》，这里只做简单介绍</p>
 </blockquote>
 <table>
 <thead>
@@ -426,37 +429,37 @@
 <tbody><tr>
 <td>1</td>
 <td>post-read</td>
-<td>读取请求内容阶段，nginx读取并解析完请求头之后就立即开始运行；</td>
+<td>读取请求内容阶段，nginx 读取并解析完请求头之后就立即开始运行；</td>
 </tr>
 <tr>
 <td>2</td>
 <td>server-rewrite</td>
-<td>server请求地址重写阶段；</td>
+<td>server 请求地址重写阶段；</td>
 </tr>
 <tr>
 <td>3</td>
 <td>find-config</td>
-<td>配置查找阶段，用来完成当前请求与location配重块之间的配对工作；</td>
+<td>配置查找阶段，用来完成当前请求与 location 配重块之间的配对工作；</td>
 </tr>
 <tr>
 <td>4</td>
 <td>rewrite</td>
-<td>location请求地址重写阶段，当ngx_rewrite指令用于location中，就是再这个阶段运行的；</td>
+<td>location 请求地址重写阶段，当 ngx_rewrite 指令用于 location 中，就是再这个阶段运行的；</td>
 </tr>
 <tr>
 <td>5</td>
 <td>post-rewrite</td>
-<td>请求地址重写提交阶段，当nginx完成rewrite阶段所要求的内部跳转动作，如果rewrite阶段有这个要求的话；</td>
+<td>请求地址重写提交阶段，当 nginx 完成 rewrite 阶段所要求的内部跳转动作，如果 rewrite 阶段有这个要求的话；</td>
 </tr>
 <tr>
 <td>6</td>
 <td>preaccess</td>
-<td>访问权限检查准备阶段，ngx_limit_req和ngx_limit_zone在这个阶段运行，ngx_limit_req可以控制请求的访问频率，ngx_limit_zone可以控制访问的并发度；</td>
+<td>访问权限检查准备阶段，ngx_limit_req 和 ngx_limit_zone 在这个阶段运行，ngx_limit_req 可以控制请求的访问频率，ngx_limit_zone 可以控制访问的并发度；</td>
 </tr>
 <tr>
 <td>7</td>
 <td>access</td>
-<td>权限检查阶段，ngx_access在这个阶段运行，配置指令多是执行访问控制相关的任务，如检查用户的访问权限，检查用户的来源IP是否合法；</td>
+<td>权限检查阶段，ngx_access 在这个阶段运行，配置指令多是执行访问控制相关的任务，如检查用户的访问权限，检查用户的来源 IP 是否合法；</td>
 </tr>
 <tr>
 <td>8</td>
@@ -466,12 +469,12 @@
 <tr>
 <td>9</td>
 <td>try-files</td>
-<td>配置项try_files处理阶段；</td>
+<td>配置项 try_files 处理阶段；</td>
 </tr>
 <tr>
 <td>10</td>
 <td>content</td>
-<td>内容产生阶段，是所有请求处理阶段中最为重要的阶段，因为这个阶段的指令通常是用来生成HTTP响应内容的；</td>
+<td>内容产生阶段，是所有请求处理阶段中最为重要的阶段，因为这个阶段的指令通常是用来生成 HTTP 响应内容的；</td>
 </tr>
 <tr>
 <td>11</td>
@@ -481,7 +484,7 @@
 </tbody></table>
 <h4 id="Nginx-模块执行顺序与阶段"><a href="#Nginx-模块执行顺序与阶段" class="headerlink" title="Nginx 模块执行顺序与阶段"></a>Nginx 模块执行顺序与阶段</h4><p><img src="https://mhiwyf.github.io/images/ydnote/2019/nginx-lua.jpg" alt="Nginx 模块执行顺序与阶段"></p>
 <h4 id="ngx-lua-运行指令"><a href="#ngx-lua-运行指令" class="headerlink" title="ngx_lua 运行指令"></a>ngx_lua 运行指令</h4><blockquote>
-<p>ngx_lua属于nginx的一部分，它的执行指令都包含在nginx的11个步骤之中，相应的处理阶段可以做插入式处理，即可插拔式架构，不过ngx_lua并不是所有阶段都会运行的；另外指令可以在http、server、server if、location、location if几个范围进行配置：</p>
+<p>ngx_lua 属于 nginx 的一部分，它的执行指令都包含在 nginx 的 11 个步骤之中，相应的处理阶段可以做插入式处理，即可插拔式架构，不过 ngx_lua 并不是所有阶段都会运行的；另外指令可以在 http、server、server if、location、location if 几个范围进行配置：</p>
 </blockquote>
 <table>
 <thead>
@@ -496,25 +499,25 @@
 <td>init_by_lua <br>init_by_lua_file</td>
 <td>loading-config</td>
 <td>http</td>
-<td>nginx Master进程加载配置时执行；<br>通常用于初始化全局配置/预加载Lua模块</td>
+<td>nginx Master 进程加载配置时执行；<br>通常用于初始化全局配置/预加载 Lua 模块</td>
 </tr>
 <tr>
 <td>init_worker_by_lua <br>init_worker_by_lua_file</td>
 <td>starting-worker</td>
 <td>http</td>
-<td>每个Nginx Worker进程启动时调用的计时器，<br>如果Master进程不允许则只会在init_by_lua之后调用；<br>通常用于定时拉取配置/数据，或者后端服务的健康检查</td>
+<td>每个 Nginx Worker 进程启动时调用的计时器，<br>如果 Master 进程不允许则只会在 init_by_lua 之后调用；<br>通常用于定时拉取配置/数据，或者后端服务的健康检查</td>
 </tr>
 <tr>
 <td>set_by_lua <br>set_by_lua_file</td>
 <td>rewrite</td>
 <td>server,server if,location,location if</td>
-<td>设置nginx变量，可以实现复杂的赋值逻辑；<br>此处是阻塞的，Lua代码要做到非常快；</td>
+<td>设置 nginx 变量，可以实现复杂的赋值逻辑；<br>此处是阻塞的，Lua 代码要做到非常快；</td>
 </tr>
 <tr>
 <td>rewrite_by_lua <br>rewrite_by_lua_file</td>
 <td>rewrite tail</td>
 <td>http,server,location,location if</td>
-<td>rewrite阶段处理，可以实现复杂的转发/重定向逻辑；</td>
+<td>rewrite 阶段处理，可以实现复杂的转发/重定向逻辑；</td>
 </tr>
 <tr>
 <td>access_by_lua <br>access_by_lua_file</td>
@@ -532,7 +535,7 @@
 <td>header_filter_by_lua <br>header_filter_by_lua_file</td>
 <td>output-header-filter</td>
 <td>http，server，location，location if</td>
-<td>设置header和cookie</td>
+<td>设置 header 和 cookie</td>
 </tr>
 <tr>
 <td>body_filter_by_lua <br>body_filter_by_lua_file</td>
@@ -544,7 +547,7 @@
 <td>log_by_lua <br>log_by_lua_file</td>
 <td>log</td>
 <td>http，server，location，location if</td>
-<td>log阶段处理，比如记录访问量/统计平均响应时间</td>
+<td>log 阶段处理，比如记录访问量/统计平均响应时间</td>
 </tr>
 </tbody></table>
 
@@ -837,8 +840,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CICD/" class="post-category">
-                                    CICD
+                            <a href="/categories/Nginx/" class="post-category">
+                                    Nginx
                                 </a>
                             
                             

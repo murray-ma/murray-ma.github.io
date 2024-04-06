@@ -328,8 +328,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Js/">
-                                <span class="chip bg-color">Js</span>
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
                             </a>
                         
                     </div>
@@ -340,8 +340,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category">
-                                JavaScript
+                            <a href="/categories/JS/" class="post-category">
+                                JS
                             </a>
                         
                     </div>
@@ -379,7 +379,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Js压缩图片base64"><a href="#Js压缩图片base64" class="headerlink" title="Js压缩图片base64"></a>Js压缩图片base64</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//压缩图片base64</span><br><span class="line">function doCompressImgBase64(imgBase64)&#123;</span><br><span class="line">    var imgHead = imgBase64.match(/^data:(image\/\w+);base64,/),type=&quot;image/png&quot;;</span><br><span class="line">    if(imgHead!=null)&#123;</span><br><span class="line">        type = imgHead[1];</span><br><span class="line">    &#125;</span><br><span class="line">  var img = new Image,</span><br><span class="line">  height = 240,width = 320, //图片resize宽度</span><br><span class="line">  quality = 0.8, //图像质量</span><br><span class="line">  canvas = document.createElement(&quot;canvas&quot;),</span><br><span class="line">  drawer = canvas.getContext(&quot;2d&quot;);</span><br><span class="line">  img.src = imgBase64;</span><br><span class="line">  var hh = height / img.height,</span><br><span class="line">      ww = width / img.width;</span><br><span class="line">  var rate = hh &gt; ww ? ww : hh;</span><br><span class="line">  if(rate &lt; 1)&#123;</span><br><span class="line">      canvas.width = img.width * rate;</span><br><span class="line">      canvas.height = img.height * rate;</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">      canvas.width = img.width;</span><br><span class="line">      canvas.height = img.height;</span><br><span class="line">  &#125;</span><br><span class="line">  drawer.drawImage(img, 0, 0, canvas.width, canvas.height);</span><br><span class="line">  img.src = canvas.toDataURL(type, quality);//&quot;image/png&quot;</span><br><span class="line">  var imgBase64Str = img.src;</span><br><span class="line">  return imgBase64Str;//imgBase64Str.replace(/^data:image\/\w+;base64,/, &quot;&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <h3 id="Js-压缩图片-base64"><a href="#Js-压缩图片-base64" class="headerlink" title="Js 压缩图片 base64"></a>Js 压缩图片 base64</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//压缩图片base64</span><br><span class="line">function doCompressImgBase64(imgBase64)&#123;</span><br><span class="line">    var imgHead = imgBase64.match(/^data:(image\/\w+);base64,/),type=&quot;image/png&quot;;</span><br><span class="line">    if(imgHead!=null)&#123;</span><br><span class="line">        type = imgHead[1];</span><br><span class="line">    &#125;</span><br><span class="line">  var img = new Image,</span><br><span class="line">  height = 240,width = 320, //图片resize宽度</span><br><span class="line">  quality = 0.8, //图像质量</span><br><span class="line">  canvas = document.createElement(&quot;canvas&quot;),</span><br><span class="line">  drawer = canvas.getContext(&quot;2d&quot;);</span><br><span class="line">  img.src = imgBase64;</span><br><span class="line">  var hh = height / img.height,</span><br><span class="line">      ww = width / img.width;</span><br><span class="line">  var rate = hh &gt; ww ? ww : hh;</span><br><span class="line">  if(rate &lt; 1)&#123;</span><br><span class="line">      canvas.width = img.width * rate;</span><br><span class="line">      canvas.height = img.height * rate;</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">      canvas.width = img.width;</span><br><span class="line">      canvas.height = img.height;</span><br><span class="line">  &#125;</span><br><span class="line">  drawer.drawImage(img, 0, 0, canvas.width, canvas.height);</span><br><span class="line">  img.src = canvas.toDataURL(type, quality);//&quot;image/png&quot;</span><br><span class="line">  var imgBase64Str = img.src;</span><br><span class="line">  return imgBase64Str;//imgBase64Str.replace(/^data:image\/\w+;base64,/, &quot;&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>
@@ -443,8 +444,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Js/">
-                                    <span class="chip bg-color">Js</span>
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
                                 </a>
                             
                         </div>
@@ -665,8 +666,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/JS/" class="post-category">
+                                    JS
                                 </a>
                             
                             
@@ -676,8 +677,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Js/">
-                        <span class="chip bg-color">Js</span>
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>
@@ -714,8 +715,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/JS/" class="post-category">
+                                    JS
                                 </a>
                             
                             
@@ -725,8 +726,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Js/">
-                        <span class="chip bg-color">Js</span>
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>

@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Mysql/">
                                 <span class="chip bg-color">Mysql</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -344,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -385,48 +385,48 @@
             <div id="articleContent">
                 <h3 id="Centos："><a href="#Centos：" class="headerlink" title="Centos："></a>Centos：</h3><p>a、安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">yum install mysql-server</span><br></pre></td></tr></table></figure>
-<p>b、配置root密码</p>
+
+<p>b、配置 root 密码</p>
 <blockquote>
-<p>在mysql系统外，使用mysqladmin</p>
+<p>在 mysql 系统外，使用 mysqladmin</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -uroot -p password 密码</span><br><span class="line">Enter password: 【输入原来的密码】</span><br></pre></td></tr></table></figure>
+
 <p>或者</p>
 <blockquote>
-<p>通过登录mysql系统，</p>
+<p>通过登录 mysql 系统，</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># mysql -uroot -p</span><br><span class="line">Enter password: 【输入原来的密码】</span><br><span class="line">mysql&gt;use mysql;</span><br><span class="line">mysql&gt; update user set password=password(&quot;123456&quot;) where user=&#x27;root&#x27;;</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">mysql&gt; exit; </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># mysql -uroot -p</span><br><span class="line">Enter password: 【输入原来的密码】</span><br><span class="line">mysql&gt;use mysql;</span><br><span class="line">mysql&gt; update user set password=password(&quot;123456&quot;) where user=&#x27;root&#x27;;</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">mysql&gt; exit;</span><br></pre></td></tr></table></figure>
 
 <h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu:"></a>Ubuntu:</h3><blockquote>
-<p>安装（若没有mysql-server，则可能需要配置软件源）</p>
+<p>安装（若没有 mysql-server，则可能需要配置软件源）</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mysql-server-5.7</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">sudo apt-get install mysql-server-5.7</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>启动mysql服务：</p>
+<p>启动 mysql 服务：</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service mysql start</span><br><span class="line">service mysql restart</span><br><span class="line">service mysql stop</span><br></pre></td></tr></table></figure>
 
-
 <h3 id="设置远程访问"><a href="#设置远程访问" class="headerlink" title="设置远程访问"></a>设置远程访问</h3><blockquote>
-<p>将/etc/mysql/my.cnf（或/etc/mysql/mysql.conf.d/mysqld.cnf）中找到bind-address注释掉或者改成0.0.0.0。</p>
+<p>将/etc/mysql/my.cnf（或/etc/mysql/mysql.conf.d/mysqld.cnf）中找到 bind-address 注释掉或者改成 0.0.0.0。</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Instead of skip-networking the default is now to listen only on </span></span><br><span class="line"><span class="comment"># localhost which is more compatible and is not less </span></span><br><span class="line"><span class="comment"># secure.bind-address = 127.0.0.1</span></span><br><span class="line">bind-address = 0.0.0.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Instead of skip-networking the default is now to listen only on</span></span><br><span class="line"><span class="comment"># localhost which is more compatible and is not less</span></span><br><span class="line"><span class="comment"># secure.bind-address = 127.0.0.1</span></span><br><span class="line">bind-address = 0.0.0.0</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>Mysql默认是不允许远程连接的，因为有很大的安全隐患。需要手动增加可以远程访问数据库的用户。</p>
+<p>Mysql 默认是不允许远程连接的，因为有很大的安全隐患。需要手动增加可以远程访问数据库的用户。</p>
 </blockquote>
 <p><strong>方法一</strong></p>
 <blockquote>
-<p>本地登入mysql，更改 “mysql” 数据库里的 “user” 表里的 “host” 项，将”localhost”改为”%”</p>
+<p>本地登入 mysql，更改 “mysql” 数据库里的 “user” 表里的 “host” 项，将”localhost”改为”%”</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 127.0.0.1 -u root -p</span><br><span class="line">mysql&gt;use mysql;</span><br><span class="line">mysql&gt;update user set host = &#x27;%&#x27; where user = &#x27;root&#x27;;</span><br><span class="line">mysql&gt;select host, user from user;</span><br></pre></td></tr></table></figure>
 
 <p><strong>方法二</strong></p>
 <blockquote>
-<p>直接授权(推荐 )，需连接到mysql服务器</p>
+<p>直接授权(推荐 )，需连接到 mysql 服务器</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 127.0.0.1 -u root -p</span><br><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;your_password&#x27; WITH GRANT OPTION;</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
-
 
                 
             </div>
@@ -491,12 +491,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Mysql/">
                                     <span class="chip bg-color">Mysql</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -717,8 +717,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -728,12 +728,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -770,8 +770,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -781,12 +781,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

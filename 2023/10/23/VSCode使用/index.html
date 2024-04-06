@@ -1,0 +1,1231 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="VSCode使用, Java,Python,GO">
+    <meta name="description" content="IT文章及知识分享">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>VSCode使用 | 马瑞个人笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="马瑞个人笔记" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">马瑞个人笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">马瑞个人笔记</div>
+        <div class="logo-desc">
+            
+            IT文章及知识分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">VSCode使用</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+        padding-top: 1.5rem
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        <!-- height: calc(100vh - 250px); -->
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/IDE/">
+                                <span class="chip bg-color">IDE</span>
+                            </a>
+                        
+                            <a href="/tags/VSCode/">
+                                <span class="chip bg-color">VSCode</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/IDE/" class="post-category">
+                                IDE
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-10-23
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + Shift + P，F1 显示命令面板 Show Command Palette</span><br><span class="line">Ctrl + P 快速打开 Quick Open</span><br><span class="line">Ctrl + Shift + N 新窗口/实例 New window/instance</span><br><span class="line">Ctrl+Shift+X 打开视图</span><br><span class="line"></span><br><span class="line">Ctrl+`	显示集成终端 Show integrated terminal</span><br><span class="line">Ctrl+Shift+`	创建新终端 Create new terminal</span><br><span class="line">Ctrl+Shift+C	复制选定 Copy selection</span><br><span class="line">Ctrl+Shift+V	粘贴到活动端子 Paste into active terminal</span><br><span class="line">Ctrl+↑ / ↓	向上/向下滚动 Scroll up/down</span><br><span class="line">Shift+PgUp / PgDown	向上/向下滚动页面 Scroll page up/down</span><br><span class="line">Ctrl+Home / End	滚动到顶部/底部 Scroll to top/bottom</span><br><span class="line"></span><br><span class="line">Ctrl+Enter 在下面插入行 Insert line below</span><br><span class="line">Ctrl+Shift+Enter 在上面插入行 Insert line above</span><br><span class="line">Ctrl+Shift+\ 跳到匹配的括号 Jump to matching bracket</span><br><span class="line">Ctrl+] / [	缩进/缩进行 Indent/outdent line</span><br><span class="line">Ctrl+/	切换行注释 Toggle line comment</span><br><span class="line">Shift+Alt+A	切换块注释 Toggle block comment</span><br><span class="line"></span><br><span class="line">Ctrl + T	显示所有符号 Show all Symbols</span><br><span class="line">Ctrl + G	转到行... Go to Line...</span><br><span class="line">Ctrl + P	转到文件... Go to File...</span><br><span class="line">Ctrl + Shift + O	转到符号... Go to Symbol...</span><br><span class="line">Ctrl + Shift + M	显示问题面板 Show Problems panel</span><br><span class="line">F8	转到下一个错误或警告 Go to next error or warning</span><br><span class="line">Shift + F8	转到上一个错误或警告 Go to previous error or warning</span><br><span class="line">Ctrl + Shift + Tab	导航编辑器组历史记录 Navigate editor group history</span><br><span class="line">Alt + ←/→	返回/前进 Go back / forward</span><br><span class="line">Ctrl + M	切换选项卡移动焦点 Toggle Tab moves focus</span><br><span class="line"></span><br><span class="line">Ctrl + F	查找 Find</span><br><span class="line">Ctrl + H	替换 Replace</span><br><span class="line">F3 / Shift + F3	查找下一个/上一个 Find next/previous</span><br><span class="line">Alt + Enter	选择查找匹配的所有出现 Select all occurences of Find match</span><br><span class="line"></span><br><span class="line">Ctrl+ = / -	放大/缩小 Zoom in/out</span><br><span class="line">Ctrl+B	切换侧栏可见性 Toggle Sidebar visibility</span><br><span class="line">Ctrl+Shift+E	显示浏览器/切换焦点 Show Explorer / Toggle focus</span><br><span class="line">Ctrl+Shift+F	显示搜索 Show Search</span><br><span class="line">Ctrl+Shift+G	显示Git Show Git</span><br><span class="line">Ctrl+Shift+D	显示调试 Show Debug</span><br><span class="line">Ctrl+Shift+X	显示扩展 Show Extensions</span><br><span class="line">Ctrl+Shift+H	替换文件 Replace in files</span><br><span class="line">Ctrl+Shift+J	切换搜索详细信息 Toggle Search details</span><br><span class="line">Ctrl+Shift+C	打开新命令提示符/终端 Open new command prompt/terminal</span><br><span class="line">Ctrl+Shift+U	显示输出面板 Show Output panel</span><br><span class="line">Ctrl+Shift+V	切换Markdown预览 Toggle Markdown preview</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"># 打开扩展</span><br><span class="line">&gt; 查看 -&gt; 扩展 -&gt; 搜索插件</span><br><span class="line">&gt; Ctrl+Shift+X 打开</span><br><span class="line"></span><br><span class="line"># 汉化</span><br><span class="line">搜索 &quot;Configure Display Language&quot;，选择&quot;zh-cn&quot;</span><br><span class="line"></span><br><span class="line"># 常用插件</span><br><span class="line">1. code runner： 编译运行</span><br><span class="line">2. Git Extension Pack： Git插件</span><br><span class="line">3. Git Graph： Git神器，堪比Pycharm内的Git管理器</span><br><span class="line">5. Path Autocomplete： 能自动感知当前目录下所有的文件，只需要你自己选择就好了。</span><br><span class="line">6. Visual Studio IntelliCode: 代码提示及补全</span><br><span class="line">7. koroFileHeader： 文件头部信息添加</span><br><span class="line">8. Prettier - Code formatter： 代码格式化</span><br><span class="line">9. vscode-icons： Icon图标库</span><br><span class="line">10. IntelliJ IDEA Keybindings： IntelliJ IDE快捷键</span><br><span class="line">11. Markdown All in One： markdown插件</span><br><span class="line">12. Git History Diff: git历史对比</span><br><span class="line">13. Path Intellisense: 自动补全</span><br><span class="line">14. One Dark Pro: 主题</span><br><span class="line">15. Jupyter</span><br><span class="line">16. Live Server</span><br><span class="line"></span><br><span class="line"># python相关</span><br><span class="line">1. pylance： python代码补全</span><br><span class="line">2. Python Extension Pack： python 插件扩展包</span><br><span class="line">3. cornflakes-linter：错误提示</span><br><span class="line">4. Path IntelliSense： 支持自动完成，代码导航和格式化</span><br><span class="line">5. Python Preview： 能够实时可视化你的代码结果，还能为VSCode切换各种主题皮肤。</span><br><span class="line">6. Python Snippets： 代码片段，比如for循环、try/catch等等</span><br><span class="line">7. Python Indent： 能纠正VSCode缩进错误的扩展</span><br><span class="line">8. Python-autopep8： python pep8代码规范</span><br><span class="line">9. Django： django插件</span><br><span class="line">10. django-intellisense 代码提示</span><br><span class="line">11. MagicPython: 代码高亮</span><br><span class="line">12. Python Docstring Generator： Doc文档标注</span><br><span class="line">13. Tabnine Autocomplete AI： 智能提示</span><br><span class="line"></span><br><span class="line"># java相关</span><br><span class="line">1. Lombok Annotations Support for VS Code： 支持注解相关处理</span><br><span class="line">2. Java Extension Pack</span><br><span class="line">3. Spring Boot Extension Pack</span><br><span class="line"></span><br><span class="line"># Go相关</span><br><span class="line">1. Go Extension Pack： go开发相关插件</span><br><span class="line">2. dep: dep项目管理</span><br><span class="line">3. go snippets： 快速代码工具</span><br><span class="line">4. Paste JSON as Code： json转换工具</span><br><span class="line">5. go Doc: 配置悬停提示、代码提示、代码跳转配置悬停提示、代码提示、代码跳转</span><br><span class="line"></span><br><span class="line"># Docker相关</span><br><span class="line">1. Docker: docker插件</span><br><span class="line">2. Docker Explorer： docker浏览</span><br><span class="line"></span><br><span class="line"># web相关</span><br><span class="line">1. Vetur： vue工具</span><br><span class="line">2. Vue 3 Snippets： 代码提示</span><br><span class="line">3. ESLint：代码规范</span><br></pre></td></tr></table></figure>
+
+<h3 id="python-代码补全"><a href="#python-代码补全" class="headerlink" title="python 代码补全"></a>python 代码补全</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 方式一</span><br><span class="line"># Pylance</span><br><span class="line">&quot;python.languageServer&quot;: &quot;Pylance&quot;,</span><br><span class="line">&quot;python.analysis.extraPaths&quot;:[</span><br><span class="line">    &quot;&lt;project-root&gt;&quot;,</span><br><span class="line">    &quot;&lt;venv-path&gt;&quot;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">#方式二</span><br><span class="line"># IntelliCode</span><br><span class="line">&quot;python.languageServer&quot;: &quot;Microsoft&quot;</span><br><span class="line">&quot;python.autoComplete.extraPaths&quot;: [</span><br><span class="line">    &quot;D:\\workspace\\python\\aital-exam-backend\\nethand&quot;,</span><br><span class="line">    &quot;D:\\virtualenvs\\aital-exam-backend\\Lib\\site-packages&quot;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-Django"><a href="#配置-Django" class="headerlink" title="配置 Django"></a>配置 Django</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"># 新建django工程</span><br><span class="line">django-admin startproject &lt;project_name&gt;</span><br><span class="line"># 进入到django工程目录下</span><br><span class="line">cd &lt;project_name&gt;</span><br><span class="line"></span><br><span class="line"># 创建python虚拟环境（通过venv创建）</span><br><span class="line"># macOS/Linux</span><br><span class="line">sudo apt-get install python3-venv    # If needed</span><br><span class="line">python3 -m venv &lt;venv_name&gt;</span><br><span class="line"># Windows</span><br><span class="line">python -m venv &lt;venv_name&gt;</span><br><span class="line"></span><br><span class="line"># 关联python虚拟环境（组合快捷键ctrl+shift+p）</span><br><span class="line">搜索&quot;python interpreter&quot; ，选择虚拟环境</span><br><span class="line"></span><br><span class="line"># workspace setting</span><br><span class="line">&#123;</span><br><span class="line">    &quot;djangointellisense.projectRoot&quot;:&quot;&lt;project root path&gt;&quot;,</span><br><span class="line">    &quot;djangointellisense.settingsModule&quot;: &quot;&lt;project_name&gt;.settings&quot;,</span><br><span class="line">    &quot;python.pythonPath&quot;: &quot;&lt;python path&gt;&quot;,</span><br><span class="line">    &quot;python.autoComplete.extraPaths&quot;: [</span><br><span class="line">        &quot;&lt;project root path&quot;,</span><br><span class="line">        &quot;&lt;pyhton venv path&gt;\\Lib\\site-packages&quot;</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 配置django工程启动文件</span><br><span class="line">创建launch.json启动文件 -&gt; 选择环境 -&gt; 选择Django配置</span><br><span class="line"># 打开 launch.json 文件， 配置django</span><br><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Python: Django&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;python&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;\\manage.py&quot;,</span><br><span class="line">            &quot;console&quot;: &quot;integratedTerminal&quot;,</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;runserver&quot;,</span><br><span class="line">                &quot;0.0.0.0:8080&quot;,</span><br><span class="line">                &quot;--noreload&quot;,</span><br><span class="line">                &quot;--nothreading&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;django&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 配置debug</span><br><span class="line">选择左边的Debug（左边第三个）图标，在点击“Add Configuration”添加配置文件，并选择django选项。</span><br><span class="line">选择生成Python的配置文件launch.json，配置&quot;program&quot;与&quot;args&quot;参数。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="搭建-springboot"><a href="#搭建-springboot" class="headerlink" title="搭建 springboot"></a>搭建 springboot</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 创建Spring Boot项目</span><br><span class="line">使用快捷键(Ctrl+Shift+P)命令窗口，</span><br><span class="line">输入 Spring 选择创建 Maven 项目.</span><br><span class="line"></span><br><span class="line"># 选择需要引入的包，以满足web开发：</span><br><span class="line">DevTools（代码修改热更新，无需重启）</span><br><span class="line">Web（集成tomcat、SpringMVC）</span><br><span class="line">Lombok（智能生成setter、getter、toString等接口，无需手动生成，代码更简介）Thymeleaf （模板引擎）。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Launch-json"><a href="#Launch-json" class="headerlink" title="Launch.json"></a>Launch.json</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">// A launch configuration that compiles the extension and then opens it inside a new window</span><br><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.1.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;java&quot;,</span><br><span class="line">            &quot;name&quot;: &quot;Current File&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;mainClass&quot;: &quot;$&#123;file&#125;&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Python: Django&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;python&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;\\manage.py&quot;,</span><br><span class="line">            &quot;console&quot;: &quot;integratedTerminal&quot;,</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;runserver&quot;,</span><br><span class="line">                &quot;0.0.0.0:8080&quot;,</span><br><span class="line">                &quot;--noreload&quot;,</span><br><span class="line">                &quot;--nothreading&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;django&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;extensionHost&quot;,</span><br><span class="line">            &quot;name&quot;: &quot;springboot-alipay&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;runtimeExecutable&quot;: &quot;$&#123;execPath&#125;&quot;,</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/springboot-alipay&quot;,</span><br><span class="line">                &quot;--extensionDevelopmentPath=$&#123;workspaceFolder&#125;/springboot-alipay&quot;,</span><br><span class="line">                &quot;--extensionTestsPath=$&#123;workspaceFolder&#125;/springboot-alipay&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;stopOnEntry&quot;: false,</span><br><span class="line">            &quot;sourceMaps&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;finder&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;go&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;mode&quot;: &quot;auto&quot;,</span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;workspaceFolder&#125;/finder&quot;,</span><br><span class="line">            &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;/finder/finder.go&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;audit-core&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;go&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;mode&quot;: &quot;auto&quot;,</span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;workspaceFolder&#125;/audit-core&quot;,</span><br><span class="line">            &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;/audit-core/cmd/resource-audit/main.go&quot;,</span><br><span class="line">            &quot;env&quot;: &#123;</span><br><span class="line">                &quot;GOPATH&quot;: &quot;/home/murray/go&quot;,</span><br><span class="line">                &quot;GOROOT&quot;: &quot;/usr/lib/go&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;args&quot;: []</span><br><span class="line">        &#125;,</span><br><span class="line">&#123;</span><br><span class="line">            &quot;name&quot;: &quot;Python: Celery&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;python&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;module&quot;: &quot;celery&quot;,</span><br><span class="line">            &quot;justMyCode&quot;: true,</span><br><span class="line">            &quot;args&quot;: [&quot;-A&quot;, &quot;app.celery&quot;, &quot;worker&quot;, &quot;-P&quot;, &quot;gevent&quot;, &quot;-c&quot;, &quot;1&quot;, &quot;--loglevel&quot;, &quot;info&quot;, &quot;-Q&quot;, &quot;dataset,generation,mail&quot;],</span><br><span class="line">            &quot;envFile&quot;: &quot;$&#123;workspaceFolder&#125;/.env&quot;,</span><br><span class="line">            &quot;env&quot;: &#123;</span><br><span class="line">                &quot;FLASK_APP&quot;: &quot;app.py&quot;,</span><br><span class="line">                &quot;FLASK_DEBUG&quot;: &quot;1&quot;,</span><br><span class="line">                &quot;GEVENT_SUPPORT&quot;: &quot;True&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;console&quot;: &quot;integratedTerminal&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Python: Flask&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;python&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;module&quot;: &quot;flask&quot;,</span><br><span class="line">            &quot;env&quot;: &#123;</span><br><span class="line">                &quot;FLASK_APP&quot;: &quot;app.py&quot;,</span><br><span class="line">                &quot;FLASK_DEBUG&quot;: &quot;1&quot;,</span><br><span class="line">                &quot;GEVENT_SUPPORT&quot;: &quot;True&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;run&quot;,</span><br><span class="line">                &quot;--host=0.0.0.0&quot;,</span><br><span class="line">                &quot;--port=5001&quot;,</span><br><span class="line">                &quot;--debug&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;jinja&quot;: true,</span><br><span class="line">            &quot;justMyCode&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># linux</span><br><span class="line">sudo cat &gt;&gt; /etc/profile&lt;&lt;EOF</span><br><span class="line">export MAVEN_HOME=/opt/maven</span><br><span class="line">export GOPATH=~/go</span><br><span class="line">export GOROOT=/usr/lib/go</span><br><span class="line">export GO111MODULE=on</span><br><span class="line">export GOPROXY=https://goproxy.cn,direct</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;MAVEN_HOME&#125;/bin:$&#123;GOPATH&#125;/bin:$&#123;GOROOT&#125;/bin</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 多GOPATH配置</span><br><span class="line">sudo cat &gt;&gt; /etc/profile&lt;&lt;EOF</span><br><span class="line">export MAVEN_HOME=/opt/maven</span><br><span class="line">export GOPATH=~/go:~/.go</span><br><span class="line">export GOROOT=/usr/lib/go</span><br><span class="line">export GO111MODULE=on</span><br><span class="line">export GOPROXY=https://goproxy.cn,direct</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;MAVEN_HOME&#125;/bin:$&#123;GOROOT&#125;/bin:$&#123;GOPATH//://bin:&#125;/bin</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 应用</span><br><span class="line">source /etc/profile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="fileheader-配置"><a href="#fileheader-配置" class="headerlink" title="fileheader 配置"></a>fileheader 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">安装插件：koroFileHeader</span><br><span class="line">// 设置文件头</span><br><span class="line">&quot;fileheader.customMade&quot;: &#123;</span><br><span class="line">    &quot;Author&quot;: &quot;Murray&quot;,</span><br><span class="line">    &quot;Date&quot;: &quot;Do not edit&quot;,</span><br><span class="line">    &quot;Description&quot;: &quot;&quot;,</span><br><span class="line">&#125;,</span><br><span class="line">&quot;fileheader.cursorMode&quot;: &#123;</span><br><span class="line">    &quot;description&quot;: &quot;&quot;,</span><br><span class="line">    &quot;param&quot;: &quot;&quot;,</span><br><span class="line">    &quot;return&quot;: &quot;&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;fileheader.configObj&quot;: &#123;</span><br><span class="line">    &quot;autoAdd&quot;: true,</span><br><span class="line">    &quot;autoAddLine&quot;: 10,</span><br><span class="line">    &quot;dateFormat&quot;: &quot;YYYY-MM-DD HH:mm&quot;,</span><br><span class="line">    &quot;beforeAnnotation&quot;: &#123;</span><br><span class="line">        // py文件默认</span><br><span class="line">        &quot;py&quot;: &quot;#!/usr/bin/env python\n# -*- coding: utf-8 -*-&quot;,</span><br><span class="line">        // go文件默认</span><br><span class="line">        &quot;go&quot;: &quot;// Copyright 2020 Murray Inc. All Rights Reserved.\n&quot;,</span><br><span class="line">        // 其他文件头</span><br><span class="line">        &quot;*&quot;: &quot;\n&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;language&quot;: &#123;</span><br><span class="line">        // 文件后缀</span><br><span class="line">        &quot;go&quot;: &#123;</span><br><span class="line">            &quot;head&quot;: &quot;&quot;,</span><br><span class="line">            &quot;middle&quot;: &quot;// @&quot;,</span><br><span class="line">            &quot;end&quot;: &quot;&quot;,</span><br><span class="line">            // 函数自定义注释符号</span><br><span class="line">            &quot;functionSymbol&quot;: &#123;</span><br><span class="line">                &quot;head&quot;: &quot;&quot;,</span><br><span class="line">                &quot;middle&quot;: &quot;// @&quot;,</span><br><span class="line">                &quot;end&quot;: &quot;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;py&quot;: &#123;</span><br><span class="line">            &quot;head&quot;: &quot;\&quot;\&quot;\&quot;&quot;,</span><br><span class="line">            &quot;middle&quot;: &quot;@&quot;,</span><br><span class="line">            &quot;end&quot;: &quot;\&quot;\&quot;\&quot;&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        // 一次匹配多种文件后缀文件 不用重复设置</span><br><span class="line">        &quot;java&quot;: &#123;</span><br><span class="line">            &quot;head&quot;: &quot;/** &quot;,</span><br><span class="line">            &quot;middle&quot;: &quot;* @&quot;,</span><br><span class="line">            &quot;end&quot;: &quot;*/&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        // 针对有特殊要求的文件如：test.blade.php</span><br><span class="line">        &quot;php/html/xml&quot;: &#123;</span><br><span class="line">            &quot;head&quot;: &quot;&lt;!--&quot;,</span><br><span class="line">            &quot;middle&quot;: &quot;@&quot;,</span><br><span class="line">            &quot;end&quot;: &quot;--&gt;&quot;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // 注释关键字别名</span><br><span class="line">    &quot;specialOptions&quot;: &#123;</span><br><span class="line">        &quot;Description&quot;: &quot;Description&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;useWorker&quot;: true,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="Settings-示例"><a href="#Settings-示例" class="headerlink" title="Settings 示例"></a>Settings 示例</h3><h4 id="window-user-settings"><a href="#window-user-settings" class="headerlink" title="window: user settings"></a>window: user settings</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 窗口配置</span><br><span class="line">    &quot;update.mode&quot;: &quot;none&quot;, // 禁用更新</span><br><span class="line">    &quot;debug.toolBarLocation&quot;: &quot;floating&quot;, //debug控制条位置: floating-浮动、docked-停靠</span><br><span class="line">    &quot;window.zoomLevel&quot;: 0, // 窗口缩放级别</span><br><span class="line">    &quot;window.title&quot;: &quot;$&#123;dirty&#125;$&#123;activeEditorMedium&#125;$&#123;separator&#125;$&#123;rootName&#125;&quot;, // 当前上下文控制窗口标题</span><br><span class="line">    &quot;workbench.iconTheme&quot;: &quot;vscode-icons&quot;,</span><br><span class="line"></span><br><span class="line">    // 编辑器设置</span><br><span class="line">    &quot;editor.detectIndentation&quot;: true, // 在基于文件内容打开文件时是否自动检测</span><br><span class="line">    &quot;editor.insertSpaces&quot;: true, // 设置为false时,使用tab代替空格</span><br><span class="line">    &quot;editor.tabSize&quot;: 4,</span><br><span class="line">    &quot;editor.fontSize&quot;: 16, // 字体大小</span><br><span class="line">    &quot;editor.fontWeight&quot;: 500, // 字体粗细</span><br><span class="line">    &quot;editor.codeLens&quot;: true, // 是否在编辑器中显示 CodeLens</span><br><span class="line">    &quot;editor.autoIndent&quot;: &quot;advanced&quot;, // 编辑器是否应在用户键入、粘贴、移动或缩进行时自动调整缩进</span><br><span class="line">    &quot;editor.acceptSuggestionOnEnter&quot;: &quot;on&quot;, // 是否关闭enter建议选择</span><br><span class="line">    &quot;editor.renderWhitespace&quot;: &quot;all&quot;, // 编辑器在空白字符上显示符号</span><br><span class="line">    // &quot;editor.wordWrap&quot;: &quot;on&quot;, // 在视区宽度处换行</span><br><span class="line">    &quot;editor.snippetSuggestions&quot;: &quot;top&quot;, // 代码片段是否与其他建议一起显示及其排列的位置</span><br><span class="line">    &quot;editor.codeActionsOnSave&quot;: &#123; // 保存时为编辑器运行代码操作</span><br><span class="line">        &quot;source.fixAll.eslint&quot;: &quot;explicit&quot;,</span><br><span class="line">        &quot;source.organizeImports&quot;: &quot;explicit&quot; // 是否应在文件保存时运行&quot;整理 import 语句&quot;操作。explicit: 仅在显式保存时触发代码操作</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;editor.linkedEditing&quot;: true, // 编辑器是否已启用链接编辑</span><br><span class="line">    &quot;editor.minimap.enabled&quot;: true, //是否显示缩略图</span><br><span class="line">    &quot;editor.unicodeHighlight.includeComments&quot;: true, // 注释中的字符是否也应进行 Unicode 突出显示</span><br><span class="line">    &quot;editor.suggestSelection&quot;: &quot;first&quot;, // 在建议列表中如何预先选择建议</span><br><span class="line">    &quot;editor.suggest.shareSuggestSelections&quot;: true, // 是否在多个工作区和窗口间共享记忆的建议选项(需要 #editor.suggestSelection#)</span><br><span class="line">    &quot;editor.unicodeHighlight.allowedLocales&quot;: &#123; // 未突出显示在允许区域设置中常见的 Unicode 字符</span><br><span class="line">        &quot;zh-hant&quot;: true</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;vsintellicode.modify.editor.suggestSelection&quot;: &quot;automaticallyOverrodeDefaultValue&quot;,</span><br><span class="line">    &quot;files.autoSave&quot;: &quot;afterDelay&quot;, // 延时保存</span><br><span class="line">    // 格式化配置</span><br><span class="line">    &quot;prettier.tabWidth&quot;: 4,</span><br><span class="line">    // 删除确认</span><br><span class="line">    &quot;explorer.confirmDelete&quot;: true,</span><br><span class="line">    &quot;explorer.confirmDragAndDrop&quot;: true,</span><br><span class="line">    // 隐藏文件夹及内容</span><br><span class="line">    &quot;files.exclude&quot;: &#123;</span><br><span class="line">        &quot;**/.settings&quot;: true,</span><br><span class="line">        // &quot;**/.vscode&quot;: true,</span><br><span class="line">        &quot;**/__pycache__&quot;: true,</span><br><span class="line">        &quot;**/.idea&quot;: true</span><br><span class="line">    &#125;,</span><br><span class="line">    // 全局搜索忽略文件夹</span><br><span class="line">    &quot;search.exclude&quot;: &#123;</span><br><span class="line">        &quot;**/node_modules&quot;: true,</span><br><span class="line">        &quot;**/target&quot;: true,</span><br><span class="line">        &quot;**/logs&quot;: true</span><br><span class="line">    &#125;,</span><br><span class="line">    // 设置文件头</span><br><span class="line">    &quot;fileheader.customMade&quot;: &#123;</span><br><span class="line">        &quot;Author&quot;: &quot;Murray&quot;,</span><br><span class="line">        &quot;Date&quot;: &quot;Do not edit&quot;,</span><br><span class="line">        &quot;Description&quot;: &quot;&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;fileheader.cursorMode&quot;: &#123;</span><br><span class="line">        &quot;description&quot;: &quot;&quot;,</span><br><span class="line">        &quot;param&quot;: &quot;&quot;,</span><br><span class="line">        &quot;return&quot;: &quot;&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;fileheader.configObj&quot;: &#123;</span><br><span class="line">        &quot;autoAdd&quot;: true,</span><br><span class="line">        &quot;autoUpdate&quot;: false,</span><br><span class="line">        &quot;autoAddLine&quot;: 10,</span><br><span class="line">        &quot;dateFormat&quot;: &quot;YYYY-MM-DD HH:mm&quot;,</span><br><span class="line">        &quot;beforeAnnotation&quot;: &#123;</span><br><span class="line">            // py文件默认</span><br><span class="line">            &quot;py&quot;: &quot;#!/usr/bin/env python\n# -*- coding: utf-8 -*-&quot;,</span><br><span class="line">            // go文件默认</span><br><span class="line">            &quot;go&quot;: &quot;// Copyright 2024 Murray Inc. All Rights Reserved.\n&quot;,</span><br><span class="line">            // 其他文件头</span><br><span class="line">            &quot;*&quot;: &quot;\n&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;language&quot;: &#123;</span><br><span class="line">            // 文件后缀</span><br><span class="line">            &quot;go&quot;: &#123;</span><br><span class="line">                &quot;head&quot;: &quot;&quot;,</span><br><span class="line">                &quot;middle&quot;: &quot;// @&quot;,</span><br><span class="line">                &quot;end&quot;: &quot;&quot;,</span><br><span class="line">                // 函数自定义注释符号</span><br><span class="line">                &quot;functionSymbol&quot;: &#123;</span><br><span class="line">                    &quot;head&quot;: &quot;&quot;,</span><br><span class="line">                    &quot;middle&quot;: &quot;// @&quot;,</span><br><span class="line">                    &quot;end&quot;: &quot;&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;py&quot;: &#123;</span><br><span class="line">                &quot;head&quot;: &quot;\&quot;\&quot;\&quot;&quot;,</span><br><span class="line">                &quot;middle&quot;: &quot;@&quot;,</span><br><span class="line">                &quot;end&quot;: &quot;\&quot;\&quot;\&quot;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            // 一次匹配多种文件后缀文件 不用重复设置</span><br><span class="line">            &quot;java&quot;: &#123;</span><br><span class="line">                &quot;head&quot;: &quot;/** &quot;,</span><br><span class="line">                &quot;middle&quot;: &quot;* @&quot;,</span><br><span class="line">                &quot;end&quot;: &quot;*/&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            // 针对有特殊要求的文件如:test.blade.php</span><br><span class="line">            &quot;php/html/xml&quot;: &#123;</span><br><span class="line">                &quot;head&quot;: &quot;&lt;!--&quot;,</span><br><span class="line">                &quot;middle&quot;: &quot;@&quot;,</span><br><span class="line">                &quot;end&quot;: &quot;--&gt;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        // 注释关键字别名</span><br><span class="line">        &quot;specialOptions&quot;: &#123;</span><br><span class="line">            &quot;Description&quot;: &quot;Description&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;useWorker&quot;: true</span><br><span class="line">    &#125;,</span><br><span class="line">    // git配置</span><br><span class="line">    &quot;git.timeline.date&quot;: &quot;committed&quot;, // 在日程表视图中项目使用的日期</span><br><span class="line">    &quot;git.autofetch&quot;: &quot;all&quot;, // 若设置为 true，则自动从当前 Git 仓库的默认远程仓库提取提交。若设置为“all”，则从所有远程仓库进行提取。</span><br><span class="line">    &quot;git.openRepositoryInParentFolders&quot;: &quot;always&quot;, // 始终在工作区的父文件夹中打开存储库或打开文件</span><br><span class="line">    // java 配置</span><br><span class="line">    &quot;java.debug.settings.hotCodeReplace&quot;: &quot;auto&quot;, // 在调试期间重新加载已更改的Java类。</span><br><span class="line">    &quot;java.autobuild.enabled&quot;: false,</span><br><span class="line">    &quot;java.dependency.autoRefresh&quot;: true, // 在 Java 项目管理器中自动同步修改</span><br><span class="line">    &quot;java.project.importOnFirstTimeStartup&quot;: &quot;automatic&quot;, // 导入Java项目</span><br><span class="line">    &quot;java.debug.settings.onBuildFailureProceed&quot;: true, //在出现问题继续执行</span><br><span class="line">    &quot;java.jdt.ls.java.home&quot;: &quot;D:\\Program Files\\Java\\jdk21&quot;,</span><br><span class="line">    &quot;java.configuration.runtimes&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;JavaSE-1.8&quot;,</span><br><span class="line">            &quot;path&quot;: &quot;D:\\Program Files\\Java\\jdk8&quot;,</span><br><span class="line">            &quot;default&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;JavaSE-21&quot;,</span><br><span class="line">            &quot;path&quot;: &quot;D:\\Program Files\\Java\\jdk21&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    // maven 配置</span><br><span class="line">    &quot;java.configuration.maven.globalSettings&quot;: &quot;D:\\Program Files\\apache-maven-3.6.3\\conf\\settings.xml&quot;,</span><br><span class="line">    &quot;maven.executable.path&quot;: &quot;D:\\Program Files\\apache-maven-3.6.3\\bin\\mvn.cmd&quot;,</span><br><span class="line">    &quot;maven.settingsFile&quot;: &quot;D:\\Program Files\\apache-maven-3.6.3\\conf\\settings.xml&quot;,</span><br><span class="line">    &quot;maven.terminal.useJavaHome&quot;: true,</span><br><span class="line">    &quot;maven.terminal.customEnv&quot;: [ // 在首次执行 Maven 之前，这些环境变量值将被添加到终端会话中</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;environmentVariable&quot;: &quot;JAVA_HOME&quot;,</span><br><span class="line">            &quot;value&quot;: &quot;D:\\Program Files\\Java\\jdk21&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;maven.excludedFolders&quot;: [ // 排除maven扫描的文件夹</span><br><span class="line">        &quot;**/.*&quot;,</span><br><span class="line">        &quot;**/node_modules&quot;,</span><br><span class="line">        &quot;**/target&quot;,</span><br><span class="line">        &quot;**/bin&quot;</span><br><span class="line">    ],</span><br><span class="line">    // Gradle配置</span><br><span class="line">    &quot;java.import.gradle.home&quot;: &quot;D:\\Program Files\\gradle&quot;,</span><br><span class="line">    &quot;java.import.gradle.java.home&quot;: &quot;D:\\Program Files\\Java\\jdk8&quot;,</span><br><span class="line">    &quot;gradle.javaDebug.cleanOutput&quot;: true,</span><br><span class="line">    // python 配置</span><br><span class="line">    &quot;python.venvPath&quot;: &quot;D:\\venvs&quot;, // 包含虚拟环境列表的文件夹的路径</span><br><span class="line">    &quot;autopep8.args&quot;: [ // https://github.com/hhatto/autopep8#configuration</span><br><span class="line">        &quot;--max-line-length&quot;,</span><br><span class="line">        &quot;120&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;python.languageServer&quot;: &quot;Default&quot;, // Default: 自动选择语言服务器: 如果已安装且可用，则为 Pylance，否则回退到 Jedi</span><br><span class="line">    &quot;python.autoComplete.extraPaths&quot;: [ // 需要由自动完成引擎导入的库路径列表等</span><br><span class="line">        &quot;any/path&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;python.analysis.extraPaths&quot;: [ // 其他导入搜索解析路径</span><br><span class="line">        &quot;any/path&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;[python]&quot;: &#123; // 针对某种语言，配置替代编辑器设置。</span><br><span class="line">        &quot;editor.defaultFormatter&quot;: &quot;ms-python.autopep8&quot;,</span><br><span class="line">        &quot;editor.formatOnSave&quot;: false</span><br><span class="line">    &#125;,</span><br><span class="line">    // go 配置</span><br><span class="line">    &quot;go.goroot&quot;: &quot;C:\\Program Files\\Go&quot;,</span><br><span class="line">    &quot;go.gopath&quot;: &quot;D:\\go&quot;,</span><br><span class="line">    &quot;go.formatTool&quot;: &quot;gofmt&quot;,</span><br><span class="line">    &quot;go.inferGopath&quot;: true,</span><br><span class="line">    &quot;go.lintFlags&quot;: [</span><br><span class="line">        &quot;-min_confidence=.8&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;go.useLanguageServer&quot;: true,</span><br><span class="line">    &quot;gopls&quot;: &#123;</span><br><span class="line">        &quot;ui.completion.usePlaceholders&quot;: true,</span><br><span class="line">        &quot;build.expandWorkspaceToModule&quot;: true</span><br><span class="line">    &#125;,</span><br><span class="line">    //eslint 代码自动检查相关配置</span><br><span class="line">    &quot;eslint.run&quot;: &quot;onType&quot;,</span><br><span class="line">    &quot;eslint.options&quot;: &#123;</span><br><span class="line">        // &quot;configFile&quot;: &quot;/.eslintrc.js&quot;,</span><br><span class="line">        &quot;plugins&quot;: [</span><br><span class="line">            &quot;html&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;extensions&quot;: [</span><br><span class="line">            &quot;.js&quot;,</span><br><span class="line">            &quot;.vue&quot;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;eslint.validate&quot;: [</span><br><span class="line">        &quot;javascript&quot;,</span><br><span class="line">        &quot;html&quot;,</span><br><span class="line">        &quot;vue&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;[html]&quot;: &#123;</span><br><span class="line">        &quot;editor.defaultFormatter&quot;: &quot;vscode.html-language-features&quot; // 为 HTML 和 Handlebar 文件提供丰富的语言支持</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Linux-user-settings"><a href="#Linux-user-settings" class="headerlink" title="Linux: user settings"></a>Linux: user settings</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 窗口配置</span><br><span class="line">    &quot;update.mode&quot;: &quot;none&quot;, // 禁用更新</span><br><span class="line">    &quot;debug.toolBarLocation&quot;: &quot;floating&quot;, //debug控制条位置: floating-浮动、docked-停靠</span><br><span class="line">    &quot;window.zoomLevel&quot;: 0, // 窗口缩放级别</span><br><span class="line">    &quot;window.title&quot;: &quot;$&#123;dirty&#125;$&#123;activeEditorMedium&#125;$&#123;separator&#125;$&#123;rootName&#125;&quot;, // 当前上下文控制窗口标题</span><br><span class="line">    &quot;workbench.iconTheme&quot;: &quot;vscode-icons&quot;,</span><br><span class="line"></span><br><span class="line">    // 编辑器设置</span><br><span class="line">    &quot;editor.detectIndentation&quot;: true, // 在基于文件内容打开文件时是否自动检测</span><br><span class="line">    &quot;editor.insertSpaces&quot;: true, // 设置为false时,使用tab代替空格</span><br><span class="line">    &quot;editor.tabSize&quot;: 4,</span><br><span class="line">    &quot;editor.fontSize&quot;: 16, // 字体大小</span><br><span class="line">    &quot;editor.fontWeight&quot;: 500, // 字体粗细</span><br><span class="line">    &quot;editor.codeLens&quot;: true, // 是否在编辑器中显示 CodeLens</span><br><span class="line">    &quot;editor.autoIndent&quot;: &quot;advanced&quot;, // 编辑器是否应在用户键入、粘贴、移动或缩进行时自动调整缩进</span><br><span class="line">    &quot;editor.acceptSuggestionOnEnter&quot;: &quot;on&quot;, // 是否关闭enter建议选择</span><br><span class="line">    &quot;editor.renderWhitespace&quot;: &quot;all&quot;, // 编辑器在空白字符上显示符号</span><br><span class="line">    // &quot;editor.wordWrap&quot;: &quot;on&quot;, // 在视区宽度处换行</span><br><span class="line">    &quot;editor.snippetSuggestions&quot;: &quot;top&quot;, // 代码片段是否与其他建议一起显示及其排列的位置</span><br><span class="line">    &quot;editor.codeActionsOnSave&quot;: &#123; // 保存时为编辑器运行代码操作</span><br><span class="line">        &quot;source.fixAll.eslint&quot;: &quot;explicit&quot;,</span><br><span class="line">        &quot;source.organizeImports&quot;: &quot;explicit&quot; // 是否应在文件保存时运行&quot;整理 import 语句&quot;操作。explicit: 仅在显式保存时触发代码操作</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;editor.linkedEditing&quot;: true, // 编辑器是否已启用链接编辑</span><br><span class="line">    &quot;editor.minimap.enabled&quot;: true, //是否显示缩略图</span><br><span class="line">    &quot;editor.unicodeHighlight.includeComments&quot;: true, // 注释中的字符是否也应进行 Unicode 突出显示</span><br><span class="line">    &quot;editor.suggestSelection&quot;: &quot;first&quot;, // 在建议列表中如何预先选择建议</span><br><span class="line">    &quot;editor.suggest.shareSuggestSelections&quot;: true, // 是否在多个工作区和窗口间共享记忆的建议选项(需要 #editor.suggestSelection#)</span><br><span class="line">    &quot;editor.unicodeHighlight.allowedLocales&quot;: &#123; // 未突出显示在允许区域设置中常见的 Unicode 字符</span><br><span class="line">        &quot;zh-hant&quot;: true</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;vsintellicode.modify.editor.suggestSelection&quot;: &quot;automaticallyOverrodeDefaultValue&quot;,</span><br><span class="line">    &quot;files.autoSave&quot;: &quot;afterDelay&quot;, // 延时保存</span><br><span class="line">    // 格式化配置</span><br><span class="line">    &quot;prettier.tabWidth&quot;: 4,</span><br><span class="line">    // 删除确认</span><br><span class="line">    &quot;explorer.confirmDelete&quot;: true,</span><br><span class="line">    &quot;explorer.confirmDragAndDrop&quot;: true,</span><br><span class="line">    // 隐藏文件夹及内容</span><br><span class="line">    &quot;files.exclude&quot;: &#123;</span><br><span class="line">        &quot;**/.settings&quot;: true,</span><br><span class="line">        // &quot;**/.vscode&quot;: true,</span><br><span class="line">        &quot;**/__pycache__&quot;: true,</span><br><span class="line">        &quot;**/.idea&quot;: true</span><br><span class="line">    &#125;,</span><br><span class="line">    // 全局搜索忽略文件夹</span><br><span class="line">    &quot;search.exclude&quot;: &#123;</span><br><span class="line">        &quot;**/node_modules&quot;: true,</span><br><span class="line">        &quot;**/target&quot;: true,</span><br><span class="line">        &quot;**/logs&quot;: true</span><br><span class="line">    &#125;,</span><br><span class="line">    // 设置文件头</span><br><span class="line">    &quot;fileheader.customMade&quot;: &#123;</span><br><span class="line">        &quot;Author&quot;: &quot;Murray&quot;,</span><br><span class="line">        &quot;Date&quot;: &quot;Do not edit&quot;,</span><br><span class="line">        &quot;Description&quot;: &quot;&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;fileheader.cursorMode&quot;: &#123;</span><br><span class="line">        &quot;description&quot;: &quot;&quot;,</span><br><span class="line">        &quot;param&quot;: &quot;&quot;,</span><br><span class="line">        &quot;return&quot;: &quot;&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;fileheader.configObj&quot;: &#123;</span><br><span class="line">        &quot;autoAdd&quot;: true,</span><br><span class="line">        &quot;autoUpdate&quot;: false,</span><br><span class="line">        &quot;autoAddLine&quot;: 10,</span><br><span class="line">        &quot;dateFormat&quot;: &quot;YYYY-MM-DD HH:mm&quot;,</span><br><span class="line">        &quot;beforeAnnotation&quot;: &#123;</span><br><span class="line">            // py文件默认</span><br><span class="line">            &quot;py&quot;: &quot;#!/usr/bin/env python\n# -*- coding: utf-8 -*-&quot;,</span><br><span class="line">            // go文件默认</span><br><span class="line">            &quot;go&quot;: &quot;// Copyright 2024 Murray Inc. All Rights Reserved.\n&quot;,</span><br><span class="line">            // 其他文件头</span><br><span class="line">            &quot;*&quot;: &quot;\n&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;language&quot;: &#123;</span><br><span class="line">            // 文件后缀</span><br><span class="line">            &quot;go&quot;: &#123;</span><br><span class="line">                &quot;head&quot;: &quot;&quot;,</span><br><span class="line">                &quot;middle&quot;: &quot;// @&quot;,</span><br><span class="line">                &quot;end&quot;: &quot;&quot;,</span><br><span class="line">                // 函数自定义注释符号</span><br><span class="line">                &quot;functionSymbol&quot;: &#123;</span><br><span class="line">                    &quot;head&quot;: &quot;&quot;,</span><br><span class="line">                    &quot;middle&quot;: &quot;// @&quot;,</span><br><span class="line">                    &quot;end&quot;: &quot;&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;py&quot;: &#123;</span><br><span class="line">                &quot;head&quot;: &quot;\&quot;\&quot;\&quot;&quot;,</span><br><span class="line">                &quot;middle&quot;: &quot;@&quot;,</span><br><span class="line">                &quot;end&quot;: &quot;\&quot;\&quot;\&quot;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            // 一次匹配多种文件后缀文件 不用重复设置</span><br><span class="line">            &quot;java&quot;: &#123;</span><br><span class="line">                &quot;head&quot;: &quot;/** &quot;,</span><br><span class="line">                &quot;middle&quot;: &quot;* @&quot;,</span><br><span class="line">                &quot;end&quot;: &quot;*/&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            // 针对有特殊要求的文件如:test.blade.php</span><br><span class="line">            &quot;php/html/xml&quot;: &#123;</span><br><span class="line">                &quot;head&quot;: &quot;&lt;!--&quot;,</span><br><span class="line">                &quot;middle&quot;: &quot;@&quot;,</span><br><span class="line">                &quot;end&quot;: &quot;--&gt;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        // 注释关键字别名</span><br><span class="line">        &quot;specialOptions&quot;: &#123;</span><br><span class="line">            &quot;Description&quot;: &quot;Description&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;useWorker&quot;: true</span><br><span class="line">    &#125;,</span><br><span class="line">    // git配置</span><br><span class="line">    &quot;git.timeline.date&quot;: &quot;committed&quot;, // 在日程表视图中项目使用的日期</span><br><span class="line">    &quot;git.autofetch&quot;: &quot;all&quot;, // 若设置为 true，则自动从当前 Git 仓库的默认远程仓库提取提交。若设置为“all”，则从所有远程仓库进行提取。</span><br><span class="line">    &quot;git.openRepositoryInParentFolders&quot;: &quot;always&quot;, // 始终在工作区的父文件夹中打开存储库或打开文件</span><br><span class="line">    // java 配置</span><br><span class="line">    &quot;java.debug.settings.hotCodeReplace&quot;: &quot;auto&quot;, // 在调试期间重新加载已更改的Java类。</span><br><span class="line">    &quot;java.autobuild.enabled&quot;: false,</span><br><span class="line">    &quot;java.dependency.autoRefresh&quot;: true, // 在 Java 项目管理器中自动同步修改</span><br><span class="line">    &quot;java.project.importOnFirstTimeStartup&quot;: &quot;automatic&quot;, // 导入Java项目</span><br><span class="line">    &quot;java.debug.settings.onBuildFailureProceed&quot;: true, //在出现问题继续执行</span><br><span class="line">    &quot;java.jdt.ls.java.home&quot;: &quot;/opt/java/jdk21&quot;,</span><br><span class="line">    &quot;java.configuration.runtimes&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;JavaSE-1.8&quot;,</span><br><span class="line">            &quot;path&quot;: &quot;/opt/java/jdk8&quot;,</span><br><span class="line">            &quot;default&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;JavaSE-21&quot;,</span><br><span class="line">            &quot;path&quot;: &quot;/opt/java/jdk21&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    // maven 配置</span><br><span class="line">    &quot;java.configuration.maven.globalSettings&quot;: &quot;/opt/maven/conf/settings.xml&quot;,</span><br><span class="line">    &quot;maven.executable.path&quot;: &quot;/opt/maven/bin/mvn&quot;,</span><br><span class="line">    &quot;maven.settingsFile&quot;: &quot;/opt/maven/conf/settings.xml&quot;,</span><br><span class="line">    &quot;maven.terminal.useJavaHome&quot;: true,</span><br><span class="line">    &quot;maven.terminal.customEnv&quot;: [ // 在首次执行 Maven 之前，这些环境变量值将被添加到终端会话中</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;environmentVariable&quot;: &quot;JAVA_HOME&quot;,</span><br><span class="line">            &quot;value&quot;: &quot;/opt/java/jdk21&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;maven.excludedFolders&quot;: [ // 排除maven扫描的文件夹</span><br><span class="line">        &quot;**/.*&quot;,</span><br><span class="line">        &quot;**/node_modules&quot;,</span><br><span class="line">        &quot;**/target&quot;,</span><br><span class="line">        &quot;**/bin&quot;</span><br><span class="line">    ],</span><br><span class="line">    // Gradle配置</span><br><span class="line">    &quot;java.import.gradle.home&quot;: &quot;/opt/gradle&quot;,</span><br><span class="line">    &quot;java.import.gradle.java.home&quot;: &quot;/opt/java/jdk8&quot;,</span><br><span class="line">    &quot;gradle.javaDebug.cleanOutput&quot;: true,</span><br><span class="line">    // python 配置</span><br><span class="line">    &quot;python.venvPath&quot;: &quot;~/.venvs&quot;, // 包含虚拟环境列表的文件夹的路径</span><br><span class="line">    &quot;autopep8.args&quot;: [ // https://github.com/hhatto/autopep8#configuration</span><br><span class="line">        &quot;--max-line-length&quot;,</span><br><span class="line">        &quot;120&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;python.languageServer&quot;: &quot;Default&quot;, // Default: 自动选择语言服务器: 如果已安装且可用，则为 Pylance，否则回退到 Jedi</span><br><span class="line">    &quot;python.autoComplete.extraPaths&quot;: [ // 需要由自动完成引擎导入的库路径列表等</span><br><span class="line">        &quot;any/path&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;python.analysis.extraPaths&quot;: [ // 其他导入搜索解析路径</span><br><span class="line">        &quot;any/path&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;[python]&quot;: &#123; // 针对某种语言，配置替代编辑器设置。</span><br><span class="line">        &quot;editor.defaultFormatter&quot;: &quot;ms-python.autopep8&quot;,</span><br><span class="line">        &quot;editor.formatOnSave&quot;: false</span><br><span class="line">    &#125;,</span><br><span class="line">    // go 配置</span><br><span class="line">    &quot;go.goroot&quot;: &quot;/usr/lib/go&quot;,</span><br><span class="line">    &quot;go.gopath&quot;: &quot;~/go&quot;,</span><br><span class="line">    &quot;go.formatTool&quot;: &quot;gofmt&quot;,</span><br><span class="line">    &quot;go.inferGopath&quot;: true,</span><br><span class="line">    &quot;go.lintFlags&quot;: [</span><br><span class="line">        &quot;-min_confidence=.8&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;go.useLanguageServer&quot;: true,</span><br><span class="line">    &quot;gopls&quot;: &#123;</span><br><span class="line">        &quot;ui.completion.usePlaceholders&quot;: true,</span><br><span class="line">        &quot;build.expandWorkspaceToModule&quot;: true</span><br><span class="line">    &#125;,</span><br><span class="line">    //eslint 代码自动检查相关配置</span><br><span class="line">    &quot;eslint.run&quot;: &quot;onType&quot;,</span><br><span class="line">    &quot;eslint.options&quot;: &#123;</span><br><span class="line">        // &quot;configFile&quot;: &quot;/.eslintrc.js&quot;,</span><br><span class="line">        &quot;plugins&quot;: [</span><br><span class="line">            &quot;html&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;extensions&quot;: [</span><br><span class="line">            &quot;.js&quot;,</span><br><span class="line">            &quot;.vue&quot;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;eslint.validate&quot;: [</span><br><span class="line">        &quot;javascript&quot;,</span><br><span class="line">        &quot;html&quot;,</span><br><span class="line">        &quot;vue&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;[html]&quot;: &#123;</span><br><span class="line">        &quot;editor.defaultFormatter&quot;: &quot;vscode.html-language-features&quot; // 为 HTML 和 Handlebar 文件提供丰富的语言支持</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="python-settings"><a href="#python-settings" class="headerlink" title="python settings"></a>python settings</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># launch.json: django</span><br><span class="line">&#123;</span><br><span class="line">    &quot;python.pythonPath&quot;: &quot;d:\\virtualenvs\\app\\Scripts\\python.exe&quot;,</span><br><span class="line">    &quot;djangointellisense.projectRoot&quot;:&quot;D:\\workspace\\python\\app\\nethand&quot;,</span><br><span class="line">    &quot;djangointellisense.settingsModule&quot;: &quot;nethand.settings&quot;,</span><br><span class="line">    &quot;python.autoComplete.extraPaths&quot;: [</span><br><span class="line">        &quot;D:\\workspace\\python\\app\\nethand&quot;,</span><br><span class="line">        &quot;D:\\virtualenvs\\app\\Lib\\site-packages&quot;</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># launch.json: File Script</span><br><span class="line">&#123;</span><br><span class="line">  &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">  &quot;configurations&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;: &quot;20xs.py&quot;,</span><br><span class="line">      &quot;type&quot;: &quot;debugpy&quot;,</span><br><span class="line">      &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">      &quot;cwd&quot;: &quot;$&#123;workspaceFolder&#125;/tools/novels/20&quot;,</span><br><span class="line">      &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;/tools/novels/20/20xs.py&quot;,</span><br><span class="line">      &quot;console&quot;: &quot;integratedTerminal&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="go-settings"><a href="#go-settings" class="headerlink" title="go settings"></a>go settings</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;go.gopath&quot;: &quot;D:\\workspace\\go\\godemo&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><h4 id="问题-Visual-Studio-Code-is-unable-to-watch-for-file-changes-in-this-large-workspace"><a href="#问题-Visual-Studio-Code-is-unable-to-watch-for-file-changes-in-this-large-workspace" class="headerlink" title="问题:Visual Studio Code is unable to watch for file changes in this large workspace"></a>问题:Visual Studio Code is unable to watch for file changes in this large workspace</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">==&gt; 错误信息：</span><br><span class="line">VSCode出现&quot;Visual Studio Code is unable to watch for file changes in this large workspace&quot;警告的解决方法</span><br><span class="line">==&gt; 原因：</span><br><span class="line">目前文件监控的实际数目已超出当前设置值。可以通过修改配置文件的方式，增加文件监控数目，来避免出现警告信息。524288是可设置的最大文件监控数目，一般情况下不应当设置这么大的值，因为每监控一个文件大约会消耗540字节（32位机）或1kB（64位机）的内存，监控524288个文件则大约会消耗256MB（32位机）或512MB（64位机）的内存。</span><br><span class="line">==&gt; 解决：</span><br><span class="line">1. 检查现有文件监控数目(当前16384)</span><br><span class="line">cat /proc/sys/fs/inotify/max_user_watches</span><br><span class="line">2. 修改文件监控数目（设置为163840）</span><br><span class="line">vim sudo vim /etc/sysctl.conf</span><br><span class="line">添加：fs.inotify.max_user_watches=163840</span><br><span class="line">3. 让配置文件中的新文件监控数目生效</span><br><span class="line">sudo sysctl -p</span><br><span class="line">重新打开VSCode，只要当前文件夹内文件数目不超过163840个，就不会再出现警告信息了。</span><br></pre></td></tr></table></figure>
+
+<h4 id="问题-VSCode-with-github-permission-denied-publickey"><a href="#问题-VSCode-with-github-permission-denied-publickey" class="headerlink" title="问题:VSCode with github permission denied (publickey)"></a>问题:VSCode with github permission denied (publickey)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">==&gt; 提示信息：</span><br><span class="line">  VSCode with github permission denied (publickey)</span><br><span class="line">==&gt; 解决：</span><br><span class="line">  生成ssh-key时不设置密码</span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Murray</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.rainbowrise.top/2023/10/23/VSCode%E4%BD%BF%E7%94%A8/">https://www.rainbowrise.top/2023/10/23/VSCode%E4%BD%BF%E7%94%A8/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Murray</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/IDE/">
+                                    <span class="chip bg-color">IDE</span>
+                                </a>
+                            
+                                <a href="/tags/VSCode/">
+                                    <span class="chip bg-color">VSCode</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NTE3MC8zMTYzNw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/10/26/sigil%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="sigil笔记">
+                        
+                        <span class="card-title">sigil笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Tool/" class="post-category">
+                                    Tool
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tool/">
+                        <span class="chip bg-color">Tool</span>
+                    </a>
+                    
+                    <a href="/tags/EPUB/">
+                        <span class="chip bg-color">EPUB</span>
+                    </a>
+                    
+                    <a href="/tags/Sigil/">
+                        <span class="chip bg-color">Sigil</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/10/20/Haproxy%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Haproxy笔记">
+                        
+                        <span class="card-title">Haproxy笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Haproxy/">
+                        <span class="chip bg-color">Haproxy</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 马瑞个人笔记<br />'
+            + '文章作者: Murray<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2024</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">Murray</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                &nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                &nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            
+            <br><span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "08";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            
+            <br><span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备2021006498号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sunglowrise" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:sunglowrise@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/ma-liang-19-36" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/ma-liang-19-36" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

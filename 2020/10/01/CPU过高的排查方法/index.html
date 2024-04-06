@@ -379,10 +379,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>根据top命令，发现PID为28555的python进程占用CPU高达98.9%，出现故障。<br><img src="https://gitee.com/sunglowrise/images/raw/master/note/Nv6La7ZRzq2wWl1.png"></p>
-<p>通过ps aux | grep PID命令，进一步确定是python进程出现的问题。但是，怎么定位到具体线程或者代码呢？<br>首先显示线程列表:<br>ps -mp pid -o THREAD,tid,time<br><img src="https://gitee.com/sunglowrise/images/raw/master/note/kJwTcUmshKbjpGV.png"></p>
-<p>其次将需要的线程ID转换为16进制格式：<br>printf “%x\n” tid<br><img src="https://gitee.com/sunglowrise/images/raw/master/note/OExZiCvS4FkALsM.png"></p>
-<p>pstack（python stack trace）让python打印线程栈信息<br>pstack: python stack trace. 类似java中的jstack功能. </p>
+                <p>根据 top 命令，发现 PID 为 28555 的 python 进程占用 CPU 高达 98.9%，出现故障。<br><img src="https://raw.githubusercontent.com/sunglowrise/images/master/note/Nv6La7ZRzq2wWl1.png"></p>
+<p>通过 ps aux | grep PID 命令，进一步确定是 python 进程出现的问题。但是，怎么定位到具体线程或者代码呢？<br>首先显示线程列表:<br>ps -mp pid -o THREAD,tid,time<br><img src="https://raw.githubusercontent.com/sunglowrise/images/master/note/kJwTcUmshKbjpGV.png"></p>
+<p>其次将需要的线程 ID 转换为 16 进制格式：<br>printf “%x\n” tid<br><img src="https://raw.githubusercontent.com/sunglowrise/images/master/note/OExZiCvS4FkALsM.png"></p>
+<p>pstack（python stack trace）让 python 打印线程栈信息<br>pstack: python stack trace. 类似 java 中的 jstack 功能.</p>
 <p>apt-get install pstack</p>
 <p>根据进程号进行查询：</p>
 <h1 id="pstree-p-进程号"><a href="#pstree-p-进程号" class="headerlink" title="pstree -p 进程号"></a>pstree -p 进程号</h1><p>top -Hp 进程号</p>

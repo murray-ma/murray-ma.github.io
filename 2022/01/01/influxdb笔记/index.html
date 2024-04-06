@@ -1,0 +1,1290 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="influxdb笔记, Java,Python,GO">
+    <meta name="description" content="IT文章及知识分享">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>influxdb笔记 | 马瑞个人笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="马瑞个人笔记" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">马瑞个人笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">马瑞个人笔记</div>
+        <div class="logo-desc">
+            
+            IT文章及知识分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">influxdb笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+        padding-top: 1.5rem
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        <!-- height: calc(100vh - 250px); -->
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
+                            </a>
+                        
+                            <a href="/tags/Influxdb/">
+                                <span class="chip bg-color">Influxdb</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/DB/" class="post-category">
+                                DB
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-01-01
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># 进入容器</span><br><span class="line">docker exec -it influxdb bash</span><br><span class="line"># 连接</span><br><span class="line">influx -username &#x27;用户名&#x27; -password &#x27;密码&#x27;</span><br><span class="line"># 创建用户</span><br><span class="line">create user &quot;root&quot; with password &#x27;1q2w3e&#x27; with all privileges;</span><br><span class="line"># 查询用户</span><br><span class="line">show users;</span><br><span class="line"># 查询数据库</span><br><span class="line">show databases;</span><br><span class="line"># 创建数库</span><br><span class="line">create database mydb;</span><br><span class="line"># 选择数据库</span><br><span class="line">use mydb;</span><br><span class="line"># 插入数据</span><br><span class="line">insert disk_free,hostname=server01 value=442221834240i 1435362189575692182;</span><br><span class="line"># 查看表</span><br><span class="line">show measurements;</span><br><span class="line"># 删除表</span><br><span class="line">drop measurement disk_free;</span><br><span class="line"># 查看当前数据库Retention Policies</span><br><span class="line">show retention policies on &quot;db_name&quot;</span><br><span class="line"># 创建新的Retention Policies</span><br><span class="line">create retention policy &quot;rp_name&quot; on &quot;db_name&quot; duration 3w replication 1 default</span><br><span class="line"># 查询单个measurement中的所有field</span><br><span class="line">SELECT *::field FROM &quot;measurement_name&quot;</span><br><span class="line"></span><br><span class="line"># 说明：</span><br><span class="line"># rp_name：策略名；</span><br><span class="line"># db_name：具体的数据库名；</span><br><span class="line"># 3w：保存3周，3周之前的数据将被删除，influxdb具有各种事件参数，比如：h（小时），d（天），w（星期）；</span><br><span class="line"># replication 1：副本个数，一般为1；</span><br><span class="line"># default：设置为默认策略</span><br><span class="line"></span><br><span class="line"># 修改Retention Policies</span><br><span class="line">alter retention policy &quot;rp_name&quot; on &quot;db_name&quot; duration 30d default</span><br><span class="line"># 删除Retention Policies</span><br><span class="line">drop retention policy &quot;rp_name&quot; on &quot;db_name&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>语法格式</strong></p>
+<blockquote>
+<p>insert into <retention policy> measurement,tagKey=tagValue fieldKey=fieldValue timestamp</p>
+</blockquote>
+<ul>
+<li>tag 都是 string 类型，不需要引号将 value 包裹</li>
+<li>field 如果是 string 类型，需要加引号<br>field 有四种类型，<code>int</code>, <code>float</code>, <code>string</code>, <code>boolean</code> ，四种类型的指定方式</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">方式</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">float</td>
+<td align="left">数字</td>
+<td align="left">user_id=21</td>
+</tr>
+<tr>
+<td align="left">int</td>
+<td align="left">数字 i</td>
+<td align="left">age=18i</td>
+</tr>
+<tr>
+<td align="left">boolean</td>
+<td align="left">true/false</td>
+<td align="left">boy=true</td>
+</tr>
+<tr>
+<td align="left">String</td>
+<td align="left">“” or ‘’</td>
+<td align="left">email=”<a href="mailto:&#x62;&#x61;&#110;&#103;&#x7a;&#101;&#119;&#117;&#64;&#x31;&#50;&#54;&#x2e;&#x63;&#111;&#x6d;">&#x62;&#x61;&#110;&#103;&#x7a;&#101;&#119;&#117;&#64;&#x31;&#50;&#54;&#x2e;&#x63;&#111;&#x6d;</a>“</td>
+</tr>
+</tbody></table>
+<h2 id="Influx-查询"><a href="#Influx-查询" class="headerlink" title="Influx 查询"></a>Influx 查询</h2><h3 id="login"><a href="#login" class="headerlink" title="login"></a>login</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">influx -ssl -username &lt;账号名称&gt; -password &lt;密码&gt; -host &lt;网络地址&gt; -port 8086 -precision rfc3339 -database &lt;database_name&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="select"><a href="#select" class="headerlink" title="select"></a>select</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 从一个或多个measurement中返回数据</span><br><span class="line">SELECT &quot;&lt;field_key&gt;&quot;::field,&quot;&lt;tag_key&gt;&quot;::tag FROM &lt;measurement_name&gt;,&lt;measurement_name&gt;</span><br><span class="line"></span><br><span class="line"># 从一个被完全限定的measurement中返回数据。通过明确指定measurement的数据库和保留策略来完全限定一个measurement</span><br><span class="line">SELECT &quot;&lt;field_key&gt;&quot;::field,&quot;&lt;tag_key&gt;&quot;::tag FROM &lt;database_name&gt;.&lt;retention_policy_name&gt;.&lt;measurement_name&gt;</span><br><span class="line"></span><br><span class="line"># 从用户指定的一个数据库并使用默认保留策略的measurement中返回数据</span><br><span class="line">SELECT &quot;&lt;field_key&gt;&quot;::field,&quot;&lt;tag_key&gt;&quot;::tag FROM &lt;database_name&gt;..&lt;measurement_name&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 插入数据（指定策略）</span><br><span class="line">insert into &lt;retention policy&gt; measurement,tagKey=tagValue fieldKey=fieldValue timestamp</span><br><span class="line"></span><br><span class="line"># 插入数据</span><br><span class="line">insert measurement,tagKey=tagValue fieldKey=fieldValue timestamp</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><blockquote>
+<p>/etc/influxdb/influxdb.conf<br>生成默认配置</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">influxd config &gt; default.conf</span><br></pre></td></tr></table></figure>
+
+<p>默认配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line">reporting-disabled = false</span><br><span class="line">bind-address = &quot;127.0.0.1:8088&quot;</span><br><span class="line">[meta]</span><br><span class="line">  dir = &quot;/var/lib/influxdb/meta&quot;</span><br><span class="line">  retention-autocreate = true</span><br><span class="line">  logging-enabled = true</span><br><span class="line">[data]</span><br><span class="line">  dir = &quot;/var/lib/influxdb/data&quot;</span><br><span class="line">  index-version = &quot;inmem&quot;</span><br><span class="line">  engine = &quot;tsm1&quot;</span><br><span class="line">  wal-dir = &quot;/var/lib/influxdb/wal&quot;</span><br><span class="line">  wal-fsync-delay = &quot;0s&quot;</span><br><span class="line">  validate-keys = false</span><br><span class="line">  strict-error-handling = false</span><br><span class="line">  query-log-enabled = true</span><br><span class="line">  cache-max-memory-size = 1073741824</span><br><span class="line">  cache-snapshot-memory-size = 26214400</span><br><span class="line">  cache-snapshot-write-cold-duration = &quot;10m0s&quot;</span><br><span class="line">  compact-full-write-cold-duration = &quot;4h0m0s&quot;</span><br><span class="line">  compact-throughput = 50331648</span><br><span class="line">  compact-throughput-burst = 50331648</span><br><span class="line">  max-series-per-database = 1000000</span><br><span class="line">  max-values-per-tag = 100000</span><br><span class="line">  max-concurrent-compactions = 0</span><br><span class="line">  max-index-log-file-size = 1048576</span><br><span class="line">  series-id-set-cache-size = 100</span><br><span class="line">  series-file-max-concurrent-snapshot-compactions = 0</span><br><span class="line">  trace-logging-enabled = false</span><br><span class="line">  tsm-use-madv-willneed = false</span><br><span class="line">[coordinator]</span><br><span class="line">  write-timeout = &quot;10s&quot;</span><br><span class="line">  max-concurrent-queries = 0</span><br><span class="line">  query-timeout = &quot;0s&quot;</span><br><span class="line">  log-queries-after = &quot;0s&quot;</span><br><span class="line">  max-select-point = 0</span><br><span class="line">  max-select-series = 0</span><br><span class="line">  max-select-buckets = 0</span><br><span class="line">[retention]</span><br><span class="line">  enabled = true</span><br><span class="line">  check-interval = &quot;30m0s&quot;</span><br><span class="line">[shard-precreation]</span><br><span class="line">  enabled = true</span><br><span class="line">  check-interval = &quot;10m0s&quot;</span><br><span class="line">  advance-period = &quot;30m0s&quot;</span><br><span class="line">[monitor]</span><br><span class="line">  store-enabled = true</span><br><span class="line">  store-database = &quot;_internal&quot;</span><br><span class="line">  store-interval = &quot;10s&quot;</span><br><span class="line">[subscriber]</span><br><span class="line">  enabled = true</span><br><span class="line">  http-timeout = &quot;30s&quot;</span><br><span class="line">  insecure-skip-verify = false</span><br><span class="line">  ca-certs = &quot;&quot;</span><br><span class="line">  write-concurrency = 40</span><br><span class="line">  write-buffer-size = 1000</span><br><span class="line">[http]</span><br><span class="line">  enabled = true</span><br><span class="line">  bind-address = &quot;:8086&quot;</span><br><span class="line">  auth-enabled = false</span><br><span class="line">  log-enabled = true</span><br><span class="line">  suppress-write-log = false</span><br><span class="line">  write-tracing = false</span><br><span class="line">  flux-enabled = false</span><br><span class="line">  flux-log-enabled = false</span><br><span class="line">  pprof-enabled = true</span><br><span class="line">  pprof-auth-enabled = false</span><br><span class="line">  debug-pprof-enabled = false</span><br><span class="line">  ping-auth-enabled = false</span><br><span class="line">  prom-read-auth-enabled = false</span><br><span class="line">  https-enabled = false</span><br><span class="line">  https-certificate = &quot;/etc/ssl/influxdb.pem&quot;</span><br><span class="line">  https-private-key = &quot;&quot;</span><br><span class="line">  max-row-limit = 0</span><br><span class="line">  max-connection-limit = 0</span><br><span class="line">  shared-secret = &quot;&quot;</span><br><span class="line">  realm = &quot;InfluxDB&quot;</span><br><span class="line">  unix-socket-enabled = false</span><br><span class="line">  unix-socket-permissions = &quot;0777&quot;</span><br><span class="line">  bind-socket = &quot;/var/run/influxdb.sock&quot;</span><br><span class="line">  max-body-size = 25000000</span><br><span class="line">  access-log-path = &quot;&quot;</span><br><span class="line">  max-concurrent-write-limit = 0</span><br><span class="line">  max-enqueued-write-limit = 0</span><br><span class="line">  enqueued-write-timeout = 30000000000</span><br><span class="line">[logging]</span><br><span class="line">  format = &quot;auto&quot;</span><br><span class="line">  level = &quot;info&quot;</span><br><span class="line">  suppress-logo = false</span><br><span class="line">[[graphite]]</span><br><span class="line">  enabled = false</span><br><span class="line">  bind-address = &quot;:2003&quot;</span><br><span class="line">  database = &quot;graphite&quot;</span><br><span class="line">  retention-policy = &quot;&quot;</span><br><span class="line">  protocol = &quot;tcp&quot;</span><br><span class="line">  batch-size = 5000</span><br><span class="line">  batch-pending = 10</span><br><span class="line">  batch-timeout = &quot;1s&quot;</span><br><span class="line">  consistency-level = &quot;one&quot;</span><br><span class="line">  separator = &quot;.&quot;</span><br><span class="line">  udp-read-buffer = 0</span><br><span class="line">[[collectd]]</span><br><span class="line">  enabled = false</span><br><span class="line">  bind-address = &quot;:25826&quot;</span><br><span class="line">  database = &quot;collectd&quot;</span><br><span class="line">  retention-policy = &quot;&quot;</span><br><span class="line">  batch-size = 5000</span><br><span class="line">  batch-pending = 10</span><br><span class="line">  batch-timeout = &quot;10s&quot;</span><br><span class="line">  read-buffer = 0</span><br><span class="line">  typesdb = &quot;/usr/share/collectd/types.db&quot;</span><br><span class="line">  security-level = &quot;none&quot;</span><br><span class="line">  auth-file = &quot;/etc/collectd/auth_file&quot;</span><br><span class="line">  parse-multivalue-plugin = &quot;split&quot;</span><br><span class="line">[[opentsdb]]</span><br><span class="line">  enabled = false</span><br><span class="line">  bind-address = &quot;:4242&quot;</span><br><span class="line">  database = &quot;opentsdb&quot;</span><br><span class="line">  retention-policy = &quot;&quot;</span><br><span class="line">  consistency-level = &quot;one&quot;</span><br><span class="line">  tls-enabled = false</span><br><span class="line">  certificate = &quot;/etc/ssl/influxdb.pem&quot;</span><br><span class="line">  batch-size = 1000</span><br><span class="line">  batch-pending = 5</span><br><span class="line">  batch-timeout = &quot;1s&quot;</span><br><span class="line">  log-point-errors = true</span><br><span class="line">[[udp]]</span><br><span class="line">  enabled = false</span><br><span class="line">  bind-address = &quot;:8089&quot;</span><br><span class="line">  database = &quot;udp&quot;</span><br><span class="line">  retention-policy = &quot;&quot;</span><br><span class="line">  batch-size = 5000</span><br><span class="line">  batch-pending = 10</span><br><span class="line">  read-buffer = 0</span><br><span class="line">  batch-timeout = &quot;1s&quot;</span><br><span class="line">  precision = &quot;&quot;</span><br><span class="line">[continuous_queries]</span><br><span class="line">  log-enabled = true</span><br><span class="line">  enabled = true</span><br><span class="line">  query-stats-enabled = false</span><br><span class="line">  run-interval = &quot;1s&quot;</span><br><span class="line">[tls]</span><br><span class="line">  min-version = &quot;&quot;</span><br><span class="line">  max-version = &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>配置说明<br>|配置项|含义|<br>|:—-|:—-|<br>|reporting-disabled|用于上报 influxdb 的使用信息给 InfluxData 公司，默认值为 false|<br>|bind-address|绑定地址以用于 RPC 服务以进行备份和还原，默认:127.0.0.1:8088|<br>|[meta]|控制存储有关 InfluxDB 群集的元数据的 Raft 共识组的参数|<br>|dir|存储元数据/raft 数据库的目录，默认值：/var/lib/influxdb/meta|<br>|retention-autocreate|用于控制默认存储策略，数据库创建时，会自动生成 autogen 的存储策略，默认值：true。|<br>|logging-enabled|为元服务打印日志消息，默认值：true|<br>|[data]|控制 InfluxDB 的实际分片数据的生存位置以及它从 WAL 中刷新的方式。 “dir”可能需要更改为适合您系统的位置，但 WAL 设置是高级配置。 默认值应适用于大多数系统。|<br>|dir|最终数据（TSM 文件）存储目录，默认值：/var/lib/influxdb/data|<br>|wal-dir|预写日志存储目录，默认值：/var/lib/influxdb/wal|<br>|wal-fsync-delay|写入在 fsyncing 之前等待的时间。 持续时间大于 0 可用于批量处理多个 fsync 调用。 这对于较慢的磁盘或看到 WAL 写入争用时很有用。 每次写入 WAL 时值为 0s fsyncs。 对于非 SSD 磁盘，建议使用 0-100ms 范围内的值。|<br>|index-version|用于新分片的分片索引的类型。 默认值是在启动时重新创建的内存中索引。 值“tsi1”将使用支持更高的基于磁盘的索引基数数据集|<br>|trace-logging-enabled|是否开启跟踪（trace）日志，默认值：false。|<br>|query-log-enabled|是否开启 tsm 引擎查询日志，默认值： true|<br>|validate-keys|验证传入的写入以确保密钥仅具有有效的 unicode 字符。 此设置将产生很小的开销，因为必须检查每个密钥，默认值 false|<br>|cache-max-memory-size|用于限定 shard 最大值，大于该值时会拒绝写入，默认值：DefaultCacheMaxMemorySize = 1024 _ 1024 _ 1024 // 1GB|<br>|cache-snapshot-memory-size|用于设置快照大小，大于该值时数据会刷新到 tsm 文件，默值：DefaultCacheSnapshotMemorySize = 25 _ 1024 _ 1024 // 25MB|<br>|cache-snapshot-write-cold-duration|tsm1 引擎 snapshot（快照）写盘延迟，默认值：DefaultCacheSnapshotWriteColdDuration = time.Duration(10 _ time.Minute) // 10m|<br>|compact-full-write-cold-duration|tsm 文件在压缩前可以存储的最大时间，默认值：DefaultCompactFullWriteColdDuration = time.Duration(4 _ time.Hour) // 4h|<br>|max-concurrent-compactions|可以一次运行的最大并发完全和级别压缩数。 值为 0 会导致运行时使用 50％运行时.GOMAXPROCS（0）。 任何大于 0 的数字都会限制对该值的压缩。 此设置不适用于缓存快照，默认值：0|<br>|compact-throughput|是我们允许 TSM 压缩写入磁盘的速率限制（以字节/秒为单位）。 请注意，短脉冲串允许以可能更大的值发生，由 Compact-Throughput-Burst 设置，默认值：48m|<br>|compact-throughput-burst|是我们允许 TSM 压缩写入磁盘的速率限制，以每秒字节数为单位，默认值：48m|<br>|max-index-log-file-size|索引预写日志文件压缩到索引文件中时的阈值（以字节为单位）。 较小的大小将导致日志文件更快地压缩，并导致较低的堆使用量，但代价是写入吞吐量。 更高的大小将更少压缩，在内存中存储更多系列，并提供更高的写入吞吐量。有效大小的后缀为 k，m 或 g（不区分大小写，1024 = 1k）。没有大小后缀的值以字节为单位，默认值：1m|<br>|max-series-per-database|限制数据库的级数，该值为 0 时取消限制，默认值：DefaultMaxSeriesPerDatabase = 1000000|<br>|max-values-per-tag|一个 tag 最大的 value 数，0 取消限制，默认值：DefaultMaxValuesPerTag = 100000|<br>|tsm-use-madv-willneed|如果为 true，则将针对 TSM 文件向内核提供 mmap 建议值 MADV_WILLNEED。 已发现此设置在某些内核上存在问题，默认值：false。 在某些情况下，它可能会帮助磁盘速度较慢的用户|<br>|[coordinator]|控制群集服务配置(查询管理的配置选项)|<br>|write-timeout|写操作超时时间，默认值： 10s|<br>|max-concurrent-queries|最大并发查询数，0 无限制，默认值： 0|<br>|query-timeout|查询操作超时时间，0 无限制，默认值：0s|<br>|log-queries-after|慢查询超时时间，0 无限制，默认值：0s|<br>|max-select-point|select 语句可以处理的最大点数（points），0 无限制，默认值：0|<br>|max-select-series|select 语句可以处理的最大级数（series），0 无限制，默认值：0|<br>|max-select-buckets|select 语句可以处理的最大”GROUP BY time()”的时间周期，0 无限制，默认值：0|<br>|[retention]|旧数据的保留策略|<br>|enabled|是否启用该模块，默认值 ： true|<br>|check-interval|检查时间间隔，默认值 ：“30m”|<br>|[shard-precreation]|分区预创建|<br>|enabled|是否启用该模块，默认值 ： true|<br>|check-interval|检查时间间隔，默认值 ：“10m”|<br>|advance-period|预创建分区的最大提前时间，默认值 ：30m|<br>|[admin]|influxdb 提供的简单 web 管理页面|<br>|enabled|是否启用该模块，默认值 ： false|<br>|bind-address|绑定地址，默认值 ：”:8083”|<br>|https-enabled|是否开启 https ，默认值 ：false|<br>|https-certificate|https 证书路径，默认值：”/etc/ssl/influxdb.pem”|<br>|[monitor]|控制 InfluxDB 自有的监控系统。 默认情况下，InfluxDB 把这些数据写入_internal 数据库，如果这个库不存在则自动创建。 _internal 库默认的 retention 策略是 7 天，如果你想使用一个自己的 retention 策略，需要自己创建|<br>|store-enabled|是否启用该模块，默认值 ：true|<br>|store-database|默认数据库：”_internal”|<br>|store-interval|统计间隔，默认值：“10s”|<br>|[http]|influxdb 的 http 接口配置|<br>|enabled|是否启用该模块，默认值 ：true|<br>|flux-enabled|是否启用流查询端点，默认值 ：false|<br>|bind-address|绑定地址，默认值：”:8086”|<br>|auth-enabled|是否开启认证，默认值：false|<br>|realm|发出基本身份验证质询时发送回的默认域，默认值： “InfluxDB”|<br>|log-enabled|是否开启 http 请求日志，默认值：true|<br>|suppress-write-log|在启用日志时是否应禁止 HTTP 写入请求日志，默认值：false|<br>|access-log-path|启用 HTTP 请求日志记录时，此选项指定应写入日志条目的路径,如果未指定，则默认为写入 stderr，它将 HTTP 日志与内部 InfluxDB 日志记录混合。如果涌入无法访问指定路径，它将记录错误并回退到将请求日志写入 stderr|<br>|access-log-status-filters|应记录哪些请求的过滤器。 每个过滤器的格式为 NNN，NNX 或 NXX，其中 N 是数字，X 是任意数字的通配符。 要过滤所有 5xx 响应，请使用字符串 5xx。 如果使用多个过滤器，则只需要匹配一个过滤器。 默认情况下没有过滤器会导致每个请求都被打印|<br>|write-tracing|是否开启写操作日志，如果置成 true，每一次写操作都会打日志，默认值：false|<br>|pprof-enabled|是否开启 pprof，此端点用于故障排除和监视，默认值：true|<br>|debug-pprof-enabled|在启动时立即启用绑定到 localhost：6060 的 pprof 端点。这只需要调试启动问题。默认值：false|<br>|https-enabled|是否开启 https，默认值：false|<br>|https-certificate|设置 https 证书路径，默认值：”/etc/ssl/influxdb.pem”|<br>|https-private-key|设置 https 私钥，无默认值|<br>|shared-secret|用于 JWT 签名的共享密钥，无默认值|<br>|max-row-limit|配置查询返回最大行数，默认值：10000|<br>|max-connection-limit|配置最大连接数，超出此限制的新连接将被删除，0 无限制，默认值：0|<br>|unix-socket-enabled|通过 unix 域套接字启用 http 服务，默认值：false|<br>|bind-socket|unix-socket 路径，默认值：”/var/run/influxdb.sock”|<br>|max-body-size|客户端请求正文的最大大小（以字节为单位）， 将此值设置为 0 将禁用该限制。默认值：25000000|<br>|max-concurrent-write-limit|并发处理的最大写入次数，将此设置为 0 将禁用该限制。默认值：0|<br>|max-enqueued-write-limit|排队等待处理的最大写入次数。将此设置为 0 将禁用该限制。默认值：0|<br>|enqueued-write-timeout|写入等待队列中写入的最长持续时间。将此设置为 0 或将 max-concurrent-write-limit 设置为 0 将禁用该限制。默认值：0|<br>|[logging]|控制记录器如何将日志发送到输出|<br>|format|确定用于日志的日志编码器。 可用选项包括 auto，logfmt 和 json。 如果输出终端是 TTY，则 auto 将使用更加用户友好的输出格式，但格式不易于机器读取。 当输出是非 TTY 时，auto 将使用 logfmt。默认值：“auto”|<br>|level|确定将发出的日志级别。 可用的级别包括错误，警告，信息和调试。 将发出等于或高于指定级别的日志。默认值：“info”|<br>|suppress-logo|禁止在程序启动时打印的徽标输出。 如果 STDOUT 不是 TTY，则始终禁止使用徽标。默认值：false|<br>|[subscriber]|控制 Kapacitor 接受数据的配置。|<br>|enabled|是否启用该模块，默认值 ：true|<br>|http-timeout|http 超时时间，默认值：“30s”|<br>|insecure-skip-verify|是否允许不安全的证书，当测试自己签发的证书时比较有用。默认值： false|<br>|ca-certs|设置 CA 证书，无默认值|<br>|write-concurrency|设置并发数目，默认值：40|<br>|write-buffer-size|设置 buffer 大小，默认值：1000|<br>|[[graphite]]|graphite 相关配置|<br>|enabled|是否启用该模块，默认值 ：false|<br>|database|数据库名称，默认值：“graphite”|<br>|retention-policy|存储策略，无默认值|<br>|bind-address|绑定地址，默认值：”:2003”|<br>|protocol|协议，默认值：“tcp”|<br>|consistency-level|一致性等级，默认值：“one”|<br>|batch-size|批量 size，默认值：5000|<br>|batch-pending|配置在内存中等待的 batch 数，默认值：10|<br>|batch-timeout|超时时间，默认值：“1s”|<br>|udp-read-buffer|udp 读取 buffer 的大小，0 表示使用操作系统提供的值，如果超过操作系统的默认配置则会出错。 该配置的默认值：0|<br>|separator|多个 measurement 间的连接符，默认值： “.”|<br>|tags|将添加到所有指标的默认标记。 这些可以在模板级别或从度量标准中提取的标签中覆盖，[“region=us-east”, “zone=1c”]|<br>|templates|每个模板行都需要模板模式。 它可以在模板之前有一个可选的过滤器，并用空格分隔。 它还可以在模板后面添加可选的额外标签。 多个标签应该用逗号分隔，并且没有类似于行协议格式的空格。 只能有一个默认模板。templates = [“.app env.service.resource.measurement”, # Default template “server.”,]|<br>|[[collectd]]|控制一个或多个收集数据的侦听器|<br>|enabled|是否启用该模块，默认值 ：false|<br>|bind-address|绑定地址，默认值： “:25826”|<br>|database|数据库名称，默认值：“collectd”|<br>|retention-policy|存储策略，无默认值|<br>|typesdb|“/usr/local/share/collectd”|<br>|security-level|“none”|<br>|auth-file|“/etc/collectd/auth_file”|<br>|batch-size|这些下一行控制批处理的工作方式。 您应该已启用此功能，否则您可能会丢失指标或性能不佳。 如果有很多人进入，批处理将缓冲内存中的点。如果这么多点被缓冲，则刷新，默认值：5000|<br>|batch-pending|内存中可能挂起的批次数，默认值：10|<br>|batch-timeout|即使我们没有达到缓冲限制，也要经常冲洗至少这个，默认值：“10s”|<br>|parse-multivalue-plugin|多值插件可以通过两种方式处理。 默认值：“split”,“split”将解析并将多值插件数据存储到单独的测量中“join”将解析并将多值插件存储为单个多值测量。“split”是与以前版本的 Influxdb 向后兼容的默认行为|<br>|read-buffer|udp 读取 buffer 的大小，0 表示使用操作系统提供的值，如果超过操作系统的默认配置则会出错。默认值：0|<br>|[[opentsdb]]|opentsdb 配置|<br>|enabled|是否启用该模块，默认值：false|<br>|bind-address|绑定地址，默认值：”:4242”|<br>|database|默认数据库：“opentsdb”|<br>|retention-policy|存储策略，无默认值|<br>|consistency-level|一致性级别，默认值：“one”|<br>|tls-enabled = false|是否开启 tls，默认值：false|<br>|certificate|证书路径，默认值：”/etc/ssl/influxdb.pem”|<br>|log-point-errors|出错时是否记录日志，默认值：true|<br>|batch-size|这些下一行控制批处理的工作方式。 您应该已启用此功能，否则您可能会丢失指标或性能不佳。 仅通过 telnet 协议接收的指标进行批处理。如果这么多点被缓冲，请刷新。默认值：1000|<br>|batch-pending|内存中可能挂起的批次数，默认值：5|<br>|batch-timeout|即使我们没有达到缓冲限制，也要经常冲洗至少这个，默认值：“1s”|<br>|[[udp]]|udp 配置|<br>|enabled|是否启用该模块，默认值：false|<br>|bind-address|绑定地址，默认值：”:8089”|<br>|database|数据库名称，默认值：“udp”|<br>|retention-policy|存储策略，无默认值|<br>|precision|时间精度（”” or “n”, “u”, “ms”, “s”, “m”, “h”），无默认值|<br>|batch-size|接下来的行控制批处理的工作原理。 您应该已启用此功能，否则您可能会丢失指标或性能不佳。 如果有很多进入，批处理将缓冲内存中的点。如果这么多点被缓冲，则刷新，默认值：5000|<br>|batch-pending|如果这么多点被缓冲，请刷新，默认值：10|<br>|batch-timeout|即使我们没有达到缓冲限制，也会经常冲洗至少这个，默认值：“1s”|<br>|read-buffer|udp 读取 buffer 的大小，0 表示使用操作系统提供的值，如果超过操作系统的默认配置则会出错。 默认值：0|<br>|[continuous_queries]|CQs 配置|<br>|enabled|是否开启 CQs，默认值：true|<br>|log-enabled|是否开启日志，默认值：true|<br>|uery-stats-enabled|控制是否将查询记录到自我监视数据存储。默认值：false|<br>|run-interval|检查连续查询是否需要运行的时间间隔，默认值：“1s”|<br>|[tls]|InfluxDB 中 TLS 的全局配置设置|<br>|ciphers|确定可用的密码套件集。 有关可用密码的列表，请参阅<a target="_blank" rel="noopener" href="https://golang.org/pkg/crypto/tls/#pkg-constants%EF%BC%8C%E8%BF%99%E5%8F%96%E5%86%B3%E4%BA%8EGo%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%88%E4%BD%BF%E7%94%A8%E6%9F%A5%E8%AF%A2SHOW">https://golang.org/pkg/crypto/tls/#pkg-constants，这取决于 Go 的版本（使用查询 SHOW</a> DIAGNOSTICS 查看用于构建 InfluxDB 的 Go 版本）。 如果未指定，则使用 Go 的 crypto / tls 包中的默认设置，默认值：ciphers =[“TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305”,“TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256”,]|<br>|min-version|将协商的 tls 协议的最低版本。 如果未指定，则使用 Go 的 crypto / tls 包中的默认设置，默认值：“tls1.2”|<br>|max-version|将协商的 tls 协议的最大版本。 如果未指定，则使用 Go 的 crypto / tls 包中的默认设置，默认值：“tls1.2”|</p>
+<h2 id="SpringBoot-用法"><a href="#SpringBoot-用法" class="headerlink" title="SpringBoot 用法"></a>SpringBoot 用法</h2><p>SpringBoot - InfluxDB 数据库的集成与使用详解</p>
+<p>InfluxDB 是一个开源分布式时序、时间和指标数据库，使用 Go 语言编写，无需外部依赖。该数据库现在主要用于存储涉及大量的时间戳数据，如 DevOps 监控数据、APP metrics、IoT 传感器数据和实时分析数据。</p>
+<h3 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h3><p>1，环境准备</p>
+<p>InfluxDB 时序数据库的安装使用教程 2（安装部署、命令行基本用法）</p>
+<p>Docker - 通过容器安装部署 InfluxDB 数据库教程（以及 Chronograf、Telegraf、Kapacitor）</p>
+<p>2，项目配置</p>
+<p>（1）首先编辑项目的 pom.xml 文件，添加 hbase-client 依赖：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.influxdb&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;influxdb-java&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.15&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>（2）然后在 application.properties 中添加 InfluxDB 相关配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring.influx.url=http://192.168.60.133:8086</span><br><span class="line">#spring.influx.user=</span><br><span class="line">#spring.influx.password=</span><br><span class="line">spring.influx.database=mydb</span><br></pre></td></tr></table></figure>
+
+<p>（3）最后我们要创建一个配置类 InfluxDbConfig 来读取配置文件，并生成 InfluxDB 实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class InfluxDbConfig &#123;</span><br><span class="line"></span><br><span class="line">    @Value(&quot;$&#123;spring.influx.url:&#x27;&#x27;&#125;&quot;)</span><br><span class="line">    private String influxDBUrl;</span><br><span class="line"></span><br><span class="line">    @Value(&quot;$&#123;spring.influx.user:&#x27;&#x27;&#125;&quot;)</span><br><span class="line">    private String userName;</span><br><span class="line"></span><br><span class="line">    @Value(&quot;$&#123;spring.influx.password:&#x27;&#x27;&#125;&quot;)</span><br><span class="line">    private String password;</span><br><span class="line"></span><br><span class="line">    @Value(&quot;$&#123;spring.influx.database:&#x27;&#x27;&#125;&quot;)</span><br><span class="line">    private String database;</span><br><span class="line"></span><br><span class="line">    // 数据保存策略</span><br><span class="line">    public static String retentionPolicy = &quot;autogen&quot;;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public InfluxDB influxDB()&#123;</span><br><span class="line">        InfluxDB influxDB = InfluxDBFactory.connect(influxDBUrl, userName, password);</span><br><span class="line">        try &#123;</span><br><span class="line">            /**</span><br><span class="line">             * 异步插入：</span><br><span class="line">             * enableBatch这里第一个是point的个数，第二个是时间，单位毫秒</span><br><span class="line">             * point的个数和时间是联合使用的，如果满100条或者1000毫秒</span><br><span class="line">             * 满足任何一个条件就会发送一次写的请求。</span><br><span class="line">             * 如果不需要异步插入则将后面 .enableBatch 部分注释掉即可</span><br><span class="line">             */</span><br><span class="line">            influxDB.setDatabase(database)</span><br><span class="line">                    .enableBatch(100,1000, TimeUnit.MILLISECONDS);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            influxDB.setRetentionPolicy(retentionPolicy);</span><br><span class="line">        &#125;</span><br><span class="line">        influxDB.setLogLevel(InfluxDB.LogLevel.BASIC);</span><br><span class="line">        return influxDB;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、基本用法"><a href="#二、基本用法" class="headerlink" title="二、基本用法"></a>二、基本用法</h3><p>1，插入数据</p>
+<p>（1）我们创建一个 Controller 通过调用 InfluxDB 对象来插入两条数据：</p>
+<p>提示：数据库和对应的表可以不需要提前创建好，插入时会自动创建。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class HelloController &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private InfluxDB influxDB;</span><br><span class="line"></span><br><span class="line">    @Value(&quot;$&#123;spring.influx.database&#125;&quot;)</span><br><span class="line">    private String database;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/test1&quot;)</span><br><span class="line">    public void test1() &#123;</span><br><span class="line">        System.out.println(&quot;---开始插入数据---&quot;);</span><br><span class="line">        influxDB.write(Point.measurement(&quot;temperature&quot;)</span><br><span class="line">                .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)</span><br><span class="line">                .tag(&quot;machine&quot;, &quot;unit42&quot;)</span><br><span class="line">                .tag(&quot;type&quot;, &quot;assembly&quot;)</span><br><span class="line">                .addField(&quot;external&quot;, 11)</span><br><span class="line">                .addField(&quot;internal&quot;, 22)</span><br><span class="line">                .build());</span><br><span class="line"></span><br><span class="line">        influxDB.write(Point.measurement(&quot;temperature&quot;)</span><br><span class="line">                .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)</span><br><span class="line">                .tag(&quot;machine&quot;, &quot;unit43&quot;)</span><br><span class="line">                .tag(&quot;type&quot;, &quot;assembly&quot;)</span><br><span class="line">                .addField(&quot;external&quot;, 33)</span><br><span class="line">                .addField(&quot;internal&quot;, 44)</span><br><span class="line">                .build());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）使用浏览器访问 /test1 接口，可以看到控制台输出如下：</p>
+<p>原文:SpringBoot - InfluxDB 数据库的集成与使用详解</p>
+<p>（3）查询下数据库可以看到数据已成功插入：</p>
+<p>原文:SpringBoot - InfluxDB 数据库的集成与使用详解</p>
+<p>2，查询数据</p>
+<p>（1）我们对上面的 Controller 稍作修改，增加一个查询的测试方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class HelloController &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private InfluxDB influxDB;</span><br><span class="line"></span><br><span class="line">    @Value(&quot;$&#123;spring.influx.database&#125;&quot;)</span><br><span class="line">    private String database;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/test2&quot;)</span><br><span class="line">    public void test2() &#123;</span><br><span class="line">        System.out.println(&quot;---开始查询数据---&quot;);</span><br><span class="line">        // InfluxDB支持分页查询,因此可以设置分页查询条件</span><br><span class="line">        int page = 1; // 起始页（从0开始）</span><br><span class="line">        int pageSize = 10;  // 每页条目数</span><br><span class="line">        String pageQuery = &quot; LIMIT &quot; + pageSize + &quot; OFFSET &quot; + (page - 1) * pageSize;</span><br><span class="line">        String queryCondition = &quot;&quot;;  //查询条件暂且为空</span><br><span class="line">        // 此处查询所有内容,如果</span><br><span class="line">        String queryCmd = &quot;SELECT * FROM &quot;</span><br><span class="line">                // 要指定从 RetentionPolicyName.measurement中查询指定数据,默认的策略可以不加；</span><br><span class="line">                // + 策略name + &quot;.&quot; + measurement</span><br><span class="line">                + &quot;temperature&quot;</span><br><span class="line">                // 添加查询条件(注意查询条件选择tag值,选择field数值会严重拖慢查询速度)</span><br><span class="line">                + queryCondition</span><br><span class="line">                // 查询结果需要按照时间排序</span><br><span class="line">                + &quot; ORDER BY time DESC&quot;</span><br><span class="line">                // 添加分页查询条件</span><br><span class="line">                + pageQuery;</span><br><span class="line"></span><br><span class="line">        // 开始查询</span><br><span class="line">        QueryResult queryResult = influxDB.query(new Query(queryCmd, database));</span><br><span class="line">        System.out.println(&quot;原始结果为：&quot; + queryResult);</span><br><span class="line"></span><br><span class="line">        // 获取查询结果</span><br><span class="line">        List&lt;QueryResult.Result&gt; results = queryResult.getResults();</span><br><span class="line">        if (results == null) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        // 多个sql用分号隔开，因本次查询只有一个sql，所以取第一个就行</span><br><span class="line">        QueryResult.Result result = results.get(0);</span><br><span class="line">        List&lt;QueryResult.Series&gt; seriesList = result.getSeries();</span><br><span class="line"></span><br><span class="line">        for (QueryResult.Series series : seriesList) &#123;</span><br><span class="line">            if (series == null) &#123;</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(&quot;结果数量为：&quot; + (series.getValues() == null ?</span><br><span class="line">                    0 : series.getValues().size()));</span><br><span class="line">            System.out.println(&quot;colums ==&gt;&gt; &quot; + series.getColumns());</span><br><span class="line">            System.out.println(&quot;tags ==&gt;&gt; &quot; + series.getTags());</span><br><span class="line">            System.out.println(&quot;name ==&gt;&gt; &quot; + series.getName());</span><br><span class="line">            System.out.println(&quot;values ==&gt;&gt; &quot; + series.getValues());</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）使用浏览器访问 /test2 接口，可以看到控制台输出。</p>
+<h3 id="三、通过实体类进行数据插入"><a href="#三、通过实体类进行数据插入" class="headerlink" title="三、通过实体类进行数据插入"></a>三、通过实体类进行数据插入</h3><p>1，构建实体类</p>
+<p>首先我们创建 temperature 这个表对应的实体类，代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@Builder</span><br><span class="line">@Data</span><br><span class="line">@AllArgsConstructor</span><br><span class="line">@NoArgsConstructor</span><br><span class="line">@Measurement(name = &quot;temperature&quot;)</span><br><span class="line">public class Temperature &#123;</span><br><span class="line">    // Column中的name为measurement中的列名</span><br><span class="line">    // 此外,需要注意InfluxDB中时间戳均是以UTC时保存,在保存以及提取过程中需要注意时区转换</span><br><span class="line">    @Column(name = &quot;time&quot;)</span><br><span class="line">    private Long time;</span><br><span class="line">    // 注解中添加tag = true,表示当前字段内容为tag内容</span><br><span class="line">    @Column(name = &quot;machine&quot;, tag = true)</span><br><span class="line">    private String machine;</span><br><span class="line">    @Column(name = &quot;type&quot;, tag = true)</span><br><span class="line">    private String type;</span><br><span class="line">    @Column(name = &quot;external&quot;)</span><br><span class="line">    private Float external;</span><br><span class="line">    @Column(name = &quot;internal&quot;)</span><br><span class="line">    private Float internal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2，插入数据</p>
+<p>我们对上面的 Controller 稍作修改，这次插入是是通过实体类对象进行插入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class HelloController &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private InfluxDB influxDB;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/test1&quot;)</span><br><span class="line">    public void test1() &#123;</span><br><span class="line">        System.out.println(&quot;---开始插入数据---&quot;);</span><br><span class="line">        Temperature temperature1 = new Temperature(System.currentTimeMillis(),</span><br><span class="line">                &quot;unit42&quot;, &quot;assembly&quot;, 11F ,22F);</span><br><span class="line">        influxDB.write(Point.measurementByPOJO(Temperature.class)</span><br><span class="line">                .time(temperature1.getTime(), TimeUnit.MILLISECONDS)</span><br><span class="line">                .addFieldsFromPOJO(temperature1)</span><br><span class="line">                .build());</span><br><span class="line"></span><br><span class="line">        Temperature temperature2 = new Temperature(System.currentTimeMillis(),</span><br><span class="line">                &quot;unit43&quot;, &quot;assembly&quot;, 33F ,44F);</span><br><span class="line">        influxDB.write(Point.measurementByPOJO(Temperature.class)</span><br><span class="line">                .time(temperature1.getTime(), TimeUnit.MILLISECONDS)</span><br><span class="line">                .addFieldsFromPOJO(temperature2)</span><br><span class="line">                .build());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3，查询数据</p>
+<p>目前无法自动将查询结果转成我们自定义的实体类对象，只能手动进行创建并赋值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">public class HelloController &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private InfluxDB influxDB;</span><br><span class="line"></span><br><span class="line">    @Value(&quot;$&#123;spring.influx.database&#125;&quot;)</span><br><span class="line">    private String database;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/test2&quot;)</span><br><span class="line">    public List&lt;Temperature&gt; test2() &#123;</span><br><span class="line">        System.out.println(&quot;---开始查询数据---&quot;);</span><br><span class="line">        // InfluxDB支持分页查询,因此可以设置分页查询条件</span><br><span class="line">        int page = 1; // 起始页（从0开始）</span><br><span class="line">        int pageSize = 10;  // 每页条目数</span><br><span class="line">        String pageQuery = &quot; LIMIT &quot; + pageSize + &quot; OFFSET &quot; + (page - 1) * pageSize;</span><br><span class="line">        String queryCondition = &quot;&quot;;  //查询条件暂且为空</span><br><span class="line">        // 此处查询所有内容,如果</span><br><span class="line">        String queryCmd = &quot;SELECT time, machine, type, external, internal FROM &quot;</span><br><span class="line">                // 要指定从 RetentionPolicyName.measurement中查询指定数据,默认的策略可以不加；</span><br><span class="line">                // + 策略name + &quot;.&quot; + measurement</span><br><span class="line">                + &quot;temperature&quot;</span><br><span class="line">                // 添加查询条件(注意查询条件选择tag值,选择field数值会严重拖慢查询速度)</span><br><span class="line">                + queryCondition</span><br><span class="line">                // 查询结果需要按照时间排序</span><br><span class="line">                + &quot; ORDER BY time DESC&quot;</span><br><span class="line">                // 添加分页查询条件</span><br><span class="line">                + pageQuery;</span><br><span class="line"></span><br><span class="line">        // 开始查询</span><br><span class="line">        QueryResult queryResult = influxDB.query(new Query(queryCmd, database),</span><br><span class="line">                TimeUnit.MILLISECONDS);</span><br><span class="line">        System.out.println(&quot;原始结果为：&quot; + queryResult);</span><br><span class="line"></span><br><span class="line">        // 获取查询结果</span><br><span class="line">        List&lt;QueryResult.Result&gt; results = queryResult.getResults();</span><br><span class="line">        if (results == null) &#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        // 多个sql用分号隔开，因本次查询只有一个sql，所以取第一个就行</span><br><span class="line">        QueryResult.Result result = results.get(0);</span><br><span class="line">        List&lt;QueryResult.Series&gt; seriesList = result.getSeries();</span><br><span class="line">        List&lt;Temperature&gt; temperatureList = new LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        for (QueryResult.Series series : seriesList) &#123;</span><br><span class="line">            if (series == null) &#123;</span><br><span class="line">                return null;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(&quot;结果数量为：&quot; + (series.getValues() == null ?</span><br><span class="line">                    0 : series.getValues().size()));</span><br><span class="line">            System.out.println(&quot;colums ==&gt;&gt; &quot; + series.getColumns());</span><br><span class="line">            System.out.println(&quot;tags ==&gt;&gt; &quot; + series.getTags());</span><br><span class="line">            System.out.println(&quot;name ==&gt;&gt; &quot; + series.getName());</span><br><span class="line">            System.out.println(&quot;values ==&gt;&gt; &quot; + series.getValues());</span><br><span class="line"></span><br><span class="line">            series.getValues().forEach(valueData -&gt; &#123;</span><br><span class="line">                Temperature temperature = new Temperature();</span><br><span class="line">                // 直接查询出来的是科学计数法，需要转换为Long类型的数据</span><br><span class="line">                BigDecimal decimalTime = new BigDecimal(valueData.get(0).toString());</span><br><span class="line">                temperature.setTime(decimalTime.longValue());</span><br><span class="line">                temperature.setMachine(valueData.get(1).toString());</span><br><span class="line">                temperature.setType(valueData.get(2).toString());</span><br><span class="line">                temperature.setExternal(Float.valueOf(valueData.get(3).toString()));</span><br><span class="line">                temperature.setInternal(Float.valueOf(valueData.get(4).toString()));</span><br><span class="line">                temperatureList.add(temperature);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        return temperatureList;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Murray</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.rainbowrise.top/2022/01/01/influxdb%E7%AC%94%E8%AE%B0/">https://www.rainbowrise.top/2022/01/01/influxdb%E7%AC%94%E8%AE%B0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Murray</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
+                                </a>
+                            
+                                <a href="/tags/Influxdb/">
+                                    <span class="chip bg-color">Influxdb</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NTE3MC8zMTYzNw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/03/01/Springboot%E9%9B%86%E6%88%90SNMP/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Springboot集成SNMP">
+                        
+                        <span class="card-title">Springboot集成SNMP</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/SNMP/" class="post-category">
+                                    SNMP
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SNMP/">
+                        <span class="chip bg-color">SNMP</span>
+                    </a>
+                    
+                    <a href="/tags/Springboot/">
+                        <span class="chip bg-color">Springboot</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/10/27/sublime%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="sublime笔记">
+                        
+                        <span class="card-title">sublime笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Tool/" class="post-category">
+                                    Tool
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Sublime/">
+                        <span class="chip bg-color">Sublime</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 马瑞个人笔记<br />'
+            + '文章作者: Murray<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2024</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">Murray</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                &nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                &nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            
+            <br><span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "08";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            
+            <br><span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备2021006498号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sunglowrise" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:sunglowrise@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/ma-liang-19-36" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/ma-liang-19-36" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

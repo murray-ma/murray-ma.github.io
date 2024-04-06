@@ -383,33 +383,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h4><blockquote>
-<p>先卸载可能存在的旧版本(apt官方库里的docker版本可能比较旧)</p>
+                <h4 id="安装-docker"><a href="#安装-docker" class="headerlink" title="安装 docker"></a>安装 docker</h4><blockquote>
+<p>先卸载可能存在的旧版本(apt 官方库里的 docker 版本可能比较旧)</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt remove docker docker-engine docker-ce docker.io</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>更新apt包索引</p>
+<p>更新 apt 包索引</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>安装以下包以使apt可以通过HTTPS使用存储库（repository）：</p>
+<p>安装以下包以使 apt 可以通过 HTTPS 使用存储库（repository）：</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install -y apt-transport-https ca-certificates curl software-properties-common</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>添加Docker官方的GPG密钥：</p>
+<p>添加 Docker 官方的 GPG 密钥：</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>使用下面的命令来设置stable存储库：</p>
+<p>使用下面的命令来设置 stable 存储库：</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>配置apt仓库<code>/etc/apt/sources.list</code>文件最好追加一行：</p>
+<p>配置 apt 仓库<code>/etc/apt/sources.list</code>文件最好追加一行：</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deb https://apt.dockerproject.org/repo ubuntu-trusty main</span><br></pre></td></tr></table></figure>
 
@@ -419,39 +419,40 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install linux-image-extra-$(uname -r) linux-image-extra-virtual</span><br><span class="line">$ sudo apt install docker-engine</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>安装最新版本的Docker CE：</p>
+<p>安装最新版本的 Docker CE：</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install -y docker-ce</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>在生产系统上，可能会需要应该安装一个特定版本的Docker CE，而不是总是使用最新版本：<br>列出可用的版本：</p>
+<p>在生产系统上，可能会需要应该安装一个特定版本的 Docker CE，而不是总是使用最新版本：<br>列出可用的版本：</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-cache madison docker-ce</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>选择要安装的特定版本，第二列是版本字符串，第三列是存储库名称，它指示包来自哪个存储库，以及扩展它的稳定性级别。要安装一个特定的版本，将版本字符串附加到包名中，并通过等号(=)分隔它们</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install docker-ce=&lt;VERSION&gt; # 随意选择一个版本即可 </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install docker-ce=&lt;VERSION&gt; # 随意选择一个版本即可</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>验证docker</p>
+<p>验证 docker</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查看docker服务是否启动：</span><br><span class="line">$ systemctl status docker</span><br><span class="line"></span><br><span class="line"># 若未启动，则启动docker服务：</span><br><span class="line">$ sudo systemctl start docker</span><br><span class="line"></span><br><span class="line"># 经典的hello world：</span><br><span class="line">$ sudo docker run hello-world</span><br></pre></td></tr></table></figure>
 
-<h4 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 如果没有pip 先安装pip</span><br><span class="line">sudo apt install python-pip</span><br><span class="line">sudo pip install docker-compose</span><br></pre></td></tr></table></figure>
+<h4 id="安装-docker-compose"><a href="#安装-docker-compose" class="headerlink" title="安装 docker-compose"></a>安装 docker-compose</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 如果没有pip 先安装pip</span><br><span class="line">sudo apt install python-pip</span><br><span class="line">sudo pip install docker-compose</span><br></pre></td></tr></table></figure>
 
-<h4 id="sentry部署"><a href="#sentry部署" class="headerlink" title="sentry部署"></a>sentry部署</h4><ol>
-<li><p>构建容器</p>
+<h4 id="sentry-部署"><a href="#sentry-部署" class="headerlink" title="sentry 部署"></a>sentry 部署</h4><ol>
+<li>构建容器</li>
+</ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install git</span><br><span class="line">$ git clone https://github.com/getsentry/onpremise.git</span><br><span class="line">$ cd onpremise</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>cd onpremise，执行命令生成key</p>
-<blockquote>
-<p>注意：以下所有的目录，都是要在onpremise下执行的</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose run --rm web config generate-secret-key</span><br></pre></td></tr></table></figure>
 
+<ol start="2">
+<li>cd onpremise，执行命令生成 key<blockquote>
+<p>注意：以下所有的目录，都是要在 onpremise 下执行的</p>
+</blockquote>
 </li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose run --rm web config generate-secret-key</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>在这里可能会报错,如下所示</p>
 </blockquote>
@@ -461,71 +462,79 @@
 <p>解决方法如下:</p>
 </blockquote>
 <ul>
-<li><p>配置/lib/systemd/system/docker.service,<code>sudo vim /lib/systemd/system/docker.service</code></p>
+<li>配置/lib/systemd/system/docker.service,<code>sudo vim /lib/systemd/system/docker.service</code></li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 这里的0.0.0.0根据自己的需求配置是否只需要配置本地</span><br><span class="line">ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:4243</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置/etc/default/docker,<code>sudo vim /etc/default/docker</code></p>
+
+<ul>
+<li>配置/etc/default/docker,<code>sudo vim /etc/default/docker</code></li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOCKER_OPTS=&quot;-H tcp://localhost:4243 -H unix:///var/run/docker.sock</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>DOCKER_HOST的环境变量设置,<code>sudo vim /etc/profile</code> 或者 <code>sudo vim ~/.bashrc</code></p>
+
+<ul>
+<li>DOCKER_HOST 的环境变量设置,<code>sudo vim /etc/profile</code> 或者 <code>sudo vim ~/.bashrc</code></li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export DOCKER_HOST=tcp://localhost:4243</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重启docker</p>
+
+<ul>
+<li>重启 docker</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">sudo service docker restart</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后重新执行</p>
+
+<ul>
+<li>然后重新执行</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose run --rm web config generate-secret-key</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
 <blockquote>
-<p>然后就是等待,时间比较长,大概半小时。执行完后会生成一个key,复制这个key</p>
+<p>然后就是等待,时间比较长,大概半小时。执行完后会生成一个 key,复制这个 key</p>
 </blockquote>
 <ol start="3">
-<li><p>将key添加到docker-compose文件里</p>
+<li>将 key 添加到 docker-compose 文件里</li>
+</ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim docker-compose.yml</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 取消SENTRY_SECRET_KEY的注释，并把刚刚复制的字符串插入其中，类似如下：</span><br><span class="line">version: &#x27;2&#x27;</span><br><span class="line">services:</span><br><span class="line">  base:</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    build: .</span><br><span class="line">    environment:</span><br><span class="line">      # Run `docker-compose run web config generate-secret-key`</span><br><span class="line">      # to get the SENTRY_SECRET_KEY value.</span><br><span class="line">      SENTRY_SECRET_KEY: &#x27;8kn@wvg)qcm5ufg9sanfdada6qn)-0rd^%8j)@m4h=kxn(t)sv&#x27;</span><br><span class="line">      SENTRY_MEMCACHED_HOST: memcached</span><br><span class="line">      SENTRY_REDIS_HOST: redis</span><br><span class="line">      SENTRY_POSTGRES_HOST: postgres</span><br><span class="line">      SENTRY_EMAIL_HOST: smtp</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重建数据库,并创建sentry超级管理员用户</p>
+
+<ol start="4">
+<li>重建数据库,并创建 sentry 超级管理员用户</li>
+</ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose run --rm web upgrade</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
 <blockquote>
-<p>这里会持续大概半小时,快结束时,会创建用户,sentry新建的时候需要一个超级管理员用户：</p>
+<p>这里会持续大概半小时,快结束时,会创建用户,sentry 新建的时候需要一个超级管理员用户：</p>
 </blockquote>
 <p>配图</p>
 <ol start="5">
-<li><p>启动所有服务</p>
+<li>启动所有服务</li>
+</ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>访问sentry</p>
-</li>
+
+<ol start="6">
+<li>访问 sentry</li>
 </ol>
 <blockquote>
-<p>打开浏览器，输入url: ipaddress:9000</p>
+<p>打开浏览器，输入 url: ipaddress:9000</p>
 </blockquote>
 <blockquote>
 <p>访问之前可以检查下容器和端口情况：</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
 <p>看下当前运行的容器：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ant 查看端口打开情况：</span><br></pre></td></tr></table></figure>
 
-<p>登陆界面，这里会提示你的Root URL，如果不想更改继续下一步即可完成：</p>
+<p>登陆界面，这里会提示你的 Root URL，如果不想更改继续下一步即可完成：</p>
 <p>6o0.png<br>页面展示：</p>
 <h4 id="简单应用"><a href="#简单应用" class="headerlink" title="简单应用"></a>简单应用</h4><ol>
-<li>新建一个项目</li>
-</ol>
-<ol start="2">
-<li>django中的配置<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install raven #先安装raven库</span><br></pre></td></tr></table></figure>
-
+<li><p>新建一个项目</p>
+</li>
+<li><p>django 中的配置</p>
 </li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install raven #先安装raven库</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#settings文件</span><br><span class="line"></span><br><span class="line">INSTALLED_APPS = [</span><br><span class="line">    .....</span><br><span class="line">    &#x27;raven.contrib.django.raven_compat&#x27;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 将字符串写入</span><br><span class="line">RAVEN_CONFIG = &#123;</span><br><span class="line">    &#x27;dsn&#x27;: &#x27;http://5ca2ee80314c4749adf65f8f580c3330saodhoia.dahid***&#x27;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 
                 
             </div>
@@ -793,13 +802,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/29/k8s-HA%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85/">
+                <a href="/2021/06/29/redis%E9%9B%86%E7%BE%A4/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="k8s-HA高可用集群安装">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="redis集群">
                         
-                        <span class="card-title">k8s-HA高可用集群安装</span>
+                        <span class="card-title">redis集群</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -816,8 +825,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CICD/" class="post-category">
-                                    CICD
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -827,8 +836,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/K8S/">
-                        <span class="chip bg-color">K8S</span>
+                    <a href="/tags/Redis/">
+                        <span class="chip bg-color">Redis</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

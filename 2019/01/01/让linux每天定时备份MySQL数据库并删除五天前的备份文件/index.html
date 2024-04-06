@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Mysql/">
                                 <span class="chip bg-color">Mysql</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -344,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -384,14 +384,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>Mysql定期备份是一项重要的工作，但人工操作太繁琐，也难避免有所疏漏，使用下面的方法即可让系统定期备份数据。</p>
+<p>Mysql 定期备份是一项重要的工作，但人工操作太繁琐，也难避免有所疏漏，使用下面的方法即可让系统定期备份数据。</p>
 </blockquote>
 <blockquote>
-<p>利用系统crontab来定时执行备份文件，按日期对备份结果进行保存，达到备份的目的。</p>
+<p>利用系统 crontab 来定时执行备份文件，按日期对备份结果进行保存，达到备份的目的。</p>
 </blockquote>
 <h4 id="1、创建备份文件夹"><a href="#1、创建备份文件夹" class="headerlink" title="1、创建备份文件夹"></a>1、创建备份文件夹</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /backup</span><br><span class="line">mkdir mysql_backup</span><br></pre></td></tr></table></figure>
 
 <h4 id="2、编写运行脚本"><a href="#2、编写运行脚本" class="headerlink" title="2、编写运行脚本"></a>2、编写运行脚本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim mysql_backup_script.sh</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>脚本 mysql_backup_script.sh</p>
 </blockquote>
@@ -407,19 +408,18 @@
 
 <h4 id="3、为脚本添加执行权限"><a href="#3、为脚本添加执行权限" class="headerlink" title="3、为脚本添加执行权限"></a>3、为脚本添加执行权限</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x /usr/sbin/mysql_backup_script.sh</span><br></pre></td></tr></table></figure>
 
-<h4 id="4、修改-etc-crontab-或-crontab-e"><a href="#4、修改-etc-crontab-或-crontab-e" class="headerlink" title="4、修改/etc/crontab 或  crontab -e"></a>4、修改/etc/crontab 或  crontab -e</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查有没安装crond,如果没有，先安装</span></span><br><span class="line">yum -y install vixie-cron</span><br><span class="line">yum -y install crontabs</span><br><span class="line"></span><br><span class="line">vim /etc/crontab</span><br><span class="line"><span class="comment"># 在最后一行中加入：</span></span><br><span class="line"><span class="comment"># 数据库备份，每天1点00分执行</span></span><br><span class="line">00 1 * * * root /usr/sbin/mysql_backup_script.sh  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 注：crontab配置文件格式如下：</span></span><br><span class="line"><span class="comment"># 分 时 日 月 周  命令</span></span><br></pre></td></tr></table></figure>
+<h4 id="4、修改-etc-crontab-或-crontab-e"><a href="#4、修改-etc-crontab-或-crontab-e" class="headerlink" title="4、修改/etc/crontab 或 crontab -e"></a>4、修改/etc/crontab 或 crontab -e</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查有没安装crond,如果没有，先安装</span></span><br><span class="line">yum -y install vixie-cron</span><br><span class="line">yum -y install crontabs</span><br><span class="line"></span><br><span class="line">vim /etc/crontab</span><br><span class="line"><span class="comment"># 在最后一行中加入：</span></span><br><span class="line"><span class="comment"># 数据库备份，每天1点00分执行</span></span><br><span class="line">00 1 * * * root /usr/sbin/mysql_backup_script.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注：crontab配置文件格式如下：</span></span><br><span class="line"><span class="comment"># 分 时 日 月 周  命令</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>Redhat方法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Redhat的crontab采用按时间调用4个目录（/etc/cron.hourly：每小时；</span><br><span class="line">/etc/cron.daily：每天；</span><br><span class="line">/etc/cron.weekly：每周；</span><br><span class="line">/etc/cron.monthly：每月）中脚本出来运行的方式。</span><br><span class="line">Redhat中只需要将刚才编辑的脚本复制到相应的目录即可。</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>Redhat 方法</li>
 </ul>
-<h4 id="5、重启crontab"><a href="#5、重启crontab" class="headerlink" title="5、重启crontab"></a>5、重启crontab</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/rc.d/init.d/crond restart </span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">service cron restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Redhat的crontab采用按时间调用4个目录（/etc/cron.hourly：每小时；</span><br><span class="line">/etc/cron.daily：每天；</span><br><span class="line">/etc/cron.weekly：每周；</span><br><span class="line">/etc/cron.monthly：每月）中脚本出来运行的方式。</span><br><span class="line">Redhat中只需要将刚才编辑的脚本复制到相应的目录即可。</span><br></pre></td></tr></table></figure>
+
+<h4 id="5、重启-crontab"><a href="#5、重启-crontab" class="headerlink" title="5、重启 crontab"></a>5、重启 crontab</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/rc.d/init.d/crond restart</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">service cron restart</span><br></pre></td></tr></table></figure>
 
 <h4 id="6、恢复数据备份文件"><a href="#6、恢复数据备份文件" class="headerlink" title="6、恢复数据备份文件"></a>6、恢复数据备份文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 非压缩备份文件恢复</span><br><span class="line">mysql -u root -p database&lt; name_20190909.sql</span><br><span class="line"># 从压缩文件直接恢复</span><br><span class="line">gzip &lt; name_20190909.sql.gz | mysql -u root -p database</span><br><span class="line"># 或</span><br><span class="line">zcat name_20190909.sql.gz | mysql -u root -p</span><br></pre></td></tr></table></figure>
 
-
-<h3 id="脚本实例-mysql-backup-script-sh"><a href="#脚本实例-mysql-backup-script-sh" class="headerlink" title="脚本实例(mysql_backup_script.sh)"></a>脚本实例(mysql_backup_script.sh)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Name: mysql_backup_script.sh</span></span><br><span class="line"><span class="comment"># This is a ShellScript For Auto Database Backup and Delete old Backup</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">mysql_username=<span class="string">&#x27;admin&#x27;</span></span><br><span class="line">mysql_password=<span class="string">&#x27;1q2w3e&#x27;</span></span><br><span class="line">database=<span class="string">&#x27;gongdiyun&#x27;</span></span><br><span class="line">mysql_host=<span class="string">&#x27;127.0.0.1&#x27;</span></span><br><span class="line"></span><br><span class="line">backup_server=<span class="string">&#x27;47.96.158.93&#x27;</span></span><br><span class="line">backup_target_dir=<span class="string">&#x27;/home/mysql/backup&#x27;</span></span><br><span class="line"></span><br><span class="line">tables=<span class="string">&#x27;gd_company gd_project_info gd_monitor_spot gd_device env_device gd_tc_device gd_tip_device&#x27;</span></span><br><span class="line"></span><br><span class="line">keep_days=10</span><br><span class="line"></span><br><span class="line">backup_dir=/backup/mysql_godiyun</span><br><span class="line">mysql_bin_dir=/usr/bin</span><br><span class="line">time=` <span class="built_in">date</span> +%Y%m%d%H `</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="string">&quot;<span class="variable">$backup_dir</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$backup_dir</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># 备份数据库</span></span><br><span class="line"><span class="variable">$mysql_bin_dir</span>/mysqldump -c -h<span class="variable">$mysql_host</span> -u<span class="variable">$mysql_username</span> -p<span class="variable">$mysql_password</span> <span class="variable">$database</span> | gzip &gt; <span class="variable">$backup_dir</span>/<span class="variable">$database</span><span class="string">&#x27;_&#x27;</span><span class="variable">$time</span>.sql.gz</span><br><span class="line"><span class="comment"># 仅表结构</span></span><br><span class="line"><span class="comment"># $mysql_bin_dir/mysqldump -c -h$mysql_host -u$mysql_username -p$mysql_password --opt -d $database | gzip &gt; $backupdir/$database&#x27;_structure_&#x27;$time.sql.gz</span></span><br><span class="line"><span class="comment"># 仅表数据</span></span><br><span class="line"><span class="comment"># $mysql_bin_dir/mysqldump -c -h$mysql_host -u$mysql_username -p$mysql_password -t $database | gzip &gt; $backupdir/$database&#x27;_data_&#x27;$time.sql.gz</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除超过keep_days天的备份</span></span><br><span class="line">find <span class="variable">$backup_dir</span> -name <span class="string">&quot;<span class="variable">$database</span>*.sql.gz&quot;</span> -<span class="built_in">type</span> f -mtime +<span class="variable">$keep_days</span> -<span class="built_in">exec</span> <span class="built_in">rm</span> &#123;&#125; \; &gt; /dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="string">&quot;<span class="variable">$backup_dir</span>/major&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">   <span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$backup_dir</span>/major&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份关键数据表</span></span><br><span class="line"><span class="variable">$mysql_bin_dir</span>/mysqldump -c -h<span class="variable">$mysql_host</span> -u<span class="variable">$mysql_username</span> -p<span class="variable">$mysql_password</span> <span class="variable">$database</span> <span class="variable">$tables</span> | gzip &gt; <span class="variable">$backup_dir</span>/major/<span class="variable">$database</span><span class="string">&#x27;_major_&#x27;</span><span class="variable">$time</span>.sql.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除超过keep_days天的备份</span></span><br><span class="line">find <span class="variable">$backup_dir</span>/major -name <span class="string">&quot;<span class="variable">$database</span>*.sql.gz&quot;</span> -<span class="built_in">type</span> f -mtime +<span class="variable">$keep_days</span> -<span class="built_in">exec</span> <span class="built_in">rm</span> &#123;&#125; \; &gt; /dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#发送备份文件到远程服务器</span></span><br><span class="line"><span class="comment"># 1. 配置免密登录</span></span><br><span class="line"><span class="comment">#    ① 生产SSH KEY：ssh-keygen -t rsa</span></span><br><span class="line"><span class="comment"># 	 ② ssh-copy-id生产：ssh-copy-id -i ~/.ssh/id_rsa.pub &lt;romte_ip&gt;</span></span><br><span class="line"><span class="comment"># 2. 使用scp命令</span></span><br><span class="line"></span><br><span class="line">scp -r <span class="variable">$backup_dir</span>/<span class="variable">$database</span><span class="string">&#x27;_&#x27;</span><span class="variable">$time</span>.sql.gz <span class="variable">$backup_dir</span>/major/<span class="variable">$database</span><span class="string">&#x27;_major_&#x27;</span><span class="variable">$time</span>.sql.gz <span class="variable">$backup_server</span>:<span class="variable">$backup_target_dir</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0;</span><br><span class="line">       </span><br></pre></td></tr></table></figure>
+<h3 id="脚本实例-mysql-backup-script-sh"><a href="#脚本实例-mysql-backup-script-sh" class="headerlink" title="脚本实例(mysql_backup_script.sh)"></a>脚本实例(mysql_backup_script.sh)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Name: mysql_backup_script.sh</span></span><br><span class="line"><span class="comment"># This is a ShellScript For Auto Database Backup and Delete old Backup</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">mysql_username=<span class="string">&#x27;admin&#x27;</span></span><br><span class="line">mysql_password=<span class="string">&#x27;1q2w3e&#x27;</span></span><br><span class="line">database=<span class="string">&#x27;gongdiyun&#x27;</span></span><br><span class="line">mysql_host=<span class="string">&#x27;127.0.0.1&#x27;</span></span><br><span class="line"></span><br><span class="line">backup_server=<span class="string">&#x27;47.96.158.93&#x27;</span></span><br><span class="line">backup_target_dir=<span class="string">&#x27;/home/mysql/backup&#x27;</span></span><br><span class="line"></span><br><span class="line">tables=<span class="string">&#x27;gd_company gd_project_info gd_monitor_spot gd_device env_device gd_tc_device gd_tip_device&#x27;</span></span><br><span class="line"></span><br><span class="line">keep_days=10</span><br><span class="line"></span><br><span class="line">backup_dir=/backup/mysql_godiyun</span><br><span class="line">mysql_bin_dir=/usr/bin</span><br><span class="line">time=` <span class="built_in">date</span> +%Y%m%d%H `</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="string">&quot;<span class="variable">$backup_dir</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$backup_dir</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># 备份数据库</span></span><br><span class="line"><span class="variable">$mysql_bin_dir</span>/mysqldump -c -h<span class="variable">$mysql_host</span> -u<span class="variable">$mysql_username</span> -p<span class="variable">$mysql_password</span> <span class="variable">$database</span> | gzip &gt; <span class="variable">$backup_dir</span>/<span class="variable">$database</span><span class="string">&#x27;_&#x27;</span><span class="variable">$time</span>.sql.gz</span><br><span class="line"><span class="comment"># 仅表结构</span></span><br><span class="line"><span class="comment"># $mysql_bin_dir/mysqldump -c -h$mysql_host -u$mysql_username -p$mysql_password --opt -d $database | gzip &gt; $backupdir/$database&#x27;_structure_&#x27;$time.sql.gz</span></span><br><span class="line"><span class="comment"># 仅表数据</span></span><br><span class="line"><span class="comment"># $mysql_bin_dir/mysqldump -c -h$mysql_host -u$mysql_username -p$mysql_password -t $database | gzip &gt; $backupdir/$database&#x27;_data_&#x27;$time.sql.gz</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除超过keep_days天的备份</span></span><br><span class="line">find <span class="variable">$backup_dir</span> -name <span class="string">&quot;<span class="variable">$database</span>*.sql.gz&quot;</span> -<span class="built_in">type</span> f -mtime +<span class="variable">$keep_days</span> -<span class="built_in">exec</span> <span class="built_in">rm</span> &#123;&#125; \; &gt; /dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="string">&quot;<span class="variable">$backup_dir</span>/major&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">   <span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$backup_dir</span>/major&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份关键数据表</span></span><br><span class="line"><span class="variable">$mysql_bin_dir</span>/mysqldump -c -h<span class="variable">$mysql_host</span> -u<span class="variable">$mysql_username</span> -p<span class="variable">$mysql_password</span> <span class="variable">$database</span> <span class="variable">$tables</span> | gzip &gt; <span class="variable">$backup_dir</span>/major/<span class="variable">$database</span><span class="string">&#x27;_major_&#x27;</span><span class="variable">$time</span>.sql.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除超过keep_days天的备份</span></span><br><span class="line">find <span class="variable">$backup_dir</span>/major -name <span class="string">&quot;<span class="variable">$database</span>*.sql.gz&quot;</span> -<span class="built_in">type</span> f -mtime +<span class="variable">$keep_days</span> -<span class="built_in">exec</span> <span class="built_in">rm</span> &#123;&#125; \; &gt; /dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#发送备份文件到远程服务器</span></span><br><span class="line"><span class="comment"># 1. 配置免密登录</span></span><br><span class="line"><span class="comment">#    ① 生产SSH KEY：ssh-keygen -t rsa</span></span><br><span class="line"><span class="comment"># 	 ② ssh-copy-id生产：ssh-copy-id -i ~/.ssh/id_rsa.pub &lt;romte_ip&gt;</span></span><br><span class="line"><span class="comment"># 2. 使用scp命令</span></span><br><span class="line"></span><br><span class="line">scp -r <span class="variable">$backup_dir</span>/<span class="variable">$database</span><span class="string">&#x27;_&#x27;</span><span class="variable">$time</span>.sql.gz <span class="variable">$backup_dir</span>/major/<span class="variable">$database</span><span class="string">&#x27;_major_&#x27;</span><span class="variable">$time</span>.sql.gz <span class="variable">$backup_server</span>:<span class="variable">$backup_target_dir</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -484,12 +484,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Mysql/">
                                     <span class="chip bg-color">Mysql</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -710,8 +710,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -721,12 +721,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -740,13 +740,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/12/23/Socket%E7%BC%96%E7%A8%8B%20TCP%E3%80%81UDP%E5%AE%9E%E4%BE%8B%EF%BC%88Python%EF%BC%89/">
+                <a href="/2019/01/01/NFS%E7%AC%94%E8%AE%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Socket编程 TCP、UDP实例（Python）">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="mysql开启binlog">
                         
-                        <span class="card-title">Socket编程 TCP、UDP实例（Python）</span>
+                        <span class="card-title">mysql开启binlog</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -757,14 +757,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-12-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/Storage/" class="post-category">
+                                    Storage
                                 </a>
                             
                             
@@ -774,12 +774,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/Storage/">
+                        <span class="chip bg-color">Storage</span>
                     </a>
                     
-                    <a href="/tags/Socket/">
-                        <span class="chip bg-color">Socket</span>
+                    <a href="/tags/NFS/">
+                        <span class="chip bg-color">NFS</span>
                     </a>
                     
                 </div>

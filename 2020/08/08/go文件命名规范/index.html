@@ -380,37 +380,39 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="文件命名"><a href="#文件命名" class="headerlink" title="文件命名"></a>文件命名</h3><ol>
-<li>如果文件名是以 “.” 或者 “_” 开头的话编译的时候会被忽略</li>
-<li>文件名如果是 suffix_test.go are 只会在运行go test的时候才会被编译和运行</li>
-<li>文件名支持系统和architecture来指定系统的编译。文件名支持如下的格式:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*_GOOS</span><br><span class="line">*_GOARCH</span><br><span class="line">*_GOOS_GOARCH</span><br></pre></td></tr></table></figure>
-例如 name_linux.go 只会在 linux 编译, name_amd64.go 只会在 amd64 系统编译. 当然你也可以不用文件名，而是在文件顶端加上这一句 //+build amd64</li>
+<li>如果文件名是以 “.” 或者 “_“ 开头的话编译的时候会被忽略</li>
+<li>文件名如果是 suffix_test.go are 只会在运行 go test 的时候才会被编译和运行</li>
+<li>文件名支持系统和 architecture 来指定系统的编译。文件名支持如下的格式:</li>
 </ol>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ol>
-<li>golang的命名需要使用驼峰命名法，且不能出现下划线</li>
-<li>golang中根据首字母的大小写来确定可以访问的权限。<em>无论是方法名、常量、变量名还是结构体的名称，如果首字母大写，则可以被其他的包访问；如果首字母小写，则只能在本包中使用</em></li>
-<li>结构体中属性名的大写，<em>如果属性名小写则在数据解析（如json解析,或将结构体作为请求或访问参数）时无法解析</em><br>例：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">type User struct &#123;</span><br><span class="line">    name string</span><br><span class="line">    age  int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    user:=User&#123;&quot;Tom&quot;,18&#125;</span><br><span class="line">    if userJSON,err:=json.Marshal(user);err==nil&#123;</span><br><span class="line">        fmt.Println(string(userJSON))   //数据无法解析</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 结构体中的字段名为小写，导致无法数据解析。因此一般建议结构体中的字段大写</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*_GOOS</span><br><span class="line">*_GOARCH</span><br><span class="line">*_GOOS_GOARCH</span><br></pre></td></tr></table></figure>
 
-</li>
+<p>例如 name_linux.go 只会在 linux 编译, name_amd64.go 只会在 amd64 系统编译. 当然你也可以不用文件名，而是在文件顶端加上这一句 //+build amd64</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ol>
+<li>golang 的命名需要使用驼峰命名法，且不能出现下划线</li>
+<li>golang 中根据首字母的大小写来确定可以访问的权限。<em>无论是方法名、常量、变量名还是结构体的名称，如果首字母大写，则可以被其他的包访问；如果首字母小写，则只能在本包中使用</em></li>
+<li>结构体中属性名的大写，<em>如果属性名小写则在数据解析（如 json 解析,或将结构体作为请求或访问参数）时无法解析</em><br>例：</li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">type User struct &#123;</span><br><span class="line">    name string</span><br><span class="line">    age  int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    user:=User&#123;&quot;Tom&quot;,18&#125;</span><br><span class="line">    if userJSON,err:=json.Marshal(user);err==nil&#123;</span><br><span class="line">        fmt.Println(string(userJSON))   //数据无法解析</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 结构体中的字段名为小写，导致无法数据解析。因此一般建议结构体中的字段大写</span><br></pre></td></tr></table></figure>
+
 <h3 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h3><ol>
 <li><p>平台区分</p>
 <blockquote>
-<p>文件名_平台 <br><br> 例： file_windows.go, file_unix.go <br><br> 可选为：windows, unix, posix, plan9, darwin, bsd, linux, freebsd, nacl, netbsd, openbsd, solaris, dragonfly, bsd, notbsd， android，stubs</p>
+<p>文件名_平台 <br><br>例： file_windows.go, file_unix.go <br><br>可选为：windows, unix, posix, plan9, darwin, bsd, linux, freebsd, nacl, netbsd, openbsd, solaris, dragonfly, bsd, notbsd， android，stubs</p>
 </blockquote>
 </li>
 <li><p>测试单元</p>
 <blockquote>
-<p>文件名test.go或者 文件名平台_test.go <br><br> 例： path_test.go, path_windows_test.go<br> 注意：只有在<code>go test</code>时执行。</p>
+<p>文件名 test.go 或者 文件名平台_test.go <br><br>例： path_test.go, path_windows_test.go<br>注意：只有在<code>go test</code>时执行。</p>
 </blockquote>
 </li>
 <li><p>版本区分(猜测)</p>
 <blockquote>
-<p>文件名_版本号等。<br> 例：trap_windows_1.4.go</p>
+<p>文件名_版本号等。<br>例：trap_windows_1.4.go</p>
 </blockquote>
 </li>
-<li><p>CPU类型区分, 汇编用的多</p>
+<li><p>CPU 类型区分, 汇编用的多</p>
 <blockquote>
-<p>文件名_(平台:可选)_CPU类型.<br> 例：vdso_linux_amd64.go<br> 可选：amd64, none, 386, arm, arm64, mips64, s390,mips64x,ppc64x, nonppc64x, s390x, x86,amd64p32</p>
+<p>文件名_(平台:可选)_CPU 类型.<br>例：vdso_linux_amd64.go<br>可选：amd64, none, 386, arm, arm64, mips64, s390,mips64x,ppc64x, nonppc64x, s390x, x86,amd64p32</p>
 </blockquote>
 </li>
 </ol>
@@ -753,8 +755,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CICD/" class="post-category">
-                                    CICD
+                            <a href="/categories/K8S/" class="post-category">
+                                    K8S
                                 </a>
                             
                             

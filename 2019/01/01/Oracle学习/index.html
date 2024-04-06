@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Oracle/">
                                 <span class="chip bg-color">Oracle</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -344,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -383,8 +383,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="SQL语言的种类："><a href="#SQL语言的种类：" class="headerlink" title="SQL语言的种类："></a>SQL语言的种类：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">①数据查询语言DQL：select</span><br><span class="line">②数据定义语言DDL：create、drop、alter、truncate</span><br><span class="line">③数据操纵语言DML：insert、update、delete</span><br><span class="line">④事务控制语言TCL：commit、 rollback、savepoint</span><br><span class="line">⑤数据控制语言DCL：grant、revoke</span><br></pre></td></tr></table></figure>
-<h4 id="1、-查询语句中的使用函数"><a href="#1、-查询语句中的使用函数" class="headerlink" title="1、 查询语句中的使用函数"></a>1、 查询语句中的使用函数</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">①round（数字，小数位数）：用于数字的四舍五入。若第二个参数没有，默认是0。如round（1.23456，2）-&gt;1.23 round(1.23456)---&gt;1</span><br><span class="line">trunc（数字，小数位数）：用于截取。若第二个参数没有，默认是0。如trunc（1.23456，2）-&gt;1.23</span><br><span class="line"></span><br><span class="line">②sysdate日期函数 ，如select sysdate from dual；</span><br><span class="line">months_between(日期1，日期2)：获取两日期相差的月数。如：select ABS(ROUND(months_between(HIREDATE,sysdate))) from emp;</span><br><span class="line">add_months(日期，月数)：在日期上增加月数获取新的日期。如：select to_char(add_months(sysdate,-12),&#x27;yyyy-MM-dd hh24:mi:ss&#x27;) from dual;</span><br><span class="line">last_day(日期)：获取指定日期的月的最后一天的日期。如：select LAST_DAY(SYSDATE) from dual;</span><br><span class="line">to_char（日期，格式）：把日期数据转换为字符数据。如：select to_char(sysdate,&#x27;yyyy-MM-dd hh24:mi:ss&#x27;) from dual;</span><br><span class="line">说明：</span><br><span class="line">yyyy四位数年 如：2016</span><br><span class="line">year 全拼的年 如：twenty sixteen</span><br><span class="line">month 全拼的月 如：November 或11月（中文）</span><br><span class="line">mm 两位数的月 如：11</span><br><span class="line">mon 简拼的月 如：nov （中文没有简拼）</span><br><span class="line">dd 两位数字的日</span><br><span class="line">day 全拼的星期 如：Tuesday</span><br><span class="line">dy 简拼的星期 如：tue</span><br><span class="line">am 上午/下午 如：am/pm</span><br><span class="line">to_day(日期字符串，日期格式) ：将日期字符串解析为日期 如：select to_date(&#x27;2016-08-09&#x27;,&#x27;yyyy-MM-dd&#x27;) from dual;</span><br><span class="line"></span><br><span class="line">③coalesce（参1，参2，...，默认值）：参1不为null，返回参1；参1为null，返回参2；参2为null，返回参3；...；默认值</span><br><span class="line"></span><br><span class="line">④case 条件 when 匹配1 then 值1 when 匹配2 then 值2 ...else 值N end</span><br><span class="line">decode()函数是Oracle中等价于case when 函数。</span><br><span class="line">decode()语法：decode（判断条件，匹配1，值1，匹配2，值2，...，默认值） 如select decode(2,1,&#x27;aa&#x27;,2,&#x27;bb&#x27;,&#x27;cc&#x27;) dd from dual;</span><br><span class="line"></span><br><span class="line">⑤单行函数：round(),to_date(),to_char(),coalesce() ---每行数据返回一行结果。</span><br><span class="line">upper 转换为大写 如：upper(&#x27;aa&#x27;)</span><br><span class="line">lower 转换为小写 如：lower(&#x27;AA&#x27;)</span><br><span class="line">initcap 转换为首字母大写 如：initcap(&#x27;cap&#x27;)</span><br><span class="line">length 取长度 如：length(&#x27;cap&#x27;)</span><br><span class="line">lpad 左补丁 如：lpad(&#x27;张三&#x27;，10，&#x27;*&#x27;) </span><br><span class="line">rpad 右补丁 如：rpad(&#x27;张三&#x27;，10，&#x27;*&#x27;) </span><br><span class="line">replace 字符替换 如：REPLACE(&#x27;JACK and JUE&#x27;,&#x27;J&#x27;,&#x27;BL&#x27;)</span><br><span class="line">trim 去除前后空格 如：trim(&#x27;  hh  &#x27;)</span><br><span class="line"></span><br><span class="line">⑥组函数：count(),avg(),sum(),max(),min() ---多行数据返回一行结果（组函数忽略空值）</span><br><span class="line"></span><br><span class="line">⑦All，Any，In</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                <h4 id="SQL-语言的种类："><a href="#SQL-语言的种类：" class="headerlink" title="SQL 语言的种类："></a>SQL 语言的种类：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">①数据查询语言DQL：select</span><br><span class="line">②数据定义语言DDL：create、drop、alter、truncate</span><br><span class="line">③数据操纵语言DML：insert、update、delete</span><br><span class="line">④事务控制语言TCL：commit、 rollback、savepoint</span><br><span class="line">⑤数据控制语言DCL：grant、revoke</span><br></pre></td></tr></table></figure>
+
+<h4 id="1、-查询语句中的使用函数"><a href="#1、-查询语句中的使用函数" class="headerlink" title="1、 查询语句中的使用函数"></a>1、 查询语句中的使用函数</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">①round（数字，小数位数）：用于数字的四舍五入。若第二个参数没有，默认是0。如round（1.23456，2）-&gt;1.23 round(1.23456)---&gt;1</span><br><span class="line">trunc（数字，小数位数）：用于截取。若第二个参数没有，默认是0。如trunc（1.23456，2）-&gt;1.23</span><br><span class="line"></span><br><span class="line">②sysdate日期函数 ，如select sysdate from dual；</span><br><span class="line">months_between(日期1，日期2)：获取两日期相差的月数。如：select ABS(ROUND(months_between(HIREDATE,sysdate))) from emp;</span><br><span class="line">add_months(日期，月数)：在日期上增加月数获取新的日期。如：select to_char(add_months(sysdate,-12),&#x27;yyyy-MM-dd hh24:mi:ss&#x27;) from dual;</span><br><span class="line">last_day(日期)：获取指定日期的月的最后一天的日期。如：select LAST_DAY(SYSDATE) from dual;</span><br><span class="line">to_char（日期，格式）：把日期数据转换为字符数据。如：select to_char(sysdate,&#x27;yyyy-MM-dd hh24:mi:ss&#x27;) from dual;</span><br><span class="line">说明：</span><br><span class="line">yyyy四位数年 如：2016</span><br><span class="line">year 全拼的年 如：twenty sixteen</span><br><span class="line">month 全拼的月 如：November 或11月（中文）</span><br><span class="line">mm 两位数的月 如：11</span><br><span class="line">mon 简拼的月 如：nov （中文没有简拼）</span><br><span class="line">dd 两位数字的日</span><br><span class="line">day 全拼的星期 如：Tuesday</span><br><span class="line">dy 简拼的星期 如：tue</span><br><span class="line">am 上午/下午 如：am/pm</span><br><span class="line">to_day(日期字符串，日期格式) ：将日期字符串解析为日期 如：select to_date(&#x27;2016-08-09&#x27;,&#x27;yyyy-MM-dd&#x27;) from dual;</span><br><span class="line"></span><br><span class="line">③coalesce（参1，参2，...，默认值）：参1不为null，返回参1；参1为null，返回参2；参2为null，返回参3；...；默认值</span><br><span class="line"></span><br><span class="line">④case 条件 when 匹配1 then 值1 when 匹配2 then 值2 ...else 值N end</span><br><span class="line">decode()函数是Oracle中等价于case when 函数。</span><br><span class="line">decode()语法：decode（判断条件，匹配1，值1，匹配2，值2，...，默认值） 如select decode(2,1,&#x27;aa&#x27;,2,&#x27;bb&#x27;,&#x27;cc&#x27;) dd from dual;</span><br><span class="line"></span><br><span class="line">⑤单行函数：round(),to_date(),to_char(),coalesce() ---每行数据返回一行结果。</span><br><span class="line">upper 转换为大写 如：upper(&#x27;aa&#x27;)</span><br><span class="line">lower 转换为小写 如：lower(&#x27;AA&#x27;)</span><br><span class="line">initcap 转换为首字母大写 如：initcap(&#x27;cap&#x27;)</span><br><span class="line">length 取长度 如：length(&#x27;cap&#x27;)</span><br><span class="line">lpad 左补丁 如：lpad(&#x27;张三&#x27;，10，&#x27;*&#x27;)</span><br><span class="line">rpad 右补丁 如：rpad(&#x27;张三&#x27;，10，&#x27;*&#x27;)</span><br><span class="line">replace 字符替换 如：REPLACE(&#x27;JACK and JUE&#x27;,&#x27;J&#x27;,&#x27;BL&#x27;)</span><br><span class="line">trim 去除前后空格 如：trim(&#x27;  hh  &#x27;)</span><br><span class="line"></span><br><span class="line">⑥组函数：count(),avg(),sum(),max(),min() ---多行数据返回一行结果（组函数忽略空值）</span><br><span class="line"></span><br><span class="line">⑦All，Any，In</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="2、DDL"><a href="#2、DDL" class="headerlink" title="2、DDL"></a>2、DDL</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">①复制全表：create table 表名 as 查询语句；</span><br><span class="line">②drop删除数据和表结构</span><br><span class="line">truncate 和 delete删除数据，保留表结构</span><br><span class="line">drop 和 truncate 不可回滚，delete可回滚。</span><br></pre></td></tr></table></figure>
 
@@ -393,54 +394,6 @@
 <h4 id="数据字典"><a href="#数据字典" class="headerlink" title="数据字典"></a>数据字典</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># user_tables: 用于显示当前用户所拥有的所有表，它只返回用户所对应方案的所有表</span><br><span class="line"><span class="keyword">select</span> table_name <span class="keyword">from</span> user_tables;</span><br><span class="line"></span><br><span class="line"># all_tables: 用于显示当前用户可以访问的所有表，它不仅会返回当前用户方案的所有表，还会返回当前用户可以访问的其它方案的表</span><br><span class="line"><span class="keyword">select</span> table_name <span class="keyword">from</span> all_tables;</span><br><span class="line"></span><br><span class="line"># dba_tables: 它会显示所有方案拥有的数据库表。但是查询这种数据库字典视图，要求用户必须是dba角色或是有<span class="keyword">select</span> <span class="keyword">any</span> <span class="keyword">table</span> 系统权限。</span><br><span class="line"><span class="keyword">select</span> table_name <span class="keyword">from</span> dba_tables;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="索引相关"><a href="#索引相关" class="headerlink" title="索引相关"></a>索引相关</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 单列索引</span><br><span class="line"><span class="keyword">create</span> index 索引名 <span class="keyword">on</span> 表名(列名);</span><br><span class="line"></span><br><span class="line"># 复合索引</span><br><span class="line"><span class="keyword">create</span> index 索引名 <span class="keyword">on</span> 表名(列名<span class="number">1</span>, 列名<span class="number">2</span>, ...);</span><br><span class="line"></span><br><span class="line"># 查询索引（dba_indexs用于显示数据库所有的索引信息，而user_indexs用于显示当前用户的索引信息）</span><br><span class="line"><span class="keyword">select</span> index_name, index_type <span class="keyword">from</span> user_indexes <span class="keyword">where</span> table_name <span class="operator">=</span> <span class="string">&#x27;表名&#x27;</span>;</span><br><span class="line"></span><br><span class="line"># 显示索引列（通过查询数据字典视图user_ind_columns,可以显示索引对应的列的信息）</span><br><span class="line"><span class="keyword">select</span> table_name, column_name <span class="keyword">from</span> user_ind_columns <span class="keyword">where</span> index_name <span class="operator">=</span><span class="string">&#x27;IND_ENAME&#x27;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 
             </div>
@@ -505,12 +458,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Oracle/">
                                     <span class="chip bg-color">Oracle</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -731,8 +684,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -742,12 +695,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -784,8 +737,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -795,16 +748,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Oracle/">
                         <span class="chip bg-color">Oracle</span>
                     </a>
                     
                     <a href="/tags/PLSQL/">
                         <span class="chip bg-color">PLSQL</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

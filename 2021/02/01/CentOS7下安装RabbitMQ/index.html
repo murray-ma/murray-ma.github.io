@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
-                            </a>
-                        
                             <a href="/tags/MQ/">
                                 <span class="chip bg-color">MQ</span>
+                            </a>
+                        
+                            <a href="/tags/RabbitMQ/">
+                                <span class="chip bg-color">RabbitMQ</span>
                             </a>
                         
                     </div>
@@ -383,10 +383,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="RabbitMQ安装"><a href="#RabbitMQ安装" class="headerlink" title="RabbitMQ安装"></a>RabbitMQ安装</h3><h4 id="安装阿里源"><a href="#安装阿里源" class="headerlink" title="安装阿里源"></a>安装阿里源</h4><p>参考：<a target="_blank" rel="noopener" href="https://opsx.alibaba.com/mirror">OPSX</a></p>
+                <h3 id="RabbitMQ-安装"><a href="#RabbitMQ-安装" class="headerlink" title="RabbitMQ 安装"></a>RabbitMQ 安装</h3><h4 id="安装阿里源"><a href="#安装阿里源" class="headerlink" title="安装阿里源"></a>安装阿里源</h4><p>参考：<a target="_blank" rel="noopener" href="https://opsx.alibaba.com/mirror">OPSX</a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 备份</span><br><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br><span class="line"></span><br><span class="line"># 下载新的CentOS-Base.repo 到/etc/yum.repos.d/</span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"></span><br><span class="line"># 生成缓存</span><br><span class="line">yum makecache</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4 id="erlang-与-rabbitmq版本对应"><a href="#erlang-与-rabbitmq版本对应" class="headerlink" title="erlang 与 rabbitmq版本对应"></a>erlang 与 rabbitmq版本对应</h4><table>
+<h4 id="erlang-与-rabbitmq-版本对应"><a href="#erlang-与-rabbitmq-版本对应" class="headerlink" title="erlang 与 rabbitmq 版本对应"></a>erlang 与 rabbitmq 版本对应</h4><table>
 <thead>
 <tr>
 <th>RabbitMQ</th>
@@ -429,71 +429,66 @@
 <td>R13B03</td>
 <td>16B03</td>
 </tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="http://www.rabbitmq.com/which-erlang.html">参考</a>: <a target="_blank" rel="noopener" href="http://www.rabbitmq.com/which-erlang.html">http://www.rabbitmq.com/which-erlang.html</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
-<h4 id="Erlang安装-RabbitMQ依赖Erlang"><a href="#Erlang安装-RabbitMQ依赖Erlang" class="headerlink" title="Erlang安装(RabbitMQ依赖Erlang)"></a>Erlang安装(RabbitMQ依赖Erlang)</h4><ol>
-<li>从Erlang Solution安装<blockquote>
-<p>参考：<a target="_blank" rel="noopener" href="https://packages.erlang-solutions.com/erlang/">Erlang源</a></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 添加erlang solutions源</span><br><span class="line">wget https://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm </span><br><span class="line"></span><br><span class="line">rpm -Uvh erlang-solutions-1.0-1.noarch.rpm  </span><br><span class="line"> </span><br><span class="line">$ sudo yum install -y erlang erlang-wx</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：上面方法安装最新版本的erlang，有可能rabbitmq不支持，导致不必要的麻烦。</p>
+<p><a target="_blank" rel="noopener" href="http://www.rabbitmq.com/which-erlang.html">参考</a>: <a target="_blank" rel="noopener" href="http://www.rabbitmq.com/which-erlang.html">http://www.rabbitmq.com/which-erlang.html</a></p>
+<h4 id="Erlang-安装-RabbitMQ-依赖-Erlang"><a href="#Erlang-安装-RabbitMQ-依赖-Erlang" class="headerlink" title="Erlang 安装(RabbitMQ 依赖 Erlang)"></a>Erlang 安装(RabbitMQ 依赖 Erlang)</h4><ol>
+<li>从 Erlang Solution 安装<blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://packages.erlang-solutions.com/erlang/">Erlang 源</a></p>
 </blockquote>
 </li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 添加erlang solutions源</span><br><span class="line">wget https://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm</span><br><span class="line"></span><br><span class="line">rpm -Uvh erlang-solutions-1.0-1.noarch.rpm</span><br><span class="line"></span><br><span class="line">$ sudo yum install -y erlang erlang-wx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：上面方法安装最新版本的 erlang，有可能 rabbitmq 不支持，导致不必要的麻烦。</p>
+</blockquote>
 <blockquote>
 <p>若报错如下，安装<code>yum install -y epel-release</code> （和<code>yum install -y unixODBC unixODBC-devel wxBase wxGTK SDL wxGTK-gl</code>）</p>
 </blockquote>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">--&gt; Finished Dependency Resolution</span><br><span class="line">Error: Package: erlang-wx-21.0-1.el7.centos.x86_64 (erlang-solutions)</span><br><span class="line">           Requires: libwx_gtk2u_adv-2.8.so.0(WXU_2.8)(64bit)</span><br><span class="line">Error: Package: erlang-wx-21.0-1.el7.centos.x86_64 (erlang-solutions)</span><br><span class="line">           Requires: libwx_gtk2u_core-2.8.so.0()(64bit)</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">Error: Package: erlang-wx-21.0-1.el7.centos.x86_64 (erlang-solutions)</span><br><span class="line">           Requires: libwx_gtk2u_core-2.8.so.0(WXU_2.8.10)(64bit)</span><br><span class="line"> You could try using --skip-broken to work around the problem</span><br><span class="line"> You could try running: rpm -Va --nofiles --nodigest</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">--&gt; Finished Dependency Resolution</span><br><span class="line">Error: Package: erlang-wx-21.0-1.el7.centos.x86_64 (erlang-solutions)</span><br><span class="line">         Requires: libwx_gtk2u_adv-2.8.so.0(WXU_2.8)(64bit)</span><br><span class="line">Error: Package: erlang-wx-21.0-1.el7.centos.x86_64 (erlang-solutions)</span><br><span class="line">         Requires: libwx_gtk2u_core-2.8.so.0()(64bit)</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">Error: Package: erlang-wx-21.0-1.el7.centos.x86_64 (erlang-solutions)</span><br><span class="line">         Requires: libwx_gtk2u_core-2.8.so.0(WXU_2.8.10)(64bit)</span><br><span class="line">You could try using --skip-broken to work around the problem</span><br><span class="line">You could try running: rpm -Va --nofiles --nodigest</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <ol start="2">
-<li>从EPEL源安装</li>
+<li>从 EPEL 源安装</li>
 </ol>
 <blockquote>
-<p>该方式Erlang版本可能不是最新的，可能不能满足RabbitMQ所需的最低版本要求</p>
+<p>该方式 Erlang 版本可能不是最新的，可能不能满足 RabbitMQ 所需的最低版本要求</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 启动EPEL源</span><br><span class="line">$ sudo yum install -y epel-release </span><br><span class="line"># 安装erlang</span><br><span class="line">$ sudo yum install -y erlang </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 启动EPEL源</span><br><span class="line">$ sudo yum install -y epel-release</span><br><span class="line"># 安装erlang</span><br><span class="line">$ sudo yum install -y erlang</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <ol start="3">
-<li>指定erlang软件源安装（指定版本）</li>
+<li>指定 erlang 软件源安装（指定版本）</li>
 </ol>
 <blockquote>
 <p>指定版本(需要指定源)：<a target="_blank" rel="noopener" href="https://github.com/rabbitmq/erlang-rpm">参考</a></p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># In /etc/yum.repos.d/rabbitmq-erlang.repo</span><br><span class="line">[rabbitmq-erlang]</span><br><span class="line">name=rabbitmq-erlang</span><br><span class="line">baseurl=https://dl.bintray.com/rabbitmq/rpm/erlang/20/el/7</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc</span><br><span class="line">repo_gpgcheck=0</span><br><span class="line">enabled=1</span><br><span class="line"></span><br><span class="line">yum makecache</span><br><span class="line"></span><br><span class="line">yum install -y erlang</span><br></pre></td></tr></table></figure>
+
 <ol start="4">
-<li>测试Erlang是否安装成功<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">erl -version</span><br><span class="line"></span><br><span class="line"># 输出提示：Erlang (SMP,ASYNC_THREADS,HIPE) (BEAM) emulator version 9.3.3</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>测试 Erlang 是否安装成功</li>
 </ol>
-<h4 id="RabbitMQ安装-1"><a href="#RabbitMQ安装-1" class="headerlink" title="RabbitMQ安装"></a>RabbitMQ安装</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el6.noarch.rpm</span><br><span class="line">rpm --import https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc</span><br><span class="line"># 下载</span><br><span class="line">wget https://dl.bintray.com/rabbitmq/all/rabbitmq-server/3.7.6/rabbitmq-server-3.7.6-1.el7.noarch.rpm</span><br><span class="line"></span><br><span class="line"># 安装</span><br><span class="line">yum install -y rabbitmq-server-3.7.6-1.el7.noarch.rpm </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">erl -version</span><br><span class="line"></span><br><span class="line"># 输出提示：Erlang (SMP,ASYNC_THREADS,HIPE) (BEAM) emulator version 9.3.3</span><br></pre></td></tr></table></figure>
+
+<h4 id="RabbitMQ-安装-1"><a href="#RabbitMQ-安装-1" class="headerlink" title="RabbitMQ 安装"></a>RabbitMQ 安装</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el6.noarch.rpm</span><br><span class="line">rpm --import https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc</span><br><span class="line"># 下载</span><br><span class="line">wget https://dl.bintray.com/rabbitmq/all/rabbitmq-server/3.7.6/rabbitmq-server-3.7.6-1.el7.noarch.rpm</span><br><span class="line"></span><br><span class="line"># 安装</span><br><span class="line">yum install -y rabbitmq-server-3.7.6-1.el7.noarch.rpm</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>若出现下面错误，说明rpm包有问题，重新下载rpm包。</p>
+<p>若出现下面错误，说明 rpm 包有问题，重新下载 rpm 包。</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Running transaction</span><br><span class="line">  Installing : socat-1.7.3.2-2.el7.x86_64                                                                                                                1/2 </span><br><span class="line">  Installing : rabbitmq-server-3.6.15-1.el6.noarch                                                                                                       2/2 </span><br><span class="line">Error unpacking rpm package rabbitmq-server-3.6.15-1.el6.noarch</span><br><span class="line">error: unpacking of archive failed on file /usr/lib/rabbitmq/lib/rabbitmq_server-3.6.15/plugins/rabbitmq_mqtt-3.6.15.ez;5b3b1d27: cpio: read</span><br><span class="line">  Verifying  : socat-1.7.3.2-2.el7.x86_64                                                                                                                1/2 </span><br><span class="line">  Verifying  : rabbitmq-server-3.6.15-1.el6.noarch                                                                                                       2/2 </span><br><span class="line"></span><br><span class="line">Dependency Installed:</span><br><span class="line">  socat.x86_64 0:1.7.3.2-2.el7                                                                                                                     </span><br><span class="line"></span><br><span class="line">Failed:</span><br><span class="line">  rabbitmq-server.noarch 0:3.6.15-1.el6 </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Running transaction</span><br><span class="line">  Installing : socat-1.7.3.2-2.el7.x86_64                                                                                                                1/2</span><br><span class="line">  Installing : rabbitmq-server-3.6.15-1.el6.noarch                                                                                                       2/2</span><br><span class="line">Error unpacking rpm package rabbitmq-server-3.6.15-1.el6.noarch</span><br><span class="line">error: unpacking of archive failed on file /usr/lib/rabbitmq/lib/rabbitmq_server-3.6.15/plugins/rabbitmq_mqtt-3.6.15.ez;5b3b1d27: cpio: read</span><br><span class="line">  Verifying  : socat-1.7.3.2-2.el7.x86_64                                                                                                                1/2</span><br><span class="line">  Verifying  : rabbitmq-server-3.6.15-1.el6.noarch                                                                                                       2/2</span><br><span class="line"></span><br><span class="line">Dependency Installed:</span><br><span class="line">  socat.x86_64 0:1.7.3.2-2.el7</span><br><span class="line"></span><br><span class="line">Failed:</span><br><span class="line">  rabbitmq-server.noarch 0:3.6.15-1.el6</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>若socat依赖错误，请安装socat: <code>yum install -y socat</code></p>
+<p>若 socat 依赖错误，请安装 socat: <code>yum install -y socat</code></p>
 </blockquote>
 <blockquote>
-<p>若erlang版本依赖问题，需升级erlang版本。</p>
+<p>若 erlang 版本依赖问题，需升级 erlang 版本。</p>
 </blockquote>
 <blockquote>
-<p>RabbitMQ启动报错</p>
+<p>RabbitMQ 启动报错</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_0_6_centos ~]# service rabbitmq-server start</span><br><span class="line">Starting rabbitmq-server (via systemctl):  Job for rabbitmq-server.service failed because the control process exited with error code. See &quot;systemctl status rabbitmq-server.service&quot; and &quot;journalctl -xe&quot; for details.</span><br><span class="line">[FAILED]</span><br><span class="line"></span><br><span class="line">[root@VM_0_6_centos ~]# systemctl status rabbitmq-server.service</span><br><span class="line">● rabbitmq-server.service - LSB: Enable AMQP service provided by RabbitMQ broker</span><br><span class="line">   Loaded: loaded (/etc/rc.d/init.d/rabbitmq-server; bad; vendor preset: disabled)</span><br><span class="line">   Active: failed (Result: exit-code) since Tue 2018-07-03 15:36:24 CST; 2min 10s ago</span><br><span class="line">     Docs: man:systemd-sysv-generator(8)</span><br><span class="line">  Process: 10756 ExecStart=/etc/rc.d/init.d/rabbitmq-server start (code=exited, status=1/FAILURE)</span><br><span class="line"></span><br><span class="line">Jul 03 15:36:11 VM_0_6_centos systemd[1]: Starting LSB: Enable AMQP service provided by RabbitMQ broker...</span><br><span class="line">Jul 03 15:36:11 VM_0_6_centos su[10834]: (to rabbitmq) root on none</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>解决：RabbitMQ版本不对，<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/install-rpm.html">参考官网(Download the server)</a>,选择正确的版本</p>
-<h4 id="RabbitMQ基本操作"><a href="#RabbitMQ基本操作" class="headerlink" title="RabbitMQ基本操作"></a>RabbitMQ基本操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/sbin/service rabbitmq-server start   # 启动</span><br><span class="line">/sbin/service rabbitmq-server stop    # 停止</span><br><span class="line">/sbin/service rabbitmq-server restart  # 重启</span><br><span class="line">/sbin/service rabbitmq-server status     # 查看服务状态</span><br><span class="line">chkconfig rabbitmq-server on  # 开机启动RabbitMQ服务</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>解决：RabbitMQ 版本不对，<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/install-rpm.html">参考官网(Download the server)</a>,选择正确的版本</p>
+<h4 id="RabbitMQ-基本操作"><a href="#RabbitMQ-基本操作" class="headerlink" title="RabbitMQ 基本操作"></a>RabbitMQ 基本操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/sbin/service rabbitmq-server start   # 启动</span><br><span class="line">/sbin/service rabbitmq-server stop    # 停止</span><br><span class="line">/sbin/service rabbitmq-server restart  # 重启</span><br><span class="line">/sbin/service rabbitmq-server status     # 查看服务状态</span><br><span class="line">chkconfig rabbitmq-server on  # 开机启动RabbitMQ服务</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>查询</p>
 </blockquote>
@@ -502,28 +497,30 @@
 <blockquote>
 <p>用户相关</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl list_users # 查看当前所有用户</span><br><span class="line">rabbitmqctl list_user_permissions guest # 查看默认guest用户的权限</span><br><span class="line"> </span><br><span class="line"># 由于RabbitMQ默认的账号用户名和密码都是guest。为了安全起见, 先删掉默认用户</span><br><span class="line">rabbitmqctl delete_user guest</span><br><span class="line"> </span><br><span class="line"># 为RabbitMQ创建用户</span><br><span class="line">rabbitmqctl add_user username password</span><br><span class="line"> </span><br><span class="line"># 设置用户tag，tag为角色名，对应administrator，monitoring，policymaker，management，或其他自定义名称</span><br><span class="line">rabbitmqctl set_user_tags username tags</span><br><span class="line"> </span><br><span class="line"># 赋予用户默认vhost的全部操作权限</span><br><span class="line">rabbitmqctl set_permissions -p / username &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;</span><br><span class="line"> </span><br><span class="line"># 查看用户的权限</span><br><span class="line">rabbitmqctl list_user_permissions username</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl list_users # 查看当前所有用户</span><br><span class="line">rabbitmqctl list_user_permissions guest # 查看默认guest用户的权限</span><br><span class="line"></span><br><span class="line"># 由于RabbitMQ默认的账号用户名和密码都是guest。为了安全起见, 先删掉默认用户</span><br><span class="line">rabbitmqctl delete_user guest</span><br><span class="line"></span><br><span class="line"># 为RabbitMQ创建用户</span><br><span class="line">rabbitmqctl add_user username password</span><br><span class="line"></span><br><span class="line"># 设置用户tag，tag为角色名，对应administrator，monitoring，policymaker，management，或其他自定义名称</span><br><span class="line">rabbitmqctl set_user_tags username tags</span><br><span class="line"></span><br><span class="line"># 赋予用户默认vhost的全部操作权限</span><br><span class="line">rabbitmqctl set_permissions -p / username &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;</span><br><span class="line"></span><br><span class="line"># 查看用户的权限</span><br><span class="line">rabbitmqctl list_user_permissions username</span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://www.rabbitmq.com/rabbitmqctl.8.html">RabbitMQ参考手册</a></p>
-<h4 id="开启web管理接口"><a href="#开启web管理接口" class="headerlink" title="开启web管理接口"></a>开启web管理接口</h4><blockquote>
-<p>RabbitMQ自带了web管理,更方便RabbitMQ的管理。</p>
+<p><a target="_blank" rel="noopener" href="https://www.rabbitmq.com/rabbitmqctl.8.html">RabbitMQ 参考手册</a></p>
+<h4 id="开启-web-管理接口"><a href="#开启-web-管理接口" class="headerlink" title="开启 web 管理接口"></a>开启 web 管理接口</h4><blockquote>
+<p>RabbitMQ 自带了 web 管理,更方便 RabbitMQ 的管理。</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 开启web管理</span><br><span class="line">rabbitmq-plugins enable rabbitmq_management</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>web管理端口为15672，通过浏览器访问即可。</p>
+<p>web 管理端口为 15672，通过浏览器访问即可。</p>
 </blockquote>
 <blockquote>
-<p>rabbitmqctl报错</p>
+<p>rabbitmqctl 报错</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">=SUPERVISOR REPORT==== 5-Jul-2018::01:22:56.863757 ===</span><br><span class="line">supervisor: &#123;local,&#x27;Elixir.Logger.Supervisor&#x27;&#125;</span><br><span class="line">errorContext: start_error</span><br><span class="line">reason: noproc</span><br><span class="line">offender: [&#123;pid,undefined&#125;,</span><br><span class="line">           &#123;id,&#x27;Elixir.Logger.ErrorHandler&#x27;&#125;,</span><br><span class="line">           &#123;mfargs,</span><br><span class="line">               &#123;&#x27;Elixir.Logger.Watcher&#x27;,start_link,</span><br><span class="line">                   [&#123;error_logger,&#x27;Elixir.Logger.ErrorHandler&#x27;,</span><br><span class="line">                        &#123;true,false,500&#125;&#125;]&#125;&#125;,</span><br><span class="line">           &#123;restart_type,permanent&#125;,</span><br><span class="line">           &#123;shutdown,5000&#125;,</span><br><span class="line">           &#123;child_type,worker&#125;]</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">=INFO REPORT==== 5-Jul-2018::01:22:56.871100 ===</span><br><span class="line">application: logger</span><br><span class="line">exited: &#123;&#123;shutdown,</span><br><span class="line">             &#123;failed_to_start_child,&#x27;Elixir.Logger.ErrorHandler&#x27;,noproc&#125;&#125;,</span><br><span class="line">         &#123;&#x27;Elixir.Logger.App&#x27;,start,[normal,[]]&#125;&#125;</span><br><span class="line">type: temporary</span><br><span class="line">Could not start application logger: Logger.App.start(:normal, []) returned an error: shutdown: failed to start child: Logger.ErrorHandler</span><br><span class="line">** (EXIT) no process: the process is not alive or there&#x27;s no process currently associated with the given name, possibly because its application isn&#x27;t started</span><br><span class="line"></span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">=SUPERVISOR REPORT==== 5-Jul-2018::01:22:56.863757 ===</span><br><span class="line">supervisor: &#123;local,&#x27;Elixir.Logger.Supervisor&#x27;&#125;</span><br><span class="line">errorContext: start_error</span><br><span class="line">reason: noproc</span><br><span class="line">offender: [&#123;pid,undefined&#125;,</span><br><span class="line">           &#123;id,&#x27;Elixir.Logger.ErrorHandler&#x27;&#125;,</span><br><span class="line">           &#123;mfargs,</span><br><span class="line">               &#123;&#x27;Elixir.Logger.Watcher&#x27;,start_link,</span><br><span class="line">                   [&#123;error_logger,&#x27;Elixir.Logger.ErrorHandler&#x27;,</span><br><span class="line">                        &#123;true,false,500&#125;&#125;]&#125;&#125;,</span><br><span class="line">           &#123;restart_type,permanent&#125;,</span><br><span class="line">           &#123;shutdown,5000&#125;,</span><br><span class="line">           &#123;child_type,worker&#125;]</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">=INFO REPORT==== 5-Jul-2018::01:22:56.871100 ===</span><br><span class="line">application: logger</span><br><span class="line">exited: &#123;&#123;shutdown,</span><br><span class="line">             &#123;failed_to_start_child,&#x27;Elixir.Logger.ErrorHandler&#x27;,noproc&#125;&#125;,</span><br><span class="line">         &#123;&#x27;Elixir.Logger.App&#x27;,start,[normal,[]]&#125;&#125;</span><br><span class="line">type: temporary</span><br><span class="line">Could not start application logger: Logger.App.start(:normal, []) returned an error: shutdown: failed to start child: Logger.ErrorHandler</span><br><span class="line">** (EXIT) no process: the process is not alive or there&#x27;s no process currently associated with the given name, possibly because its application isn&#x27;t started</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>见图<img src="http://qiniu.mllove.top/blog/180704/hCLkie5Gkk.png" alt="mark"><br>解决：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">根据官网的RabbitMQ Erlang版本需求文档：http://www.rabbitmq.com/which-erlang.html</span><br><span class="line">RabbitMQ 3.7.x 所要求的Erlang 版本：</span><br><span class="line">最低要求19.3 ，最高支持20.3.x</span><br><span class="line">所以RabbitMQ 3.7.6和Erlang 21.0 版本不匹配，把Erlang 21.0卸掉，换成Erlang 20.3</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4 id="RabbitMQ配置"><a href="#RabbitMQ配置" class="headerlink" title="RabbitMQ配置"></a>RabbitMQ配置</h4><blockquote>
-<p>参考:<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/configure.html">RabbitMQ官方配置文档</a></p>
+<h4 id="RabbitMQ-配置"><a href="#RabbitMQ-配置" class="headerlink" title="RabbitMQ 配置"></a>RabbitMQ 配置</h4><blockquote>
+<p>参考:<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/configure.html">RabbitMQ 官方配置文档</a></p>
 </blockquote>
 <blockquote>
-<p>配置文件rabbitmq.conf路径：<code>/usr/share/doc/rabbitmq-server/</code> 或 <code>/usr/share/doc/rabbitmq-server-3.7.6/</code></p>
+<p>配置文件 rabbitmq.conf 路径：<code>/usr/share/doc/rabbitmq-server/</code> 或 <code>/usr/share/doc/rabbitmq-server-3.7.6/</code></p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># RabbitMQ配置文件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 开启用户远程访问</span><br><span class="line"># 默认情况下，RabbitMQ的默认的guest用户只允许本机访问， 若使得guest用户能够远程访问，只需要将配置文件中的loopback_users列表置为空即可</span><br><span class="line">&#123;loopback_users, []&#125;</span><br><span class="line"></span><br><span class="line"># 若使得新添加的用户只能本地访问，将用户名添加到列表即可, 如只允许admin用户本机访问</span><br><span class="line">&#123;loopback_users, [&quot;admin&quot;]&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -532,15 +529,13 @@
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/sbin/service rabbitmq-server restart</span><br></pre></td></tr></table></figure>
 
-
-
-<h4 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># iptables </span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 5672 -j ACCEPT</span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 15672 -j ACCEPT</span><br><span class="line"></span><br><span class="line"># firewall</span><br><span class="line">firewall-cmd --zone=public --add-port=15672/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-port=5672/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<h4 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># iptables</span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 5672 -j ACCEPT</span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 15672 -j ACCEPT</span><br><span class="line"></span><br><span class="line"># firewall</span><br><span class="line">firewall-cmd --zone=public --add-port=15672/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-port=5672/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="端口说明"><a href="#端口说明" class="headerlink" title="端口说明"></a>端口说明</h4><blockquote>
 <p>参考：<a target="_blank" rel="noopener" href="https://www.rabbitmq.com/networking.html">端口说明</a></p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># erlang发现口</span><br><span class="line">4369 (epmd), 25672 (Erlang distribution)</span><br><span class="line"></span><br><span class="line"># client端通信口</span><br><span class="line">5672, 5671 (AMQP 0-9-1 without and with TLS)</span><br><span class="line"></span><br><span class="line"># 管理界面ui端口</span><br><span class="line">15672 (if management plugin is enabled)</span><br><span class="line"></span><br><span class="line">61613, 61614 (if STOMP is enabled)</span><br><span class="line"></span><br><span class="line">1883, 8883 (if MQTT is enabled)</span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>
@@ -604,12 +599,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
-                                </a>
-                            
                                 <a href="/tags/MQ/">
                                     <span class="chip bg-color">MQ</span>
+                                </a>
+                            
+                                <a href="/tags/RabbitMQ/">
+                                    <span class="chip bg-color">RabbitMQ</span>
                                 </a>
                             
                         </div>
@@ -807,13 +802,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/02/28/Nacos%E5%88%9D%E6%8E%A2(1_4_1)/">
+                <a href="/2021/02/28/Nacos%E7%AC%94%E8%AE%B0(1_4_1)/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Nacos初探（单机）">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Nacos笔记(1_4_1)">
                         
-                        <span class="card-title">Nacos初探（单机）</span>
+                        <span class="card-title">Nacos笔记(1_4_1)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -894,12 +889,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
                     <a href="/tags/MQ/">
                         <span class="chip bg-color">MQ</span>
+                    </a>
+                    
+                    <a href="/tags/Emqx/">
+                        <span class="chip bg-color">Emqx</span>
                     </a>
                     
                 </div>

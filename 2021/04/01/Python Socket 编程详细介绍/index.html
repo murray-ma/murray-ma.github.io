@@ -385,11 +385,11 @@
             <div id="articleContent">
                 <h3 id="Python-Socket-编程详细介绍"><a href="#Python-Socket-编程详细介绍" class="headerlink" title="Python Socket 编程详细介绍"></a>Python Socket 编程详细介绍</h3><p>Python 提供了两个基本的 socket 模块：</p>
 <ul>
-<li><code>Socket</code> 它提供了标准的BSD Socket API。</li>
+<li><code>Socket</code> 它提供了标准的 BSD Socket API。</li>
 <li><code>SocketServer</code> 它提供了服务器重心，可以简化网络服务器的开发。</li>
 </ul>
-<p>下面讲解下 Socket模块功能。</p>
-<h3 id="Socket-类型"><a href="#Socket-类型" class="headerlink" title="Socket 类型"></a>Socket 类型</h3><p>套接字格式：socket(family, type[,protocal]) 使用给定的套接族，套接字类型，协议编号（默认为0）来创建套接字</p>
+<p>下面讲解下 Socket 模块功能。</p>
+<h3 id="Socket-类型"><a href="#Socket-类型" class="headerlink" title="Socket 类型"></a>Socket 类型</h3><p>套接字格式：socket(family, type[,protocal]) 使用给定的套接族，套接字类型，协议编号（默认为 0）来创建套接字</p>
 <table>
 <thead>
 <tr>
@@ -407,33 +407,33 @@
 </tr>
 <tr>
 <td align="left">socket.AF_INET6</td>
-<td align="left">基于IPV6方式的服务器与服务器之间的网络通信</td>
+<td align="left">基于 IPV6 方式的服务器与服务器之间的网络通信</td>
 </tr>
 <tr>
 <td align="left">socket.SOCK_STREAM</td>
-<td align="left">基于TCP的流式socket通信</td>
+<td align="left">基于 TCP 的流式 socket 通信</td>
 </tr>
 <tr>
 <td align="left">socket.SOCK_DGRAM</td>
-<td align="left">基于UDP的数据报式socket通信</td>
+<td align="left">基于 UDP 的数据报式 socket 通信</td>
 </tr>
 <tr>
 <td align="left">socket.SOCK_RAW</td>
-<td align="left">原始套接字，普通的套接字无法处理ICMP、IGMP等网络报文，而SOCK_RAW可以；其次SOCK_RAW也可以处理特殊的IPV4报文；此外，利用原始套接字，可以通过IP_HDRINCL套接字选项由用户构造IP头</td>
+<td align="left">原始套接字，普通的套接字无法处理 ICMP、IGMP 等网络报文，而 SOCK_RAW 可以；其次 SOCK_RAW 也可以处理特殊的 IPV4 报文；此外，利用原始套接字，可以通过 IP_HDRINCL 套接字选项由用户构造 IP 头</td>
 </tr>
 <tr>
 <td align="left">socket.SOCK_SEQPACKET</td>
 <td align="left">可靠的连续数据包服务</td>
 </tr>
 </tbody></table>
-<p>创建TCP Socket：</p>
+<p>创建 TCP Socket：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br></pre></td></tr></table></figure>
 
-<p>创建UDP Socket：</p>
+<p>创建 UDP Socket：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</span><br></pre></td></tr></table></figure>
 
 <h3 id="Socket-函数"><a href="#Socket-函数" class="headerlink" title="Socket 函数"></a>Socket 函数</h3><ul>
-<li>TCP发送数据时，已建立好TCP链接，所以不需要指定地址，而UDP是面向无连接的，每次发送都需要指定发送给谁。</li>
+<li>TCP 发送数据时，已建立好 TCP 链接，所以不需要指定地址，而 UDP 是面向无连接的，每次发送都需要指定发送给谁。</li>
 <li>服务器与客户端不能直接发送列表，元素，字典等带有数据类型的格式，发送的内容必须是字符串数据。</li>
 </ul>
 <p><strong>服务器端 Socket 函数</strong></p>
@@ -446,15 +446,15 @@
 </thead>
 <tbody><tr>
 <td align="left">s.bind(address)</td>
-<td align="left">将套接字绑定到地址，在AF_INET下，以tuple(host, port)的方式传入，如s.bind((host, port))</td>
+<td align="left">将套接字绑定到地址，在 AF_INET 下，以 tuple(host, port)的方式传入，如 s.bind((host, port))</td>
 </tr>
 <tr>
 <td align="left">s.listen(backlog)</td>
-<td align="left">开始监听TCP传入连接，backlog指定在拒绝链接前，操作系统可以挂起的最大连接数，该值最少为1，大部分应用程序设为5就够用了</td>
+<td align="left">开始监听 TCP 传入连接，backlog 指定在拒绝链接前，操作系统可以挂起的最大连接数，该值最少为 1，大部分应用程序设为 5 就够用了</td>
 </tr>
 <tr>
 <td align="left">s.accept()</td>
-<td align="left">接受TCP链接并返回（conn, address），其中conn是新的套接字对象，可以用来接收和发送数据，address是链接客户端的地址。</td>
+<td align="left">接受 TCP 链接并返回（conn, address），其中 conn 是新的套接字对象，可以用来接收和发送数据，address 是链接客户端的地址。</td>
 </tr>
 </tbody></table>
 <p><strong>客户端 Socket 函数</strong></p>
@@ -467,11 +467,11 @@
 </thead>
 <tbody><tr>
 <td align="left">s.connect(address)</td>
-<td align="left">链接到address处的套接字，一般address的格式为tuple(host, port)，如果链接出错，则返回socket.error错误</td>
+<td align="left">链接到 address 处的套接字，一般 address 的格式为 tuple(host, port)，如果链接出错，则返回 socket.error 错误</td>
 </tr>
 <tr>
 <td align="left">s.connect_ex(address)</td>
-<td align="left">功能与s.connect(address)相同，但成功返回0，失败返回errno的值</td>
+<td align="left">功能与 s.connect(address)相同，但成功返回 0，失败返回 errno 的值</td>
 </tr>
 </tbody></table>
 <p><strong>公共 Socket 函数</strong></p>
@@ -484,23 +484,23 @@
 </thead>
 <tbody><tr>
 <td align="left">s.recv(bufsize[, flag])</td>
-<td align="left">接受TCP套接字的数据，数据以字符串形式返回，buffsize指定要接受的最大数据量，flag提供有关消息的其他信息，通常可以忽略</td>
+<td align="left">接受 TCP 套接字的数据，数据以字符串形式返回，buffsize 指定要接受的最大数据量，flag 提供有关消息的其他信息，通常可以忽略</td>
 </tr>
 <tr>
 <td align="left">s.send(string[, flag])</td>
-<td align="left">发送TCP数据，将字符串中的数据发送到链接的套接字，返回值是要发送的字节数量，该数量可能小于string的字节大小</td>
+<td align="left">发送 TCP 数据，将字符串中的数据发送到链接的套接字，返回值是要发送的字节数量，该数量可能小于 string 的字节大小</td>
 </tr>
 <tr>
 <td align="left">s.sendall(string[, flag])</td>
-<td align="left">完整发送TCP数据，将字符串中的数据发送到链接的套接字，但在返回之前尝试发送所有数据。成功返回None，失败则抛出异常</td>
+<td align="left">完整发送 TCP 数据，将字符串中的数据发送到链接的套接字，但在返回之前尝试发送所有数据。成功返回 None，失败则抛出异常</td>
 </tr>
 <tr>
 <td align="left">s.recvfrom(bufsize[, flag])</td>
-<td align="left">接受UDP套接字的数据u，与recv()类似，但返回值是tuple(data, address)。其中data是包含接受数据的字符串，address是发送数据的套接字地址</td>
+<td align="left">接受 UDP 套接字的数据 u，与 recv()类似，但返回值是 tuple(data, address)。其中 data 是包含接受数据的字符串，address 是发送数据的套接字地址</td>
 </tr>
 <tr>
 <td align="left">s.sendto(string[, flag], address)</td>
-<td align="left">发送UDP数据，将数据发送到套接字，address形式为tuple(ipaddr, port)，指定远程地址发送，返回值是发送的字节数</td>
+<td align="left">发送 UDP 数据，将数据发送到套接字，address 形式为 tuple(ipaddr, port)，指定远程地址发送，返回值是发送的字节数</td>
 </tr>
 <tr>
 <td align="left">s.close()</td>
@@ -508,11 +508,11 @@
 </tr>
 <tr>
 <td align="left">s.getpeername()</td>
-<td align="left">返回套接字的远程地址，返回值通常是一个tuple(ipaddr, port)</td>
+<td align="left">返回套接字的远程地址，返回值通常是一个 tuple(ipaddr, port)</td>
 </tr>
 <tr>
 <td align="left">s.getsockname()</td>
-<td align="left">返回套接字自己的地址，返回值通常是一个tuple(ipaddr, port)</td>
+<td align="left">返回套接字自己的地址，返回值通常是一个 tuple(ipaddr, port)</td>
 </tr>
 <tr>
 <td align="left">s.setsockopt(level, optname, value)</td>
@@ -524,11 +524,11 @@
 </tr>
 <tr>
 <td align="left">s.settimeout(timeout)</td>
-<td align="left">设置套接字操作的超时时间，timeout是一个浮点数，单位是秒，值为None则表示永远不会超时。一般超时期应在刚创建套接字时设置，因为他们可能用于连接的操作，如s.connect()</td>
+<td align="left">设置套接字操作的超时时间，timeout 是一个浮点数，单位是秒，值为 None 则表示永远不会超时。一般超时期应在刚创建套接字时设置，因为他们可能用于连接的操作，如 s.connect()</td>
 </tr>
 <tr>
 <td align="left">s.gettimeout()</td>
-<td align="left">返回当前超时值，单位是秒，如果没有设置超时则返回None</td>
+<td align="left">返回当前超时值，单位是秒，如果没有设置超时则返回 None</td>
 </tr>
 <tr>
 <td align="left">s.fileno()</td>
@@ -536,14 +536,14 @@
 </tr>
 <tr>
 <td align="left">s.setblocking(flag)</td>
-<td align="left">如果flag为0，则将套接字设置为非阻塞模式，否则将套接字设置为阻塞模式（默认值）。非阻塞模式下，如果调用recv()没有发现任何数据，或send()调用无法立即发送数据，那么将引起socket.error异常。</td>
+<td align="left">如果 flag 为 0，则将套接字设置为非阻塞模式，否则将套接字设置为阻塞模式（默认值）。非阻塞模式下，如果调用 recv()没有发现任何数据，或 send()调用无法立即发送数据，那么将引起 socket.error 异常。</td>
 </tr>
 <tr>
 <td align="left">s.makefile()</td>
 <td align="left">创建一个与该套接字相关的文件</td>
 </tr>
 </tbody></table>
-<h3 id="Socket-编程思想"><a href="#Socket-编程思想" class="headerlink" title="Socket 编程思想"></a>Socket 编程思想</h3><p><strong>TCP 服务器</strong><br>1、创建套接字，绑定套接字到本地IP与端口</p>
+<h3 id="Socket-编程思想"><a href="#Socket-编程思想" class="headerlink" title="Socket 编程思想"></a>Socket 编程思想</h3><p><strong>TCP 服务器</strong><br>1、创建套接字，绑定套接字到本地 IP 与端口</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">s.bind()</span><br></pre></td></tr></table></figure>
 
 <p>2、开始监听链接</p>
@@ -568,6 +568,7 @@
 <h3 id="Socket-编程实践之服务器端代码"><a href="#Socket-编程实践之服务器端代码" class="headerlink" title="Socket 编程实践之服务器端代码"></a>Socket 编程实践之服务器端代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">HOST = <span class="string">&#x27;192.168.1.100&#x27;</span></span><br><span class="line">PORT = <span class="number">8001</span></span><br><span class="line"></span><br><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">s.bind((HOST, PORT))</span><br><span class="line">s.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;Server start at: %s:%s&#x27;</span> %(HOST, PORT)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;wait for connection...&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    conn, addr = s.accept()</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;Connected by &#x27;</span>, addr</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        data = conn.recv(<span class="number">1024</span>)</span><br><span class="line">        <span class="built_in">print</span> data</span><br><span class="line"></span><br><span class="line">        conn.send(<span class="string">&quot;server received you message.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># conn.close()</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Socket-编程实践之客户端代码"><a href="#Socket-编程实践之客户端代码" class="headerlink" title="Socket 编程实践之客户端代码"></a>Socket 编程实践之客户端代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">HOST = <span class="string">&#x27;192.168.1.100&#x27;</span></span><br><span class="line">PORT = <span class="number">8001</span></span><br><span class="line"></span><br><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">s.connect((HOST, PORT))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    cmd = raw_input(<span class="string">&quot;Please input msg:&quot;</span>)</span><br><span class="line">    s.send(cmd)</span><br><span class="line">    data = s.recv(<span class="number">1024</span>)</span><br><span class="line">    <span class="built_in">print</span> data</span><br><span class="line"></span><br><span class="line">    <span class="comment">#s.close()</span></span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>

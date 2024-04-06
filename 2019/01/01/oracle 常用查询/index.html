@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Oracle/">
                                 <span class="chip bg-color">Oracle</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -344,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -383,11 +383,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="oracle-查询表，视图数量"><a href="#oracle-查询表，视图数量" class="headerlink" title="oracle-查询表，视图数量"></a>oracle-查询表，视图数量</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--统计某个用户下面的对象个数</span></span><br><span class="line"><span class="comment">--包括表，视图，同义词，函数，存储过程，包，触发器，索引,约束，序列。</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_TABLES) <span class="keyword">AS</span> TABLES,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_VIEWS) <span class="keyword">AS</span> VIEWS,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_SYNONYMS) <span class="keyword">AS</span> SYNONYMS,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>)  <span class="keyword">FROM</span> USER_OBJECTS <span class="keyword">WHERE</span> OBJECT_TYPE<span class="operator">=</span><span class="string">&#x27;FUNCTION&#x27;</span>) <span class="keyword">AS</span> FUNCTIONS,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_OBJECTS <span class="keyword">WHERE</span> OBJECT_TYPE<span class="operator">=</span><span class="string">&#x27;PROCEDURE&#x27;</span>) <span class="keyword">AS</span> PROCEDURES,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_OBJECTS <span class="keyword">WHERE</span> OBJECT_TYPE<span class="operator">=</span><span class="string">&#x27;PACKAGE&#x27;</span>) <span class="keyword">AS</span> PACKAGES,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_OBJECTS <span class="keyword">WHERE</span> OBJECT_TYPE<span class="operator">=</span><span class="string">&#x27;TRIGGER&#x27;</span>) <span class="keyword">AS</span> TRIGGERS,</span><br><span class="line">(<span class="keyword">SELECT</span>  <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_INDEXES) <span class="keyword">AS</span> INDEXES,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>)  <span class="keyword">FROM</span> USER_CONSTRAINTS) <span class="keyword">AS</span> CONSTRAINTS,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>)  <span class="keyword">FROM</span> USER_SEQUENCES) <span class="keyword">AS</span> SEQUENCES</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
+                <h4 id="oracle-查询表，视图数量"><a href="#oracle-查询表，视图数量" class="headerlink" title="oracle-查询表，视图数量"></a>oracle-查询表，视图数量</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--统计某个用户下面的对象个数</span></span><br><span class="line"><span class="comment">--包括表，视图，同义词，函数，存储过程，包，触发器，索引,约束，序列。</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_TABLES) <span class="keyword">AS</span> TABLES,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_VIEWS) <span class="keyword">AS</span> VIEWS,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_SYNONYMS) <span class="keyword">AS</span> SYNONYMS,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>)  <span class="keyword">FROM</span> USER_OBJECTS <span class="keyword">WHERE</span> OBJECT_TYPE<span class="operator">=</span><span class="string">&#x27;FUNCTION&#x27;</span>) <span class="keyword">AS</span> FUNCTIONS,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_OBJECTS <span class="keyword">WHERE</span> OBJECT_TYPE<span class="operator">=</span><span class="string">&#x27;PROCEDURE&#x27;</span>) <span class="keyword">AS</span> PROCEDURES,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_OBJECTS <span class="keyword">WHERE</span> OBJECT_TYPE<span class="operator">=</span><span class="string">&#x27;PACKAGE&#x27;</span>) <span class="keyword">AS</span> PACKAGES,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_OBJECTS <span class="keyword">WHERE</span> OBJECT_TYPE<span class="operator">=</span><span class="string">&#x27;TRIGGER&#x27;</span>) <span class="keyword">AS</span> TRIGGERS,</span><br><span class="line">(<span class="keyword">SELECT</span>  <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> USER_INDEXES) <span class="keyword">AS</span> INDEXES,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>)  <span class="keyword">FROM</span> USER_CONSTRAINTS) <span class="keyword">AS</span> CONSTRAINTS,</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>)  <span class="keyword">FROM</span> USER_SEQUENCES) <span class="keyword">AS</span> SEQUENCES</span><br><span class="line"><span class="keyword">FROM</span> DUAL;</span><br></pre></td></tr></table></figure>
 
-<h4 id="Oracle-导出、导入某用户所有数"><a href="#Oracle-导出、导入某用户所有数" class="headerlink" title="Oracle 导出、导入某用户所有数"></a>Oracle 导出、导入某用户所有数</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导出命令</span></span><br><span class="line">exp 用户名/密码@数据库 owner=用户名 file=文件存储路径</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入命令</span></span><br><span class="line">imp 用户名/密码@数据库 fromuser=用户名 touser=用户名 file=文件存储路径 ignore=y</span><br><span class="line"></span><br><span class="line"><span class="comment"># fromuser:文件的指定用户</span></span><br><span class="line"><span class="comment"># touser：指定导入到当前登录的数据库某个用户  </span></span><br><span class="line"><span class="comment"># file:需要导入的数据文件  </span></span><br><span class="line"><span class="comment"># ignore:是否忽略创建错误</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="Oracle-导出、导入某用户所有数"><a href="#Oracle-导出、导入某用户所有数" class="headerlink" title="Oracle 导出、导入某用户所有数"></a>Oracle 导出、导入某用户所有数</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导出命令</span></span><br><span class="line">exp 用户名/密码@数据库 owner=用户名 file=文件存储路径</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入命令</span></span><br><span class="line">imp 用户名/密码@数据库 fromuser=用户名 touser=用户名 file=文件存储路径 ignore=y</span><br><span class="line"></span><br><span class="line"><span class="comment"># fromuser:文件的指定用户</span></span><br><span class="line"><span class="comment"># touser：指定导入到当前登录的数据库某个用户</span></span><br><span class="line"><span class="comment"># file:需要导入的数据文件</span></span><br><span class="line"><span class="comment"># ignore:是否忽略创建错误</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">EXP/IMP基本语法和实例： </span><br><span class="line">1、EXP: </span><br><span class="line">  有三种主要的方式（完全、用户、表） </span><br><span class="line">  1、完全： </span><br><span class="line">      EXP SYSTEM/MANAGER BUFFER=64000 FILE=C:\FULL.DMP FULL=Y </span><br><span class="line">      如果要执行完全导出，必须具有特殊的权限 </span><br><span class="line">  2、用户模式： </span><br><span class="line">      EXP SONIC/SONIC    BUFFER=64000 FILE=C:\SONIC.DMP OWNER=SONIC </span><br><span class="line">      这样用户SONIC的所有对象被输出到文件中。 </span><br><span class="line">  3、表模式：</span><br><span class="line">      EXP SONIC/SONIC    BUFFER=64000 FILE=C:\SONIC.DMP OWNER=SONIC TABLES=(SONIC) </span><br><span class="line">      这样用户SONIC的表SONIC就被导出 </span><br><span class="line">2、IMP: </span><br><span class="line">  具有三种模式（完全、用户、表） </span><br><span class="line">  1、完全： </span><br><span class="line">      IMP SYSTEM/MANAGER BUFFER=64000 FILE=C:\FULL.DMP FULL=Y </span><br><span class="line">  2、用户模式： </span><br><span class="line">      IMP SONIC/SONIC    BUFFER=64000 FILE=C:\SONIC.DMP FROMUSER=SONIC TOUSER=SONIC </span><br><span class="line">      这样用户SONIC的所有对象被导入到文件中。必须指定FROMUSER、TOUSER参数，这样才能导入数据。 </span><br><span class="line">  3、表模式： </span><br><span class="line">      EXP SONIC/SONIC    BUFFER=64000 FILE=C:\SONIC.DMP OWNER=SONIC TABLES=(SONIC) </span><br><span class="line">      这样用户SONIC的表SONIC就被导入。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">EXP/IMP基本语法和实例：</span><br><span class="line">1、EXP:</span><br><span class="line">  有三种主要的方式（完全、用户、表）</span><br><span class="line">  1、完全：</span><br><span class="line">      EXP SYSTEM/MANAGER BUFFER=64000 FILE=C:\FULL.DMP FULL=Y</span><br><span class="line">      如果要执行完全导出，必须具有特殊的权限</span><br><span class="line">  2、用户模式：</span><br><span class="line">      EXP SONIC/SONIC    BUFFER=64000 FILE=C:\SONIC.DMP OWNER=SONIC</span><br><span class="line">      这样用户SONIC的所有对象被输出到文件中。</span><br><span class="line">  3、表模式：</span><br><span class="line">      EXP SONIC/SONIC    BUFFER=64000 FILE=C:\SONIC.DMP OWNER=SONIC TABLES=(SONIC)</span><br><span class="line">      这样用户SONIC的表SONIC就被导出</span><br><span class="line">2、IMP:</span><br><span class="line">  具有三种模式（完全、用户、表）</span><br><span class="line">  1、完全：</span><br><span class="line">      IMP SYSTEM/MANAGER BUFFER=64000 FILE=C:\FULL.DMP FULL=Y</span><br><span class="line">  2、用户模式：</span><br><span class="line">      IMP SONIC/SONIC    BUFFER=64000 FILE=C:\SONIC.DMP FROMUSER=SONIC TOUSER=SONIC</span><br><span class="line">      这样用户SONIC的所有对象被导入到文件中。必须指定FROMUSER、TOUSER参数，这样才能导入数据。</span><br><span class="line">  3、表模式：</span><br><span class="line">      EXP SONIC/SONIC    BUFFER=64000 FILE=C:\SONIC.DMP OWNER=SONIC TABLES=(SONIC)</span><br><span class="line">      这样用户SONIC的表SONIC就被导入。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>
@@ -451,12 +452,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Oracle/">
                                     <span class="chip bg-color">Oracle</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -677,8 +678,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -688,12 +689,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -730,8 +731,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -741,12 +742,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Oracle/">
                         <span class="chip bg-color">Oracle</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
-                            </a>
-                        
                             <a href="/tags/MQ/">
                                 <span class="chip bg-color">MQ</span>
+                            </a>
+                        
+                            <a href="/tags/Erlang/">
+                                <span class="chip bg-color">Erlang</span>
                             </a>
                         
                     </div>
@@ -383,46 +383,56 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="安装Erlang-OTP"><a href="#安装Erlang-OTP" class="headerlink" title="安装Erlang/OTP"></a>安装Erlang/OTP</h3><p><strong>方式一：源码安装</strong></p>
+                <h3 id="安装-Erlang-OTP"><a href="#安装-Erlang-OTP" class="headerlink" title="安装 Erlang/OTP"></a>安装 Erlang/OTP</h3><p><strong>方式一：源码安装</strong></p>
 <ol>
-<li><p> <a target="_blank" rel="noopener" href="http://www.erlang.org/downloads">Erlang下载地址</a></p>
+<li><p> <a target="_blank" rel="noopener" href="http://www.erlang.org/downloads">Erlang 下载地址</a></p>
 </li>
-<li><p>选择相应的源码包OTP 20.3 Source File</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://erlang.org/download/otp_src_20.3.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解压</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xf otp_src_20.3.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装需要的相关依赖</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install make gcc gcc-c++ kernel-devel m4 ncurses-devel openssl-devel unixODBC-devel libtool libtool-ltdl-devel</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装完成后依次执行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd otp_src_20.3</span><br><span class="line">./otp_build autoconf</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置环境变量</p>
-<blockquote>
-<p>Erlang 默认安装路径为  /usr/local/lib/erlang</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"># 添加环境</span><br><span class="line">export ERLANG_HOME=/usr/local/lib/erlang</span><br><span class="line">export PATH=$PATH:$ERLANG_HOME/bin</span><br><span class="line"></span><br><span class="line"># 应用</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-
+<li><p> 选择相应的源码包 OTP 20.3 Source File</p>
 </li>
 </ol>
-<p><strong>方式二：从Erlang Solution安装</strong></p>
-<blockquote>
-<p>参考：<a target="_blank" rel="noopener" href="https://packages.erlang-solutions.com/erlang/">Erlang源</a></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 添加erlang solutions源</span><br><span class="line">wget https://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm </span><br><span class="line"></span><br><span class="line">rpm -Uvh erlang-solutions-1.0-1.noarch.rpm  </span><br><span class="line"> </span><br><span class="line">$ sudo yum install -y erlang erlang-wx</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://erlang.org/download/otp_src_20.3.tar.gz</span><br></pre></td></tr></table></figure>
 
-<p><strong>方式三：从EPEL源安装</strong></p>
-<blockquote>
-<p>该方式Erlang版本可能不是最新的，可能不能满足RabbitMQ所需的最低版本要求</p>
+<ol start="3">
+<li>解压</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xf otp_src_20.3.tar.gz</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>安装需要的相关依赖</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install make gcc gcc-c++ kernel-devel m4 ncurses-devel openssl-devel unixODBC-devel libtool libtool-ltdl-devel</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>安装完成后依次执行命令</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd otp_src_20.3</span><br><span class="line">./otp_build autoconf</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>配置环境变量<blockquote>
+<p>Erlang 默认安装路径为 /usr/local/lib/erlang</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 启动EPEL源</span><br><span class="line">$ sudo yum install -y epel-release </span><br><span class="line"># 安装erlang</span><br><span class="line">$ sudo yum install -y erlang </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>方式四：指定erlang软件源安装（指定版本）</strong></p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"># 添加环境</span><br><span class="line">export ERLANG_HOME=/usr/local/lib/erlang</span><br><span class="line">export PATH=$PATH:$ERLANG_HOME/bin</span><br><span class="line"></span><br><span class="line"># 应用</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p><strong>方式二：从 Erlang Solution 安装</strong></p>
+<blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://packages.erlang-solutions.com/erlang/">Erlang 源</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 添加erlang solutions源</span><br><span class="line">wget https://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm</span><br><span class="line"></span><br><span class="line">rpm -Uvh erlang-solutions-1.0-1.noarch.rpm</span><br><span class="line"></span><br><span class="line">$ sudo yum install -y erlang erlang-wx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>方式三：从 EPEL 源安装</strong></p>
+<blockquote>
+<p>该方式 Erlang 版本可能不是最新的，可能不能满足 RabbitMQ 所需的最低版本要求</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 启动EPEL源</span><br><span class="line">$ sudo yum install -y epel-release</span><br><span class="line"># 安装erlang</span><br><span class="line">$ sudo yum install -y erlang</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>方式四：指定 erlang 软件源安装（指定版本）</strong></p>
 <blockquote>
 <p>指定版本(需要指定源)：<a target="_blank" rel="noopener" href="https://github.com/rabbitmq/erlang-rpm">参考</a></p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># In /etc/yum.repos.d/rabbitmq-erlang.repo</span><br><span class="line">[rabbitmq-erlang]</span><br><span class="line">name=rabbitmq-erlang</span><br><span class="line">baseurl=https://dl.bintray.com/rabbitmq/rpm/erlang/20/el/7</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc</span><br><span class="line">repo_gpgcheck=0</span><br><span class="line">enabled=1</span><br><span class="line"></span><br><span class="line">yum makecache</span><br><span class="line"></span><br><span class="line">yum install -y erlang</span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>
@@ -486,12 +496,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
-                                </a>
-                            
                                 <a href="/tags/MQ/">
                                     <span class="chip bg-color">MQ</span>
+                                </a>
+                            
+                                <a href="/tags/Erlang/">
+                                    <span class="chip bg-color">Erlang</span>
                                 </a>
                             
                         </div>
@@ -723,12 +733,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
                     <a href="/tags/MQ/">
                         <span class="chip bg-color">MQ</span>
+                    </a>
+                    
+                    <a href="/tags/Emqx/">
+                        <span class="chip bg-color">Emqx</span>
                     </a>
                     
                 </div>

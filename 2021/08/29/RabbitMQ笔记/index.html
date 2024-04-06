@@ -1,0 +1,1389 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="RabbitMQ笔记, Java,Python,GO">
+    <meta name="description" content="IT文章及知识分享">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>RabbitMQ笔记 | 马瑞个人笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="马瑞个人笔记" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">马瑞个人笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">马瑞个人笔记</div>
+        <div class="logo-desc">
+            
+            IT文章及知识分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">RabbitMQ笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+        padding-top: 1.5rem
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        <!-- height: calc(100vh - 250px); -->
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/MQ/">
+                                <span class="chip bg-color">MQ</span>
+                            </a>
+                        
+                            <a href="/tags/Rabbitmq/">
+                                <span class="chip bg-color">Rabbitmq</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MQ/" class="post-category">
+                                MQ
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-08-29
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="培训笔记"><a href="#培训笔记" class="headerlink" title="培训笔记"></a>培训笔记</h1><ol>
+<li>rabbitmq 的消息是否可以设置优先级？</li>
+</ol>
+<p>==&gt; RabbitMQ 在 3.5.0 版本的时候实现了优先级队列。任何一个队列都可以通过客户端配置参数方式设置一个优先级(但是不能使用策略的方式配置这个参数)。当前优先级的最大值为：255。这个值最好在 1 到 10 之间。</p>
+<ol start="2">
+<li>rabbitmq 队列需要在生产者与消费者都要声明吗？</li>
+</ol>
+<p>==&gt; 最好都要声明，主要为了防止消息接收者先运行此程序，队列还不存在时创建队列。</p>
+<ol start="3">
+<li>消费者处理消息失败如何处理?自动应答？还是业务处理完成后应答？</li>
+</ol>
+<p>==&gt; <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ec5d9b966f2e">https://www.jianshu.com/p/ec5d9b966f2e</a></p>
+<ol start="4">
+<li>rabbitmq 设置了持久化就可以保证消息不丢失吗？</li>
+</ol>
+<p>==&gt; <a target="_blank" rel="noopener" href="https://www.cnblogs.com/cnndevelop/p/12091348.html">https://www.cnblogs.com/cnndevelop/p/12091348.html</a></p>
+<ol start="5">
+<li>备份交换机</li>
+</ol>
+<p>==&gt; <a target="_blank" rel="noopener" href="https://www.cnblogs.com/mfrank/p/11442706.htm">https://www.cnblogs.com/mfrank/p/11442706.htm</a></p>
+<ol start="6">
+<li>幂等性</li>
+</ol>
+<p>==&gt; <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/475589f5cd7b">https://www.jianshu.com/p/475589f5cd7b</a></p>
+<h1 id="RabbitMQ-介绍"><a href="#RabbitMQ-介绍" class="headerlink" title="RabbitMQ 介绍"></a><strong>RabbitMQ 介绍</strong></h1><h2 id="RabbitMQ-的特点"><a href="#RabbitMQ-的特点" class="headerlink" title="RabbitMQ 的特点"></a><strong>RabbitMQ 的特点</strong></h2><p>开源、性能优秀，速度快，稳定性保障提供可靠性消息投递模式、返回模式与 Spring AMQP 完美整合，API 丰富集群模式丰富，表达式配置，HA 模式，镜像队列模型保证数据不丢失的前提做到高可靠性、可用性。</p>
+<h2 id="RabbitMQ-典型应用场景"><a href="#RabbitMQ-典型应用场景" class="headerlink" title="RabbitMQ 典型应用场景"></a><strong>RabbitMQ 典型应用场景</strong></h2><ul>
+<li>异步处理：把消息放入消息中间件中，等到需要的时候再去处理。</li>
+<li>流量削峰：例如秒杀活动，在短时间内访问量急剧增加，使用消息队列，当消息队列满了就拒绝响应，跳转到错误页面，这样就可以使得系统不会因为超负载而崩溃。</li>
+<li>日志处理；（不过一般日志处理都使用 Kafka 这种消息队列）</li>
+<li>应用解耦：假设某个服务 A 需要给许多个服务(B、C、D)发送消息，当某个服务(例如 B)不需要发送消息了，服务 A 需要改代码再次部署；当新加入一个服务(服务 E)需要服务 A 的消息的时候，也需要改代码重新部署；另外服务 A 也要考虑其他服务挂掉，没有收到消息怎么办？要不要重新发送呢？是不是很麻烦，使用 MQ 发布订阅模式，服务 A 只生产消息发送到 MQ，B、C、D 从 MQ 中读取消息，需要 A 的消息就订阅，不需要了就取消订阅，服务 A 不再操心其他的事情，使用这种方式可以降低服务或者系统之间的耦合。</li>
+</ul>
+<h2 id="RabbitMQ-集群节点之间的认证"><a href="#RabbitMQ-集群节点之间的认证" class="headerlink" title="RabbitMQ 集群节点之间的认证"></a><strong>RabbitMQ 集群节点之间的认证</strong></h2><ul>
+<li>通过 Erlang Cookie，相当于共享秘钥的概念，长度任意，只要所有节点都一致即可。</li>
+<li>rabbitmq server 在启动的时候，erlang VM 会自动创建一个随机的 cookie 文件。cookie 文件的位置是/var/lib/rabbitmq/.erlang.cookie 或者 /root/.erlang.cookie，为保证 cookie 的完全一致，采用从一个节点 copy 的方式。<br>Erlang Cookie 是保证不同节点可以相互通信的密钥，要保证集群中的不同节点相互通信必须共享相同的 Erlang Cookie。具体的目录存放在/var/lib/rabbitmq/.erlang.cookie。</li>
+</ul>
+<p>说明：这就要从 rabbitmqctl 命令的工作原理说起，RabbitMQ 底层是通过 Erlang 架构来实现的，所以 rabbitmqctl 会启动 Erlang 节点，并基于 Erlang 节点来使用 Erlang 系统连接 RabbitMQ 节点，在连接过程中需要正确的 Erlang Cookie 和节点名称，Erlang 节点通过交换 Erlang Cookie 以获得认证。</p>
+<h2 id="RabbitMQ-集群模式"><a href="#RabbitMQ-集群模式" class="headerlink" title="RabbitMQ 集群模式"></a><strong>RabbitMQ 集群模式</strong></h2><ul>
+<li>单机模式</li>
+<li>普通集群模式（无高可用性）</li>
+<li>镜像集群模式（高可用性），最常用的集群模式。</li>
+</ul>
+<h2 id="RabbitMQ-集群故障处理机制："><a href="#RabbitMQ-集群故障处理机制：" class="headerlink" title="RabbitMQ 集群故障处理机制："></a><strong>RabbitMQ 集群故障处理机制：</strong></h2><ul>
+<li>rabbitmq broker 集群允许个体节点 down 机，</li>
+<li>对应集群的的网络分区问题（ network partitions）<br>RabbitMQ 集群推荐用于 LAN 环境，不适用 WAN 环境；</li>
+</ul>
+<p>要通过 WAN 连接 broker，Shovel or Federation 插件是最佳的解决方案；Shovel or Federation 不同于集群。</p>
+<h2 id="RabbitMQ-节点类型"><a href="#RabbitMQ-节点类型" class="headerlink" title="RabbitMQ 节点类型"></a><strong>RabbitMQ 节点类型</strong></h2><ul>
+<li>RAM node：只保存状态到内存。内存节点将所有的队列、交换机、绑定、用户、权限和 vhost 的元数据定义存储在内存中，好处是可以使得像交换机和队列声明等操作更加的快速。</li>
+<li>Disk node：将元数据存储在磁盘中。单节点系统只允许磁盘类型的节点，防止重启 RabbitMQ 的时候，丢失系统的配置信息。<br>内存节点虽然不写入磁盘，但是它执行比磁盘节点要好。RabbitMQ 集群中，只需要一个磁盘节点来保存状态就足够了；如果集群中只有内存节点，那么不能停止它们，否则所有的状态，消息等都会丢失。</li>
+</ul>
+<p>问题说明：</p>
+<ul>
+<li>RabbitMQ 要求在集群中至少有一个磁盘节点，所有其他节点可以是内存节点，当节点加入或者离开集群时，必须要将该变更通知到至少一个磁盘节点。</li>
+<li>如果集群中唯一的一个磁盘节点崩溃的话，集群仍然可以保持运行，但是无法进行其他操作（增删改查），直到节点恢复。<br>解决方案：设置两个磁盘节点，至少有一个是可用的，可以保存元数据的更改。</li>
+</ul>
+<h2 id="RabbitMQ-集群的节点运行模式"><a href="#RabbitMQ-集群的节点运行模式" class="headerlink" title="RabbitMQ 集群的节点运行模式"></a><strong>RabbitMQ 集群的节点运行模式</strong></h2><ul>
+<li>为保证数据持久性，当前所有 node 节点跑在 disk 模式。</li>
+<li>如果今后压力大，需要提高性能，考虑采用 ram 模式。</li>
+</ul>
+<h1 id="RabbitMQ集群部署（k8s）"><a href="#RabbitMQ集群部署（k8s）" class="headerlink" title="RabbitMQ集群部署（k8s）"></a><strong>RabbitMQ</strong>集群部署（k8s）</h1><h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><ul>
+<li>镜像模式，即队列为镜像队列，队列消息存在集群的每个节点上。</li>
+<li>使用 peer discovery subsystem 来构建 rabbitmq-cluster。因为考虑到较早版本 rabbitmq 在 k8s 上的集群部署是使用 autocluster 插件去调用 kubernetes apiserver 来获取 rabbitmq 服务的 endpoints，进而获取 node 节点信息，并自动加入集群，但是现在 autocluster 已不再更新了，并且只支持 3.6.x 版本，故而放弃这种方式。</li>
+<li>部署方式，在 Kubernetes 上搭建 RabbitMQ 有 4 种部署方法（IP 模式、Pod 与 Server 的 DNS 模式、Statefulset 与 Headless Service 模式、hostname 模式），这里选择 StatefulSet 与 Headless Service 模式部署有状态的 RabbitMQ 集群。</li>
+</ul>
+<h2 id="配置清单"><a href="#配置清单" class="headerlink" title="配置清单"></a>配置清单</h2><h3 id="共享存储（nfs）"><a href="#共享存储（nfs）" class="headerlink" title="共享存储（nfs）"></a>共享存储（nfs）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/volumes/rabbitmq</span><br><span class="line"></span><br><span class="line">cat &gt;&gt; /etc/exports&lt;&lt;EOF</span><br><span class="line">/data/volumes/rabbitmq *(rw,no_root_squash,sync)</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">exportfs -rv</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建-namespace"><a href="#创建-namespace" class="headerlink" title="创建 namespace"></a>创建 namespace</h3><blockquote>
+<p>namespace.yaml</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Namespace</span><br><span class="line">metadata:</span><br><span class="line">  name: mq</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建-nfs-的-rbac"><a href="#创建-nfs-的-rbac" class="headerlink" title="创建 nfs 的 rbac"></a>创建 nfs 的 rbac</h3><blockquote>
+<p>nfs-rbac.yaml</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: ServiceAccount</span><br><span class="line">metadata:</span><br><span class="line">  name: nfs-provisioner</span><br><span class="line">  namespace: mq</span><br><span class="line">---</span><br><span class="line">kind: ClusterRole</span><br><span class="line">apiVersion: rbac.authorization.k8s.io/v1</span><br><span class="line">metadata:</span><br><span class="line">   name: nfs-provisioner-runner</span><br><span class="line">   namespace: mq</span><br><span class="line">rules:</span><br><span class="line">   -  apiGroups: [&quot;&quot;]</span><br><span class="line">      resources: [&quot;persistentvolumes&quot;]</span><br><span class="line">      verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;, &quot;create&quot;, &quot;delete&quot;]</span><br><span class="line">   -  apiGroups: [&quot;&quot;]</span><br><span class="line">      resources: [&quot;persistentvolumeclaims&quot;]</span><br><span class="line">      verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;, &quot;update&quot;]</span><br><span class="line">   -  apiGroups: [&quot;storage.k8s.io&quot;]</span><br><span class="line">      resources: [&quot;storageclasses&quot;]</span><br><span class="line">      verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]</span><br><span class="line">   -  apiGroups: [&quot;&quot;]</span><br><span class="line">      resources: [&quot;events&quot;]</span><br><span class="line">      verbs: [&quot;watch&quot;, &quot;create&quot;, &quot;update&quot;, &quot;patch&quot;]</span><br><span class="line">   -  apiGroups: [&quot;&quot;]</span><br><span class="line">      resources: [&quot;services&quot;, &quot;endpoints&quot;]</span><br><span class="line">      verbs: [&quot;get&quot;,&quot;create&quot;,&quot;list&quot;, &quot;watch&quot;,&quot;update&quot;]</span><br><span class="line">   -  apiGroups: [&quot;extensions&quot;]</span><br><span class="line">      resources: [&quot;podsecuritypolicies&quot;]</span><br><span class="line">      resourceNames: [&quot;nfs-provisioner&quot;]</span><br><span class="line">      verbs: [&quot;use&quot;]</span><br><span class="line">---</span><br><span class="line">kind: ClusterRoleBinding</span><br><span class="line">apiVersion: rbac.authorization.k8s.io/v1</span><br><span class="line">metadata:</span><br><span class="line">  name: run-nfs-provisioner</span><br><span class="line">subjects:</span><br><span class="line">  - kind: ServiceAccount</span><br><span class="line">    name: nfs-provisioner</span><br><span class="line">    namespace: mq</span><br><span class="line">roleRef:</span><br><span class="line">  kind: ClusterRole</span><br><span class="line">  name: nfs-provisioner-runner</span><br><span class="line">  apiGroup: rbac.authorization.k8s.io</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建-RabbitMQ-集群-storageclass"><a href="#创建-RabbitMQ-集群-storageclass" class="headerlink" title="创建 RabbitMQ 集群 storageclass"></a>创建 RabbitMQ 集群 storageclass</h3><blockquote>
+<p>nfs-provisioner.yml</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: storage.k8s.io/v1beta1</span><br><span class="line">kind: StorageClass</span><br><span class="line">metadata:</span><br><span class="line">  name: rabbitmq-nfs-storage</span><br><span class="line">  namespace: mq</span><br><span class="line">provisioner: rabbitmq/nfs</span><br><span class="line">reclaimPolicy: Retain</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: rabbitmq-nfs-client-provisioner</span><br><span class="line">  namespace: mq</span><br><span class="line">spec:</span><br><span class="line">  replicas: 1</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: rabbitmq-nfs-client-provisioner</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: rabbitmq-nfs-client-provisioner</span><br><span class="line">    spec:</span><br><span class="line">      serviceAccount: nfs-provisioner</span><br><span class="line">      containers:</span><br><span class="line">        - name: rabbitmq-nfs-client-provisioner</span><br><span class="line">          image: registry.cn-hangzhou.aliyuncs.com/open-ali/nfs-client-provisioner</span><br><span class="line">          imagePullPolicy: IfNotPresent</span><br><span class="line">          volumeMounts:</span><br><span class="line">            - name: nfs-client-root</span><br><span class="line">              mountPath:  /persistentvolumes</span><br><span class="line">          env:</span><br><span class="line">            - name: PROVISIONER_NAME</span><br><span class="line">              value: rabbitmq/nfs</span><br><span class="line">            - name: NFS_SERVER</span><br><span class="line">              value: 192.168.56.22</span><br><span class="line">            - name: NFS_PATH</span><br><span class="line">              value: /data/volumes/rabbitmq</span><br><span class="line">      volumes:</span><br><span class="line">        - name: nfs-client-root</span><br><span class="line">          nfs:</span><br><span class="line">            server: 192.168.56.22</span><br><span class="line">            path: /data/volumes/rabbitmq</span><br></pre></td></tr></table></figure>
+
+<h3 id="部署-RabbitMQ-基于镜像模式的集群"><a href="#部署-RabbitMQ-基于镜像模式的集群" class="headerlink" title="部署 RabbitMQ 基于镜像模式的集群"></a><strong>部署 RabbitMQ 基于镜像模式的集群</strong></h3><blockquote>
+<p>rabbitmq.yml</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: rabbitmq-management</span><br><span class="line">  namespace: mq</span><br><span class="line">  labels:</span><br><span class="line">    app: rabbitmq</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 15672</span><br><span class="line">    name: http</span><br><span class="line">  selector:</span><br><span class="line">    app: rabbitmq</span><br><span class="line">  type: NodePort</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: rabbitmq</span><br><span class="line">  namespace: mq</span><br><span class="line">  labels:</span><br><span class="line">    app: rabbitmq</span><br><span class="line">spec:</span><br><span class="line">  ports:</span><br><span class="line">  - port: 5672</span><br><span class="line">    name: amqp</span><br><span class="line">  - port: 4369</span><br><span class="line">    name: epmd</span><br><span class="line">  - port: 25672</span><br><span class="line">    name: rabbitmq-dist</span><br><span class="line">  clusterIP: None</span><br><span class="line">  selector:</span><br><span class="line">    app: rabbitmq</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: StatefulSet</span><br><span class="line">metadata:</span><br><span class="line">  namespace: mq</span><br><span class="line">  name: rabbitmq</span><br><span class="line">spec:</span><br><span class="line">  serviceName: &quot;rabbitmq&quot;</span><br><span class="line">  replicas: 3</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: rabbitmq</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: rabbitmq</span><br><span class="line">    spec:</span><br><span class="line">      affinity:</span><br><span class="line">        podAntiAffinity:</span><br><span class="line">          requiredDuringSchedulingIgnoredDuringExecution:</span><br><span class="line">            - labelSelector:</span><br><span class="line">                matchExpressions:</span><br><span class="line">                  - key: &quot;app&quot;</span><br><span class="line">                    operator: In</span><br><span class="line">                    values:</span><br><span class="line">                      - rabbitmq</span><br><span class="line">              topologyKey: &quot;kubernetes.io/hostname&quot;</span><br><span class="line">      containers:</span><br><span class="line">      - name: rabbitmq</span><br><span class="line">        image: rabbitmq:3.7-rc-management</span><br><span class="line">        lifecycle:</span><br><span class="line">          postStart:</span><br><span class="line">            exec:</span><br><span class="line">              command:</span><br><span class="line">              - /bin/sh</span><br><span class="line">              - -c</span><br><span class="line">              - &gt;</span><br><span class="line">                if [ -z &quot;$(grep rabbitmq /etc/resolv.conf)&quot; ]; then</span><br><span class="line">                  sed &quot;s/^search \([^ ]\+\)/search rabbitmq.\1 \1/&quot; /etc/resolv.conf &gt; /etc/resolv.conf.new;</span><br><span class="line">                  cat /etc/resolv.conf.new &gt; /etc/resolv.conf;</span><br><span class="line">                  rm /etc/resolv.conf.new;</span><br><span class="line">                fi;</span><br><span class="line">                until rabbitmqctl node_health_check; do sleep 1; done;</span><br><span class="line">                if [ -z &quot;$(rabbitmqctl cluster_status | grep rabbitmq-0)&quot; ]; then</span><br><span class="line">                  touch /gotit</span><br><span class="line">                  rabbitmqctl stop_app;</span><br><span class="line">                  rabbitmqctl reset;</span><br><span class="line">                  rabbitmqctl join_cluster rabbit@rabbitmq-0;</span><br><span class="line">                  rabbitmqctl start_app;</span><br><span class="line">                else</span><br><span class="line">                  touch /notget</span><br><span class="line">                fi;</span><br><span class="line">        env:</span><br><span class="line">        - name: MY_POD_NAME</span><br><span class="line">          valueFrom:</span><br><span class="line">            fieldRef:</span><br><span class="line">              fieldPath: metadata.name</span><br><span class="line">        - name: RABBITMQ_ERLANG_COOKIE</span><br><span class="line">          value: &quot;YZSDHWMFSMKEMBDHSGGZ&quot;</span><br><span class="line">        - name: RABBITMQ_NODENAME</span><br><span class="line">          value: &quot;rabbit@$(MY_POD_NAME)&quot;</span><br><span class="line">        ports:</span><br><span class="line">        - name: http</span><br><span class="line">          protocol: TCP</span><br><span class="line">          containerPort: 15672</span><br><span class="line">        - name: amqp</span><br><span class="line">          protocol: TCP</span><br><span class="line">          containerPort: 5672</span><br><span class="line">        livenessProbe:</span><br><span class="line">          tcpSocket:</span><br><span class="line">            port: amqp</span><br><span class="line">          initialDelaySeconds: 5</span><br><span class="line">          timeoutSeconds: 5</span><br><span class="line">          periodSeconds: 10</span><br><span class="line">        readinessProbe:</span><br><span class="line">          tcpSocket:</span><br><span class="line">            port: amqp</span><br><span class="line">          initialDelaySeconds: 15</span><br><span class="line">          timeoutSeconds: 5</span><br><span class="line">          periodSeconds: 20</span><br><span class="line">        volumeMounts:</span><br><span class="line">        - name: rabbitmq-data</span><br><span class="line">          mountPath: /var/lib/rabbitmq</span><br><span class="line">  volumeClaimTemplates:</span><br><span class="line">  - metadata:</span><br><span class="line">      name: rabbitmq-data</span><br><span class="line">      annotations:</span><br><span class="line">        volume.beta.kubernetes.io/storage-class: &quot;rabbitmq-nfs-storage&quot;</span><br><span class="line">    spec:</span><br><span class="line">      accessModes:</span><br><span class="line">        - ReadWriteMany</span><br><span class="line">      resources:</span><br><span class="line">        requests:</span><br><span class="line">          storage: 5Gi</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证-RabbitMQ-集群"><a href="#验证-RabbitMQ-集群" class="headerlink" title="验证 RabbitMQ 集群"></a><strong>验证 RabbitMQ 集群</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl exec -ti rabbitmq-0 -n mq -- rabbitmqctl cluster_status</span><br></pre></td></tr></table></figure>
+
+<h3 id="客户端访问-RabbitMQ-集群地址"><a href="#客户端访问-RabbitMQ-集群地址" class="headerlink" title="客户端访问 RabbitMQ 集群地址"></a><strong>客户端访问 RabbitMQ 集群地址</strong></h3><p>客户端连接 RabbitMQ 集群地址</p>
+<p>rabbitmq-0.rabbitmq.mq.svc.cluster.local:5672</p>
+<p>rabbitmq-1.rabbitmq.mq.svc.cluster.local:5672</p>
+<p>rabbitmq-2.rabbitmq.mq.svc.cluster.local:5672</p>
+<p>连接方式：</p>
+<ul>
+<li>客户端可以连接 RabbitMQ 集群中的任意一个节点。如果一个节点故障，客户端自行重新连接到其他的可用节点；</li>
+<li>也就是说，RabbitMQ 集群有”重连”机制，但是这种集群连接方式对客户端不透明，不太建议这种连接方式。<br>推荐方式：给客户端提供一个统一的透明的集群连接地址</li>
+</ul>
+<p>做法：在前面部署 LVS 或 Haproxy，通过四层<a target="_blank" rel="noopener" href="https://cloud.tencent.com/product/clb?from=10680">负载均衡</a>代理后 RabbitMQ 的三个 node 节点的 5672 端口。</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h1 id="RabbitMQ-常用操作命令"><a href="#RabbitMQ-常用操作命令" class="headerlink" title="RabbitMQ 常用操作命令"></a><strong>RabbitMQ 常用操作命令</strong></h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">1）用户管理</span><br><span class="line"># 新增一个用户</span><br><span class="line">rabbitmqctl add_user Username Password</span><br><span class="line"></span><br><span class="line"># 删除一个用户</span><br><span class="line">rabbitmqctl delete_user Username</span><br><span class="line"></span><br><span class="line"># 修改用户的密码</span><br><span class="line">rabbitmqctl change_password Username Newpassword</span><br><span class="line">例如：</span><br><span class="line">kubectl exec -ti rabbitmq-0 -n wiseco -- rabbitmqctl change_password guest guest@123</span><br><span class="line"></span><br><span class="line"># 查看当前用户列表</span><br><span class="line">rabbitmqctl list_users</span><br><span class="line">例如：</span><br><span class="line">kubectl exec -ti rabbitmq-0 -n wiseco -- rabbitmqctl list_users</span><br><span class="line"></span><br><span class="line"># 设置用户角色（administrator、monitoring、policymaker等）</span><br><span class="line">rabbitmqctl set_user_tags Username Tag</span><br><span class="line">例如：</span><br><span class="line">kubectl exec -ti rabbitmq-0 -n wiseco -- rabbitmqctl set_user_tags kevin administrator</span><br><span class="line"></span><br><span class="line">2）用户角色</span><br><span class="line">用户角色可分为五类：</span><br><span class="line">超级管理员、监控者、策略制定者、普通管理者以及其他。</span><br><span class="line">超级管理员 (administrator)</span><br><span class="line">可登陆管理控制台(启用management plugin的情况下)，可查看所有的信息，并且可以对用户，策略(policy)进行操作。</span><br><span class="line">监控者 (monitoring)</span><br><span class="line">可登陆管理控制台(启用management plugin的情况下)，同时可以查看rabbitmq节点的相关信息(进程数，内存使用情况，磁盘使用情况等)</span><br><span class="line">策略制定者 (policymaker)</span><br><span class="line">可登陆管理控制台(启用management plugin的情况下), 同时可以对policy进行管理。但无法查看节点的相关信息</span><br><span class="line">普通管理者 (management)</span><br><span class="line">仅可登陆管理控制台(启用management plugin的情况下)，无法看到节点信息，也无法对策略进行管理。</span><br><span class="line">其他</span><br><span class="line">无法登陆管理控制台，通常就是普通的生产者和消费者。</span><br><span class="line"></span><br><span class="line">相关操作命令：</span><br><span class="line">设置用户角色的命令为：</span><br><span class="line"># rabbitmqctl set_user_tags User Tag</span><br><span class="line">其中：</span><br><span class="line">User为用户名</span><br><span class="line">Tag为角色名 (对应于administrator，monitoring，policymaker，management，或其他自定义名称)。</span><br><span class="line">可以给同一用户设置多个角色</span><br><span class="line"></span><br><span class="line">3）用户权限</span><br><span class="line"></span><br><span class="line">用户权限指的是用户对exchange，queue的操作权限，包括配置权限，读写权限。</span><br><span class="line">配置权限会影响到exchange，queue的声明和删除。</span><br><span class="line">读写权限影响到从queue里取消息，向exchange发送消息以及queue和exchange的绑定(bind)操作。</span><br><span class="line">例如：</span><br><span class="line">将queue绑定到某exchange上，需要具有queue的可写权限，以及exchange的可读权限；</span><br><span class="line">向exchange发送消息需要具有exchange的可写权限；</span><br><span class="line">从queue里取数据需要具有queue的可读权限。</span><br><span class="line"></span><br><span class="line">相关操作命令：</span><br><span class="line"># 设置用户权限</span><br><span class="line">rabbitmqctl set_permissions -p VHostPath User ConfP WriteP ReadP</span><br><span class="line"></span><br><span class="line"># 查看(指定hostpath)所有用户的权限信息</span><br><span class="line">rabbitmqctl list_permissions [-p VHostPath]</span><br><span class="line"></span><br><span class="line"># 查看指定用户的权限信息</span><br><span class="line">rabbitmqctl list_user_permissions User</span><br><span class="line"></span><br><span class="line"># 清除用户的权限信息</span><br><span class="line">rabbitmqctl clear_permissions [-p VHostPath] User</span><br><span class="line"></span><br><span class="line">设置节点类型</span><br><span class="line"># RabbitMQ节点类型分为内存节点和硬盘节点。</span><br><span class="line"># 如果你想更换节点类型可以通过命令修改：</span><br><span class="line">rabbitmqctl stop_app</span><br><span class="line">rabbitmqctl change_cluster_node_type dist</span><br><span class="line">rabbitmqctl change_cluster_node_type ram</span><br><span class="line">rabbitmqctl start_app</span><br></pre></td></tr></table></figure>
+
+<h1 id="RabbitMQ-集群"><a href="#RabbitMQ-集群" class="headerlink" title="RabbitMQ 集群"></a>RabbitMQ 集群</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/belonghuang157405/article/details/83540148">https://blog.csdn.net/belonghuang157405/article/details/83540148</a></p>
+<blockquote>
+<p>第一种普通集群模式：rabbitmq 集群与其他集群有些不同，rabbitmq 集群同步的指是复制队列，元数据信息的同步，即同步的是数据存储信息；消息的存放只会存储在创建该消息队列的那个节点上。并非在节点上都存储一个完整的数据。在通过非数据所在节点获取数据时，通过元数据信息，路由转发到存储数据节点上，从而得到数据。<br>第二种 镜像集群模式：与普通集群模式区别 主要是消息实体会主动在镜像节点间同步数据，而不是只存储数据元信息。 故普通集群模式但凡数据节点挂了，容易造成数据丢失但镜像集群模式可以保证集群只要不全部挂掉，数据就不会丢失，当相对于性能来说，镜像集群模式会比普通集群模式多出消耗数据的传输。故取决于业务场景进行取舍。</p>
+</blockquote>
+<h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull rabbitmq:3.8-management</span><br></pre></td></tr></table></figure>
+
+<h2 id="普通集群"><a href="#普通集群" class="headerlink" title="普通集群"></a>普通集群</h2><h3 id="创建映射数据卷目录"><a href="#创建映射数据卷目录" class="headerlink" title="创建映射数据卷目录"></a>创建映射数据卷目录</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /data/rabbitmqcluster/&#123;rabbitmq01,rabbitmq02,rabbitmq03&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h3><blockquote>
+<p>注： –hostname 设置容器的主机名<br>RABBITMQ_ERLANG_COOKIE 节点认证作用，部署集成时 需要同步该值</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -d --hostname rabbitmq01 --name rabbitmqCluster01 --restart always -v /data/rabbitmqcluster/rabbitmq01:/var/lib/rabbitmq -p 15673:15672 -p 5673:5672 -e RABBITMQ_ERLANG_COOKIE=&#x27;rabbitmqCookie&#x27; rabbitmq:3.8-management</span><br><span class="line"></span><br><span class="line">sudo docker run -d --hostname rabbitmq02 --name rabbitmqCluster02 --restart always -v /data/rabbitmqcluster/rabbitmq02:/var/lib/rabbitmq -p 15674:15672 -p 5674:5672 -e RABBITMQ_ERLANG_COOKIE=&#x27;rabbitmqCookie&#x27;  --link rabbitmqCluster01:rabbitmq01 rabbitmq:3.8-management</span><br><span class="line"></span><br><span class="line">sudo docker run -d --hostname rabbitmq03 --name rabbitmqCluster03 --restart always -v /data/rabbitmqcluster/rabbitmq03:/var/lib/rabbitmq -p 15675:15672 -p 5675:5672 -e RABBITMQ_ERLANG_COOKIE=&#x27;rabbitmqCookie&#x27;  --link rabbitmqCluster01:rabbitmq01 --link rabbitmqCluster02:rabbitmq02  rabbitmq:3.8-management</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查看是否正常启动成功。账号/密码：guest / guest</p>
+</blockquote>
+<h3 id="容器节点加入集群"><a href="#容器节点加入集群" class="headerlink" title="容器节点加入集群"></a>容器节点加入集群</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># 进入容器(rabbitmqCluster01)</span><br><span class="line">sudo docker exec -it rabbitmqCluster01 bash</span><br><span class="line">rabbitmqctl stop_app</span><br><span class="line">rabbitmqctl reset</span><br><span class="line">rabbitmqctl start_app</span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line"># 进入容器(rabbitmqCluster02)</span><br><span class="line">sudo docker exec -it rabbitmqCluster02 bash</span><br><span class="line">rabbitmqctl stop_app</span><br><span class="line">rabbitmqctl reset</span><br><span class="line"># 参数“--ram”表示设置为内存节点，忽略该参数默认为磁盘节点</span><br><span class="line">rabbitmqctl join_cluster --ram rabbit@rabbitmq01</span><br><span class="line">rabbitmqctl start_app</span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line"># 进入容器(rabbitmqCluster03)</span><br><span class="line">sudo docker exec -it rabbitmqCluster03 bash</span><br><span class="line">rabbitmqctl stop_app</span><br><span class="line">rabbitmqctl reset</span><br><span class="line">rabbitmqctl join_cluster --ram rabbit@rabbitmq01</span><br><span class="line">rabbitmqctl start_app</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<h3 id="负载均衡设置"><a href="#负载均衡设置" class="headerlink" title="负载均衡设置"></a>负载均衡设置</h3><h4 id="nginx-配置文件"><a href="#nginx-配置文件" class="headerlink" title="nginx 配置文件"></a>nginx 配置文件</h4><blockquote>
+<p>注：这里配置 rabbitmq 管理界面 以及通信反向代理<br>路径：/data/nginx/rabbitmq/nginx_rabbitmq.conf</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">user  nginx;</span><br><span class="line">worker_processes  1;</span><br><span class="line">error_log  /var/log/nginx/error.log warn;</span><br><span class="line">pid        /var/run/nginx.pid;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       /etc/nginx/mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span><br><span class="line">                      &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br><span class="line">                      &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><span class="line">    access_log  /var/log/nginx/access.log  main;</span><br><span class="line">    sendfile        on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line">    #gzip  on;</span><br><span class="line"></span><br><span class="line">	proxy_redirect          off;</span><br><span class="line">	proxy_set_header        Host $host;</span><br><span class="line">	proxy_set_header        X-Real-IP $remote_addr;</span><br><span class="line">	proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">	client_max_body_size    10m;</span><br><span class="line">	client_body_buffer_size   128k;</span><br><span class="line">	proxy_connect_timeout   5s;</span><br><span class="line">	proxy_send_timeout      5s;</span><br><span class="line">	proxy_read_timeout      5s;</span><br><span class="line">	proxy_buffer_size        4k;</span><br><span class="line">	proxy_buffers           4 32k;</span><br><span class="line">	proxy_busy_buffers_size  64k;</span><br><span class="line">	proxy_temp_file_write_size 64k;</span><br><span class="line">	#rabbitmq管理界面</span><br><span class="line">	upstream rabbitManage &#123;</span><br><span class="line">		server 10.94.49.231:15673;</span><br><span class="line">		server 10.94.49.231:15674;</span><br><span class="line">        server 10.94.49.231:15676;</span><br><span class="line">	&#125;</span><br><span class="line">	server &#123;</span><br><span class="line">        listen       15676;</span><br><span class="line">        server_name  10.94.49.231;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass   http://rabbitManage;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"># rabbitmq通信</span><br><span class="line">stream&#123;</span><br><span class="line">	upstream rabbitTcp&#123;</span><br><span class="line">        server 10.94.49.231:5673;</span><br><span class="line">		server 10.94.49.231:5674;</span><br><span class="line">        server 10.94.49.231:5675;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 5676;</span><br><span class="line">        proxy_pass rabbitTcp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动-nginx"><a href="#启动-nginx" class="headerlink" title="启动 nginx"></a>启动 nginx</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -it -d --name nginxRabbitmq --restart always -v /data/nginx/rabbitmq/nginx_rabbitmq.conf:/etc/nginx/nginx.conf  --privileged --net=host nginx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="镜像集群"><a href="#镜像集群" class="headerlink" title="镜像集群"></a>镜像集群</h2><p><img src="data:image/png;base64,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" alt="图片"></p>
+<h3 id="镜像模式集群改造"><a href="#镜像模式集群改造" class="headerlink" title="镜像模式集群改造"></a>镜像模式集群改造</h3><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/xia296/article/details/108395796">https://blog.csdn.net/xia296/article/details/108395796</a></p>
+<blockquote>
+<p>镜像队列是 Rabbit2.6.0 版本带来的一个新功能，允许内建双活冗余选项，与普通队列不同，镜像节点在集群中的其他节点拥有从队列拷贝，一旦主节点不可用，最老的从队列将被选举为新的主队列。<br>镜像队列的工作原理：在某种程度上你可以将镜像队列视为，拥有一个隐藏的 fanout 交换器，它指示者信道将消息分发到从队列上。</p>
+</blockquote>
+<h4 id="设置镜像队列"><a href="#设置镜像队列" class="headerlink" title="设置镜像队列"></a>设置镜像队列</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 设置镜像队列命令：&quot;rabbitmqctl set_policy 名称 匹配模式（正则） 镜像定义</span><br><span class="line"># 例如，设置名称为ha的镜像队列，匹配所有名称是amp开头的队列都存储在2个节点上的命令如下： 随便进入一个容器</span><br><span class="line">docker exec -it rabbitmq01 bash</span><br><span class="line"># 设置策略匹配所有名称是amp开头的队列都存储在2个节点上的命令如下</span><br><span class="line">rabbitmqctl set_policy -p / ha &quot;^amp*&quot; &#x27;&#123;&quot;ha-mode&quot;:&quot;exactly&quot;,&quot;ha-params&quot;:2&#125;&#x27;</span><br><span class="line"># 或者</span><br><span class="line"># 设置策略匹配所有名称的队列都进行高可用配置（在cluster中任意节点启用策略，策略会自动同步到集群节点）</span><br><span class="line">rabbitmqctl set_policy -p / ha &quot;^&quot; &#x27;&#123;&quot;ha-mode&quot;:&quot;all&quot;,&quot;ha-sync-mode&quot;:&quot;automatic&quot;&#125;&#x27;</span><br><span class="line"></span><br><span class="line">#查询策略</span><br><span class="line">rabbitmqctl list_policies -p / #查看vhost下的所有的策略（policies ）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>rabbitmqctl set_policy -p / ha “^” ‘{“ha-mode”:”all”,”ha-sync-mode”:”automatic”}’<br>命令在 vhost 名称为 hrsystem 创建了一个策略，策略名称为 ha-allqueue,策略模式为 all 即复制到所有节点，包含新增节点，策略正则表达式为 “^” 表示所有匹配所有队列名称。例如： rabbitmqctl set_policy-p/ha-all”^message”‘{“ha-mode”:”all”}’<br>“^message” 这个规则要根据自己修改，这个是指同步“message”开头的队列名称，我们配置时使用的应用于所有队列，所以表达式为“^”<br>可以看出<strong>设置镜像队列，一共有四个参数，每个参数用空格分割</strong>。</p>
+</blockquote>
+<ol>
+<li>参数一：策略名称，可以随便填，此外我们命名为 ha(高可用)；</li>
+<li>参考二：-p / 设置哪个虚拟主机，可以使用 rabbitmqctl list_policies -p / 查看 vhost 下所有的策略（policies ）。</li>
+<li>参数三：队列名称的匹配规则，使用正则表达式表示；</li>
+<li>参数四：为镜像队列的主体规则，是 json 字符串，分为三个属性：ha-mode | ha-params | ha-sync-mode，分别的解释如下：<ul>
+<li>ha-mode：镜像模式，分类：all/exactly/nodes，all 存储在所有节点；exactly 存储 x 个节点，节点的个数由 ha-params 指定；nodes 指定存储的节点上名称，通过 ha-params 指定；</li>
+<li>ha-params：作为参数，为 ha-mode 的补充；</li>
+<li>ha-sync-mode：镜像消息同步方式：automatic（自动），manually（手动）；</li>
+</ul>
+</li>
+</ol>
+<h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><h4 id="nginx-配置文件-1"><a href="#nginx-配置文件-1" class="headerlink" title="nginx 配置文件 1"></a>nginx 配置文件 1</h4><blockquote>
+<p>注：这里配置 rabbitmq 管理界面 以及通信反向代理<br>路径：/data/nginx/rabbitmq/nginx_rabbitmq01.conf</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">user  nginx;</span><br><span class="line">worker_processes  1;</span><br><span class="line">error_log  /var/log/nginx/error.log warn;</span><br><span class="line">pid        /var/run/nginx.pid;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       /etc/nginx/mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span><br><span class="line">                      &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br><span class="line">                      &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><span class="line">    access_log  /var/log/nginx/access.log  main;</span><br><span class="line">    sendfile        on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line">    #gzip  on;</span><br><span class="line"></span><br><span class="line">	proxy_redirect          off;</span><br><span class="line">	proxy_set_header        Host $host;</span><br><span class="line">	proxy_set_header        X-Real-IP $remote_addr;</span><br><span class="line">	proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">	client_max_body_size    10m;</span><br><span class="line">	client_body_buffer_size   128k;</span><br><span class="line">	proxy_connect_timeout   5s;</span><br><span class="line">	proxy_send_timeout      5s;</span><br><span class="line">	proxy_read_timeout      5s;</span><br><span class="line">	proxy_buffer_size        4k;</span><br><span class="line">	proxy_buffers           4 32k;</span><br><span class="line">	proxy_busy_buffers_size  64k;</span><br><span class="line">	proxy_temp_file_write_size 64k;</span><br><span class="line">	#rabbitmq管理界面</span><br><span class="line">	upstream rabbitManage &#123;</span><br><span class="line">		server 10.94.49.231:15673;</span><br><span class="line">		server 10.94.49.231:15674;</span><br><span class="line">        server 10.94.49.231:15676;</span><br><span class="line">	&#125;</span><br><span class="line">	server &#123;</span><br><span class="line">        listen       15676;</span><br><span class="line">        server_name  10.94.49.231;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass   http://rabbitManage;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"># rabbitmq通信</span><br><span class="line">stream&#123;</span><br><span class="line">	upstream rabbitTcp&#123;</span><br><span class="line">        server 10.94.49.231:5673;</span><br><span class="line">		server 10.94.49.231:5674;</span><br><span class="line">        server 10.94.49.231:5675;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 5676;</span><br><span class="line">        proxy_pass rabbitTcp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="nginx-配置文件-02"><a href="#nginx-配置文件-02" class="headerlink" title="nginx 配置文件 02"></a>nginx 配置文件 02</h4><blockquote>
+<p>注：这里配置 rabbitmq 管理界面 以及通信反向代理<br>路径：/data/nginx/rabbitmq/nginx_rabbitmq02.conf</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">user  nginx;</span><br><span class="line">worker_processes  1;</span><br><span class="line">error_log  /var/log/nginx/error.log warn;</span><br><span class="line">pid        /var/run/nginx.pid;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       /etc/nginx/mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span><br><span class="line">                      &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br><span class="line">                      &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><span class="line">    access_log  /var/log/nginx/access.log  main;</span><br><span class="line">    sendfile        on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line">    #gzip  on;</span><br><span class="line"></span><br><span class="line">	proxy_redirect          off;</span><br><span class="line">	proxy_set_header        Host $host;</span><br><span class="line">	proxy_set_header        X-Real-IP $remote_addr;</span><br><span class="line">	proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">	client_max_body_size    10m;</span><br><span class="line">	client_body_buffer_size   128k;</span><br><span class="line">	proxy_connect_timeout   5s;</span><br><span class="line">	proxy_send_timeout      5s;</span><br><span class="line">	proxy_read_timeout      5s;</span><br><span class="line">	proxy_buffer_size        4k;</span><br><span class="line">	proxy_buffers           4 32k;</span><br><span class="line">	proxy_busy_buffers_size  64k;</span><br><span class="line">	proxy_temp_file_write_size 64k;</span><br><span class="line">	#rabbitmq管理界面</span><br><span class="line">	upstream rabbitManage &#123;</span><br><span class="line">		server 10.94.49.231:15673;</span><br><span class="line">		server 10.94.49.231:15674;</span><br><span class="line">        server 10.94.49.231:15676;</span><br><span class="line">	&#125;</span><br><span class="line">	server &#123;</span><br><span class="line">        listen       15677;</span><br><span class="line">        server_name  10.94.49.231;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass   http://rabbitManage;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"># rabbitmq通信</span><br><span class="line">stream&#123;</span><br><span class="line">	upstream rabbitTcp&#123;</span><br><span class="line">        server 10.94.49.231:5673;</span><br><span class="line">		server 10.94.49.231:5674;</span><br><span class="line">        server 10.94.49.231:5675;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 5677;</span><br><span class="line">        proxy_pass rabbitTcp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动-nginx-1"><a href="#启动-nginx-1" class="headerlink" title="启动 nginx"></a>启动 nginx</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -it -d --name nginxRabbitmq01 --restart always -v /data/nginx/rabbitmq/nginx_rabbitmq01.conf:/etc/nginx/nginx.conf  --privileged --net=host nginx</span><br><span class="line"></span><br><span class="line">sudo docker run -it -d --name nginxRabbitmq02 --restart always -v /data/nginx/rabbitmq/nginx_rabbitmq02.conf:/etc/nginx/nginx.conf  --privileged --net=host nginx</span><br></pre></td></tr></table></figure>
+
+<h3 id="Nginx-安装-keepalived-实现-HA"><a href="#Nginx-安装-keepalived-实现-HA" class="headerlink" title="Nginx 安装 keepalived 实现 HA"></a>Nginx 安装 keepalived 实现 HA</h3><blockquote>
+<p>在两个 nginx 容器分别安装 keepalived，并编写 keepalived 配置文件以及启动 keepalived<br>注：interface 表示绑定的网络接口,请用 ip addr 查看本机的网卡进行替换 ，virtual_router_id 表示 keepalived 家族标识信息，全局唯一，节点间保持相同</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"># 进入nginxRabbitmq1容器中，执行如下命令</span><br><span class="line">apt-get  -y update</span><br><span class="line">apt-get -y  install vim</span><br><span class="line">apt-get -y install keepalived</span><br><span class="line"></span><br><span class="line"># 安装完成后，编写keekpalived.conf</span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    state MASTER</span><br><span class="line">    interface eno16777736</span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    priority 100</span><br><span class="line">    advert_int 1</span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass 123456</span><br><span class="line">    &#125;</span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        10.94.49.231</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">virtual_server 10.94.49.231 15678 &#123;</span><br><span class="line">    delay_loop 3</span><br><span class="line">    lb_algo rr</span><br><span class="line">    lb_kind NAT</span><br><span class="line">    persistence_timeout 50</span><br><span class="line">    protocol TCP</span><br><span class="line">    real_server 10.94.49.231 15676 &#123;</span><br><span class="line">        weight 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">virtual_server 10.94.49.231 5678 &#123;</span><br><span class="line">    delay_loop 3</span><br><span class="line">    lb_algo rr</span><br><span class="line">    lb_kind NAT</span><br><span class="line">    persistence_timeout 50</span><br><span class="line">    protocol TCP</span><br><span class="line">    real_server 10.94.49.231 5676 &#123;</span><br><span class="line">        weight 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 保存完配置，启动keepalived</span><br><span class="line">service keepalived start</span><br><span class="line"></span><br><span class="line">nginx2操作同上</span><br><span class="line"># 进入nginxRabbitmq2容器中，执行如下命令</span><br><span class="line">apt-get  -y update</span><br><span class="line">apt-get -y  install vim</span><br><span class="line">apt-get -y install keepalived</span><br><span class="line"></span><br><span class="line"># 安装完成后，编写keekpalived.conf</span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    state MASTER</span><br><span class="line">    interface eno16777736</span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    priority 100</span><br><span class="line">    advert_int 1</span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass 123456</span><br><span class="line">    &#125;</span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        10.94.49.231</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">virtual_server 10.94.49.231 15678 &#123;</span><br><span class="line">    delay_loop 3</span><br><span class="line">    lb_algo rr</span><br><span class="line">    lb_kind NAT</span><br><span class="line">    persistence_timeout 50</span><br><span class="line">    protocol TCP</span><br><span class="line">    real_server 10.94.49.231 15677 &#123;</span><br><span class="line">        weight 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">virtual_server 10.94.49.231 5678 &#123;</span><br><span class="line">    delay_loop 3</span><br><span class="line">    lb_algo rr</span><br><span class="line">    lb_kind NAT</span><br><span class="line">    persistence_timeout 50</span><br><span class="line">    protocol TCP</span><br><span class="line">    real_server 10.94.49.231 5677 &#123;</span><br><span class="line">        weight 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 保存完配置，启动keepalived</span><br><span class="line">service keepalived start</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="主机上安装-keepaplived-进行转发"><a href="#主机上安装-keepaplived-进行转发" class="headerlink" title="主机上安装 keepaplived 进行转发"></a>主机上安装 keepaplived 进行转发</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"># 安装keepalived</span><br><span class="line">sudo apt install -y keepalived</span><br><span class="line"></span><br><span class="line"># 安装完成后，编写配置文件keepalived.conf</span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    state MASTER</span><br><span class="line">    interface eno16777736</span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    priority 100</span><br><span class="line">    advert_int 1</span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass 123456</span><br><span class="line">    &#125;</span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        10.94.49.231</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">virtual_server 192.168.44.135 15678 &#123;</span><br><span class="line">    delay_loop 3</span><br><span class="line">    lb_algo rr</span><br><span class="line">    lb_kind NAT</span><br><span class="line">    persistence_timeout 50</span><br><span class="line">    protocol TCP</span><br><span class="line">    real_server 10.94.49.231 15676 &#123;</span><br><span class="line">        weight 1</span><br><span class="line">    &#125;</span><br><span class="line">    real_server 10.94.49.231 15677&#123;</span><br><span class="line">        weight 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">virtual_server 10.94.49.231 5678 &#123;</span><br><span class="line">    delay_loop 3</span><br><span class="line">    lb_algo rr</span><br><span class="line">    lb_kind NAT</span><br><span class="line">    persistence_timeout 50</span><br><span class="line">    protocol TCP</span><br><span class="line">    real_server 10.94.49.231 5676 &#123;</span><br><span class="line">        weight 1</span><br><span class="line">    &#125;</span><br><span class="line">    real_server 10.94.49.231 5677 &#123;</span><br><span class="line">        weight 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 保存完配置后，启动keepalived</span><br><span class="line">service keepalived start</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>通过 <a target="_blank" rel="noopener" href="http://192.168.44.135:15678/">http://192.168.44.135:15678</a> 进行管理 以及通过 5678 端口 进行 rabbitmq 通信。</p>
+</blockquote>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h4 id="查看镜像队列"><a href="#查看镜像队列" class="headerlink" title="查看镜像队列"></a>查看镜像队列</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl list_policies</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除镜像队列"><a href="#删除镜像队列" class="headerlink" title="删除镜像队列"></a>删除镜像队列</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl clear_policy</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动-rabbitmq"><a href="#启动-rabbitmq" class="headerlink" title="启动 rabbitmq"></a>启动 rabbitmq</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl start_app</span><br></pre></td></tr></table></figure>
+
+<h4 id="停止-rabbitmq"><a href="#停止-rabbitmq" class="headerlink" title="停止 rabbitmq"></a>停止 rabbitmq</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl stop_app</span><br></pre></td></tr></table></figure>
+
+<h4 id="rabbitmq-查看所有队列信息"><a href="#rabbitmq-查看所有队列信息" class="headerlink" title="rabbitmq 查看所有队列信息"></a>rabbitmq 查看所有队列信息</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl list_queues</span><br></pre></td></tr></table></figure>
+
+<h4 id="还原-rabbitmq-清除所有队列"><a href="#还原-rabbitmq-清除所有队列" class="headerlink" title="还原 rabbitmq 清除所有队列"></a>还原 rabbitmq 清除所有队列</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl reset</span><br></pre></td></tr></table></figure>
+
+<h4 id="rabbitmq-查看用户"><a href="#rabbitmq-查看用户" class="headerlink" title="rabbitmq 查看用户"></a>rabbitmq 查看用户</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl list_users</span><br></pre></td></tr></table></figure>
+
+<h4 id="rabbitmq-添加用户"><a href="#rabbitmq-添加用户" class="headerlink" title="rabbitmq 添加用户"></a>rabbitmq 添加用户</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl add_user root root</span><br></pre></td></tr></table></figure>
+
+<h4 id="rabbitmq-设置权限"><a href="#rabbitmq-设置权限" class="headerlink" title="rabbitmq 设置权限"></a>rabbitmq 设置权限</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl set_permissions -p / root &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="rabbitmq-查看集群状态信息"><a href="#rabbitmq-查看集群状态信息" class="headerlink" title="rabbitmq 查看集群状态信息"></a>rabbitmq 查看集群状态信息</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl cluster_status</span><br></pre></td></tr></table></figure>
+
+<h4 id="移除某个集群节点：一般情况当节点故障时，在正常的节点中，移除该故障节点"><a href="#移除某个集群节点：一般情况当节点故障时，在正常的节点中，移除该故障节点" class="headerlink" title="移除某个集群节点：一般情况当节点故障时，在正常的节点中，移除该故障节点"></a>移除某个集群节点：一般情况当节点故障时，在正常的节点中，移除该故障节点</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl  -n rabbit@rabbitmq01 forget_cluster_node rabbit@rabbitmq03</span><br></pre></td></tr></table></figure>
+
+<h4 id="如果遇到-nginx-502-问题请关闭防火墙。"><a href="#如果遇到-nginx-502-问题请关闭防火墙。" class="headerlink" title="如果遇到 nginx 502 问题请关闭防火墙。"></a>如果遇到 nginx 502 问题请关闭防火墙。</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+
+<h4 id="keepalived-配置文件部分说明"><a href="#keepalived-配置文件部分说明" class="headerlink" title="keepalived 配置文件部分说明"></a>keepalived 配置文件部分说明</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">vrrp_instance VI_1 &#123;  --- vrrp协议相关配置（vip地址设置）</span><br><span class="line"></span><br><span class="line">    state MASTER --- keepalived角色描述（状态）信息，可以配置参数（MASTER BACKUP）</span><br><span class="line"></span><br><span class="line">    interface eth0 --- 表示将生成虚IP地址，设置在指定的网卡上(一般为外网卡)</span><br><span class="line"></span><br><span class="line">    virtual_router_id 51 --- 表示keepalived家族标识信息</span><br><span class="line"></span><br><span class="line">    priority 100 --- keepalived服务竞选主备服务器优先级设置（越大越优先）</span><br><span class="line"></span><br><span class="line">    advert_int 1 --- 主服务组播包发送间隔时间</span><br><span class="line"></span><br><span class="line">    authentication &#123; --- 主备主机之间通讯认证机制，</span><br><span class="line"></span><br><span class="line">        auth_type PASS --- 采用明文认证机制</span><br><span class="line"></span><br><span class="line">        auth_pass 123456 --- 编写明文密码（用于主备认证）</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    virtual_ipaddress &#123; --- 设置虚拟IP地址信息</span><br><span class="line"></span><br><span class="line">       192.168.44.130</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">   virtual_server 192.168.44.130 15678 &#123; --- 设置虚拟IP地址 端口转发</span><br><span class="line"></span><br><span class="line">      delay_loop 3 ---- service polling的delay时间，即服务轮询的时间间隔</span><br><span class="line"></span><br><span class="line">      lb_algo rr --- LVS调度算法</span><br><span class="line"></span><br><span class="line">      lb_kind NAT --- LVS集群模式</span><br><span class="line"></span><br><span class="line">	  persistence_timeout 50 --- 会话保持时间（秒为单位），即以用户在120秒内被分配到同一个后端realserver</span><br><span class="line"></span><br><span class="line">      protocol TCP --- 健康检查用的是TCP还是UDP</span><br><span class="line"></span><br><span class="line">      real_server 192.168.9.144 15676 &#123;</span><br><span class="line"></span><br><span class="line">           weight 1 --- 给每台的权重，0表示失效(不知给他转发请求知道他恢复正常)，默认是1</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Murray</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.rainbowrise.top/2021/08/29/RabbitMQ%E7%AC%94%E8%AE%B0/">https://www.rainbowrise.top/2021/08/29/RabbitMQ%E7%AC%94%E8%AE%B0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Murray</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/MQ/">
+                                    <span class="chip bg-color">MQ</span>
+                                </a>
+                            
+                                <a href="/tags/Rabbitmq/">
+                                    <span class="chip bg-color">Rabbitmq</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NTE3MC8zMTYzNw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/09/29/kafka%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="kafka笔记">
+                        
+                        <span class="card-title">kafka笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MQ/" class="post-category">
+                                    MQ
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MQ/">
+                        <span class="chip bg-color">MQ</span>
+                    </a>
+                    
+                    <a href="/tags/kafka/">
+                        <span class="chip bg-color">kafka</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/08/08/GitHub%E4%B8%8A%E4%BC%98%E7%A7%80%E7%9A%84Go%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="GitHub上优秀的Go开源项目">
+                        
+                        <span class="card-title">GitHub上优秀的Go开源项目</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Go/" class="post-category">
+                                    Go
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Go/">
+                        <span class="chip bg-color">Go</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 马瑞个人笔记<br />'
+            + '文章作者: Murray<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2024</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">Murray</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                &nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                &nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            
+            <br><span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "08";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            
+            <br><span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备2021006498号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sunglowrise" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:sunglowrise@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/ma-liang-19-36" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/ma-liang-19-36" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

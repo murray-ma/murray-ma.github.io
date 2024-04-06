@@ -1,0 +1,1287 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Gradle笔记, Java,Python,GO">
+    <meta name="description" content="IT文章及知识分享">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Gradle笔记 | 马瑞个人笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="马瑞个人笔记" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">马瑞个人笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">马瑞个人笔记</div>
+        <div class="logo-desc">
+            
+            IT文章及知识分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Gradle笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+        padding-top: 1.5rem
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        <!-- height: calc(100vh - 250px); -->
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/Gradle/">
+                                <span class="chip bg-color">Gradle</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-10-02
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Gradle-安装"><a href="#Gradle-安装" class="headerlink" title="Gradle 安装"></a>Gradle 安装</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># 下载</span><br><span class="line">https://gradle.org/releases/</span><br><span class="line">https://services.gradle.org/distributions/</span><br><span class="line"></span><br><span class="line"># 配置环境变量</span><br><span class="line">GRADLE_HOME = D:\Program Files\gradle</span><br><span class="line">Path = ...;%GRADLE_HOME%\bin</span><br><span class="line">GRADLE_USER_HOME = D:\m2\gradle</span><br><span class="line"></span><br><span class="line"># 在gradle中的init.d文件中新建一个init.gradle文件，并在文件中添加如下配置</span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        maven &#123; url &quot;https://maven.aliyun.com/repository/public&quot; &#125;</span><br><span class="line">        maven &#123; url &quot;https://maven.aliyun.com/repository/jcenter&quot; &#125;</span><br><span class="line">        maven &#123; url &quot;https://maven.aliyun.com/repository/spring&quot; &#125;</span><br><span class="line">        maven &#123; url &quot;https://maven.aliyun.com/repository/spring-plugin&quot; &#125;</span><br><span class="line">        maven &#123; url &quot;https://maven.aliyun.com/repository/gradle-plugin&quot; &#125;</span><br><span class="line">        maven &#123; url &quot;https://maven.aliyun.com/repository/google&quot; &#125;</span><br><span class="line">        maven &#123; url &quot;https://maven.aliyun.com/repository/grails-core&quot;  &#125;</span><br><span class="line">        maven &#123; url &quot;https://maven.aliyun.com/repository/apache-snapshots&quot; &#125;</span><br><span class="line">        mavenLocal()</span><br><span class="line">        mavenCentral()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 配置IDEA</span><br><span class="line">settings -&gt; Build,Excution,Deployment -&gt; Build Tools -&gt; Grade</span><br><span class="line">1. 配置Gradle user home: 设置gradle的仓库地址</span><br><span class="line">2. Use Grade from： 选择Specified location，设置grade安装目录</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="配置多仓库"><a href="#配置多仓库" class="headerlink" title="配置多仓库"></a>配置多仓库</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">配置多个gradle repositories仓库会按顺序获取jar依赖，</span><br><span class="line">建议优先本地maven仓--&gt;鲲鹏maven仓--&gt;华为云maven镜像仓--&gt;maven中央仓--&gt;spring仓（比较全）--&gt;其他maven远程仓（根据需要按格式添加）</span><br><span class="line"></span><br><span class="line">在 build.gradle 文件中加入以下代码:</span><br><span class="line">allprojects &#123;</span><br><span class="line">  repositories &#123;</span><br><span class="line">    mavenLocal()</span><br><span class="line">    maven &#123;</span><br><span class="line">      url &#x27;https://mirrors.huaweicloud.com/kunpeng/maven/&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">    maven &#123;</span><br><span class="line">      url &#x27;https://mirrors.huaweicloud.com/repository/maven/&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">    mavenCentral()</span><br><span class="line">    maven &#123;</span><br><span class="line">      url &#x27;https://repo.spring.io/libs-release/&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">    maven &#123;</span><br><span class="line">      url &#x27;https://repo.spring.io/plugins-release&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">常用的maven远程仓如下（详细参考https://bbs.huaweicloud.com/forum/forum.php?mod=viewthread&amp;tid=22912）：</span><br><span class="line">Maven2 https://repo1.maven.org/maven2/</span><br><span class="line">Google https://maven.google.com/</span><br><span class="line"></span><br><span class="line">Jboss https://repository.jboss.org/nexus/content/repositories/releases/</span><br><span class="line">Jcenter https://jcenter.bintray.com/</span><br><span class="line">Grails-core https://repo.grails.org/grails/core/</span><br><span class="line">Grails-plugins https://repo.grails.org/grails/plugins/</span><br><span class="line">Spring-release https://repo.spring.io/libs-release/</span><br><span class="line">Spring-plugins https://repo.spring.io/plugins-release</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="gradle-wrapper-properties"><a href="#gradle-wrapper-properties" class="headerlink" title="gradle-wrapper.properties"></a>gradle-wrapper.properties</h1><p>各个字段的含义:</p>
+<ul>
+<li><strong>distributionBase</strong> 下载的 gradle 压缩包解压后存储的主目录，gradle-version-bin.zip 解压后文件存放的位置</li>
+<li><strong>distributionPath</strong> 相对于 distributionBase 的解压后的 gradle 压缩包的路径，distributionBase 指定的目录下的子目录</li>
+<li><strong>zipStoreBase</strong> 同 distributionBase，只不过是存放 zip 压缩包的，下载的 gradle-version-bin.zip 所存放的位置</li>
+<li><strong>zipStorePath</strong> 同 distributionPath，只不过是存放 zip 压缩包的，zipStoreBase 指定的目录下的子目录</li>
+<li><strong>distributionUrl</strong> gradle 发行版压缩包的下载地址，也就是你现在这个项目将要依赖的 gradle 的版本</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># gradle-wrapper.properties</span><br><span class="line"># Sat Jan 21 14:02:40 CST 2017</span><br><span class="line">distributionBase=GRADLE_USER_HOME</span><br><span class="line">distributionPath=wrapper/dists</span><br><span class="line">zipStoreBase=GRADLE_USER_HOME</span><br><span class="line">zipStorePath=wrapper/dists</span><br><span class="line">distributionUrl=https\://services.gradle.org/distributions/gradle-7.3-rc-3-bin.zip</span><br></pre></td></tr></table></figure>
+
+<h1 id="Use-Gradle-from"><a href="#Use-Gradle-from" class="headerlink" title="Use Gradle from"></a>Use Gradle from</h1><ul>
+<li><p>gradle-wrapper.properties file： 这是一个推荐的默认选项，使用 Gradle 包装器。<br>在这种情况下，你将 Gradle 版本的更新委托给 Gradle，并在构建时获得 Gradle 的自动下载。这个选项还可以让你用精确的 Gradle 版本进行构建。Gradle 版本被保存在你项目的 gradle 目录下的 gradle-wrapper.properties 文件中，并帮助你消除任何 Gradle 版本问题。</p>
+</li>
+<li><p>zipStoreBase 和 distributionBase 有两种取值：GRADLE_USER_HOME 和 PROJECT。<br>其中，GRADLE_USER_HOME 表示用户目录。</p>
+</li>
+</ul>
+<p>在 windows 下是%USERPROFILE%/.gradle，例如 C:\Users<user_name>.gradle\。</p>
+<p>在 linux 下是$HOME/.gradle，例如~/.gradle。</p>
+<p>PROJECT 表示工程的当前目录，即 gradlew 所在的目录。</p>
+<ul>
+<li><p>wrapper’ task in Gradle build script:<br>选择这个选项可以根据 wrapper 任务的配置来配置 Gradle 包装器。如果你喜欢控制在项目中使用哪个 Gradle 版本，这可能很方便。</p>
+<p>如果你使用了默认的 Gradle 包装器选项，然后切换到 Gradle 包装器任务配置，你在任务中所做的改变会在项目导入时自动更新。</p>
+</li>
+<li><p>Specified location:<br>如果你想手动下载并使用一个特定的 Gradle 版本，请选择这个选项。指定你的 Gradle 安装位置和 JVM，当你导入指定的 Gradle 项目和执行其任务时，IntelliJ IDEA 将在该位置运行 Gradle。</p>
+</li>
+</ul>
+<h1 id="build-gradle-示例"><a href="#build-gradle-示例" class="headerlink" title="build.gradle 示例"></a>build.gradle 示例</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br></pre></td><td class="code"><pre><span class="line"># 项目下build.gradle</span><br><span class="line">// 声明是Android程序，</span><br><span class="line">// com.android.application 表示这是一个应用程序模块,可直接运行</span><br><span class="line">// com.android.library 标识这是一个库模块，是依附别的应用程序运行</span><br><span class="line">apply plugin: &#x27;com.android.application&#x27;</span><br><span class="line">android &#123;</span><br><span class="line">    // 程序在编译的时候会检查lint，有任何错误提示会停止build，我们可以关闭这个开关</span><br><span class="line">    lintOptions &#123;</span><br><span class="line">        // 即使报错也不会停止打包</span><br><span class="line">        abortOnError false</span><br><span class="line">        // 打包release版本的时候是否进行检测</span><br><span class="line">        checkReleaseBuilds false</span><br><span class="line">    &#125;</span><br><span class="line">    // 编译sdk的版本，也就是API Level，例如API-19、API-20、API-21等等。</span><br><span class="line">    compileSdkVersion 27</span><br><span class="line">    // build tools的版本，其中包括了打包工具aapt、dx等等。</span><br><span class="line">    // 这个工具的目录位于你的sdk目录/build-tools/下</span><br><span class="line">    buildToolsVersion &#x27;27.0.3&#x27;</span><br><span class="line">    //关闭Android Studio的PNG合法性检查</span><br><span class="line">    aaptOptions.cruncherEnabled = false</span><br><span class="line">    aaptOptions.useNewCruncher = false</span><br><span class="line">    defaultConfig &#123;  // 默认配置</span><br><span class="line">        applicationId &quot;com.demo.test&quot; // 应用程序的包名</span><br><span class="line">        minSdkVersion 22  / 最小sdk版本，如果设备小于这个版本或者大于maxSdkVersion将无法安装这个应用</span><br><span class="line">        targetSdkVersion 27 // 目标sdk版本，充分测试过的版本（建议版本）</span><br><span class="line">        versionCode 1  // 版本号，第一版是1，之后每更新一次加1</span><br><span class="line">        versionName &quot;1.0&quot; // 版本名，显示给用户看到的版本号</span><br><span class="line">        archivesBaseName = &quot;demo-$versionName&quot; // 指定打包成Jar文件时候的文件名称</span><br><span class="line">        ndk &#123;</span><br><span class="line">            moduleName &quot;testwifisafe&quot;                   // 设置库(so)文件名称</span><br><span class="line">            ldLibs &quot;log&quot;, &quot;z&quot;, &quot;m&quot;, &quot;jnigraphics&quot;, &quot;android&quot;</span><br><span class="line">            // 引入库，比如要用到的__android_log_print</span><br><span class="line">            abiFilters &quot;armeabi&quot;, &quot;x86&quot;, &quot;armeabi-v7a&quot;      // &quot;x86&quot;  显示指定支持的ABIs</span><br><span class="line">            cFlags &quot;-std=c++11 -fexceptions&quot;                // C++11</span><br><span class="line">            stl &quot;gnustl_static&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        // 当方法数超过65535(方法的索引使用的是一个short值，</span><br><span class="line">        // 而short最大值是65535)的时候允许打包成多个dex文件，动态加载dex。这里面坑很深啊</span><br><span class="line">        multiDexEnabled true</span><br><span class="line">        // Instrumentation单元测试</span><br><span class="line">        testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    // 默认的一些文件路径的配置</span><br><span class="line">    sourceSets &#123;</span><br><span class="line">        main &#123;</span><br><span class="line">            manifest.srcFile &#x27;AndroidManifest.xml&#x27; // 指定清单文件</span><br><span class="line">            res.srcDirs = [&#x27;res&#x27;] // 指定res资源目录</span><br><span class="line">            assets.srcDirs = [&#x27;assets&#x27;]    // asset资源目录</span><br><span class="line">            jni.srcDirs &#x27;src/main/jni&#x27;     // jni代码目录</span><br><span class="line">            jniLibs.srcDir &#x27;src/main/jniLibs&#x27; // jni库目录</span><br><span class="line">            java.srcDirs = [&#x27;src&#x27;] // 指定java源代码目录</span><br><span class="line">            resources.srcDirs = [&#x27;src&#x27;] // 指定resource目录</span><br><span class="line">            aidl.srcDirs = [&#x27;src&#x27;] // 指定aidl目录</span><br><span class="line">            renderscript.srcDirs = [&#x27;src&#x27;] // 指定source目录</span><br><span class="line">        &#125;</span><br><span class="line">        debug.setRoot(&#x27;build-types/debug&#x27;) // 指定debug模式的路径</span><br><span class="line">        release.setRoot(&#x27;build-types/release&#x27;) // 指定release模式的路径</span><br><span class="line">    &#125;</span><br><span class="line">    // multiDex的一些相关配置，这样配置可以让你的编译速度更快</span><br><span class="line">    dexOptions &#123;</span><br><span class="line">        // 让它不要对Lib做preDexing</span><br><span class="line">        preDexLibraries = false</span><br><span class="line">        // 开启incremental dexing,优化编译效率，这个功能android studio默认是关闭的。</span><br><span class="line">        incremental true</span><br><span class="line">        javaMaxHeapSize &quot;4g&quot; // 增加java堆内存大小</span><br><span class="line">    &#125;</span><br><span class="line">    signingConfigs &#123;// 签名配置</span><br><span class="line">        release &#123;// 发布版签名配置</span><br><span class="line">            storeFile file(&quot;fk.keystore&quot;) // 密钥文件路径</span><br><span class="line">            storePassword &quot;123456&quot; // 密钥文件密码</span><br><span class="line">            keyAlias &quot;fk&quot; // key别名</span><br><span class="line">            keyPassword &quot;123456&quot; // key密码</span><br><span class="line">        &#125;</span><br><span class="line">        debug &#123;// debug版签名配置</span><br><span class="line">            storeFile file(&quot;fk.keystore&quot;)</span><br><span class="line">            storePassword &quot;123456&quot;</span><br><span class="line">            keyAlias &quot;fk&quot;</span><br><span class="line">            keyPassword &quot;123456&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // 指定生成安装文件的配置，常有两个子包:release,debug，注：直接运行的都是debug安装文件</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        // release版本的配置，即生成正式版安装文件的配置</span><br><span class="line">        release &#123;</span><br><span class="line">            zipAlignEnabled true  // 是否支持zip</span><br><span class="line">            shrinkResources true  // 移除无用的resource文件</span><br><span class="line">            minifyEnabled false // 是否对代码进行混淆，true表示混淆</span><br><span class="line">            // 指定混淆时使用的规则文件；</span><br><span class="line">            // proguard-android.txt指所有项目通用的混淆规则，proguard-rules.pro当前项目特有的混淆规则</span><br><span class="line">            // release的Proguard默认为Module下的proguard-rules.pro文件</span><br><span class="line">            proguardFiles getDefaultProguardFile(&#x27;proguard-android.txt&#x27;), &#x27;proguard-rules.pro&#x27;</span><br><span class="line">            debuggable false  //是否支持调试</span><br><span class="line">            //ndk的一些配置</span><br><span class="line">            ndk &#123;</span><br><span class="line">                // cFlags &quot;-std=c++11 -fexceptions -O3 -D__RELEASE__&quot; // C++11</span><br><span class="line">                // platformVersion = &quot;19&quot;</span><br><span class="line">                moduleName &quot;hebbewifisafe&quot; // 设置库(so)文件名称</span><br><span class="line">                ldLibs &quot;log&quot;, &quot;z&quot;, &quot;m&quot;, &quot;jnigraphics&quot;, &quot;android&quot;</span><br><span class="line">                // 引入库，比如要用到的__android_log_print</span><br><span class="line">                abiFilters &quot;armeabi&quot;, &quot;x86&quot;, &quot;armeabi-v7a&quot;// &quot;x86&quot;</span><br><span class="line">                cFlags &quot;-std=c++11 -fexceptions&quot; // C++11</span><br><span class="line">                stl &quot;gnustl_static&quot;</span><br><span class="line">            &#125;</span><br><span class="line">            // 采用动态替换字符串的方式生成不同的 release.apk （3.0之后版本的修改方式）</span><br><span class="line">            applicationVariants.all &#123; variant -&gt;</span><br><span class="line">                variant.outputs.all &#123; output -&gt;</span><br><span class="line">                    if (!variant.buildType.isDebuggable()) &#123;</span><br><span class="line">                        // 获取签名的名字 variant.signingConfig.name</span><br><span class="line">                        // 要被替换的源字符串</span><br><span class="line">                        def sourceFile = &quot;app-release&quot;;</span><br><span class="line">                        // 替换的字符串</span><br><span class="line">　　　　　　　　　　　　　　def replaceFile = &quot;Demo-V$&#123;variant.versionName&#125;.$&#123;releaseTime()&#125;&quot;</span><br><span class="line">　　　　　　　　　　　　　　outputFileName = output.outputFile.name.replace(sourceFile, replaceFile)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            jniDebuggable false  // 关闭jni调试</span><br><span class="line">        &#125;</span><br><span class="line">        debug &#123; // debug版本的配置</span><br><span class="line">            minifyEnabled false</span><br><span class="line">            zipAlignEnabled true</span><br><span class="line">            shrinkResources true // 移除无用的resource文件</span><br><span class="line">            proguardFiles getDefaultProguardFile(&#x27;proguard-android.txt&#x27;), &#x27;proguard-rules.pro&#x27;</span><br><span class="line">            debuggable true</span><br><span class="line">//          jniDebuggable true</span><br><span class="line">            ndk &#123;</span><br><span class="line">                cFlags &quot;-std=c++11 -fexceptions -g -D __DEBUG__&quot; // C++11</span><br><span class="line">            &#125;</span><br><span class="line">            jniDebuggable true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    packagingOptions &#123;</span><br><span class="line">        exclude &#x27;META-INF/ASL2.0&#x27;</span><br><span class="line">        exclude &#x27;META-INF/LICENSE&#x27;</span><br><span class="line">        exclude &#x27;META-INF/NOTICE&#x27;</span><br><span class="line">        exclude &#x27;META-INF/MANIFEST.MF&#x27;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    compileOptions &#123;</span><br><span class="line">        // 在这里你可以进行 Java 的版本配置，</span><br><span class="line">        // 以便使用对应版本的一些新特性</span><br><span class="line">    &#125;</span><br><span class="line">    productFlavors &#123;</span><br><span class="line">        // 在这里你可以设置你的产品发布的一些东西，</span><br><span class="line">        // 比如你现在一共软件需要发布到不同渠道，</span><br><span class="line">        // 且不同渠道中的包名不同，那么可以在此进行配置；</span><br><span class="line">        // 甚至可以设置不同的 AndroidManifest.xml 文件。</span><br><span class="line">        hebbe &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        googlePlay &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        solo &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    productFlavors.all &#123;</span><br><span class="line">        flavor -&gt; flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]</span><br><span class="line">    &#125;</span><br><span class="line">    // 所谓ProductFlavors其实就是可定义的产品特性，</span><br><span class="line">    // 配合 manifest merger 使用的时候就可以达成在一次编译</span><br><span class="line">    // 过程中产生多个具有自己特性配置的版本。</span><br><span class="line">    // 上面这个配置的作用就是，为每个渠道包产生不同的 UMENG_CHANNEL_VALUE 的值。</span><br><span class="line">&#125;</span><br><span class="line">// 指定当前项目的所有依赖关系：本地依赖、库依赖、远程依赖</span><br><span class="line">// 本地依赖：可以对本地 Jar 包或目录添加依赖关系</span><br><span class="line">// 库依赖：可以对项目中的库模块添加依赖关系</span><br><span class="line">// 远程依赖：可以对 jcenter 库上的开源项目添加依赖</span><br><span class="line">// 标准的远程依赖格式是 域名:组织名:版本号</span><br><span class="line">dependencies &#123;</span><br><span class="line">    implementation fileTree(dir: &#x27;libs&#x27;, include: [&#x27;*.jar&#x27;]) // 本地依赖</span><br><span class="line">    // 远程依赖，com.android.support是域名部分，appcompat-v7是组名称，26.1.0是版本号</span><br><span class="line">    implementation &#x27;com.android.support:appcompat-v7:26.1.0&#x27;</span><br><span class="line">    implementation &#x27;com.android.support.constraint:constraint-layout:1.0.2&#x27;</span><br><span class="line">    implementation project(&#x27;:hello&#x27;) // 库依赖</span><br><span class="line">    testImplementation &#x27;junit:junit:4.12&#x27; // 声明测试用列库</span><br><span class="line">    androidTestImplementation &#x27;com.android.support.test:runner:1.0.1&#x27;</span><br><span class="line">    androidTestImplementation &#x27;com.android.support.test.espresso:espresso-core:3.0.1&#x27;</span><br><span class="line">&#125;</span><br><span class="line">// 声明是要使用谷歌服务框架</span><br><span class="line">apply plugin: &#x27;com.google.gms.google-services&#x27;</span><br><span class="line">// 第三方依赖库的本地缓存路径</span><br><span class="line">task showMeCache &lt;&lt; &#123;</span><br><span class="line">    configurations.compile.each &#123; println it &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 使用maven仓库。android有两个标准的library文件服务器，一个jcenter一个maven。两者毫无关系。</span><br><span class="line">// jcenter有的maven可能没有，反之亦然。</span><br><span class="line">// 如果要使用jcenter的话就把mavenCentral()替换成jcenter()</span><br><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line">205 // 获取日期方法</span><br><span class="line">def releaseTime() &#123;</span><br><span class="line">   return new Date().format(&quot;MMdd.HHmm&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Gradle-命令"><a href="#Gradle-命令" class="headerlink" title="Gradle 命令"></a>Gradle 命令</h1><h3 id="1、Gradle-查询命令"><a href="#1、Gradle-查询命令" class="headerlink" title="1、Gradle 查询命令"></a>1、Gradle 查询命令</h3><p>1）、查看主要任务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew tasks</span><br></pre></td></tr></table></figure>
+
+<p>2）、查看所有任务，包括缓存任务等等</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew tasks --all</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、Gradle-执行命令"><a href="#2、Gradle-执行命令" class="headerlink" title="2、Gradle 执行命令"></a>2、Gradle 执行命令</h3><p>1）、对某个 module [moduleName] 的某个任务[TaskName] 运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew :moduleName:taskName</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、Gradle-快速构建命令"><a href="#3、Gradle-快速构建命令" class="headerlink" title="3、Gradle 快速构建命令"></a>3、Gradle 快速构建命令</h3><p>Gradle 提供了一系列的快速构建命令来替代 IDE 的可视化构建操作，如我们最常用的 clean、build 等等。需要注意的是，build 命令会把 debug、release 环境的包都构建出来。</p>
+<p>1）、查看构建版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew -v</span><br></pre></td></tr></table></figure>
+
+<p>2）、清除 build 文件夹</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew clean</span><br></pre></td></tr></table></figure>
+
+<p>3）、检查依赖并编译打包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew build</span><br></pre></td></tr></table></figure>
+
+<p>4）、编译并安装 debug 包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew installDebug</span><br></pre></td></tr></table></figure>
+
+<p>5）、编译并打印日志</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew build --info</span><br></pre></td></tr></table></figure>
+
+<p>6）、编译并输出性能报告，性能报告一般在构建工程根目录 build/reports/profile 下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew build --profile</span><br></pre></td></tr></table></figure>
+
+<p>7）、调试模式构建并打印堆栈日志</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew build --info --debug --stacktrace</span><br></pre></td></tr></table></figure>
+
+<p>8）、强制更新最新依赖，清除构建后再构建</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew clean build --refresh-dependencies</span><br></pre></td></tr></table></figure>
+
+<p>9）、编译并打 Debug 包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./gradlew assembleDebug</span><br><span class="line"># 简化版命令，取各个单词的首字母</span><br><span class="line">./gradlew aD</span><br></pre></td></tr></table></figure>
+
+<p>10）、编译并打 Release 的包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./gradlew assembleRelease</span><br><span class="line"># 简化版命令，取各个单词的首字母</span><br><span class="line">./gradlew aR</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、Gradle-构建并安装命令"><a href="#4、Gradle-构建并安装命令" class="headerlink" title="4、Gradle 构建并安装命令"></a>4、Gradle 构建并安装命令</h3><p>1）、Release 模式打包并安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew installRelease</span><br></pre></td></tr></table></figure>
+
+<p>2）、卸载 Release 模式包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew uninstallRelease</span><br></pre></td></tr></table></figure>
+
+<p>3）、debug release 模式全部渠道打包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew assemble</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、Gradle-查看包依赖命令"><a href="#5、Gradle-查看包依赖命令" class="headerlink" title="5、Gradle 查看包依赖命令"></a>5、Gradle 查看包依赖命令</h3><p>1）、查看项目根目录下的依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew dependencies</span><br></pre></td></tr></table></figure>
+
+<p>2）、查看 app 模块下的依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew app:dependencies</span><br></pre></td></tr></table></figure>
+
+<p>3）、查看 app 模块下包含 implementation 关键字的依赖项目</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew app:dependencies --configuration implementation</span><br></pre></td></tr></table></figure>
+
+<h1 id="gradle-命令详解"><a href="#gradle-命令详解" class="headerlink" title="gradle 命令详解"></a>gradle 命令详解</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">使用: gradle [option...] [task...]</span><br><span class="line">-?, -h, --help            显示了这个帮助信息.</span><br><span class="line">-a, --no-rebuild          不要重建项目依赖关系.</span><br><span class="line">-b, --build-file          指定构建文件。</span><br><span class="line">--build-cache             支持分级缓存。Gradle将试图重用以前的版本的输出。(孵化).[incubating]</span><br><span class="line">-c, --settings-file       指定的设置文件.</span><br><span class="line">--configure-on-demand     配置必要的项目。Gradle将试图减少大型多项目构建的配置时间。(孵化)</span><br><span class="line">--console                 指定要生成的控制台输出类型. 值是“ &#x27;plain&#x27;, &#x27;auto&#x27; (default), &#x27;rich&#x27; 或&#x27;verbose&#x27;.</span><br><span class="line">--continue                在任务失败后继续执行任务.</span><br><span class="line">-D, --system-prop         设置JVM的系统属性 (例如: -Dmyprop=myvalue).</span><br><span class="line">-d, --debug               在调试模式下进行日志记录(包括正常的堆栈跟踪).</span><br><span class="line">--daemon                  使用分级守护进程来运行构建。如果不运行，启动守护进程.</span><br><span class="line">--foreground              在前台启动分级守护进程。(孵化)</span><br><span class="line">-g, --gradle-user-home    指定分级用户的主目录.</span><br><span class="line">-I, --init-script         指定一个初始化脚本.</span><br><span class="line">-i, --info                将日志级别设置为info.</span><br><span class="line">--include-build           在组合中包含指定的构建. [incubating]</span><br><span class="line">-m, --dry-run             使用禁用的所有任务操作运行构建.</span><br><span class="line">--max-workers             配置可以使用的并发工人的数量. [incubating]</span><br><span class="line">--no-build-cache         支持分级缓存。Gradle将试图重用以前的版本的输出. [incubating]</span><br><span class="line">--no-configure-on-demand  配置必要的项目。Gradle将试图减少大型多项目构建的配置时间. [incubating]</span><br><span class="line">--no-daemon               使用分级守护进程来运行构建。如果不运行，启动守护进程.</span><br><span class="line">--no-parallel             并行构建项目。Gradle将试图确定使用的最佳执行线程的数量. [incubating]</span><br><span class="line">--no-scan                 创建一个构建扫描。如果构建的扫描插件没有被应用，Gradle将发出警告. (https://gradle.com/build-scans) [incubating]</span><br><span class="line">--offline                 在不访问网络资源的情况下执行构建.</span><br><span class="line">-P, --project-prop        为构建脚本设置项目属性 (例如: -Pmyprop=myvalue).</span><br><span class="line">-p, --project-dir         为分级指定起始目录.默认为当前目录.</span><br><span class="line">--parallel                并行构建项目.Gradle将试图确定使用的最佳执行线程的数量. [incubating]</span><br><span class="line">--profile                 概要文件构建执行时间，并生成一个报告，在&lt;build_dir&gt;/reports/profile 目录中.</span><br><span class="line">--project-cache-dir       指定特定于项目的缓存目录。违约。在根项目目录中进行分级.</span><br><span class="line">-q, --quiet               仅仅打印错误日志.</span><br><span class="line">--recompile-scripts       力构建脚本重新编译。deprecated(弃用)-Support for(支持)-recompile scripts(重新编译脚本)被弃用，并计划在5.0版本中删除</span><br><span class="line">--refresh-dependencies    刷新依赖关系.</span><br><span class="line">--rerun-tasks             忽略先前缓存的任务结果.</span><br><span class="line">-S, --full-stacktrace     为所有异常打印出完整的(非常详细的)堆栈跟踪.</span><br><span class="line">-s, --stacktrace          打印出所有异常的stacktrace.</span><br><span class="line">--scan                    创建一个构建扫描。如果构建的扫描插件没有被应用，Gradle将发出警告. (https://gradle.com/build-scans) [incubating]</span><br><span class="line">--status                  显示运行状态，最近停止了分级守护进程(s).</span><br><span class="line">--stop                    如果它正在运行，则停止它的守护进程.</span><br><span class="line">-t, --continuous          使持续构建。当任务文件输入改变时，分级不会退出，并将重新执行任务. [incubating]</span><br><span class="line">-u, --no-search-upward    不要在父文件夹中搜索设置,gradle文件.</span><br><span class="line">-v, --version             打印版本信息.</span><br><span class="line">-w, --warn                设置日志级别来警告.</span><br><span class="line">-x, --exclude-task        指定要从执行中排除的任务.</span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Murray</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.rainbowrise.top/2023/10/02/Gradle%E7%AC%94%E8%AE%B0/">https://www.rainbowrise.top/2023/10/02/Gradle%E7%AC%94%E8%AE%B0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Murray</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/Gradle/">
+                                    <span class="chip bg-color">Gradle</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NTE3MC8zMTYzNw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/10/10/k8s%E6%8B%89%E5%8F%96%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E9%95%9C%E5%83%8F/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="k8s拉取私有仓库镜像">
+                        
+                        <span class="card-title">k8s拉取私有仓库镜像</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-10
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/K8S/" class="post-category">
+                                    K8S
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/K8S/">
+                        <span class="chip bg-color">K8S</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/10/01/Helm%E4%BD%BF%E7%94%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Helm使用">
+                        
+                        <span class="card-title">Helm使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/K8S/" class="post-category">
+                                    K8S
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/K8S/">
+                        <span class="chip bg-color">K8S</span>
+                    </a>
+                    
+                    <a href="/tags/Helm/">
+                        <span class="chip bg-color">Helm</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 马瑞个人笔记<br />'
+            + '文章作者: Murray<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2024</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">Murray</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                &nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                &nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            
+            <br><span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "08";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            
+            <br><span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn" target="_blank">浙ICP备2021006498号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sunglowrise" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:sunglowrise@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/ma-liang-19-36" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/ma-liang-19-36" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

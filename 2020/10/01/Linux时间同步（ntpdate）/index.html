@@ -379,34 +379,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="用ntpdate从时间服务器更新时间"><a href="#用ntpdate从时间服务器更新时间" class="headerlink" title="用ntpdate从时间服务器更新时间"></a>用ntpdate从时间服务器更新时间</h3><ul>
-<li><p>手动同步</p>
+                <h3 id="用-ntpdate-从时间服务器更新时间"><a href="#用-ntpdate-从时间服务器更新时间" class="headerlink" title="用 ntpdate 从时间服务器更新时间"></a>用 ntpdate 从时间服务器更新时间</h3><ul>
+<li>手动同步</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装ntpdate指令</span></span><br><span class="line">yum install ntp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 手动同步ntp时间</span></span><br><span class="line">ntpdate time.nuri.net</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自动同步</p>
+
+<ul>
+<li>自动同步</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改/etc/crontab</span></span><br><span class="line">vim /etc/crontab</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加</span></span><br><span class="line">*/30 * * * * ntpdate time.nuri.net  <span class="comment"># 域名或IP, 每30分钟同步一次</span></span><br></pre></td></tr></table></figure>
 
-
-</li>
-</ul>
 <ul>
-<li><p>时间服务器</p>
+<li>时间服务器</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">time.nuri.net</span><br><span class="line">0.asia.pool.ntp.org</span><br><span class="line">1.asia.pool.ntp.org</span><br><span class="line">2.asia.pool.ntp.org</span><br><span class="line">3.asia.pool.ntp.org</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>时区配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1：</span></span><br><span class="line">tzselect  <span class="comment"># 一步步的选择 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2：</span></span><br><span class="line"><span class="comment"># 复制相应的时区文件</span></span><br><span class="line"><span class="built_in">cp</span> /usr/share/zoneinfo/$主时区/$次时区 /etc/localtime</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置上海时区示例：</span></span><br><span class="line"><span class="built_in">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-</li>
-</ul>
 <ul>
-<li>手动调整（日期与时间）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置年月日为20171012，时间为00:00 </span></span><br><span class="line"><span class="built_in">date</span> -s 20171012</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置时间，不改变日期 </span></span><br><span class="line"><span class="built_in">date</span> -s 16:02:23 </span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置日期及时间 </span></span><br><span class="line"><span class="built_in">date</span> -s <span class="string">&quot;20171012 16:02:23&quot;</span> </span><br></pre></td></tr></table></figure>
-
-
-
-
-</li>
+<li>时区配置</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1：</span></span><br><span class="line">tzselect  <span class="comment"># 一步步的选择</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2：</span></span><br><span class="line"><span class="comment"># 复制相应的时区文件</span></span><br><span class="line"><span class="built_in">cp</span> /usr/share/zoneinfo/$主时区/$次时区 /etc/localtime</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置上海时区示例：</span></span><br><span class="line"><span class="built_in">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>手动调整（日期与时间）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置年月日为20171012，时间为00:00</span></span><br><span class="line"><span class="built_in">date</span> -s 20171012</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置时间，不改变日期</span></span><br><span class="line"><span class="built_in">date</span> -s 16:02:23</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置日期及时间</span></span><br><span class="line"><span class="built_in">date</span> -s <span class="string">&quot;20171012 16:02:23&quot;</span></span><br></pre></td></tr></table></figure>
 
                 
             </div>

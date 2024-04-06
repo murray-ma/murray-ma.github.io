@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Redis/">
                                 <span class="chip bg-color">Redis</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -344,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -383,15 +383,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="错误1"><a href="#错误1" class="headerlink" title="错误1"></a>错误1</h3><ul>
-<li><p>问题</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">File &quot;/home/ubuntu/.virtualenvs/yang/lib/python3.6/site-packages/redis/client.py&quot;, line 1293, in delete</span><br><span class="line">    return self.execute_command(&#x27;DEL&#x27;, *names)</span><br><span class="line">  File &quot;/home/ubuntu/.virtualenvs/yang/lib/python3.6/site-packages/redis/client.py&quot;, line 839, in execute_command</span><br><span class="line">    return self.parse_response(conn, command_name, **options)</span><br><span class="line">  File &quot;/home/ubuntu/.virtualenvs/yang/lib/python3.6/site-packages/redis/client.py&quot;, line 853, in parse_response</span><br><span class="line">    response = connection.read_response()</span><br><span class="line">  File &quot;/home/ubuntu/.virtualenvs/yang/lib/python3.6/site-packages/redis/connection.py&quot;, line 718, in read_response</span><br><span class="line">    raise response</span><br><span class="line">redis.exceptions.ResponseError: MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-writes-on-bgsave-error option). Please check the Redis logs for details about the RDB error.</span><br></pre></td></tr></table></figure></li>
-<li><p>原因</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">强制把redis快照关闭了导致不能持久化的问题。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解决</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 1. 命令行修改方式示例：</span><br><span class="line">config set stop-writes-on-bgsave-error no</span><br><span class="line"></span><br><span class="line"># 2.修改redis.conf文件, vim 打开redis-server配置的redis.conf文件， 然后定位到stop-writes-on-bgsave-error字符串所在位置，接着把后面的yes设置为no即可。</span><br><span class="line">vim redis.conf</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+                <h3 id="错误-1"><a href="#错误-1" class="headerlink" title="错误 1"></a>错误 1</h3><ul>
+<li>问题</li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">File &quot;/home/ubuntu/.virtualenvs/yang/lib/python3.6/site-packages/redis/client.py&quot;, line 1293, in delete</span><br><span class="line">    return self.execute_command(&#x27;DEL&#x27;, *names)</span><br><span class="line">  File &quot;/home/ubuntu/.virtualenvs/yang/lib/python3.6/site-packages/redis/client.py&quot;, line 839, in execute_command</span><br><span class="line">    return self.parse_response(conn, command_name, **options)</span><br><span class="line">  File &quot;/home/ubuntu/.virtualenvs/yang/lib/python3.6/site-packages/redis/client.py&quot;, line 853, in parse_response</span><br><span class="line">    response = connection.read_response()</span><br><span class="line">  File &quot;/home/ubuntu/.virtualenvs/yang/lib/python3.6/site-packages/redis/connection.py&quot;, line 718, in read_response</span><br><span class="line">    raise response</span><br><span class="line">redis.exceptions.ResponseError: MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-writes-on-bgsave-error option). Please check the Redis logs for details about the RDB error.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>原因</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">强制把redis快照关闭了导致不能持久化的问题。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解决</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 1. 命令行修改方式示例：</span><br><span class="line">config set stop-writes-on-bgsave-error no</span><br><span class="line"></span><br><span class="line"># 2.修改redis.conf文件, vim 打开redis-server配置的redis.conf文件， 然后定位到stop-writes-on-bgsave-error字符串所在位置，接着把后面的yes设置为no即可。</span><br><span class="line">vim redis.conf</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -456,12 +461,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Redis/">
                                     <span class="chip bg-color">Redis</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -682,8 +687,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -693,12 +698,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Redis/">
                         <span class="chip bg-color">Redis</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -735,8 +740,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -746,12 +751,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Postgresql/">
                         <span class="chip bg-color">Postgresql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

@@ -328,12 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
-                            </a>
-                        
                             <a href="/tags/Mysql/">
                                 <span class="chip bg-color">Mysql</span>
+                            </a>
+                        
+                            <a href="/tags/DB/">
+                                <span class="chip bg-color">DB</span>
                             </a>
                         
                     </div>
@@ -344,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
+                            <a href="/categories/DB/" class="post-category">
+                                DB
                             </a>
                         
                     </div>
@@ -385,13 +385,13 @@
             <div id="articleContent">
                 <h4 id="1、修改密码"><a href="#1、修改密码" class="headerlink" title="1、修改密码"></a>1、修改密码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">格式：mysqladmin -u用户名 -p旧密码 password 新密码</span><br><span class="line">或 update user set password=password(&quot;新密码&quot;) where user=&quot;用户&quot;；</span><br><span class="line">例如：mysqladmin -uroot -p123456 password 654321</span><br><span class="line">注：绿色版给root添加密码：</span><br><span class="line">mysqladmin -uroot -password 密码</span><br></pre></td></tr></table></figure>
 
-<h4 id="2、连接MySQL"><a href="#2、连接MySQL" class="headerlink" title="2、连接MySQL"></a>2、连接MySQL</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：mysql -h主机地址 -u用户名 -p用户密码</span><br></pre></td></tr></table></figure>
+<h4 id="2、连接-MySQL"><a href="#2、连接-MySQL" class="headerlink" title="2、连接 MySQL"></a>2、连接 MySQL</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：mysql -h主机地址 -u用户名 -p用户密码</span><br></pre></td></tr></table></figure>
 
 <h4 id="3、新增用户"><a href="#3、新增用户" class="headerlink" title="3、新增用户"></a>3、新增用户</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">MySQL进入root环境</span><br><span class="line">创建用户：</span><br><span class="line">格式：grant select，insert,update,delete on 某数据库.* to 用户名@&quot;%&quot; identified by &quot;用户密码&quot; ;</span><br><span class="line"></span><br><span class="line">说明：grant与on之间是各种权限，select,alter,update,delete,insert等，所有权限all，on后是数据库名和表名，*代表所有，@前是用户名，@后是域名或者IP，identified by 后面是登陆密码，可省略。</span><br><span class="line"></span><br><span class="line">增加一个超级权限管理用户admin（在数据库本机上用ROOT用户登录上MySql）</span><br><span class="line">命令：GRANT ALL PRIVILEGES ON *.* TO</span><br><span class="line">  [email=admin@localhost]admin@localhost[/email]</span><br><span class="line">  IDENTIFIED BY &#x27;something&#x27; WITH GRANT OPTION;</span><br><span class="line">something是用户密码。</span><br><span class="line"></span><br><span class="line">flush privileges;</span><br><span class="line"></span><br><span class="line">删除授权：revoke all privileges on *.* from [email=root@localhost]root@localhost[/email];</span><br><span class="line">delete from user where user=&quot;root&quot; and host=&quot;%&quot;;</span><br><span class="line"></span><br><span class="line">还可以创建用户：</span><br><span class="line">create user 用户名 identified by 密码；</span><br></pre></td></tr></table></figure>
 
 <h4 id="4、查看数据库相关信息"><a href="#4、查看数据库相关信息" class="headerlink" title="4、查看数据库相关信息"></a>4、查看数据库相关信息</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">版本信息：select version(),user(),now(),current_date();</span><br><span class="line">数据库：show databases;</span><br><span class="line">使用数据库：use 数据库名称;</span><br><span class="line">查看表：show tables;</span><br><span class="line">查看设计表：desc 表名;</span><br><span class="line">查看当前数据库：select database() ;</span><br></pre></td></tr></table></figure>
 
-<h4 id="5、数据库操作"><a href="#5、数据库操作" class="headerlink" title="5、数据库操作"></a>5、数据库操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">创建数据库：create database 数据库名称;</span><br><span class="line">创建数据表：create table 表名(字段1，字段2，...);</span><br><span class="line">添加数据：insert into 表名（字段1，字段2，...） values (值1，值2，...);</span><br><span class="line">查询：select 字段1，字段2，... from 表名 where 条件 </span><br><span class="line">修改：update 表名 set 字段1=值1，...where 条件</span><br><span class="line">添加一列：alter table 表名 add column 字段；eg: alter table person add column singe varchar(1);</span><br><span class="line">删除记录：delete from 表名 where 条件；</span><br><span class="line">删除表：drop table 表名1，表名2，...;</span><br><span class="line">删除数据库：drop database 数据库名；</span><br><span class="line">表重命名：alter table 旧表名 rename 新表名</span><br><span class="line"></span><br><span class="line">数据库备份</span><br><span class="line">mysqldump -h 域名或IP -u 用户名 -p [-d][-t]数据库名&gt;备份数据库名.sql；</span><br><span class="line">其中&gt;表示备份，&lt;表示恢复。-d只导出建表指令，-t表示插入数据的指令</span><br><span class="line"></span><br><span class="line">导入数据库：</span><br><span class="line">source命令：source 脚本文件（xxx.sql）;</span><br><span class="line">mysqldump命令： 使用 &lt;</span><br><span class="line">mysql命令：mysql -u用户名 -p -D 数据库&lt;脚本文件（xxx.sql）</span><br><span class="line">load命令：load data local infile &quot;文件名.txt&quot; into table 表名（字段1，字段2，...）；注：文件中字段以tab隔开</span><br></pre></td></tr></table></figure>
+<h4 id="5、数据库操作"><a href="#5、数据库操作" class="headerlink" title="5、数据库操作"></a>5、数据库操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">创建数据库：create database 数据库名称;</span><br><span class="line">创建数据表：create table 表名(字段1，字段2，...);</span><br><span class="line">添加数据：insert into 表名（字段1，字段2，...） values (值1，值2，...);</span><br><span class="line">查询：select 字段1，字段2，... from 表名 where 条件</span><br><span class="line">修改：update 表名 set 字段1=值1，...where 条件</span><br><span class="line">添加一列：alter table 表名 add column 字段；eg: alter table person add column singe varchar(1);</span><br><span class="line">删除记录：delete from 表名 where 条件；</span><br><span class="line">删除表：drop table 表名1，表名2，...;</span><br><span class="line">删除数据库：drop database 数据库名；</span><br><span class="line">表重命名：alter table 旧表名 rename 新表名</span><br><span class="line"></span><br><span class="line">数据库备份</span><br><span class="line">mysqldump -h 域名或IP -u 用户名 -p [-d][-t]数据库名&gt;备份数据库名.sql；</span><br><span class="line">其中&gt;表示备份，&lt;表示恢复。-d只导出建表指令，-t表示插入数据的指令</span><br><span class="line"></span><br><span class="line">导入数据库：</span><br><span class="line">source命令：source 脚本文件（xxx.sql）;</span><br><span class="line">mysqldump命令： 使用 &lt;</span><br><span class="line">mysql命令：mysql -u用户名 -p -D 数据库&lt;脚本文件（xxx.sql）</span><br><span class="line">load命令：load data local infile &quot;文件名.txt&quot; into table 表名（字段1，字段2，...）；注：文件中字段以tab隔开</span><br></pre></td></tr></table></figure>
 
 <h4 id="安全模式登入（即绕过密码验证）"><a href="#安全模式登入（即绕过密码验证）" class="headerlink" title="安全模式登入（即绕过密码验证）"></a>安全模式登入（即绕过密码验证）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># /etc/init.d/mysql stop</span><br><span class="line"># mysqld_safe --user=mysql --skip-grant-tables</span><br><span class="line"># mysql -u root mysql</span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; update user set password = password(&quot;123456&quot;) where user=&#x27;root&#x27;;</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
 
@@ -458,12 +458,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
-                                </a>
-                            
                                 <a href="/tags/Mysql/">
                                     <span class="chip bg-color">Mysql</span>
+                                </a>
+                            
+                                <a href="/tags/DB/">
+                                    <span class="chip bg-color">DB</span>
                                 </a>
                             
                         </div>
@@ -684,8 +684,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -695,12 +695,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -737,8 +737,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -748,12 +748,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mysql/">
                         <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>

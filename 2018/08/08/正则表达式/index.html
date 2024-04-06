@@ -379,26 +379,55 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="常用的正则表达式元字符"><a href="#常用的正则表达式元字符" class="headerlink" title="常用的正则表达式元字符"></a>常用的正则表达式元字符</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">* 匹配重复零次或多次前一字符 </span><br><span class="line">+ 匹配一个或多个前面的字符.它的作用和*很相似,但唯一的区别是它不匹配零个字 符的情况</span><br><span class="line"></span><br><span class="line">? 匹配零或一个前面的字符。它一般用于匹配单个字符 </span><br><span class="line"></span><br><span class="line">. 匹配任意字符( 除换行符 ) </span><br><span class="line"></span><br><span class="line">^ 匹配一行的开头,但依赖于上下文环境,可能在正则表达式中表示否定一个字符 集的意思</span><br><span class="line"></span><br><span class="line">[...] 匹配集合中任意字符 如&quot;[xyz]&quot; 匹配字符 x, y, 或z</span><br><span class="line"></span><br><span class="line">[^...] 匹配不属集合 中 任意字符</span><br><span class="line"></span><br><span class="line">^, $ 匹配 行首、行尾</span><br><span class="line"></span><br><span class="line">\&lt;, \&gt; 用于表示单词的边界。\&lt; 匹配词首，\&gt;词尾，如&quot;\&lt;the\&gt;&quot; 匹配单词&quot;the&quot;</span><br><span class="line">... 正则表达式分组。进行子字符串提取(substring extraction)一起使用很有用</span><br><span class="line"></span><br><span class="line">\n 第 n 个分组内容  </span><br><span class="line"></span><br><span class="line">\ 转义(escapes) 一个特殊的字符,使这个字符表示原来字面上的意思。&quot;\$&quot;表示 了原来的字面意思&quot;$&quot;,而不是在正则表达式中表达的匹配行尾的意思.&quot;\\&quot;也被 解释成了字面上的意思&quot;\&quot;</span><br><span class="line"></span><br><span class="line">\&#123; \&#125; 指示前面正则表达式匹配的次数. </span><br><span class="line"></span><br><span class="line">要转义是因为不转义的话大括号只是表示他们字面上的意思.这个用法只是技巧上 的而不是基本正则表达式的内容.&quot;[0-9]\&#123;5\&#125;&quot; 精确匹配5个数字(从0到9的数字). </span><br><span class="line"></span><br><span class="line">| &quot;或&quot;，正则操作符用于匹配一组可选的字符</span><br><span class="line"></span><br><span class="line">&#123;n&#125; n是一个非负整数。匹配确定的n次。例如，&#x27;&#x27;o&#123;2&#125;&#x27;&#x27; 不能匹配 &quot;Bob&quot;中的&#x27;&#x27;o&#x27;&#x27;，但是能匹配&quot;food&quot; 中的两个o。</span><br><span class="line"></span><br><span class="line">&#123;n,&#125; n是一个非负整数。至少匹配n次。例如，&#x27;&#x27;o&#123;2,&#125;&#x27;&#x27; 不能匹配&quot;Bob&quot;中的&#x27;o&#x27;&#x27;，但能匹配 &quot;foooood&quot;中的所有o。&#x27;&#x27;o&#123;1,&#125;&#x27;&#x27;等价于&#x27;&#x27;o+&#x27;&#x27;。&#x27;&#x27;o&#123;0,&#125;&#x27;&#x27;则等价于&#x27;&#x27;o*&#x27;&#x27;。</span><br><span class="line"></span><br><span class="line">&#123;n,m&#125; m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。例如，&quot;o&#123;1,3&#125;&quot;将匹配 &quot;fooooood&quot;中的前三个o。&#x27;&#x27;o&#123;0,1&#125;&#x27;&#x27;等价于&#x27;&#x27;o?&#x27;&#x27;。请注意在逗号和两个数之间不能有空格。</span><br><span class="line"></span><br><span class="line">\b 匹配一个单词边界，也就是指单词和空格间的位置。例如，&#x27;&#x27;er\b&#x27;&#x27; 可以匹配&quot;never&quot; 中的&#x27;&#x27;er&#x27;&#x27;，但不能匹配 &quot;verb&quot;中的 &#x27;&#x27;er&#x27;&#x27;。 </span><br><span class="line"></span><br><span class="line">\B 匹配非单词边界。&#x27;&#x27;er\B&#x27;&#x27;能匹配&quot;verb&quot;中的&#x27;&#x27;er&#x27;&#x27;，但不能匹配&quot;never&quot;中的 &#x27;&#x27;er&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">\w 匹配包括下划线的任何单词字符。等价于&#x27;&#x27;[A-Za-z0-9_]&#x27;&#x27;。</span><br><span class="line"></span><br><span class="line">\W 匹配任何非单词字符。等价于&#x27;&#x27;[^A-Za-z0-9_]&#x27;&#x27;。</span><br><span class="line"></span><br><span class="line">\d 匹配一个数字字符。等价于[0-9]。</span><br><span class="line"></span><br><span class="line">\D 匹配一个非数字字符。等价于[^0-9]。</span><br><span class="line"></span><br><span class="line">\f 匹配一个换页符。等价于\x0c和\cL。</span><br><span class="line"></span><br><span class="line">\n 匹配一个换行符。等价于\x0a和\cJ。</span><br><span class="line"></span><br><span class="line">\r 匹配一个回车符。等价于\x0d和\cM。</span><br><span class="line"></span><br><span class="line">\s 匹配任何空白字符，包括空格、制表符、换页符等等。等价于[\f\n\r\t\v]。</span><br><span class="line"></span><br><span class="line">\S 匹配任何非空白字符。等价于[^\f\n\r\t\v]。</span><br><span class="line"></span><br><span class="line">\t 匹配一个制表符。等价于\x09 和 \cI。</span><br><span class="line"></span><br><span class="line">\v 匹配一个垂直制表符。等价于\x0b和\cK。</span><br></pre></td></tr></table></figure>
+                <h3 id="常用的正则表达式元字符"><a href="#常用的正则表达式元字符" class="headerlink" title="常用的正则表达式元字符"></a>常用的正则表达式元字符</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">* 匹配重复零次或多次前一字符</span><br><span class="line">+ 匹配一个或多个前面的字符.它的作用和*很相似,但唯一的区别是它不匹配零个字 符的情况</span><br><span class="line"></span><br><span class="line">? 匹配零或一个前面的字符。它一般用于匹配单个字符</span><br><span class="line"></span><br><span class="line">. 匹配任意字符( 除换行符 )</span><br><span class="line"></span><br><span class="line">^ 匹配一行的开头,但依赖于上下文环境,可能在正则表达式中表示否定一个字符 集的意思</span><br><span class="line"></span><br><span class="line">[...] 匹配集合中任意字符 如&quot;[xyz]&quot; 匹配字符 x, y, 或z</span><br><span class="line"></span><br><span class="line">[^...] 匹配不属集合 中 任意字符</span><br><span class="line"></span><br><span class="line">^, $ 匹配 行首、行尾</span><br><span class="line"></span><br><span class="line">\&lt;, \&gt; 用于表示单词的边界。\&lt; 匹配词首，\&gt;词尾，如&quot;\&lt;the\&gt;&quot; 匹配单词&quot;the&quot;</span><br><span class="line">... 正则表达式分组。进行子字符串提取(substring extraction)一起使用很有用</span><br><span class="line"></span><br><span class="line">\n 第 n 个分组内容</span><br><span class="line"></span><br><span class="line">\ 转义(escapes) 一个特殊的字符,使这个字符表示原来字面上的意思。&quot;\$&quot;表示 了原来的字面意思&quot;$&quot;,而不是在正则表达式中表达的匹配行尾的意思.&quot;\\&quot;也被 解释成了字面上的意思&quot;\&quot;</span><br><span class="line"></span><br><span class="line">\&#123; \&#125; 指示前面正则表达式匹配的次数.</span><br><span class="line"></span><br><span class="line">要转义是因为不转义的话大括号只是表示他们字面上的意思.这个用法只是技巧上 的而不是基本正则表达式的内容.&quot;[0-9]\&#123;5\&#125;&quot; 精确匹配5个数字(从0到9的数字).</span><br><span class="line"></span><br><span class="line">| &quot;或&quot;，正则操作符用于匹配一组可选的字符</span><br><span class="line"></span><br><span class="line">&#123;n&#125; n是一个非负整数。匹配确定的n次。例如，&#x27;&#x27;o&#123;2&#125;&#x27;&#x27; 不能匹配 &quot;Bob&quot;中的&#x27;&#x27;o&#x27;&#x27;，但是能匹配&quot;food&quot; 中的两个o。</span><br><span class="line"></span><br><span class="line">&#123;n,&#125; n是一个非负整数。至少匹配n次。例如，&#x27;&#x27;o&#123;2,&#125;&#x27;&#x27; 不能匹配&quot;Bob&quot;中的&#x27;o&#x27;&#x27;，但能匹配 &quot;foooood&quot;中的所有o。&#x27;&#x27;o&#123;1,&#125;&#x27;&#x27;等价于&#x27;&#x27;o+&#x27;&#x27;。&#x27;&#x27;o&#123;0,&#125;&#x27;&#x27;则等价于&#x27;&#x27;o*&#x27;&#x27;。</span><br><span class="line"></span><br><span class="line">&#123;n,m&#125; m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。例如，&quot;o&#123;1,3&#125;&quot;将匹配 &quot;fooooood&quot;中的前三个o。&#x27;&#x27;o&#123;0,1&#125;&#x27;&#x27;等价于&#x27;&#x27;o?&#x27;&#x27;。请注意在逗号和两个数之间不能有空格。</span><br><span class="line"></span><br><span class="line">\b 匹配一个单词边界，也就是指单词和空格间的位置。例如，&#x27;&#x27;er\b&#x27;&#x27; 可以匹配&quot;never&quot; 中的&#x27;&#x27;er&#x27;&#x27;，但不能匹配 &quot;verb&quot;中的 &#x27;&#x27;er&#x27;&#x27;。</span><br><span class="line"></span><br><span class="line">\B 匹配非单词边界。&#x27;&#x27;er\B&#x27;&#x27;能匹配&quot;verb&quot;中的&#x27;&#x27;er&#x27;&#x27;，但不能匹配&quot;never&quot;中的 &#x27;&#x27;er&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">\w 匹配包括下划线的任何单词字符。等价于&#x27;&#x27;[A-Za-z0-9_]&#x27;&#x27;。</span><br><span class="line"></span><br><span class="line">\W 匹配任何非单词字符。等价于&#x27;&#x27;[^A-Za-z0-9_]&#x27;&#x27;。</span><br><span class="line"></span><br><span class="line">\d 匹配一个数字字符。等价于[0-9]。</span><br><span class="line"></span><br><span class="line">\D 匹配一个非数字字符。等价于[^0-9]。</span><br><span class="line"></span><br><span class="line">\f 匹配一个换页符。等价于\x0c和\cL。</span><br><span class="line"></span><br><span class="line">\n 匹配一个换行符。等价于\x0a和\cJ。</span><br><span class="line"></span><br><span class="line">\r 匹配一个回车符。等价于\x0d和\cM。</span><br><span class="line"></span><br><span class="line">\s 匹配任何空白字符，包括空格、制表符、换页符等等。等价于[\f\n\r\t\v]。</span><br><span class="line"></span><br><span class="line">\S 匹配任何非空白字符。等价于[^\f\n\r\t\v]。</span><br><span class="line"></span><br><span class="line">\t 匹配一个制表符。等价于\x09 和 \cI。</span><br><span class="line"></span><br><span class="line">\v 匹配一个垂直制表符。等价于\x0b和\cK。</span><br></pre></td></tr></table></figure>
 
 <h3 id="常用子模式扩展语法"><a href="#常用子模式扩展语法" class="headerlink" title="常用子模式扩展语法"></a>常用子模式扩展语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(?P&lt;groupname&gt;)    为子模式命名</span><br><span class="line">(?P=groupname)  调用已匹配的命名组</span><br><span class="line">(? iLmsux)  设置匹配标志，可以是几个字母的组合，每个字母含义与编译标志相同</span><br><span class="line">(?:...) 匹配但不捕获该匹配的子表达式</span><br><span class="line">(?imx)	正则表达式包含三种可选标志：i, m, 或 x 。只影响括号中的区域。</span><br><span class="line">(?-imx)	正则表达式关闭 i, m, 或 x 可选标志。只影响括号中的区域。</span><br><span class="line">(?: re)	类似 (...), 但是不表示一个组</span><br><span class="line">(?imx: re)	在括号中使用i, m, 或 x 可选标志</span><br><span class="line">(?-imx: re)	在括号中不使用i, m, 或 x 可选标志</span><br><span class="line">(?P=groupname) 表示在此之前的命名为groupname的子模式</span><br><span class="line">(?#...)    表示注释</span><br><span class="line">(?=...)    后向肯定界定符。用于正则表达式之后，表示如果&#x27;=&#x27;后面的内容在字符串中出现则匹配，但不反回&#x27;=&#x27;之后的内容</span><br><span class="line">(?!...)    后向否定界定符.用于正则表达式之后，表示如果&#x27;!&#x27;后2的内容在字符串中不出现则匹配，但不返回&#x27;=&#x27;之后的内容</span><br><span class="line">(?&lt;=...)   前向肯定界定符。前向界定括号中的表达式必须是常值，用于正则表达式之前，与(? =...)含义相同</span><br><span class="line">(?&lt;!...)   前向否定界定符。用于正则表达式之前，与(?! ...)含义相同</span><br><span class="line">(?&gt; re)	匹配的独立模式，省去回溯。</span><br></pre></td></tr></table></figure>
 
-<h3 id="re模块使用"><a href="#re模块使用" class="headerlink" title="re模块使用"></a>re模块使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">re.compile()   # 创建模式对象</span><br><span class="line">re.search()    # 在这种整个字符串中寻找模式，返回match对象或None</span><br><span class="line">re.match()     # 从字符串的开始处匹配模式，返回match对象或None</span><br><span class="line">re.findall()   # 列出字符串中模式的所有匹配项,返回一个list</span><br><span class="line">re.split()     # 根据模式匹配项分割字符串</span><br><span class="line">re.sub()       # 将字符串中所有pat的匹配项用repl替换</span><br><span class="line">re.escape()    # 将字符串中所有特殊正则表达式转义</span><br></pre></td></tr></table></figure>
+<h3 id="re-模块使用"><a href="#re-模块使用" class="headerlink" title="re 模块使用"></a>re 模块使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">re.compile()   # 创建模式对象</span><br><span class="line">re.search()    # 在这种整个字符串中寻找模式，返回match对象或None</span><br><span class="line">re.match()     # 从字符串的开始处匹配模式，返回match对象或None</span><br><span class="line">re.findall()   # 列出字符串中模式的所有匹配项,返回一个list</span><br><span class="line">re.split()     # 根据模式匹配项分割字符串</span><br><span class="line">re.sub()       # 将字符串中所有pat的匹配项用repl替换</span><br><span class="line">re.escape()    # 将字符串中所有特殊正则表达式转义</span><br></pre></td></tr></table></figure>
 
-<h3 id="匹配模式"><a href="#匹配模式" class="headerlink" title="匹配模式"></a>匹配模式</h3><p>修饰符 | 描述<br>| — | — |<br>re.I | 使匹配对大小写不敏感<br>re.L | 做本地化识别（locale-aware）匹配<br>re.M | 多行匹配，影响 ^ 和 $<br>re.S | 使 . 匹配包括换行在内的所有字符<br>re.U | 根据Unicode字符集解析字符。这个标志影响 \w, \W, \b, \B.<br>re.X | 该标志通过给予你更灵活的格式以便你将正则表达式写得更易于理解。</p>
-<h3 id="正则表达实例"><a href="#正则表达实例" class="headerlink" title="正则表达实例"></a>正则表达实例</h3><p><strong>判断URL是否合法</strong></p>
+<h3 id="匹配模式"><a href="#匹配模式" class="headerlink" title="匹配模式"></a>匹配模式</h3><table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>re.I</td>
+<td>使匹配对大小写不敏感</td>
+</tr>
+<tr>
+<td>re.L</td>
+<td>做本地化识别（locale-aware）匹配</td>
+</tr>
+<tr>
+<td>re.M</td>
+<td>多行匹配，影响 ^ 和 $</td>
+</tr>
+<tr>
+<td>re.S</td>
+<td>使 . 匹配包括换行在内的所有字符</td>
+</tr>
+<tr>
+<td>re.U</td>
+<td>根据 Unicode 字符集解析字符。这个标志影响 \w, \W, \b, \B.</td>
+</tr>
+<tr>
+<td>re.X</td>
+<td>该标志通过给予你更灵活的格式以便你将正则表达式写得更易于理解。</td>
+</tr>
+</tbody></table>
+<h3 id="正则表达实例"><a href="#正则表达实例" class="headerlink" title="正则表达实例"></a>正则表达实例</h3><p><strong>判断 URL 是否合法</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">url = <span class="string">&#x27;http://ischool.h3c.com:3003/openproject-media/pic/image/s.jpg&#x27;</span></span><br><span class="line"><span class="keyword">if</span> re.<span class="keyword">match</span>(<span class="string">r&#x27;^https?:/&#123;2&#125;\w.+$&#x27;</span>, url):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;This looks valid.&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;This looks invalid.&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <p><strong>替换字符串</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"> </span><br><span class="line">line=<span class="string">&quot;this hdr-biz model args= server&quot;</span></span><br><span class="line">patt=<span class="string">r&#x27;args=&#x27;</span></span><br><span class="line">name = re.sub(patt, <span class="string">&quot;&quot;</span>, line)</span><br><span class="line"><span class="built_in">print</span>(name)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">line=<span class="string">&quot;this hdr-biz model args= server&quot;</span></span><br><span class="line">patt=<span class="string">r&#x27;args=&#x27;</span></span><br><span class="line">name = re.sub(patt, <span class="string">&quot;&quot;</span>, line)</span><br><span class="line"><span class="built_in">print</span>(name)</span><br></pre></td></tr></table></figure>
 
 <p><strong>分割字符串</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">string = <span class="string">&quot;David comes from china. he loves watching tv shows. Tom is an american, he loves games. Rick blablabla&quot;</span></span><br><span class="line"></span><br><span class="line">names = [<span class="string">&quot;David&quot;</span>, <span class="string">&quot;Tom&quot;</span>, <span class="string">&quot;Rick&quot;</span>]</span><br><span class="line"></span><br><span class="line">result = re.split(<span class="string">r&#x27;(?&lt;=\.)\s*(?=%s)&#x27;</span> % <span class="string">&#x27;|&#x27;</span>.join(names), string)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
 
 <p><strong>校验字符</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 汉字</span><br><span class="line">^[\u4e00-\u9fa5]&#123;0,&#125;$</span><br><span class="line"></span><br><span class="line"># 由数字、英文字母或者下划线组成的字符串</span><br><span class="line">^\w+$</span><br><span class="line"></span><br><span class="line"># 中文、英文、数字包括下划线</span><br><span class="line">^[\u4E00-\u9FA5A-Za-z0-9_]+$</span><br><span class="line"></span><br><span class="line"># Email地址</span><br><span class="line">^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</span><br><span class="line"></span><br><span class="line"># 域名</span><br><span class="line">[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;(/.[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;)+/.?</span><br><span class="line"></span><br><span class="line"># InternetURL</span><br><span class="line">[a-zA-z]+://[^\s]*</span><br><span class="line">^https?://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$</span><br><span class="line"></span><br><span class="line"># 中国邮政编码</span><br><span class="line">[1-9]\d&#123;5&#125;(?!\d) </span><br><span class="line"></span><br><span class="line"># IP地址</span><br><span class="line">\d+\.\d+\.\d+\.\d+</span><br><span class="line">((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.)&#123;3&#125;(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 汉字</span><br><span class="line">^[\u4e00-\u9fa5]&#123;0,&#125;$</span><br><span class="line"></span><br><span class="line"># 由数字、英文字母或者下划线组成的字符串</span><br><span class="line">^\w+$</span><br><span class="line"></span><br><span class="line"># 中文、英文、数字包括下划线</span><br><span class="line">^[\u4E00-\u9FA5A-Za-z0-9_]+$</span><br><span class="line"></span><br><span class="line"># Email地址</span><br><span class="line">^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</span><br><span class="line"></span><br><span class="line"># 域名</span><br><span class="line">[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;(/.[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;)+/.?</span><br><span class="line"></span><br><span class="line"># InternetURL</span><br><span class="line">[a-zA-z]+://[^\s]*</span><br><span class="line">^https?://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$</span><br><span class="line"></span><br><span class="line"># 中国邮政编码</span><br><span class="line">[1-9]\d&#123;5&#125;(?!\d)</span><br><span class="line"></span><br><span class="line"># IP地址</span><br><span class="line">\d+\.\d+\.\d+\.\d+</span><br><span class="line">((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.)&#123;3&#125;(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -662,13 +691,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/08/28/mongo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+                <a href="/2018/08/27/mongodb%E5%88%9D%E6%8E%A2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="mongodb基本指令">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="MongoDB初探">
                         
-                        <span class="card-title">mongodb基本指令</span>
+                        <span class="card-title">MongoDB初探</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -679,14 +708,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-08-27
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
+                            <a href="/categories/DB/" class="post-category">
+                                    DB
                                 </a>
                             
                             
@@ -696,12 +725,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database/">
-                        <span class="chip bg-color">Database</span>
-                    </a>
-                    
                     <a href="/tags/Mongodb/">
                         <span class="chip bg-color">Mongodb</span>
+                    </a>
+                    
+                    <a href="/tags/DB/">
+                        <span class="chip bg-color">DB</span>
                     </a>
                     
                 </div>
@@ -738,8 +767,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/JS/" class="post-category">
+                                    JS
                                 </a>
                             
                             
@@ -749,12 +778,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Js/">
-                        <span class="chip bg-color">Js</span>
-                    </a>
-                    
                     <a href="/tags/EasyUI/">
                         <span class="chip bg-color">EasyUI</span>
+                    </a>
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>

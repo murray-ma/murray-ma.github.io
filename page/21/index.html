@@ -262,32 +262,36 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/Ubuntu%20%E5%AE%89%E8%A3%85%20oracle%20instantclient_12_2/">
+                    <a href="/2020/10/01/Ubuntu%E9%98%B2%E7%81%AB%E5%A2%99ufw/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Ubuntu 安装 oracle instantclient_12_2">
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Ubuntu防火墙ufw">
                             
-                            <span class="card-title">Ubuntu 安装 oracle instantclient_12_2</span>
+                            <span class="card-title">Ubuntu防火墙ufw</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Ubuntu 安装 oracle instantclient_12_2下载地址1http://www.oracle.com/technetwork/database/database-technologies/instant-client/
+                                1、Ubuntu 安装 ufw：12sudo apt-get install ufwsudo ufw version 查看防火墙版本
+
+2、防火墙操作：① 启用12sudo ufw enablesudo ufw default deny
+
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -298,12 +302,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
-                        <a href="/tags/Oracle/">
-                            <span class="chip bg-color">Oracle</span>
+                        <a href="/tags/Ubuntu/">
+                            <span class="chip bg-color">Ubuntu</span>
                         </a>
                         
                     </div>
@@ -313,36 +317,32 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/mysql%20%E5%88%A0%E9%99%A4%E8%87%AA%E5%85%B3%E8%81%94%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%95%B0%E6%8D%AE/">
+                    <a href="/2020/10/01/find%20-mtime%E6%9D%A5%E6%89%BE%E6%9F%90%E6%9F%90%E6%97%B6%E9%97%B4%E7%82%B9%E4%B9%8B%E5%89%8D%E7%9A%84%E6%96%87%E4%BB%B6/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="mysql 删除自关联数据表数据">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="find -mtime来找某某时间点之前的文件">
                             
-                            <span class="card-title">mysql 删除自关联数据表数据</span>
+                            <span class="card-title">find -mtime来找某某时间点之前的文件</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1. 关闭外键检查12SET FOREIGN_KEY_CHECKS = 0;
-
-2. 删除1delete from table_name;
-
-3. 开启检查1SET FOREIGN_KEY_CHECKS = 1;
+                                find 指令在 unix 或 linux 环境中经常会用到 find -mtime 这样的写法来找某某时间点之前的文件，至于如何写 find -mtime +N/-N/N，，画下了这个图，以便理解和记忆：从图上可以看出，以当前时间点开始算
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -353,12 +353,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
-                        </a>
-                        
-                        <a href="/tags/Mysql/">
-                            <span class="chip bg-color">Mysql</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
                     </div>
@@ -368,36 +364,42 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/mysqldump%20%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E/">
+                    <a href="/2020/10/01/linux%20%E6%9F%A5%E7%9C%8BSOCKET%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="mysqldump 参数说明">
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="linux 查看SOCKET使用情况">
                             
-                            <span class="card-title">mysqldump 参数说明</span>
+                            <span class="card-title">linux 查看SOCKET使用情况</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-mysqldump命令中带有一个 –where/-w 参数，它用来设定数据导出的条件，使用方式和SQL查询命令中中的where基本上相同，可以从数据库中导出你需要的那部分数据了。
+                                linux 查看 SOCKET 使用情况Linux 系统中，查看 SOCKET 使用情况可以使用 ss 命令。
 
-命令格式
-1mysqldump -u&lt;userna
+命令格式：
+
+12ss ［参数］ss ［参数］ ［过滤］
+
+
+命令功能：
+
+
+ss（Socket Statistics 的缩写
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -408,12 +410,12 @@ mysqldump命令中带有一个 –where/-w 参数，它用来设定数据导出�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
-                        <a href="/tags/Mysql/">
-                            <span class="chip bg-color">Mysql</span>
+                        <a href="/tags/Socket/">
+                            <span class="chip bg-color">Socket</span>
                         </a>
                         
                     </div>
@@ -423,33 +425,35 @@ mysqldump命令中带有一个 –where/-w 参数，它用来设定数据导出�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/mysqlslap%EF%BC%88MySQL%E8%87%AA%E5%B8%A6%E7%9A%84%E6%80%A7%E8%83%BD%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%EF%BC%89/">
+                    <a href="/2020/10/01/linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="mysqlslap（MySQL自带的性能压力测试工具）">
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="linux常用指令">
                             
-                            <span class="card-title">mysqlslap（MySQL自带的性能压力测试工具）</span>
+                            <span class="card-title">linux常用指令</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                mysqlslap（MySQL自带的性能压力测试工具）
-mysqlslap 是 Mysql 自带的压力测试工具，可以模拟出大量客户端同时操作数据库的情况，通过结果信息来了解数据库的性能状况。mysqlslap 的一个主要工作场景就是对数据库
+                                linux 常用指令
+参考：https://www.runoob.com/linux/linux-comm-bzip2.html
+
+文件目录类12345678mkdir &lt;dir&gt;  # 建立目录mkdir -p &lt;dir
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -460,12 +464,8 @@ mysqlslap 是 Mysql 自带的压力测试工具，可以模拟出大量客户端
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
-                        </a>
-                        
-                        <a href="/tags/Mysql/">
-                            <span class="chip bg-color">Mysql</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
                     </div>
@@ -475,32 +475,41 @@ mysqlslap 是 Mysql 自带的压力测试工具，可以模拟出大量客户端
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/mysql%E5%91%BD%E4%BB%A4%EF%BC%88%E6%80%BB%E7%BB%93%EF%BC%89/">
+                    <a href="/2020/10/01/ubuntu%2018.04%20server%20%E6%89%A9%E5%AE%B9(LVM)%E7%A3%81%E7%9B%98%20%E8%A7%A3%E5%86%B3%E7%A3%81%E7%9B%98%E4%B8%8D%E8%B6%B3%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%88VirtualBox%EF%BC%89/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="mysql命令（总结）">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="ubuntu 18.04 server 扩容(LVM)磁盘 解决磁盘不足的情况（VirtualBox）">
                             
-                            <span class="card-title">mysql命令（总结）</span>
+                            <span class="card-title">ubuntu 18.04 server 扩容(LVM)磁盘 解决磁盘不足的情况（VirtualBox）</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、修改密码12345格式：mysqladmin -u用户名 -p旧密码 password 新密码或 update user set password=password(&quot;新密码&quot;) where user=&quot;用
+                                
+查看磁盘情况
+
+12df -h# 发现/dev/mapper/ubuntu–vg-ubuntu–lv 磁盘只有4G的空间，需要扩容
+
+
+
+显示存在的卷组
+
+12345sudo vgdisplay# 结果Alloc PE / Size   
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -511,12 +520,12 @@ mysqlslap 是 Mysql 自带的压力测试工具，可以模拟出大量客户端
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
-                        <a href="/tags/Mysql/">
-                            <span class="chip bg-color">Mysql</span>
+                        <a href="/tags/LVM/">
+                            <span class="chip bg-color">LVM</span>
                         </a>
                         
                     </div>
@@ -526,35 +535,32 @@ mysqlslap 是 Mysql 自带的压力测试工具，可以模拟出大量客户端
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/mysql%E5%BC%80%E5%90%AFbinlog/">
+                    <a href="/2020/10/01/%E5%A6%82%E4%BD%95%E6%B8%85%E7%90%86Virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BAVDI%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6%E7%9A%84%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="mysql开启binlog">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="如何清理Virtualbox虚拟机VDI镜像文件的空间大小">
                             
-                            <span class="card-title">mysql开启binlog</span>
+                            <span class="card-title">如何清理Virtualbox虚拟机VDI镜像文件的空间大小</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                mysql5.7 开启binlog查看是否已经开启binlog1show variables like &#x27;%log_bin%&#x27;;
-
-开启binlog
-win10123456789101112131415161718192
+                                如何清理 Virtualbox 虚拟机 VDI 镜像文件的空间大小虚拟机使用久了就会发现虚拟硬盘越来越大，但是进入虚拟机里的系统用命令看了下，实际占用的空间远没有虚拟硬盘大小那么大，这个让人很不爽，而且在分享虚拟机镜像的时候也很不方便。Vi
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -565,12 +571,12 @@ win10123456789101112131415161718192
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
-                        <a href="/tags/Mysql/">
-                            <span class="chip bg-color">Mysql</span>
+                        <a href="/tags/VirtualBox/">
+                            <span class="chip bg-color">VirtualBox</span>
                         </a>
                         
                     </div>
@@ -580,32 +586,32 @@ win10123456789101112131415161718192
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/mysql%E7%9A%84%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0%E4%B8%ADmax_allowed_packet%E8%BF%87%E5%B0%8F%E5%AF%BC%E8%87%B4%E6%93%8D%E4%BD%9C%E5%BC%82%E5%B8%B8/">
+                    <a href="/2020/10/01/vim%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E6%8A%80%E5%B7%A7/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="mysql的设置参数中max_allowed_packet过小导致操作异常">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="vim快捷键及技巧">
                             
-                            <span class="card-title">mysql的设置参数中max_allowed_packet过小导致操作异常</span>
+                            <span class="card-title">vim快捷键及技巧</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                mysql的设置参数中max_allowed_packet过小导致操作异常永久性方案123456# 修改方法(配置文件持久化修改)：vim /etc/mysql/conf.d/my.cnf[mysqld]max_allowed_packet
+                                vim 快捷键及技巧多行注释1231. 进入命令行模式，按ctrl + v进入 visual block模式（可视快模式），然后按j, 或者k选中多行，把需要注释的行标记起来2. 按大写字母i，再插入注释符3. 按esc键两下就会全部注释了
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -616,12 +622,12 @@ win10123456789101112131415161718192
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
-                        <a href="/tags/Mysql/">
-                            <span class="chip bg-color">Mysql</span>
+                        <a href="/tags/Vim/">
+                            <span class="chip bg-color">Vim</span>
                         </a>
                         
                     </div>
@@ -631,32 +637,32 @@ win10123456789101112131415161718192
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/oracle%20%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2/">
+                    <a href="/2020/10/01/%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7(%E7%BB%84)user&group/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="oracle 常用查询">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="添加用户(组)user&amp;group">
                             
-                            <span class="card-title">oracle 常用查询</span>
+                            <span class="card-title">添加用户(组)user&amp;group</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                oracle-查询表，视图数量1234567891011121314--统计某个用户下面的对象个数--包括表，视图，同义词，函数，存储过程，包，触发器，索引,约束，序列。SELECT (SELECT COUNT(*) FROM USER_T
+                                用户组操作12345678910# 创建用户组gourpadd [-g GID] &lt;group_name&gt; # -g参数指定了新建用户组的GID# 查看组信息cat /etc/group | grep &lt;group_nam
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -667,12 +673,8 @@ win10123456789101112131415161718192
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
-                        </a>
-                        
-                        <a href="/tags/Oracle/">
-                            <span class="chip bg-color">Oracle</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
                     </div>
@@ -682,32 +684,32 @@ win10123456789101112131415161718192
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/01/01/oracle%E7%94%A8%E6%88%B7%E5%88%9B%E5%BB%BA%E5%8F%8A%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE/">
+                    <a href="/2020/10/01/%E8%AF%A1%E5%BC%82%E7%9A%84Linux%E6%8C%87%E4%BB%A4/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="oracle用户创建及权限设置">
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="诡异的Linux指令">
                             
-                            <span class="card-title">oracle用户创建及权限设置</span>
+                            <span class="card-title">诡异的Linux指令</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                权限123456789101112  create session  create table  unlimited tablespace  connect  resource  dba例：    SQL&gt; conn / as sys
+                                诡异的 Linux 指令123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Database/" class="post-category">
-                                    Database
+                                <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                                 
                                 
@@ -718,12 +720,8 @@ win10123456789101112131415161718192
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Database/">
-                            <span class="chip bg-color">Database</span>
-                        </a>
-                        
-                        <a href="/tags/Oracle/">
-                            <span class="chip bg-color">Oracle</span>
+                        <a href="/tags/Linux/">
+                            <span class="chip bg-color">Linux</span>
                         </a>
                         
                     </div>
@@ -748,7 +746,7 @@ win10123456789101112131415161718192
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">21 / 28</div>
+            <div class="center-align b-text-gray">21 / 37</div>
         </div>
         <div class="col s6 m4 l4">
             
