@@ -388,21 +388,26 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="先在能上网的机器上做离线安装包"><a href="#先在能上网的机器上做离线安装包" class="headerlink" title="先在能上网的机器上做离线安装包"></a>先在能上网的机器上做离线安装包</h1><ol>
-<li>参考<a href="https://link.zhihu.com/?target=https://docs.docker.com/install/linux/docker-ce/centos/">官方指南</a><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
-<h3 id="2-下载安装包"><a href="#2-下载安装包" class="headerlink" title="2. 下载安装包"></a>2. 下载安装包</h3></li>
+<li>参考<a href="https://link.zhihu.com/?target=https://docs.docker.com/install/linux/docker-ce/centos/">官方指南</a></li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yumdownloader --resolve docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-下载安装包"><a href="#2-下载安装包" class="headerlink" title="2. 下载安装包"></a>2. 下载安装包</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yumdownloader --resolve docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+
 <p><a href="https://link.zhihu.com/?target=https://download.docker.com/linux/centos/7/x86_64/stable/Packages/">Index of linux/centos/7/x86_64/stable/Packages/​download.docker.com</a></p>
 <h3 id="3-打包下载的安装包"><a href="#3-打包下载的安装包" class="headerlink" title="3. 打包下载的安装包"></a>3. 打包下载的安装包</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar cf docker-ce.offline.tar *.rpm</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-上传到离线的主机上"><a href="#4-上传到离线的主机上" class="headerlink" title="4. 上传到离线的主机上"></a>4. 上传到离线的主机上</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xf docker-ce.offline.tar</span><br></pre></td></tr></table></figure>
-<h3 id="5-安装docker"><a href="#5-安装docker" class="headerlink" title="5. 安装docker"></a>5. 安装docker</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -ivh --replacefiles --replacepkgs *.rpm</span><br></pre></td></tr></table></figure>
-<p>如果提示缺依赖，要么在本地装，要么传上去，例如<code>container-selinux</code></p>
-<h4 id="6-启动docker"><a href="#6-启动docker" class="headerlink" title="6. 启动docker"></a>6. 启动docker</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker </span><br></pre></td></tr></table></figure>
-<h3 id="7-添加自己为docker组用户"><a href="#7-添加自己为docker组用户" class="headerlink" title="7. 添加自己为docker组用户"></a>7. 添加自己为docker组用户</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
 
-<p>其实还有用本地repo的办法，不过稍显复杂了，适合有大量的软件需要安装，例如软件交付的场景。如果只是为了装docker的话，直接装rpm这个方案更简单一些。</p>
-<p>多提一句，其实这个场景比较多，主要是解决内网主机收束外网的访问权限，减少攻击面，例如通过harbor/artifactory等等代理来访问官方镜像仓库。 </p>
+<h3 id="5-安装-docker"><a href="#5-安装-docker" class="headerlink" title="5. 安装 docker"></a>5. 安装 docker</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -ivh --replacefiles --replacepkgs *.rpm</span><br></pre></td></tr></table></figure>
+
+<p>如果提示缺依赖，要么在本地装，要么传上去，例如<code>container-selinux</code></p>
+<h4 id="6-启动-docker"><a href="#6-启动-docker" class="headerlink" title="6. 启动 docker"></a>6. 启动 docker</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-添加自己为-docker-组用户"><a href="#7-添加自己为-docker-组用户" class="headerlink" title="7. 添加自己为 docker 组用户"></a>7. 添加自己为 docker 组用户</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
+
+<p>其实还有用本地 repo 的办法，不过稍显复杂了，适合有大量的软件需要安装，例如软件交付的场景。如果只是为了装 docker 的话，直接装 rpm 这个方案更简单一些。</p>
+<p>多提一句，其实这个场景比较多，主要是解决内网主机收束外网的访问权限，减少攻击面，例如通过 harbor/artifactory 等等代理来访问官方镜像仓库。</p>
 
                 
             </div>
